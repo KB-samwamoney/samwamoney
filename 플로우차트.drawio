@@ -286,7 +286,7 @@
           <mxGeometry x="750" y="289.9" width="130" height="42.81" as="geometry" />
         </mxCell>
         <mxCell id="6v8Mv8kN8BdZXCFSq0ns-57" value="달력 페이지로 이동" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
-          <mxGeometry x="770" y="740" width="120" height="40" as="geometry" />
+          <mxGeometry x="795" y="740" width="120" height="40" as="geometry" />
         </mxCell>
         <mxCell id="6v8Mv8kN8BdZXCFSq0ns-60" value="취소 버튼" style="whiteSpace=wrap;html=1;rounded=1;glass=0;strokeWidth=1;shadow=0;" parent="WIyWlLk6GJQsqaUBKTNV-1" vertex="1">
           <mxGeometry x="720" y="660" width="70" height="40" as="geometry" />
