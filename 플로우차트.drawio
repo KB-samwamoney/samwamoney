@@ -4,6 +4,9 @@
       <root>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-0" />
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-1" parent="WIyWlLk6GJQsqaUBKTNV-0" />
+        <mxCell id="6v8Mv8kN8BdZXCFSq0ns-73" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="6v8Mv8kN8BdZXCFSq0ns-28" target="WIyWlLk6GJQsqaUBKTNV-12">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
         <mxCell id="WIyWlLk6GJQsqaUBKTNV-2" value="" style="rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;edgeStyle=orthogonalEdgeStyle;" parent="WIyWlLk6GJQsqaUBKTNV-1" source="WIyWlLk6GJQsqaUBKTNV-3" target="WIyWlLk6GJQsqaUBKTNV-6" edge="1">
           <mxGeometry relative="1" as="geometry" />
         </mxCell>
@@ -75,14 +78,14 @@
         <mxCell id="6v8Mv8kN8BdZXCFSq0ns-1" value="검색창 이용" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
           <mxGeometry x="395" y="409" width="120" height="40" as="geometry" />
         </mxCell>
-        <mxCell id="6v8Mv8kN8BdZXCFSq0ns-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;entryX=0;entryY=0.5;entryDx=0;entryDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="6v8Mv8kN8BdZXCFSq0ns-3">
+        <mxCell id="6v8Mv8kN8BdZXCFSq0ns-2" value="" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;jettySize=auto;orthogonalLoop=1;fontSize=11;endArrow=block;endFill=0;endSize=8;strokeWidth=1;shadow=0;labelBackgroundColor=none;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" target="6v8Mv8kN8BdZXCFSq0ns-3">
           <mxGeometry y="10" relative="1" as="geometry">
             <mxPoint as="offset" />
             <mxPoint x="345" y="320" as="sourcePoint" />
+            <mxPoint x="380" y="500" as="targetPoint" />
             <Array as="points">
               <mxPoint x="370" y="321" />
               <mxPoint x="370" y="500" />
-              <mxPoint x="395" y="500" />
             </Array>
           </mxGeometry>
         </mxCell>
@@ -114,7 +117,7 @@
           </mxGeometry>
         </mxCell>
         <mxCell id="6v8Mv8kN8BdZXCFSq0ns-9" value="달력에서 각 날짜를 누르면 일별 상세 팝업 띄워짐" style="rounded=1;whiteSpace=wrap;html=1;fontSize=12;glass=0;strokeWidth=1;shadow=0;" vertex="1" parent="WIyWlLk6GJQsqaUBKTNV-1">
-          <mxGeometry x="560" y="469" width="140" height="60" as="geometry" />
+          <mxGeometry x="560" y="474.5" width="140" height="49" as="geometry" />
         </mxCell>
         <mxCell id="6v8Mv8kN8BdZXCFSq0ns-13" style="edgeStyle=orthogonalEdgeStyle;rounded=0;orthogonalLoop=1;jettySize=auto;html=1;exitX=1;exitY=0.5;exitDx=0;exitDy=0;" edge="1" parent="WIyWlLk6GJQsqaUBKTNV-1" source="6v8Mv8kN8BdZXCFSq0ns-12">
           <mxGeometry relative="1" as="geometry">
