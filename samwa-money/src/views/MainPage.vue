@@ -36,6 +36,7 @@
 </template>
 
 <script setup>
+import CalendarView from '@/components/main/calendar/CalendarView.vue';
 </script>
 
 <style scoped>
