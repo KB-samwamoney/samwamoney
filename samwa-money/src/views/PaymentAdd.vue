@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>hi</div>
+  <div>PaymentAdd</div>
 </template>
 
 <style scoped></style>
