@@ -43,6 +43,16 @@ const router = createRouter({
       name: 'setting',
       component: () => import('@/views/Setting.vue'),
     },
+    {
+      path: '/terms',
+      name: 'terms',
+      component: () => import('@/views/Terms.vue'),
+    },
+    {
+      path: '/privacy',
+      name: 'privacy',
+      component: () => import('@/views/Privacy.vue'),
+    },
   ],
 })
 
