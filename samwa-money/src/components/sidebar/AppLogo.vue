@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>사이드바</div>
+  <div>로고 페이지</div>
 </template>
 
 <style scoped></style>
