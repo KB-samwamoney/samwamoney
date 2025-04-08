@@ -1,11 +1,13 @@
 <script setup>
-import MainPage from './views/MainPage.vue';
+import Footer from './components/Common/Footer.vue'
+import Header from './components/Common/Header.vue'
 </script>
 
 <template>
   <div class="container">
-    <h1>삼와머니</h1>
-    <MainPage />
+    <Header></Header>
+    <RouterView />
+    <Footer></Footer>
   </div>
 </template>
 

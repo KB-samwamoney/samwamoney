@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>Auth</div>
+  <div>Footer</div>
 </template>
 
 <style scoped></style>
