@@ -1,5 +1,7 @@
 <script setup>
 import Main from './views/Main.vue'
+import Footer from './components/Common/Footer.vue'
+import Header from './components/Common/Header.vue'
 </script>
 
 <template>
