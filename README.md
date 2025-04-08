@@ -28,10 +28,39 @@
 
 <details open>
   <summary>클릭해서 와이어프레임을 확인하세요</summary>
-  <p align="center">
-    <img src="https://your-image-url.com/wireframe.png" width="80%">
-  </p>
+  <table>
+    <tr>
+      <td align="center">
+        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/로그인.png" width="90%">
+      </td>
+      <td align="center">
+        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_검색.png" width="90%">
+      </td>
+      <td align="center">
+        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_검색_기록.png" width="90%">
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_날짜선택.png" width="90%">
+      </td>
+      <td align="center">
+        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_달력.png" width="90%">
+      </td>
+      <td align="center">
+        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_달력%20(1).png" width="90%">
+      </td>
+    </tr>
+    <tr>
+      <td align="center">
+        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_날짜선택.png" width="90%">
+      </td>
+      <td></td>
+      <td></td>
+    </tr>
+  </table>
 </details>
+
 ## 팀원
 
 |                                                                              임예원                                                                              |                                                                             강경민                                                                             |                                                                                 강예성                                                                                  |                                                                            강지원                                                                            |                                                                             정다현                                                                             |
