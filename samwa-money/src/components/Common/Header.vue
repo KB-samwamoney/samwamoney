@@ -1,9 +1,26 @@
-<script setup></script>
+<script setup>
+import LogoImg from '@/assets/img/삼와머니-로고.png'
+</script>
 
 <template>
-  <div>
-    <h1>삼와머니</h1>
+  <div class="header">
+    <img :src="LogoImg" alt="로고" />
+
+    <div>
+      <button>로그인</button>
+      <button>로그아웃</button>
+    </div>
   </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+.header {
+  background-color: var(--light-yellow);
+  height: 10vh;
+  display: flex;
+}
+
+img {
+  width: 100px;
+}
+</style>
