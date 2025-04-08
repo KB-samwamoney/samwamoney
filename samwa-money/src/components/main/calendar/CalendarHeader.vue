@@ -31,7 +31,6 @@ const setMode = (mode) => {
   gap: 10px;
   background-color: #fff9dc;
   padding: 10px 20px;
-  border-radius: 12px 12px 0 0;
 }
 
 button {

@@ -80,7 +80,7 @@ import CalendarView from '@/components/main/calendar/CalendarView.vue';
 
 .calendar {
   display: flex;
-  height: 600px;
-  background-color: blanchedalmond;
+  flex: 1; /* 남은 공간 꽉 채우기 */
 }
+
 </style>
