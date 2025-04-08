@@ -1,32 +1,21 @@
 <template>
-  <div class="p-4">
-    <input
-      type="text"
-      v-model="searchQuery"
-      placeholder="이름을 검색하세요"
-      class="border p-2 rounded w-full"
-    />
+  <div class="main-container">
+    <!-- 검색 바 컴포넌트 삽입 -->
+    <SearchBar />
 
-    <ul class="mt-4">
-      <li v-for="(name, index) in filteredNames" :key="index" class="p-2 border-b">
-        {{ name }}
-      </li>
-    </ul>
+    <!-- 아래에 기존 내역, 목록 등 추가하면 됨 -->
+    <div class="content-area">
+      <p>여기에 내역 리스트나 데이터 표시할 수 있어요</p>
+    </div>
   </div>
 </template>
 
-<script>
-export default {
-  data() {
-    return {
-      searchQuery: '',
-      names: ['홍길동', '김철수', '이영희', '박영수', '최지훈', '한가은', '강동원'],
-    }
-  },
-  computed: {
-    filteredNames() {
-      return this.names.filter((name) => name.includes(this.searchQuery))
-    },
-  },
-}
+<script setup>
+import SearchBar from '@/components/SearchBar.vue' // 컴포넌트 import
 </script>
+
+<style scoped>
+.main-container {
+  padding: 20px;
+}
+</style>
