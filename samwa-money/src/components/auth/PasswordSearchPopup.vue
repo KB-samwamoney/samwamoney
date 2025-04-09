@@ -1,7 +1,9 @@
 <script setup>
 defineProps({
-  password: String,
+  type: { type: String, default: 'success' },
   name: String,
+  password: String,
+  message: String,
 })
 
 const emit = defineEmits(['close'])
@@ -14,9 +16,12 @@ const close = () => {
 <template>
   <div class="popup-overlay" @click.self="close">
     <div class="popup-box">
-      <p>
+      <p v-if="type === 'success'">
         <strong>{{ name }}</strong
         >님의 비밀번호는 <strong>{{ password }}</strong> 입니다.
+      </p>
+      <p v-else>
+        {{ message }}
       </p>
       <button class="confirm-button" @click="close">확인</button>
     </div>
@@ -51,16 +56,20 @@ const close = () => {
   justify-content: center;
   align-items: center;
   gap: var(--space-xl);
+  white-space: pre-line;
 }
 
 .confirm-button {
-  margin-top: 20px;
-  background-color: #f9c542;
+  background-color: var(--light-yellow);
+  color: var(--black);
+  font-size: var(--space-m);
+  font-weight: 700;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: var(--radius);
+  padding: 12px var(--space-l);
   cursor: pointer;
-  width: 30%;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
 }
 </style>

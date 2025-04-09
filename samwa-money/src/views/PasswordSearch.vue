@@ -9,17 +9,21 @@ const name = ref('')
 const userId = ref('')
 const showPassword = ref('')
 const showPopup = ref(false)
+const popupType = ref('success')
+const popupMessage = ref('')
 
 // ✅ 비밀번호 찾기 함수
 const searchPassword = async () => {
   await authStore.passwordCheck({ name: name.value.trim(), userId: userId.value.trim() })
 
   if (authStore.errorMessage) {
-    alert(authStore.errorMessage)
+    popupType.value = 'error'
+    popupMessage.value = '입력하신 정보와 일치하는 회원정보가 없습니다.\n다시 확인하여 주십시오.'
   } else {
+    popupType.value = 'success'
     showPassword.value = authStore.foundedpassword
-    showPopup.value = true // ✅ 이걸로 팝업 띄우기!
   }
+  showPopup.value = true // ✅ 이걸로 팝업 띄우기!
 }
 </script>
 
@@ -54,8 +58,10 @@ const searchPassword = async () => {
   </div>
   <PasswordSearchPopup
     v-if="showPopup"
-    :password="showPassword"
+    :type="popupType"
     :name="name"
+    :password="showPassword"
+    :message="popupMessage"
     @close="showPopup = false"
   />
 </template>
@@ -104,5 +110,6 @@ h1 {
   align-items: center;
   justify-content: center;
   margin-top: var(--space-xl);
+  border: none;
 }
 </style>

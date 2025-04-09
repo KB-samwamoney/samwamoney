@@ -29,7 +29,7 @@ const goToSignIn = () => {
 
 <template>
   <div class="container">
-    <form @submit.default="handleLogin">
+    <form @submit.prevent="handleLogin">
       <div class="login-form">
         <h1>로그인</h1>
         <div class="auth-input">
@@ -100,6 +100,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
 }
 
 .other {

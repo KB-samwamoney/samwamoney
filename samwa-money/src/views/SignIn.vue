@@ -43,6 +43,7 @@ const handleSignin = async () => {
     email: email.value,
     nickname: nickname.value,
     expense_limit: expense.value,
+    join_date: new Date().toISOString(),
   }
 
   await authStore.register(newUser)
@@ -136,7 +137,7 @@ const handleSignin = async () => {
 <style scoped>
 .container {
   width: 800px;
-  min-height: 90vh;
+  min-height: 115vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -175,6 +176,7 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  border: none;
 }
 
 .nickname-explain {
