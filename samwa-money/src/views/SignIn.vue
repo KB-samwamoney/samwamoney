@@ -96,7 +96,7 @@ const handleSignin = async () => {
           id="name"
           v-model="name"
           type="text"
-          placeholder="이메일을 입력해주세요"
+          placeholder="이름을 입력해주세요"
           class="input"
         />
 
@@ -105,7 +105,7 @@ const handleSignin = async () => {
           id="email"
           v-model="email"
           type="text"
-          placeholder="이름을 입력해주세요"
+          placeholder="이메일을 입력해주세요"
           class="input"
         />
 
@@ -159,6 +159,7 @@ h1 {
   height: 50px;
   border-radius: var(--radius);
   padding: var(--space-m);
+  font-family: 'Pretendard', sans-serif;
 }
 
 .method-button {
