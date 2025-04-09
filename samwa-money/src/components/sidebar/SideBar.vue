@@ -1,4 +1,6 @@
-<script setup></script>
+<script setup>
+import PlusButton from '../button/PlusButton.vue'
+</script>
 
 <template>
   <nav>
@@ -18,6 +20,7 @@
         </li>
       </ul>
     </div>
+    <PlusButton />
   </nav>
 </template>
 
