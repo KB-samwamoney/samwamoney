@@ -20,6 +20,16 @@ const router = createRouter({
       component: () => import('@/views/MyPage.vue'),
     },
     {
+      path: '/good-bye',
+      name: 'good-bye',
+      component: () => import('@/views/GoodBye.vue'),
+    },
+    {
+      path: '/profile-edit',
+      name: 'profile-edit',
+      component: () => import('@/views/ProfileEdit.vue'),
+    },
+    {
       path: '/sign-in',
       name: 'sign-in',
       component: () => import('@/views/SignIn.vue'),

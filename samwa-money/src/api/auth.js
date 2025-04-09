@@ -60,18 +60,28 @@ const findPassword = async ({ name, userId }) => {
   }
 }
 
-// 비밀번호 변경
-const changePassword = async ({ userId, newPassword }) => {
+// 회원정보 수정
+const changeUserInfo = async (userInfo) => {
   try {
-    const response = await api.patch(`/Auth/${userId}`, {
-      password: newPassword,
-    })
-    console.log('비밀번호 변경 성공:', response.data)
+    const response = await api.put(`/Auth/${userInfo.id}`, userInfo)
+    console.log('회원정보 수정 성공:', response.data)
     return response.data
   } catch (error) {
-    console.error('비밀번호 변경 실패:', error.response?.data || error.message)
+    console.error('회원정보 수정 실패:', error.response?.data || error.message)
     throw error
   }
 }
 
-export { registerUser, loginUser, findPassword, changePassword }
+// 회원탈퇴
+const deleteUser = async (id) => {
+  try {
+    const response = await api.delete(`/Auth/${id}`)
+    console.log('회원탈퇴 성공:', response.data)
+    return true
+  } catch (error) {
+    console.error('회원탈퇴 실패:', error.response?.data || error.message)
+    throw error
+  }
+}
+
+export { registerUser, loginUser, findPassword, changeUserInfo, deleteUser }
