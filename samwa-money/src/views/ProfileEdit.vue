@@ -1,8 +1,10 @@
 <script setup>
 import { useAuthStore } from '@/stores/authStore.js'
+import { useRouter } from 'vue-router'
 import { ref } from 'vue'
 
 const authStore = useAuthStore()
+const router = useRouter()
 const user = ref({ ...authStore.user })
 
 const handleUpdate = async () => {
@@ -42,7 +44,7 @@ const handleUpdate = async () => {
 <style scoped>
 .container {
   width: 100vh;
-  min-height: 75vh;
+  min-height: 90vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -71,12 +73,16 @@ h1 {
 
 .submit-btn {
   background-color: var(--light-yellow);
-  height: 45px;
+  color: var(--black);
+  font-size: var(--space-m);
+  font-weight: 700;
   border: none;
   border-radius: var(--radius);
-  font-weight: bold;
+  padding: var(--space-m) var(--space-l);
   cursor: pointer;
-  margin-top: var(--space-xl);
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
   font-family: 'Pretendard', sans-serif;
+  margin-top: var(--space-l);
 }
 </style>
