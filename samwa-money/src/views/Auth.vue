@@ -5,8 +5,12 @@ import SiteInfo from '@/components/auth/SiteInfo.vue'
 
 <template>
   <div class="auth">
-    <SiteInfo />
-    <LoginForm />
+    <div class="site-info-wrapper">
+      <SiteInfo />
+    </div>
+    <div class="login-form-wrapper">
+      <LoginForm />
+    </div>
   </div>
 </template>
 
@@ -14,5 +18,18 @@ import SiteInfo from '@/components/auth/SiteInfo.vue'
 .auth {
   display: flex;
   flex-direction: row;
+  height: 80vh;
+}
+
+.site-info-wrapper,
+.login-form-wrapper {
+  flex: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.login-form-wrapper {
+  background-color: white;
 }
 </style>
