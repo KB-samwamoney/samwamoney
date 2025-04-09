@@ -43,6 +43,7 @@ const handleSignin = async () => {
     email: email.value,
     nickname: nickname.value,
     expense_limit: expense.value,
+    join_date: new Date().toISOString(),
   }
 
   await authStore.register(newUser)
