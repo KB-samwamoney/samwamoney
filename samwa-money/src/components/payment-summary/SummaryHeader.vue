@@ -16,11 +16,40 @@
 <script setup>
 import { storeToRefs } from 'pinia'
 import { useSummaryStore } from '@/stores/summaryStore'
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
 
 const summaryStore = useSummaryStore()
 const { currentTab } = storeToRefs(summaryStore)
+const { currentDate } = storeToRefs(summaryStore)
 
-const currentDate = ref(new Date()) // 오늘 날짜 기준
+// 날짜 정보 가져오기기
+const formattedDate = computed(() => {
+  const year = currentDate.value.getFullYear()
+  const month = String(currentDate.value.getMonth() + 1).padStart(2, '0')
+  return `${year}.${month}`
+})
+
+// 이전 달 확인하는 메서드
+const prevMonth = () => {
+  const date = new Date(currentDate.value)
+  console.log('date', date)
+  date.setMonth(date.getMonth() - 1)
+  currentDate.value = date
+}
+
+// 다음 달 확인하는 메서드
+const nextMonth = () => {
+  const date = new Date(currentDate.value)
+  console.log('date', date)
+  date.setMonth(date.getMonth() + 1)
+  currentDate.value = date
+}
 </script>
-<style scoped></style>
+<style scoped>
+.summary-toggle {
+  height: var(--space-l);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+</style>
