@@ -93,7 +93,7 @@ const goToEdit = () => {
 <style scoped>
 .container {
   width: 100vh;
-  min-height: 90vh;
+  min-height: 115vh;
   display: flex;
   flex-direction: column;
   align-items: center;

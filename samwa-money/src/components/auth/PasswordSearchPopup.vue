@@ -60,13 +60,16 @@ const close = () => {
 }
 
 .confirm-button {
-  margin-top: 20px;
-  background-color: #f9c542;
+  background-color: var(--light-yellow);
+  color: var(--black);
+  font-size: var(--space-m);
+  font-weight: 700;
   border: none;
-  padding: 10px 20px;
-  border-radius: 8px;
-  font-weight: bold;
+  border-radius: var(--radius);
+  padding: 12px var(--space-l);
   cursor: pointer;
-  width: 30%;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
 }
 </style>

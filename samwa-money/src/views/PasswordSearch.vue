@@ -110,5 +110,6 @@ h1 {
   align-items: center;
   justify-content: center;
   margin-top: var(--space-xl);
+  border: none;
 }
 </style>
