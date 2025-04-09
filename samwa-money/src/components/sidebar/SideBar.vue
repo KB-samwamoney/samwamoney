@@ -20,7 +20,6 @@ import PlusButton from '../button/PlusButton.vue'
         </li>
       </ul>
     </div>
-    <PlusButton />
   </nav>
 </template>
 
