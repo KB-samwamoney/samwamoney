@@ -2,11 +2,16 @@
 
 <template>
   <div class="login-form">
-    <p>로그인</p>
+    <h1>로그인</h1>
   </div>
 </template>
 
 <style scoped>
-/* .login-form {
-} */
+.login-form {
+}
+
+h1 {
+  font-size: 50px;
+  font-weight: 900;
+}
 </style>
