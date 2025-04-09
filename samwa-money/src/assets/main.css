@@ -6,23 +6,6 @@
   font-style: normal;
 }
 
-:root {
-  --light-white: #fff9ef;
-  --baby-pink: #ffeeee;
-  --light-yellow: #ffe596;
-  --blue: #168eff;
-  --green: #20a845;
-  --brown: #c85a37;
-  --danger: #ff1d1d;
-  --light-gray: #f0f0f0;
-  --dark-gray: #a7a7a7;
-  --black: #050101;
-  --space-s: 6px;
-  --space-m: 16px;
-  --space-l: 32px;
-  --radius: 10px;
-}
-
 * {
   margin: 0;
   padding: 0;
@@ -33,8 +16,8 @@ html,
 body {
   height: 100%;
   font-family: 'Pretendard-Regular', sans-serif;
-  background-color: var(--light-white);
-  color: var(--black);
+  background-color: #fff;
+  color: #333;
   line-height: 1.6;
 }
 
@@ -54,6 +37,7 @@ img {
 }
 
 .container {
+  max-width: 1280px;
   margin: 0 auto;
-  padding: 0;
+  padding: 0 10px;
 }

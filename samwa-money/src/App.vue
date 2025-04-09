@@ -1,13 +1,8 @@
-<script setup>
-import Footer from './components/Common/Footer.vue'
-import Header from './components/Common/Header.vue'
-</script>
+<script setup></script>
 
 <template>
   <div class="container">
-    <Header></Header>
-    <RouterView />
-    <Footer></Footer>
+    <h1>삼와머니</h1>
   </div>
 </template>
 

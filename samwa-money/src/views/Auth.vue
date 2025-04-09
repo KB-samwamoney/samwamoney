@@ -1,18 +1,7 @@
-<script setup>
-import LoginForm from '@/components/auth/LoginForm.vue'
-import SiteInfo from '@/components/auth/SiteInfo.vue'
-</script>
+<script setup></script>
 
 <template>
-  <div class="auth">
-    <SiteInfo />
-    <LoginForm />
-  </div>
+  <div>hi</div>
 </template>
 
-<style scoped>
-.auth {
-  display: flex;
-  flex-direction: row;
-}
-</style>
+<style scoped></style>

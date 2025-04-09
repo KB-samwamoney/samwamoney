@@ -1,7 +1,7 @@
 <script setup></script>
 
 <template>
-  <div>로그인 폼</div>
+  <div>hi</div>
 </template>
 
 <style scoped></style>
