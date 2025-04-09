@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import { registerUser, loginUser, findPassword, changePassword } from '@/api/auth'
+import { registerUser, loginUser, findPassword, changeUserInfo, deleteUser } from '@/api/auth'
 
 export const useAuthStore = defineStore('auth', () => {
   // 유저 관련 정보
@@ -59,6 +59,32 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  // ✅ 회원정보 수정
+  const updateUserInfo = async (updatedUser) => {
+    try {
+      const res = await changeUserInfo(updatedUser)
+      user.value = res
+      sessionStorage.setItem('user', JSON.stringify(res))
+      errorMessage.value = ''
+      return true
+    } catch (error) {
+      errorMessage.value = error.message
+      return false
+    }
+  }
+
+  // ✅ 회원탈퇴
+  const withdraw = async () => {
+    try {
+      if (!user.value || !user.value.id) throw new Error('로그인된 사용자 정보가 없습니다.')
+      await deleteUser(user.value.id)
+      // 세션과 상태 초기화
+      logout()
+    } catch (error) {
+      errorMessage.value = error.message
+    }
+  }
+
   return {
     user,
     isLoggedIn,
@@ -67,6 +93,8 @@ export const useAuthStore = defineStore('auth', () => {
     login,
     logout,
     register,
+    withdraw,
     passwordCheck,
+    updateUserInfo,
   }
 })

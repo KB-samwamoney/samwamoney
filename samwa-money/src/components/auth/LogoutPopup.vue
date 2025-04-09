@@ -1,29 +1,22 @@
 <script setup>
 defineProps({
-  type: { type: String, default: 'success' },
-  name: String,
-  password: String,
   message: String,
 })
 
-const emit = defineEmits(['close'])
+const emit = defineEmits(['confirm', 'close'])
 
-const close = () => {
-  emit('close')
-}
+const handleConfirm = () => emit('confirm')
+const handleClose = () => emit('close')
 </script>
 
 <template>
-  <div class="popup-overlay" @click.self="close">
+  <div class="popup-overlay" @click.self="handleClose">
     <div class="popup-box">
-      <p v-if="type === 'success'">
-        <strong>{{ name }}</strong
-        >님의 비밀번호는 <strong>{{ password }}</strong> 입니다.
-      </p>
-      <p v-else>
-        {{ message }}
-      </p>
-      <button class="confirm-button" @click="close">확인</button>
+      <p>{{ message }}</p>
+      <div class="button-group">
+        <button class="cancel" @click="handleClose">취소</button>
+        <button class="confirm" @click="handleConfirm">확인</button>
+      </div>
     </div>
   </div>
 </template>
@@ -48,25 +41,39 @@ const close = () => {
   padding: 30px 40px;
   text-align: center;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-  font-size: 18px;
+  font-size: 20px;
   width: 60vh;
   height: 30vh;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: center;
   gap: var(--space-xl);
   white-space: pre-line;
 }
 
-.confirm-button {
-  margin-top: 20px;
-  background-color: #f9c542;
-  border: none;
-  padding: 10px 20px;
+.button-group {
+  display: flex;
+  justify-content: center;
+  gap: 20px;
+}
+
+.confirm,
+.cancel {
+  padding: 10px 25px;
   border-radius: 8px;
   font-weight: bold;
   cursor: pointer;
-  width: 30%;
+  border: none;
+  width: 100px;
+  font-family: 'Pretendard', sans-serif;
+  font-size: 15px;
+}
+
+.confirm {
+  background-color: #f9c542;
+}
+
+.cancel {
+  background-color: #ccc;
 }
 </style>

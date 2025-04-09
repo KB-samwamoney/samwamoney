@@ -36,7 +36,7 @@
         class="btn-cat"
         @click="handleCategoryClick(cat.name)"
       >
-        <div>{{ cat.icon }} {{ cat.name }}</div>
+        <div class="cat-label">{{ cat.icon }} {{ cat.name }}</div>
         <i class="fa-solid fa-xmark" @click.stop="removeCategory(cat.name)"></i>
       </div>
 

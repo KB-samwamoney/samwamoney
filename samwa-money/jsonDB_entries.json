@@ -3,20 +3,11 @@
     {
       "id": 1,
       "userId": "user123",
-<<<<<<< HEAD
       "password": "password123",
       "name": "홍길동",
       "email": "user@example.com",
       "nickname": "UserNick",
       "expense_limit": 1000000
-=======
-      "password": "12345678",
-      "name": "홍길동",
-      "email": "user@example.com",
-      "nickname": "UserNick",
-      "expense_limit": 1000000,
-      "join_date": "2025-04-09T14:33:56.572Z"
->>>>>>> aa327820b67ff038aacd439c9ae60c5349d89c95
     }
   ],
   "Balance": [
@@ -5022,7 +5013,6 @@
     }
   ],
   "Category": [
-<<<<<<< HEAD
     { "id": 1, "name": "식사", "type": "expense", "icon": "🍚", "color": "#FF6B6B" },
     { "id": 2, "name": "교통", "type": "expense", "icon": "🚗", "color": "#FFD93D" },
     { "id": 3, "name": "쇼핑", "type": "expense", "icon": "🛒", "color": "#4D96FF" },
@@ -5043,148 +5033,6 @@
     { "id": 18, "name": "환급금", "type": "income", "icon": "📩", "color": "#CAFFBF" },
     { "id": 19, "name": "중고거래", "type": "income", "icon": "📦", "color": "#9BF6FF" },
     { "id": 20, "name": "기타", "type": "income", "icon": "❓", "color": "#BDB2FF" }
-=======
-    {
-      "id": 1,
-      "name": "식사",
-      "type": "expense",
-      "icon": "🍚",
-      "color": "#FF6B6B"
-    },
-    {
-      "id": 2,
-      "name": "교통",
-      "type": "expense",
-      "icon": "🚗",
-      "color": "#FFD93D"
-    },
-    {
-      "id": 3,
-      "name": "쇼핑",
-      "type": "expense",
-      "icon": "🛒",
-      "color": "#4D96FF"
-    },
-    {
-      "id": 4,
-      "name": "문화/취미",
-      "type": "expense",
-      "icon": "🎬",
-      "color": "#6BCB77"
-    },
-    {
-      "id": 5,
-      "name": "건강/운동",
-      "type": "expense",
-      "icon": "💊",
-      "color": "#F15BB5"
-    },
-    {
-      "id": 6,
-      "name": "주거/공과금",
-      "type": "expense",
-      "icon": "🏠",
-      "color": "#00C2A8"
-    },
-    {
-      "id": 7,
-      "name": "가족",
-      "type": "expense",
-      "icon": "🍼",
-      "color": "#E71D36"
-    },
-    {
-      "id": 8,
-      "name": "자기계발",
-      "type": "expense",
-      "icon": "📚",
-      "color": "#9B5DE5"
-    },
-    {
-      "id": 9,
-      "name": "여행/유흥",
-      "type": "expense",
-      "icon": "✈️",
-      "color": "#118AB2"
-    },
-    {
-      "id": 10,
-      "name": "기타",
-      "type": "expense",
-      "icon": "❓",
-      "color": "#008F7A"
-    },
-    {
-      "id": 11,
-      "name": "월급",
-      "type": "income",
-      "icon": "💰",
-      "color": "#B39CD0"
-    },
-    {
-      "id": 12,
-      "name": "부수입",
-      "type": "income",
-      "icon": "💼",
-      "color": "#4D8076"
-    },
-    {
-      "id": 13,
-      "name": "용돈",
-      "type": "income",
-      "icon": "🎁",
-      "color": "#F67280"
-    },
-    {
-      "id": 14,
-      "name": "상여",
-      "type": "income",
-      "icon": "🏅",
-      "color": "#355070"
-    },
-    {
-      "id": 15,
-      "name": "금융소득",
-      "type": "income",
-      "icon": "🏦",
-      "color": "#A3D2CA"
-    },
-    {
-      "id": 16,
-      "name": "캐시백/포인트",
-      "type": "income",
-      "icon": "🎫",
-      "color": "#FFD6A5"
-    },
-    {
-      "id": 17,
-      "name": "투자수익",
-      "type": "income",
-      "icon": "📈",
-      "color": "#FDFFB6"
-    },
-    {
-      "id": 18,
-      "name": "환급금",
-      "type": "income",
-      "icon": "📩",
-      "color": "#CAFFBF"
-    },
-    {
-      "id": 19,
-      "name": "중고거래",
-      "type": "income",
-      "icon": "📦",
-      "color": "#9BF6FF"
-    },
-    {
-      "id": 20,
-      "name": "기타",
-      "type": "income",
-      "icon": "❓",
-      "color": "#BDB2FF"
-    }
->>>>>>> aa327820b67ff038aacd439c9ae60c5349d89c95
   ],
   "Ment": [
     {
