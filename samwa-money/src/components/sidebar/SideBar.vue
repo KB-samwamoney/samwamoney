@@ -1,7 +1,24 @@
 <script setup></script>
 
 <template>
-  <div>사이드바</div>
+  <nav>
+    <div>
+      <ul>
+        <li>
+          <router-link to="/">위장부</router-link>
+        </li>
+        <li>
+          <router-link to="/payment-summary">간편요약</router-link>
+        </li>
+        <li>
+          <router-link to="/setting">내장설정</router-link>
+        </li>
+        <li>
+          <router-link to="/my-page">뇌센터</router-link>
+        </li>
+      </ul>
+    </div>
+  </nav>
 </template>
 
 <style scoped></style>
