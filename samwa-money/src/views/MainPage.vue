@@ -8,7 +8,7 @@
     <section class="main-body">
       <!-- 좌측 메뉴바 -->
       <aside class="sidebar">
-        <SidebarMenu />
+        <SideBar />
       </aside>
 
       <!-- 우측 내용 -->
@@ -36,6 +36,8 @@
 
 <script setup>
 import SearchBar from '@/components/main/search/SearchBar.vue'
+import CalendarView from '@/components/main/calendar/CalendarView.vue'
+import SideBar from '@/components/sidebar/SideBar.vue'
 </script>
 
 <style scoped>
@@ -78,7 +80,6 @@ import SearchBar from '@/components/main/search/SearchBar.vue'
 
 .calendar {
   display: flex;
-  height: 600px;
-  background-color: blanchedalmond;
+  flex: 1; /* 남은 공간 꽉 채우기 */
 }
 </style>

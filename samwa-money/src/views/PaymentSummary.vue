@@ -1,7 +1,13 @@
-<script setup></script>
+<script setup>
+import SummaryBody from '@/components/payment-summary/SummaryBody.vue'
+import SummaryHeader from '@/components/payment-summary/SummaryHeader.vue'
+</script>
 
 <template>
-  <div>hi</div>
+  <div>
+    <SummaryHeader />
+    <SummaryBody />
+  </div>
 </template>
 
 <style scoped></style>
