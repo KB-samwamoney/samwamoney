@@ -1,5 +1,5 @@
 <template>
-  <div class="pie-chart-list">파이차트 리스트 부분</div>
+  <div class="pie-chart-list"></div>
 </template>
 
 <script setup></script>
