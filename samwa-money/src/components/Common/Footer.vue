@@ -1,9 +1,7 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
-  <div>hi</div>
+  <div>Footer</div>
 </template>
 
 <style scoped></style>
