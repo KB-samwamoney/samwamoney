@@ -15,8 +15,8 @@
       <main class="content-area">
         <!-- searchBox -->
         <section class="searchBox">
+          <SearchBar />
         </section>
-
         <!-- 수입/지출 요약 박스 -->
         <section class="summary">
           <SummaryBox
@@ -38,7 +38,8 @@
 </template>
 
 <script setup>
-import CalendarView from '@/components/main/calendar/CalendarView.vue';
+import SearchBar from '@/components/main/search/SearchBar.vue'
+import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
 import SummaryBox from '@/components/main/summary/SummaryBox.vue';
 
@@ -80,8 +81,7 @@ const summaryItems = ref([
 
 .searchBox {
   display: flex;
-  height: 100px;
-  background-color: rgb(177, 177, 177);
+  height: 150px;
 }
 
 .summary {
@@ -93,5 +93,4 @@ const summaryItems = ref([
   display: flex;
   flex: 1; /* 남은 공간 꽉 채우기 */
 }
-
 </style>
