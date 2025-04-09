@@ -62,7 +62,7 @@ const selectedCategoryToAdd = ref(null) // 드롭다운에서 선택된 카테�
 // 컴포넌트가 마운트될 때 서버에서 카테고리 데이터 불러오기
 onMounted(async () => {
   try {
-    const res = await axios.get('http://localhost:3000/Category')
+    const res = await axios.get('http://localhost:5500/Category')
     allCategoryOptions.value = res.data
   } catch (error) {
     console.error('카테고리 불러오기 실패:', error)

@@ -22,7 +22,7 @@ const summaryStore = useSummaryStore()
 const { currentTab } = storeToRefs(summaryStore)
 const { currentDate } = storeToRefs(summaryStore)
 
-// 날짜 정보 가져오기기
+// 날짜 정보 가져오기
 const formattedDate = computed(() => {
   const year = currentDate.value.getFullYear()
   const month = String(currentDate.value.getMonth() + 1).padStart(2, '0')
@@ -40,8 +40,8 @@ const prevMonth = () => {
 // 다음 달 확인하는 메서드
 const nextMonth = () => {
   const date = new Date(currentDate.value)
-  console.log('date', date)
   date.setMonth(date.getMonth() + 1)
+  console.log('date', date)
   currentDate.value = date
 }
 </script>
