@@ -7,12 +7,8 @@
         <option value="search_cash">금액</option>
         <option value="search_memo">메모</option>
       </select>
-      <input
-        :type="searchType === 'search_cash' ? 'number' : 'text'"
-        v-model="searchKeyword"
-        placeholder="검색어를 입력하세요."
-        class="search-input"
-      />
+      <input :type="searchType === 'search_cash' ? 'number' : 'text'" v-model="searchKeyword" placeholder="검색어를 입력하세요."
+        class="search-input" />
       <button class="search-btn" @click="handleSearch">
         <i class="fas fa-search"></i>
       </button>
@@ -30,12 +26,7 @@
       </div>
 
       <!-- 선택된 카테고리 버튼으로 표시 -->
-      <div
-        v-for="cat in categories"
-        :key="cat.id"
-        class="btn-cat"
-        @click="handleCategoryClick(cat.name)"
-      >
+      <div v-for="cat in categories" :key="cat.id" class="btn-cat" @click="handleCategoryClick(cat.name)">
         <div>{{ cat.icon }} {{ cat.name }}</div>
         <i class="fa-solid fa-xmark" @click.stop="removeCategory(cat.name)"></i>
       </div>
@@ -62,7 +53,7 @@ const selectedCategoryToAdd = ref(null) // 드롭다운에서 선택된 카테�
 // 컴포넌트가 마운트될 때 서버에서 카테고리 데이터 불러오기
 onMounted(async () => {
   try {
-    const res = await axios.get('http://localhost:3000/Category')
+    const res = await axios.get('http://localhost:5500/Category')
     allCategoryOptions.value = res.data
   } catch (error) {
     console.error('카테고리 불러오기 실패:', error)

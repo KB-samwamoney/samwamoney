@@ -1,11 +1,18 @@
 import { ref} from 'vue'
 import { defineStore } from 'pinia'
-import axios from 'axios'
+import api from '@/utils/axios'
+
+import { useAuthStore } from '@/stores/authStore.js'
 
 
-const API_URL = 'http://localhost:5500'
+
+
+
+
+
 
 export const usePaymentStore = defineStore('payment', () => {
+const authStore = useAuthStore()
   const loading = ref(false)
   const error = ref(null)
 
@@ -15,7 +22,7 @@ export const usePaymentStore = defineStore('payment', () => {
   const getcategoryList = async (paymentType) => {
     try {
       loading.value= true
-      const response = await axios.get(`${API_URL}/Category`)
+      const response = await api.get(`/Category`)
       categoryList.value = response.data.filter(list=> list.type === paymentType)
     } catch (error) {
       console.log(`카테고리 불러오기 실패${error}`);
@@ -24,27 +31,26 @@ export const usePaymentStore = defineStore('payment', () => {
     }
   }
 
+  const createPayment = async (paymentData) => {
+    loading.value = true
+    error.value = null
 
-  // const createPost = async (postData) => {
-  //       loading.value = true
-  //       error.value = null
+    try {
+      const newPayment = {
+        userId: authStore.user.userId,
+        ...paymentData
+      }
+      const response = await api.post(`/Balance`, newPayment)
+      paymentList.value.push(response.data)
+    } catch (error) {
+      console.log(`${error}`);
 
-  //       try {
-  //           const newPost = {
-  //               ...postData,
-  //               createdAt: Date.now().toString(),
-  //           }
-  //           const response = await axios.post(API_URL, newPost)
-  //           posts.value.push(response.data)
-  //           return response.data
-  //       } catch (error) {
-  //           error.value = error.message || '게시물 등록애 실패했습니다'
-  //           throw error
-  //       } finally {
-  //           loading.value = false
-  //       }
-  //   }
+    } finally {
+      loading.value=false
+    }
+
+  }
 
 
-  return {loading, error ,paymentList, categoryList, getcategoryList,}
+  return {loading, error ,paymentList, categoryList, getcategoryList, createPayment}
 })

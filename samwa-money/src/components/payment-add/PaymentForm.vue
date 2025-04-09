@@ -1,21 +1,23 @@
 <script setup>
 import { usePaymentStore } from '@/stores/paymentAddStore';
 import { onMounted, ref, watch } from 'vue';
+import ConfirmButton from '../button/ConfirmButton.vue';
 
 const paymentStore = usePaymentStore()
 
 // 데이터 자장 함수
 const title = ref()
-const paymentAddDate = ref('')
-const selecCategory = ref('')
-const paymentAmount = ref('')
-const paymentAddImg = ref(null)
-const paymentAddMemo = ref('')
+const titleInput = ref()
+const date = ref('')
+const category = ref('')
+const amount = ref('')
+const imgUrl = ref(null)
+const memo = ref('')
 
 //  카테고리 리스트 변경
 const selectedPayment = ref()
 watch(selectedPayment, (newVal) => {
-  selecCategory.value = ''
+  category.value = ''
   if (newVal) {
     paymentStore.getcategoryList(newVal)
   }
@@ -24,18 +26,19 @@ watch(selectedPayment, (newVal) => {
 const handleChangeImg = (event) => {
   const file = event.target.files[0]
   if (!file) {
-    paymentAddImg.value = null
+    imgUrl.value = null
     return
   }
-  paymentAddImg.value = file;
-  console.log(paymentAddImg);
+  imgUrl.value = file;
+  console.log(imgUrl);
 
 }
-
+//  저장된 이미지 삭제
 const imageDelete = () => {
-  paymentAddImg.value = null
+  imgUrl.value = null
 }
 
+// 금액 입력시 숫자만 출력 및 , 표시
 const formatWithComma = (value) => {
   const onlyNumber = value.replace(/[^0-9]/g, '') // 숫자만 추출
   return onlyNumber ? Number(onlyNumber).toLocaleString() : ''
@@ -43,10 +46,52 @@ const formatWithComma = (value) => {
 
 const handleAmountInput = (event) => {
   const value = event.target.value
-  paymentAmount.value = formatWithComma(value)
+  amount.value = formatWithComma(value)
 }
+
+const createPayment = async () => {
+  if (!title.value.trim()) {
+    return
+  }
+  if (!date.value.trim()) {
+    return
+  }
+  if (!amount.value.trim()) {
+    return
+  }
+  if (!String(category.value).trim()) {
+    return
+  }
+  if (!memo.value.trim()) {
+    return
+  }
+
+  try {
+    const newPayment = {
+      title: title.value,
+      date: date.value,
+      category: category.value,
+      amount: amount.value,
+      memo: memo.value,
+      imgUrl: imgUrl.value
+    }
+    await paymentStore.createPayment(newPayment)
+  } catch (error) {
+    console.log(error.value);
+
+  }
+  finally {
+    title.value = ''
+    date.value = ''
+    category.value = ''
+    amount.value = ''
+    memo.value = ''
+    imgUrl.value = ''
+  }
+}
+// 페이지 로드시 제목 입력칸 포커스
 onMounted(() => {
-  title.value?.focus()
+  titleInput.value?.focus()
 })
 
 </script>
@@ -57,12 +102,12 @@ onMounted(() => {
     <section class="payment-body">
       <div class="title-container">
         <label>제목 :</label>
-        <input type="text" placeholder="제목을 입력하세요" class="title-input" ref='title' v-model="title">
+        <input type="text" placeholder="제목을 입력하세요" class="title-input" ref='titleInput' v-model="title">
       </div>
 
       <div class="date-container">
         <label>날짜선택 :</label>
-        <input type="date" class="date-input" v-model="paymentAddDate">
+        <input type="date" class="date-input" v-model="date">
       </div>
 
       <div class="category-container">
@@ -83,7 +128,7 @@ onMounted(() => {
             </label>
           </div>
         </div>
-        <select class=" category-input" v-model="selecCategory">
+        <select class=" category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
           <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category.id">
             {{ category.name }}{{ category.icon }}</option>
@@ -92,7 +137,7 @@ onMounted(() => {
 
       <div class="amount-container">
         <label>금액입력 : </label>
-        <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model.number="paymentAmount"
+        <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model.number="amount"
           @input="handleAmountInput" value='원'>
       </div>
 
@@ -100,18 +145,22 @@ onMounted(() => {
         <div>
           <label>메모 : </label>
         </div>
-        <textarea class="textarea-input" placeholder="내용을 입력하세요" v-model="paymentAddMemo"></textarea>
+        <textarea class="textarea-input" placeholder="내용을 입력하세요" v-model="memo"></textarea>
       </div>
 
       <div class="upload-container">
         <label class="upload-label">사진 첨부 :</label>
         <label for="uploadImg" class="upload-box">
-          <span>{{ paymentAddImg ? paymentAddImg.name : '+' }}</span>
+          <span>{{ imgUrl ? imgUrl.name : '+' }}</span>
           <input type="file" id="uploadImg" hidden accept="image/*" @change="handleChangeImg" />
         </label>
 
-        <button class="imgdelete-btn" @click="imageDelete" v-if="paymentAddImg">x</button>
+        <button class="imgdelete-btn" @click="imageDelete" v-if="imgUrl">x</button>
 
+      </div>
+      <div class="footer-btn">
+        <ConfirmButton :name="'취소'" />
+        <ConfirmButton @create-payment="createPayment" :name="'완료'" />
       </div>
     </section>
   </div>
@@ -242,5 +291,11 @@ onMounted(() => {
 
 .imgdelete-btn:hover {
   transform: scale(1.3);
+}
+
+.footer-btn {
+  display: flex;
+  gap: 20px;
+  justify-content: right;
 }
 </style>
