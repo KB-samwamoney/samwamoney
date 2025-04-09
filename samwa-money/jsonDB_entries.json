@@ -1,0 +1,5271 @@
+{
+  "Auth": [
+    {
+      "id": 1,
+      "userId": "user123",
+      "password": "password123",
+      "name": "홍길동",
+      "email": "user@example.com",
+      "nickname": "UserNick",
+      "expense_limit": 1000000
+    }
+  ],
+  "Balance": [
+    {
+      "id": 1,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-01-24",
+      "category": "금융소득",
+      "amount": 168528,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 2,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-15",
+      "category": "식사",
+      "amount": 71501,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt2.jpg"
+    },
+    {
+      "id": 3,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-01-23",
+      "category": "금융소득",
+      "amount": 94711,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 4,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-02-01",
+      "category": "문화/취미",
+      "amount": 101027,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt4.jpg"
+    },
+    {
+      "id": 5,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-01-14",
+      "category": "식사",
+      "amount": 963608,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt5.jpg"
+    },
+    {
+      "id": 6,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-17",
+      "category": "쇼핑",
+      "amount": 496865,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt6.jpg"
+    },
+    {
+      "id": 7,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-01-05",
+      "category": "기타",
+      "amount": 1527071,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 8,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-03-25",
+      "category": "월급",
+      "amount": 2249786,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 9,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2024-12-28",
+      "category": "용돈",
+      "amount": 1578904,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 10,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-04-30",
+      "category": "금융소득",
+      "amount": 1292077,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 11,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2024-12-09",
+      "category": "부수입",
+      "amount": 2933032,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 12,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-02-04",
+      "category": "건강/운동",
+      "amount": 510862,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt12.jpg"
+    },
+    {
+      "id": 13,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-02-18",
+      "category": "금융소득",
+      "amount": 831419,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 14,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2024-12-24",
+      "category": "자기계발",
+      "amount": 961578,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt14.jpg"
+    },
+    {
+      "id": 15,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-15",
+      "category": "용돈",
+      "amount": 2146679,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 16,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-01-30",
+      "category": "문화/취미",
+      "amount": 286843,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt16.jpg"
+    },
+    {
+      "id": 17,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-03-01",
+      "category": "환급금",
+      "amount": 705132,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 18,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-04-30",
+      "category": "쇼핑",
+      "amount": 199259,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt18.jpg"
+    },
+    {
+      "id": 19,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-04-13",
+      "category": "환급금",
+      "amount": 1667930,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 20,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-03-11",
+      "category": "캐시백/포인트",
+      "amount": 949596,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 21,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-02-28",
+      "category": "여행/유흥",
+      "amount": 268993,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt21.jpg"
+    },
+    {
+      "id": 22,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2024-12-03",
+      "category": "쇼핑",
+      "amount": 962062,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt22.jpg"
+    },
+    {
+      "id": 23,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-02-27",
+      "category": "가족",
+      "amount": 619624,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt23.jpg"
+    },
+    {
+      "id": 24,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2024-12-25",
+      "category": "월급",
+      "amount": 1985262,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 25,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-03-25",
+      "category": "월급",
+      "amount": 539364,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 26,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-21",
+      "category": "쇼핑",
+      "amount": 14313,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt26.jpg"
+    },
+    {
+      "id": 27,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-01-11",
+      "category": "가족",
+      "amount": 842427,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt27.jpg"
+    },
+    {
+      "id": 28,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-02-13",
+      "category": "여행/유흥",
+      "amount": 23489,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt28.jpg"
+    },
+    {
+      "id": 29,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-01-16",
+      "category": "상여",
+      "amount": 1069243,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 30,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-01-24",
+      "category": "투자수익",
+      "amount": 2065144,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 31,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-03-31",
+      "category": "자기계발",
+      "amount": 840678,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt31.jpg"
+    },
+    {
+      "id": 32,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-03-09",
+      "category": "기타",
+      "amount": 1851579,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 33,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-01-04",
+      "category": "식사",
+      "amount": 478837,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt33.jpg"
+    },
+    {
+      "id": 34,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-03-30",
+      "category": "용돈",
+      "amount": 1374788,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 35,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-02-11",
+      "category": "캐시백/포인트",
+      "amount": 2306472,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 36,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-01-05",
+      "category": "용돈",
+      "amount": 973819,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 37,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2024-12-17",
+      "category": "여행/유흥",
+      "amount": 267267,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt37.jpg"
+    },
+    {
+      "id": 38,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-01-10",
+      "category": "자기계발",
+      "amount": 731981,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt38.jpg"
+    },
+    {
+      "id": 39,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-03-13",
+      "category": "월급",
+      "amount": 1761480,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 40,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-04-22",
+      "category": "부수입",
+      "amount": 2561081,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 41,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-02-13",
+      "category": "투자수익",
+      "amount": 1577940,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 42,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-29",
+      "category": "상여",
+      "amount": 1918988,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 43,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-03-04",
+      "category": "기타",
+      "amount": 645238,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt43.jpg"
+    },
+    {
+      "id": 44,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-01-10",
+      "category": "용돈",
+      "amount": 870934,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 45,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-02-15",
+      "category": "문화/취미",
+      "amount": 487572,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt45.jpg"
+    },
+    {
+      "id": 46,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2024-12-18",
+      "category": "건강/운동",
+      "amount": 121210,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt46.jpg"
+    },
+    {
+      "id": 47,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-04-18",
+      "category": "주거/공과금",
+      "amount": 384691,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt47.jpg"
+    },
+    {
+      "id": 48,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2024-12-18",
+      "category": "캐시백/포인트",
+      "amount": 2517172,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 49,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-01-01",
+      "category": "문화/취미",
+      "amount": 91615,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt49.jpg"
+    },
+    {
+      "id": 50,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-03-08",
+      "category": "문화/취미",
+      "amount": 975759,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt50.jpg"
+    },
+    {
+      "id": 51,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-04-28",
+      "category": "기타",
+      "amount": 258861,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt51.jpg"
+    },
+    {
+      "id": 52,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-03-16",
+      "category": "월급",
+      "amount": 2225181,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 53,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-01-16",
+      "category": "식사",
+      "amount": 424993,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt53.jpg"
+    },
+    {
+      "id": 54,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-02-24",
+      "category": "상여",
+      "amount": 1501748,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 55,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2024-12-28",
+      "category": "캐시백/포인트",
+      "amount": 1185050,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 56,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2024-12-09",
+      "category": "상여",
+      "amount": 2737355,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 57,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2024-12-03",
+      "category": "식사",
+      "amount": 74352,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt57.jpg"
+    },
+    {
+      "id": 58,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-01-17",
+      "category": "가족",
+      "amount": 435342,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt58.jpg"
+    },
+    {
+      "id": 59,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-01-11",
+      "category": "쇼핑",
+      "amount": 827725,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt59.jpg"
+    },
+    {
+      "id": 60,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-04-01",
+      "category": "쇼핑",
+      "amount": 171931,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt60.jpg"
+    },
+    {
+      "id": 61,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-02-19",
+      "category": "투자수익",
+      "amount": 40158,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 62,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-03-08",
+      "category": "월급",
+      "amount": 2915052,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 63,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-02-10",
+      "category": "가족",
+      "amount": 75328,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt63.jpg"
+    },
+    {
+      "id": 64,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-02-06",
+      "category": "건강/운동",
+      "amount": 354491,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt64.jpg"
+    },
+    {
+      "id": 65,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-01-10",
+      "category": "상여",
+      "amount": 2535337,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 66,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-04-20",
+      "category": "건강/운동",
+      "amount": 892211,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt66.jpg"
+    },
+    {
+      "id": 67,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-01-03",
+      "category": "쇼핑",
+      "amount": 549228,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt67.jpg"
+    },
+    {
+      "id": 68,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-02-15",
+      "category": "투자수익",
+      "amount": 1278768,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 69,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-03-29",
+      "category": "교통",
+      "amount": 198302,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt69.jpg"
+    },
+    {
+      "id": 70,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2024-12-18",
+      "category": "여행/유흥",
+      "amount": 375497,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt70.jpg"
+    },
+    {
+      "id": 71,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-03-10",
+      "category": "주거/공과금",
+      "amount": 887602,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt71.jpg"
+    },
+    {
+      "id": 72,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-02-25",
+      "category": "건강/운동",
+      "amount": 812909,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt72.jpg"
+    },
+    {
+      "id": 73,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2024-12-10",
+      "category": "용돈",
+      "amount": 928184,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 74,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-03-04",
+      "category": "환급금",
+      "amount": 1527150,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 75,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-01-07",
+      "category": "환급금",
+      "amount": 1853881,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 76,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-03-01",
+      "category": "문화/취미",
+      "amount": 679249,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt76.jpg"
+    },
+    {
+      "id": 77,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-01-08",
+      "category": "기타",
+      "amount": 609489,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt77.jpg"
+    },
+    {
+      "id": 78,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-01-01",
+      "category": "문화/취미",
+      "amount": 356718,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt78.jpg"
+    },
+    {
+      "id": 79,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-04-19",
+      "category": "교통",
+      "amount": 481687,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt79.jpg"
+    },
+    {
+      "id": 80,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-18",
+      "category": "용돈",
+      "amount": 2719399,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 81,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2024-12-24",
+      "category": "교통",
+      "amount": 462074,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt81.jpg"
+    },
+    {
+      "id": 82,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-03-27",
+      "category": "교통",
+      "amount": 750318,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt82.jpg"
+    },
+    {
+      "id": 83,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-04-09",
+      "category": "월급",
+      "amount": 2837295,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 84,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-01-04",
+      "category": "자기계발",
+      "amount": 449802,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt84.jpg"
+    },
+    {
+      "id": 85,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-04-28",
+      "category": "환급금",
+      "amount": 2338759,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 86,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-02-06",
+      "category": "쇼핑",
+      "amount": 912099,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt86.jpg"
+    },
+    {
+      "id": 87,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-26",
+      "category": "용돈",
+      "amount": 542113,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 88,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-02-27",
+      "category": "월급",
+      "amount": 599818,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 89,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-03-28",
+      "category": "기타",
+      "amount": 1865659,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 90,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-03-02",
+      "category": "여행/유흥",
+      "amount": 310235,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt90.jpg"
+    },
+    {
+      "id": 91,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2024-12-25",
+      "category": "캐시백/포인트",
+      "amount": 336325,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 92,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2024-12-17",
+      "category": "금융소득",
+      "amount": 2809670,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 93,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-25",
+      "category": "중고거래",
+      "amount": 1354060,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 94,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-01-25",
+      "category": "자기계발",
+      "amount": 511617,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt94.jpg"
+    },
+    {
+      "id": 95,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-02-20",
+      "category": "중고거래",
+      "amount": 2087803,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 96,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-02-28",
+      "category": "쇼핑",
+      "amount": 44059,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt96.jpg"
+    },
+    {
+      "id": 97,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2024-12-30",
+      "category": "식사",
+      "amount": 812537,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt97.jpg"
+    },
+    {
+      "id": 98,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-26",
+      "category": "중고거래",
+      "amount": 1877259,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 99,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-01-09",
+      "category": "문화/취미",
+      "amount": 487301,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt99.jpg"
+    },
+    {
+      "id": 100,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-02-02",
+      "category": "가족",
+      "amount": 680443,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt100.jpg"
+    },
+    {
+      "id": 101,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-01-01",
+      "category": "교통",
+      "amount": 14414,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt101.jpg"
+    },
+    {
+      "id": 102,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-02-24",
+      "category": "기타",
+      "amount": 310546,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt102.jpg"
+    },
+    {
+      "id": 103,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-02-09",
+      "category": "캐시백/포인트",
+      "amount": 97076,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 104,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-03-02",
+      "category": "용돈",
+      "amount": 695750,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 105,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-01-13",
+      "category": "기타",
+      "amount": 291053,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt105.jpg"
+    },
+    {
+      "id": 106,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2024-12-19",
+      "category": "자기계발",
+      "amount": 235020,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt106.jpg"
+    },
+    {
+      "id": 107,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-04-11",
+      "category": "주거/공과금",
+      "amount": 528583,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt107.jpg"
+    },
+    {
+      "id": 108,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-03-22",
+      "category": "주거/공과금",
+      "amount": 385672,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt108.jpg"
+    },
+    {
+      "id": 109,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2024-12-10",
+      "category": "캐시백/포인트",
+      "amount": 484297,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 110,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2024-12-17",
+      "category": "상여",
+      "amount": 2792848,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 111,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-02-08",
+      "category": "환급금",
+      "amount": 2149695,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 112,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-02-05",
+      "category": "환급금",
+      "amount": 2429465,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 113,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-02-12",
+      "category": "투자수익",
+      "amount": 344886,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 114,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-02-08",
+      "category": "기타",
+      "amount": 1448430,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 115,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-01-13",
+      "category": "부수입",
+      "amount": 1660834,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 116,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-04-01",
+      "category": "캐시백/포인트",
+      "amount": 1955586,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 117,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-14",
+      "category": "상여",
+      "amount": 990004,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 118,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-27",
+      "category": "식사",
+      "amount": 539334,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt118.jpg"
+    },
+    {
+      "id": 119,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2024-12-01",
+      "category": "문화/취미",
+      "amount": 582554,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt119.jpg"
+    },
+    {
+      "id": 120,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-01-15",
+      "category": "용돈",
+      "amount": 1953001,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 121,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-03-19",
+      "category": "금융소득",
+      "amount": 1401944,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 122,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-03-20",
+      "category": "용돈",
+      "amount": 564259,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 123,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-04-23",
+      "category": "캐시백/포인트",
+      "amount": 434837,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 124,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-03-02",
+      "category": "환급금",
+      "amount": 321128,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 125,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-04-20",
+      "category": "기타",
+      "amount": 186157,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt125.jpg"
+    },
+    {
+      "id": 126,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2024-12-26",
+      "category": "건강/운동",
+      "amount": 779454,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt126.jpg"
+    },
+    {
+      "id": 127,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-01-23",
+      "category": "기타",
+      "amount": 885434,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt127.jpg"
+    },
+    {
+      "id": 128,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-02-18",
+      "category": "기타",
+      "amount": 1009670,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 129,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-04-08",
+      "category": "기타",
+      "amount": 919963,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 130,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-01-29",
+      "category": "식사",
+      "amount": 419864,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt130.jpg"
+    },
+    {
+      "id": 131,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-02-26",
+      "category": "쇼핑",
+      "amount": 356509,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt131.jpg"
+    },
+    {
+      "id": 132,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2024-12-17",
+      "category": "상여",
+      "amount": 1583819,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 133,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2024-12-04",
+      "category": "가족",
+      "amount": 18480,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt133.jpg"
+    },
+    {
+      "id": 134,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-02-27",
+      "category": "쇼핑",
+      "amount": 699806,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt134.jpg"
+    },
+    {
+      "id": 135,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-22",
+      "category": "식사",
+      "amount": 580950,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt135.jpg"
+    },
+    {
+      "id": 136,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-02-10",
+      "category": "상여",
+      "amount": 2669652,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 137,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-02-15",
+      "category": "쇼핑",
+      "amount": 249655,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt137.jpg"
+    },
+    {
+      "id": 138,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-15",
+      "category": "식사",
+      "amount": 5519,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt138.jpg"
+    },
+    {
+      "id": 139,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-01-18",
+      "category": "문화/취미",
+      "amount": 330651,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt139.jpg"
+    },
+    {
+      "id": 140,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-02-19",
+      "category": "환급금",
+      "amount": 449506,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 141,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-03-02",
+      "category": "캐시백/포인트",
+      "amount": 238836,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 142,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-02-17",
+      "category": "환급금",
+      "amount": 49605,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 143,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-03-17",
+      "category": "캐시백/포인트",
+      "amount": 1672023,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 144,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-03-09",
+      "category": "환급금",
+      "amount": 2091405,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 145,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-03-09",
+      "category": "상여",
+      "amount": 1297376,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 146,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2024-12-31",
+      "category": "가족",
+      "amount": 720833,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt146.jpg"
+    },
+    {
+      "id": 147,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-01-14",
+      "category": "월급",
+      "amount": 1897783,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 148,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-03-28",
+      "category": "부수입",
+      "amount": 1158976,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 149,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-02-19",
+      "category": "금융소득",
+      "amount": 1469066,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 150,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2024-12-04",
+      "category": "환급금",
+      "amount": 1742589,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 151,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-04-02",
+      "category": "쇼핑",
+      "amount": 171040,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt151.jpg"
+    },
+    {
+      "id": 152,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-03-13",
+      "category": "부수입",
+      "amount": 1026422,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 153,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-01-10",
+      "category": "건강/운동",
+      "amount": 551910,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt153.jpg"
+    },
+    {
+      "id": 154,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2024-12-26",
+      "category": "투자수익",
+      "amount": 2466850,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 155,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-04-03",
+      "category": "환급금",
+      "amount": 2252191,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 156,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-03-25",
+      "category": "기타",
+      "amount": 376266,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt156.jpg"
+    },
+    {
+      "id": 157,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2024-12-13",
+      "category": "용돈",
+      "amount": 844228,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 158,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-04-08",
+      "category": "금융소득",
+      "amount": 1058224,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 159,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2024-12-29",
+      "category": "용돈",
+      "amount": 1843107,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 160,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-02-06",
+      "category": "기타",
+      "amount": 188125,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt160.jpg"
+    },
+    {
+      "id": 161,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-02-13",
+      "category": "투자수익",
+      "amount": 2240151,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 162,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2024-12-28",
+      "category": "용돈",
+      "amount": 2687754,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 163,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-02-26",
+      "category": "문화/취미",
+      "amount": 727658,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt163.jpg"
+    },
+    {
+      "id": 164,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-03-30",
+      "category": "문화/취미",
+      "amount": 289685,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt164.jpg"
+    },
+    {
+      "id": 165,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-01-23",
+      "category": "쇼핑",
+      "amount": 199017,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt165.jpg"
+    },
+    {
+      "id": 166,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-01-30",
+      "category": "부수입",
+      "amount": 2977407,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 167,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-19",
+      "category": "상여",
+      "amount": 2383089,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 168,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-02-12",
+      "category": "기타",
+      "amount": 324539,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt168.jpg"
+    },
+    {
+      "id": 169,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-04-19",
+      "category": "금융소득",
+      "amount": 2934201,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 170,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2024-12-24",
+      "category": "캐시백/포인트",
+      "amount": 1450608,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 171,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-01-09",
+      "category": "교통",
+      "amount": 207684,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt171.jpg"
+    },
+    {
+      "id": 172,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-01-09",
+      "category": "기타",
+      "amount": 26690,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt172.jpg"
+    },
+    {
+      "id": 173,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-03-21",
+      "category": "환급금",
+      "amount": 249446,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 174,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2024-12-21",
+      "category": "교통",
+      "amount": 936965,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt174.jpg"
+    },
+    {
+      "id": 175,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-03-13",
+      "category": "기타",
+      "amount": 641135,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt175.jpg"
+    },
+    {
+      "id": 176,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-02-08",
+      "category": "자기계발",
+      "amount": 572932,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt176.jpg"
+    },
+    {
+      "id": 177,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-21",
+      "category": "중고거래",
+      "amount": 789456,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 178,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-02-05",
+      "category": "용돈",
+      "amount": 746654,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 179,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-03-04",
+      "category": "자기계발",
+      "amount": 84398,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt179.jpg"
+    },
+    {
+      "id": 180,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-22",
+      "category": "식사",
+      "amount": 77598,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt180.jpg"
+    },
+    {
+      "id": 181,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-28",
+      "category": "중고거래",
+      "amount": 2246628,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 182,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-01-28",
+      "category": "가족",
+      "amount": 964662,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt182.jpg"
+    },
+    {
+      "id": 183,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-02-07",
+      "category": "문화/취미",
+      "amount": 474523,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt183.jpg"
+    },
+    {
+      "id": 184,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-01",
+      "category": "용돈",
+      "amount": 807170,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 185,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-01-01",
+      "category": "쇼핑",
+      "amount": 910895,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt185.jpg"
+    },
+    {
+      "id": 186,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-03-07",
+      "category": "용돈",
+      "amount": 307773,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 187,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-03-12",
+      "category": "부수입",
+      "amount": 1371248,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 188,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2024-12-04",
+      "category": "기타",
+      "amount": 890864,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt188.jpg"
+    },
+    {
+      "id": 189,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2024-12-09",
+      "category": "여행/유흥",
+      "amount": 577423,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt189.jpg"
+    },
+    {
+      "id": 190,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-02-13",
+      "category": "기타",
+      "amount": 51381,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 191,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-01-08",
+      "category": "교통",
+      "amount": 97292,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt191.jpg"
+    },
+    {
+      "id": 192,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-02-19",
+      "category": "부수입",
+      "amount": 2518826,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 193,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-04-24",
+      "category": "쇼핑",
+      "amount": 333305,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt193.jpg"
+    },
+    {
+      "id": 194,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-04-12",
+      "category": "가족",
+      "amount": 385762,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt194.jpg"
+    },
+    {
+      "id": 195,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-06",
+      "category": "쇼핑",
+      "amount": 627939,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt195.jpg"
+    },
+    {
+      "id": 196,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-01-17",
+      "category": "캐시백/포인트",
+      "amount": 1019664,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 197,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-04-03",
+      "category": "기타",
+      "amount": 2992385,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 198,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-01-11",
+      "category": "환급금",
+      "amount": 1146037,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 199,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-01-24",
+      "category": "건강/운동",
+      "amount": 490719,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt199.jpg"
+    },
+    {
+      "id": 200,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-02-26",
+      "category": "문화/취미",
+      "amount": 216186,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt200.jpg"
+    },
+    {
+      "id": 201,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-02-02",
+      "category": "투자수익",
+      "amount": 544596,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 202,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2024-12-05",
+      "category": "금융소득",
+      "amount": 2271051,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 203,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-03-26",
+      "category": "식사",
+      "amount": 156362,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt203.jpg"
+    },
+    {
+      "id": 204,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-04-08",
+      "category": "투자수익",
+      "amount": 1669220,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 205,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-01-21",
+      "category": "환급금",
+      "amount": 33811,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 206,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-02-19",
+      "category": "여행/유흥",
+      "amount": 61787,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt206.jpg"
+    },
+    {
+      "id": 207,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-04-07",
+      "category": "교통",
+      "amount": 465228,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt207.jpg"
+    },
+    {
+      "id": 208,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-02-21",
+      "category": "자기계발",
+      "amount": 906419,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt208.jpg"
+    },
+    {
+      "id": 209,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-01-09",
+      "category": "기타",
+      "amount": 2264941,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 210,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2024-12-13",
+      "category": "부수입",
+      "amount": 18765,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 211,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-01-17",
+      "category": "중고거래",
+      "amount": 2083192,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 212,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2024-12-23",
+      "category": "용돈",
+      "amount": 388033,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 213,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2024-12-16",
+      "category": "건강/운동",
+      "amount": 293288,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt213.jpg"
+    },
+    {
+      "id": 214,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-20",
+      "category": "중고거래",
+      "amount": 2580943,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 215,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-02-03",
+      "category": "캐시백/포인트",
+      "amount": 2170721,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 216,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-04-28",
+      "category": "부수입",
+      "amount": 1397448,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 217,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-01-11",
+      "category": "자기계발",
+      "amount": 775205,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt217.jpg"
+    },
+    {
+      "id": 218,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2024-12-13",
+      "category": "용돈",
+      "amount": 775506,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 219,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-04-29",
+      "category": "투자수익",
+      "amount": 1091781,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 220,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-28",
+      "category": "식사",
+      "amount": 397385,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt220.jpg"
+    },
+    {
+      "id": 221,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-03-16",
+      "category": "용돈",
+      "amount": 1360567,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 222,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-02-17",
+      "category": "기타",
+      "amount": 2398656,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 223,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-02-21",
+      "category": "가족",
+      "amount": 824717,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt223.jpg"
+    },
+    {
+      "id": 224,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-02-20",
+      "category": "기타",
+      "amount": 97519,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt224.jpg"
+    },
+    {
+      "id": 225,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-03-11",
+      "category": "기타",
+      "amount": 329893,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 226,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-03-31",
+      "category": "환급금",
+      "amount": 1413880,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 227,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-01-29",
+      "category": "교통",
+      "amount": 294019,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt227.jpg"
+    },
+    {
+      "id": 228,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2024-12-19",
+      "category": "금융소득",
+      "amount": 2269311,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 229,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-04-06",
+      "category": "기타",
+      "amount": 1135301,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 230,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-03-30",
+      "category": "용돈",
+      "amount": 1790291,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 231,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2024-12-17",
+      "category": "기타",
+      "amount": 2033555,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 232,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-01-26",
+      "category": "상여",
+      "amount": 2678163,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 233,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2024-12-10",
+      "category": "여행/유흥",
+      "amount": 278649,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt233.jpg"
+    },
+    {
+      "id": 234,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2024-12-30",
+      "category": "식사",
+      "amount": 908604,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt234.jpg"
+    },
+    {
+      "id": 235,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-03-13",
+      "category": "월급",
+      "amount": 760083,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 236,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-04-10",
+      "category": "중고거래",
+      "amount": 1768662,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 237,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2024-12-22",
+      "category": "주거/공과금",
+      "amount": 500201,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt237.jpg"
+    },
+    {
+      "id": 238,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-02-18",
+      "category": "캐시백/포인트",
+      "amount": 915046,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 239,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-03-23",
+      "category": "교통",
+      "amount": 50630,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt239.jpg"
+    },
+    {
+      "id": 240,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-04-16",
+      "category": "부수입",
+      "amount": 2743063,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 241,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-03-02",
+      "category": "월급",
+      "amount": 1419710,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 242,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-01-10",
+      "category": "용돈",
+      "amount": 369723,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 243,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2024-12-01",
+      "category": "쇼핑",
+      "amount": 80364,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt243.jpg"
+    },
+    {
+      "id": 244,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-01-12",
+      "category": "건강/운동",
+      "amount": 522449,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt244.jpg"
+    },
+    {
+      "id": 245,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-04-04",
+      "category": "캐시백/포인트",
+      "amount": 486329,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 246,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2024-12-09",
+      "category": "기타",
+      "amount": 740399,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt246.jpg"
+    },
+    {
+      "id": 247,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2024-12-30",
+      "category": "주거/공과금",
+      "amount": 236600,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt247.jpg"
+    },
+    {
+      "id": 248,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2024-12-28",
+      "category": "부수입",
+      "amount": 2711093,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 249,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-03-31",
+      "category": "기타",
+      "amount": 697001,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt249.jpg"
+    },
+    {
+      "id": 250,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-03-13",
+      "category": "상여",
+      "amount": 2624228,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 251,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2024-12-08",
+      "category": "건강/운동",
+      "amount": 577778,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt251.jpg"
+    },
+    {
+      "id": 252,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-01-11",
+      "category": "식사",
+      "amount": 144261,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt252.jpg"
+    },
+    {
+      "id": 253,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-02-04",
+      "category": "환급금",
+      "amount": 2399286,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 254,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-01-17",
+      "category": "건강/운동",
+      "amount": 985478,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt254.jpg"
+    },
+    {
+      "id": 255,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-03-16",
+      "category": "건강/운동",
+      "amount": 407492,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt255.jpg"
+    },
+    {
+      "id": 256,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-03-27",
+      "category": "식사",
+      "amount": 595691,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt256.jpg"
+    },
+    {
+      "id": 257,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-01-12",
+      "category": "중고거래",
+      "amount": 2241599,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 258,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-13",
+      "category": "식사",
+      "amount": 966236,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt258.jpg"
+    },
+    {
+      "id": 259,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-03-14",
+      "category": "기타",
+      "amount": 733390,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 260,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-03-17",
+      "category": "기타",
+      "amount": 1065568,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 261,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-01-26",
+      "category": "부수입",
+      "amount": 1753163,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 262,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2024-12-25",
+      "category": "자기계발",
+      "amount": 398501,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt262.jpg"
+    },
+    {
+      "id": 263,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-01-30",
+      "category": "캐시백/포인트",
+      "amount": 1197455,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 264,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-03-20",
+      "category": "캐시백/포인트",
+      "amount": 416360,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 265,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-03-19",
+      "category": "상여",
+      "amount": 1083514,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 266,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-04-14",
+      "category": "기타",
+      "amount": 476971,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt266.jpg"
+    },
+    {
+      "id": 267,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-26",
+      "category": "쇼핑",
+      "amount": 67247,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt267.jpg"
+    },
+    {
+      "id": 268,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-03-23",
+      "category": "용돈",
+      "amount": 1681530,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 269,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-02-22",
+      "category": "캐시백/포인트",
+      "amount": 868290,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 270,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-15",
+      "category": "상여",
+      "amount": 790146,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 271,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-01-04",
+      "category": "상여",
+      "amount": 200118,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 272,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-02-06",
+      "category": "주거/공과금",
+      "amount": 597741,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt272.jpg"
+    },
+    {
+      "id": 273,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2024-12-08",
+      "category": "월급",
+      "amount": 753735,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 274,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2024-12-25",
+      "category": "교통",
+      "amount": 611621,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt274.jpg"
+    },
+    {
+      "id": 275,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-01-19",
+      "category": "문화/취미",
+      "amount": 970521,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt275.jpg"
+    },
+    {
+      "id": 276,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2024-12-05",
+      "category": "환급금",
+      "amount": 756253,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 277,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-03-06",
+      "category": "주거/공과금",
+      "amount": 910049,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt277.jpg"
+    },
+    {
+      "id": 278,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-01-03",
+      "category": "쇼핑",
+      "amount": 530908,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt278.jpg"
+    },
+    {
+      "id": 279,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-04-01",
+      "category": "환급금",
+      "amount": 2558506,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 280,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2024-12-07",
+      "category": "주거/공과금",
+      "amount": 329636,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt280.jpg"
+    },
+    {
+      "id": 281,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-04-17",
+      "category": "투자수익",
+      "amount": 43245,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 282,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-02-08",
+      "category": "금융소득",
+      "amount": 2744058,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 283,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-02-21",
+      "category": "투자수익",
+      "amount": 2361731,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 284,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-03-15",
+      "category": "문화/취미",
+      "amount": 734477,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt284.jpg"
+    },
+    {
+      "id": 285,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-04-03",
+      "category": "금융소득",
+      "amount": 1986270,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 286,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-17",
+      "category": "식사",
+      "amount": 196986,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt286.jpg"
+    },
+    {
+      "id": 287,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-01-16",
+      "category": "주거/공과금",
+      "amount": 27875,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt287.jpg"
+    },
+    {
+      "id": 288,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-02-19",
+      "category": "월급",
+      "amount": 627206,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 289,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-01-22",
+      "category": "부수입",
+      "amount": 1992733,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 290,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-04-11",
+      "category": "캐시백/포인트",
+      "amount": 2375181,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 291,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2024-12-16",
+      "category": "가족",
+      "amount": 296040,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt291.jpg"
+    },
+    {
+      "id": 292,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-08",
+      "category": "중고거래",
+      "amount": 241456,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 293,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-03-16",
+      "category": "금융소득",
+      "amount": 1323331,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 294,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-01-27",
+      "category": "자기계발",
+      "amount": 921035,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt294.jpg"
+    },
+    {
+      "id": 295,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-04-11",
+      "category": "중고거래",
+      "amount": 1874644,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 296,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-03-17",
+      "category": "문화/취미",
+      "amount": 968201,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt296.jpg"
+    },
+    {
+      "id": 297,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-03-31",
+      "category": "중고거래",
+      "amount": 2381267,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 298,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-01-26",
+      "category": "여행/유흥",
+      "amount": 613729,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt298.jpg"
+    },
+    {
+      "id": 299,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2024-12-23",
+      "category": "환급금",
+      "amount": 2712206,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 300,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2024-12-28",
+      "category": "기타",
+      "amount": 197227,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 301,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-02-14",
+      "category": "캐시백/포인트",
+      "amount": 588075,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 302,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2024-12-22",
+      "category": "자기계발",
+      "amount": 288853,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt302.jpg"
+    },
+    {
+      "id": 303,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-03-03",
+      "category": "건강/운동",
+      "amount": 696430,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt303.jpg"
+    },
+    {
+      "id": 304,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-04-01",
+      "category": "중고거래",
+      "amount": 1100871,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 305,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-03-05",
+      "category": "여행/유흥",
+      "amount": 558298,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt305.jpg"
+    },
+    {
+      "id": 306,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-19",
+      "category": "중고거래",
+      "amount": 905664,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 307,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2024-12-06",
+      "category": "기타",
+      "amount": 1322019,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 308,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-04-14",
+      "category": "교통",
+      "amount": 522437,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt308.jpg"
+    },
+    {
+      "id": 309,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-02-18",
+      "category": "환급금",
+      "amount": 2633071,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 310,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-10",
+      "category": "용돈",
+      "amount": 1720987,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 311,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-04-15",
+      "category": "자기계발",
+      "amount": 599803,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt311.jpg"
+    },
+    {
+      "id": 312,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-25",
+      "category": "용돈",
+      "amount": 2312170,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 313,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2024-12-17",
+      "category": "환급금",
+      "amount": 1045150,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 314,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-03-19",
+      "category": "건강/운동",
+      "amount": 292927,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt314.jpg"
+    },
+    {
+      "id": 315,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-01-06",
+      "category": "자기계발",
+      "amount": 489429,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt315.jpg"
+    },
+    {
+      "id": 316,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-01-09",
+      "category": "여행/유흥",
+      "amount": 652180,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt316.jpg"
+    },
+    {
+      "id": 317,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-06",
+      "category": "상여",
+      "amount": 1440886,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 318,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-04",
+      "category": "용돈",
+      "amount": 2650769,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 319,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-04-25",
+      "category": "자기계발",
+      "amount": 9750,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt319.jpg"
+    },
+    {
+      "id": 320,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-02-05",
+      "category": "주거/공과금",
+      "amount": 594114,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt320.jpg"
+    },
+    {
+      "id": 321,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-04-25",
+      "category": "기타",
+      "amount": 2677280,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 322,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-03-25",
+      "category": "식사",
+      "amount": 383499,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt322.jpg"
+    },
+    {
+      "id": 323,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2024-12-04",
+      "category": "자기계발",
+      "amount": 424153,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt323.jpg"
+    },
+    {
+      "id": 324,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-01-17",
+      "category": "월급",
+      "amount": 622219,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 325,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-03-02",
+      "category": "기타",
+      "amount": 2495460,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 326,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2024-12-17",
+      "category": "투자수익",
+      "amount": 187068,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 327,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2024-12-12",
+      "category": "기타",
+      "amount": 2012401,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 328,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-01-08",
+      "category": "환급금",
+      "amount": 2531371,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 329,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-04-21",
+      "category": "금융소득",
+      "amount": 1846632,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 330,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-02-18",
+      "category": "교통",
+      "amount": 539096,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt330.jpg"
+    },
+    {
+      "id": 331,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-04-11",
+      "category": "식사",
+      "amount": 511981,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt331.jpg"
+    },
+    {
+      "id": 332,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-02-08",
+      "category": "기타",
+      "amount": 693345,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt332.jpg"
+    },
+    {
+      "id": 333,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-01-23",
+      "category": "상여",
+      "amount": 1380782,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 334,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-04-06",
+      "category": "건강/운동",
+      "amount": 816450,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt334.jpg"
+    },
+    {
+      "id": 335,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-01-27",
+      "category": "건강/운동",
+      "amount": 482727,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt335.jpg"
+    },
+    {
+      "id": 336,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2024-12-12",
+      "category": "부수입",
+      "amount": 2658031,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 337,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-04-08",
+      "category": "가족",
+      "amount": 158538,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt337.jpg"
+    },
+    {
+      "id": 338,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2024-12-09",
+      "category": "건강/운동",
+      "amount": 336775,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt338.jpg"
+    },
+    {
+      "id": 339,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-02-15",
+      "category": "여행/유흥",
+      "amount": 158451,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt339.jpg"
+    },
+    {
+      "id": 340,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2024-12-13",
+      "category": "자기계발",
+      "amount": 179427,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt340.jpg"
+    },
+    {
+      "id": 341,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-01-12",
+      "category": "식사",
+      "amount": 17002,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt341.jpg"
+    },
+    {
+      "id": 342,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-04-09",
+      "category": "금융소득",
+      "amount": 876796,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 343,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-02-18",
+      "category": "자기계발",
+      "amount": 327723,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt343.jpg"
+    },
+    {
+      "id": 344,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-04-02",
+      "category": "기타",
+      "amount": 51018,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 345,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-09",
+      "category": "쇼핑",
+      "amount": 209779,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt345.jpg"
+    },
+    {
+      "id": 346,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-03-23",
+      "category": "문화/취미",
+      "amount": 233258,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt346.jpg"
+    },
+    {
+      "id": 347,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-24",
+      "category": "상여",
+      "amount": 1072130,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 348,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-03-08",
+      "category": "건강/운동",
+      "amount": 809582,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt348.jpg"
+    },
+    {
+      "id": 349,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-01-27",
+      "category": "문화/취미",
+      "amount": 742573,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt349.jpg"
+    },
+    {
+      "id": 350,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-24",
+      "category": "쇼핑",
+      "amount": 546028,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt350.jpg"
+    },
+    {
+      "id": 351,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2024-12-12",
+      "category": "상여",
+      "amount": 2880553,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 352,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-04-06",
+      "category": "가족",
+      "amount": 64755,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt352.jpg"
+    },
+    {
+      "id": 353,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-02-17",
+      "category": "기타",
+      "amount": 281686,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt353.jpg"
+    },
+    {
+      "id": 354,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-26",
+      "category": "상여",
+      "amount": 492938,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 355,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-03-07",
+      "category": "투자수익",
+      "amount": 1464826,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 356,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-02-26",
+      "category": "주거/공과금",
+      "amount": 7469,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt356.jpg"
+    },
+    {
+      "id": 357,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-03-19",
+      "category": "기타",
+      "amount": 33168,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 358,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-04-17",
+      "category": "여행/유흥",
+      "amount": 696807,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt358.jpg"
+    },
+    {
+      "id": 359,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-02-08",
+      "category": "월급",
+      "amount": 1865950,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 360,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-23",
+      "category": "중고거래",
+      "amount": 1593316,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 361,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-01-04",
+      "category": "월급",
+      "amount": 2621990,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 362,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-02-18",
+      "category": "여행/유흥",
+      "amount": 81397,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt362.jpg"
+    },
+    {
+      "id": 363,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-04-29",
+      "category": "기타",
+      "amount": 22505,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt363.jpg"
+    },
+    {
+      "id": 364,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-01-25",
+      "category": "투자수익",
+      "amount": 1958022,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 365,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-01-11",
+      "category": "월급",
+      "amount": 114579,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 366,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-01-22",
+      "category": "부수입",
+      "amount": 45138,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 367,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-03-26",
+      "category": "교통",
+      "amount": 123723,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt367.jpg"
+    },
+    {
+      "id": 368,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-01-07",
+      "category": "금융소득",
+      "amount": 196560,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 369,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-01",
+      "category": "상여",
+      "amount": 2087601,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 370,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-03-06",
+      "category": "식사",
+      "amount": 44971,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt370.jpg"
+    },
+    {
+      "id": 371,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-04-09",
+      "category": "기타",
+      "amount": 1867574,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 372,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-02-02",
+      "category": "자기계발",
+      "amount": 191730,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt372.jpg"
+    },
+    {
+      "id": 373,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-01-01",
+      "category": "가족",
+      "amount": 173034,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt373.jpg"
+    },
+    {
+      "id": 374,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-03",
+      "category": "쇼핑",
+      "amount": 489022,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt374.jpg"
+    },
+    {
+      "id": 375,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-03-31",
+      "category": "기타",
+      "amount": 103346,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt375.jpg"
+    },
+    {
+      "id": 376,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2024-12-08",
+      "category": "교통",
+      "amount": 13808,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt376.jpg"
+    },
+    {
+      "id": 377,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-01-05",
+      "category": "쇼핑",
+      "amount": 953740,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt377.jpg"
+    },
+    {
+      "id": 378,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2024-12-17",
+      "category": "여행/유흥",
+      "amount": 500403,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt378.jpg"
+    },
+    {
+      "id": 379,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2024-12-27",
+      "category": "기타",
+      "amount": 336951,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 380,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-04-04",
+      "category": "캐시백/포인트",
+      "amount": 2756855,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 381,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2024-12-26",
+      "category": "부수입",
+      "amount": 2549635,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 382,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-03-10",
+      "category": "여행/유흥",
+      "amount": 257918,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt382.jpg"
+    },
+    {
+      "id": 383,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-01-01",
+      "category": "기타",
+      "amount": 2056963,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 384,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-01-31",
+      "category": "기타",
+      "amount": 571503,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt384.jpg"
+    },
+    {
+      "id": 385,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-02-03",
+      "category": "자기계발",
+      "amount": 168047,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt385.jpg"
+    },
+    {
+      "id": 386,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-03-08",
+      "category": "가족",
+      "amount": 945563,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt386.jpg"
+    },
+    {
+      "id": 387,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-03-26",
+      "category": "문화/취미",
+      "amount": 18349,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt387.jpg"
+    },
+    {
+      "id": 388,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-02-01",
+      "category": "기타",
+      "amount": 74802,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 389,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-04-10",
+      "category": "주거/공과금",
+      "amount": 713772,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt389.jpg"
+    },
+    {
+      "id": 390,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-02-18",
+      "category": "기타",
+      "amount": 1225722,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 391,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2024-12-15",
+      "category": "기타",
+      "amount": 449068,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt391.jpg"
+    },
+    {
+      "id": 392,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-01-03",
+      "category": "자기계발",
+      "amount": 736906,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt392.jpg"
+    },
+    {
+      "id": 393,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-01-30",
+      "category": "월급",
+      "amount": 1205731,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 394,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-03-12",
+      "category": "투자수익",
+      "amount": 2060229,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 395,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2025-02-18",
+      "category": "자기계발",
+      "amount": 558669,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt395.jpg"
+    },
+    {
+      "id": 396,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-02-03",
+      "category": "용돈",
+      "amount": 2913412,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 397,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-04-05",
+      "category": "건강/운동",
+      "amount": 168665,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt397.jpg"
+    },
+    {
+      "id": 398,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-03-09",
+      "category": "중고거래",
+      "amount": 111255,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 399,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-03-20",
+      "category": "주거/공과금",
+      "amount": 216501,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt399.jpg"
+    },
+    {
+      "id": 400,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-01-25",
+      "category": "기타",
+      "amount": 968840,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt400.jpg"
+    },
+    {
+      "id": 401,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2024-12-17",
+      "category": "식사",
+      "amount": 819384,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt401.jpg"
+    },
+    {
+      "id": 402,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-03-28",
+      "category": "주거/공과금",
+      "amount": 613648,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt402.jpg"
+    },
+    {
+      "id": 403,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-02-27",
+      "category": "여행/유흥",
+      "amount": 171062,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt403.jpg"
+    },
+    {
+      "id": 404,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-03-18",
+      "category": "교통",
+      "amount": 747179,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt404.jpg"
+    },
+    {
+      "id": 405,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-04-13",
+      "category": "금융소득",
+      "amount": 2497155,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 406,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-04-28",
+      "category": "여행/유흥",
+      "amount": 967376,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt406.jpg"
+    },
+    {
+      "id": 407,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-03-30",
+      "category": "교통",
+      "amount": 706453,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt407.jpg"
+    },
+    {
+      "id": 408,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-01-30",
+      "category": "건강/운동",
+      "amount": 312687,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt408.jpg"
+    },
+    {
+      "id": 409,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-01-11",
+      "category": "부수입",
+      "amount": 2809654,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 410,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2024-12-22",
+      "category": "투자수익",
+      "amount": 2749633,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 411,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2024-12-07",
+      "category": "환급금",
+      "amount": 655603,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 412,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-02-26",
+      "category": "부수입",
+      "amount": 2975248,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 413,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-03-08",
+      "category": "기타",
+      "amount": 227237,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt413.jpg"
+    },
+    {
+      "id": 414,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-02-03",
+      "category": "용돈",
+      "amount": 1364267,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 415,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2024-12-05",
+      "category": "월급",
+      "amount": 240273,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 416,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-04-07",
+      "category": "주거/공과금",
+      "amount": 179388,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt416.jpg"
+    },
+    {
+      "id": 417,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-02-06",
+      "category": "상여",
+      "amount": 800550,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 418,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2024-12-05",
+      "category": "상여",
+      "amount": 2949467,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 419,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-03-31",
+      "category": "금융소득",
+      "amount": 2425810,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 420,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2024-12-27",
+      "category": "자기계발",
+      "amount": 147163,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt420.jpg"
+    },
+    {
+      "id": 421,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-04-17",
+      "category": "건강/운동",
+      "amount": 547171,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt421.jpg"
+    },
+    {
+      "id": 422,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-28",
+      "category": "상여",
+      "amount": 1003551,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 423,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-04-12",
+      "category": "중고거래",
+      "amount": 2780403,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 424,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2024-12-03",
+      "category": "월급",
+      "amount": 1682224,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 425,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-02-17",
+      "category": "가족",
+      "amount": 896048,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt425.jpg"
+    },
+    {
+      "id": 426,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-10",
+      "category": "쇼핑",
+      "amount": 657535,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt426.jpg"
+    },
+    {
+      "id": 427,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-02-11",
+      "category": "캐시백/포인트",
+      "amount": 2752937,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 428,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-03-06",
+      "category": "여행/유흥",
+      "amount": 14551,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt428.jpg"
+    },
+    {
+      "id": 429,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-02-28",
+      "category": "캐시백/포인트",
+      "amount": 2861704,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 430,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-03-01",
+      "category": "여행/유흥",
+      "amount": 763410,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt430.jpg"
+    },
+    {
+      "id": 431,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-04-25",
+      "category": "캐시백/포인트",
+      "amount": 1224342,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 432,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-02-05",
+      "category": "기타",
+      "amount": 649768,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt432.jpg"
+    },
+    {
+      "id": 433,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-03-04",
+      "category": "쇼핑",
+      "amount": 292176,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt433.jpg"
+    },
+    {
+      "id": 434,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2024-12-24",
+      "category": "상여",
+      "amount": 361767,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 435,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-04-30",
+      "category": "쇼핑",
+      "amount": 335995,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt435.jpg"
+    },
+    {
+      "id": 436,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-03-21",
+      "category": "가족",
+      "amount": 962567,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt436.jpg"
+    },
+    {
+      "id": 437,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-04-22",
+      "category": "부수입",
+      "amount": 586801,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 438,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-04-09",
+      "category": "환급금",
+      "amount": 1161111,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 439,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2024-12-17",
+      "category": "기타",
+      "amount": 491663,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt439.jpg"
+    },
+    {
+      "id": 440,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-03-31",
+      "category": "중고거래",
+      "amount": 2320522,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 441,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-03-21",
+      "category": "투자수익",
+      "amount": 1567153,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 442,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2024-12-14",
+      "category": "캐시백/포인트",
+      "amount": 1701773,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 443,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-04-14",
+      "category": "교통",
+      "amount": 541476,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt443.jpg"
+    },
+    {
+      "id": 444,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2024-12-25",
+      "category": "쇼핑",
+      "amount": 207766,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt444.jpg"
+    },
+    {
+      "id": 445,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2024-12-23",
+      "category": "문화/취미",
+      "amount": 726731,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt445.jpg"
+    },
+    {
+      "id": 446,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-04-06",
+      "category": "상여",
+      "amount": 2056931,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 447,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-02-27",
+      "category": "중고거래",
+      "amount": 175917,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 448,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2024-12-16",
+      "category": "캐시백/포인트",
+      "amount": 2217575,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 449,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-03-05",
+      "category": "식사",
+      "amount": 30971,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt449.jpg"
+    },
+    {
+      "id": 450,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2024-12-22",
+      "category": "문화/취미",
+      "amount": 524749,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt450.jpg"
+    },
+    {
+      "id": 451,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2025-03-19",
+      "category": "건강/운동",
+      "amount": 316327,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt451.jpg"
+    },
+    {
+      "id": 452,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-02-12",
+      "category": "기타",
+      "amount": 847814,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 453,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-22",
+      "category": "용돈",
+      "amount": 208462,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 454,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2024-12-23",
+      "category": "월급",
+      "amount": 1214282,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 455,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2025-02-04",
+      "category": "투자수익",
+      "amount": 2826808,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 456,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-02-15",
+      "category": "용돈",
+      "amount": 1577529,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 457,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-02-05",
+      "category": "주거/공과금",
+      "amount": 963152,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt457.jpg"
+    },
+    {
+      "id": 458,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-01-28",
+      "category": "식사",
+      "amount": 10095,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt458.jpg"
+    },
+    {
+      "id": 459,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-04-29",
+      "category": "쇼핑",
+      "amount": 520610,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt459.jpg"
+    },
+    {
+      "id": 460,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-01-11",
+      "category": "금융소득",
+      "amount": 1216059,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 461,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-02-22",
+      "category": "중고거래",
+      "amount": 1004192,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 462,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-01-28",
+      "category": "금융소득",
+      "amount": 2465662,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 463,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-02-22",
+      "category": "교통",
+      "amount": 408728,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt463.jpg"
+    },
+    {
+      "id": 464,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2025-04-17",
+      "category": "교통",
+      "amount": 173955,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt464.jpg"
+    },
+    {
+      "id": 465,
+      "userId": "user123",
+      "title": "건강/운동 관련 지출",
+      "date": "2024-12-04",
+      "category": "건강/운동",
+      "amount": 882162,
+      "memo": "건강/운동 관련 지출",
+      "imgUrl": "receipt465.jpg"
+    },
+    {
+      "id": 466,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-02-28",
+      "category": "금융소득",
+      "amount": 1677065,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 467,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-02-09",
+      "category": "가족",
+      "amount": 125065,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt467.jpg"
+    },
+    {
+      "id": 468,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-02-11",
+      "category": "문화/취미",
+      "amount": 751624,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt468.jpg"
+    },
+    {
+      "id": 469,
+      "userId": "user123",
+      "title": "가족 관련 지출",
+      "date": "2025-02-16",
+      "category": "가족",
+      "amount": 243704,
+      "memo": "가족 관련 지출",
+      "imgUrl": "receipt469.jpg"
+    },
+    {
+      "id": 470,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-04-28",
+      "category": "용돈",
+      "amount": 716643,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 471,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2024-12-28",
+      "category": "환급금",
+      "amount": 1397868,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 472,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-01-12",
+      "category": "부수입",
+      "amount": 765006,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 473,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-04-03",
+      "category": "환급금",
+      "amount": 1928527,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 474,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-04-13",
+      "category": "금융소득",
+      "amount": 472852,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 475,
+      "userId": "user123",
+      "title": "자기계발 관련 지출",
+      "date": "2024-12-11",
+      "category": "자기계발",
+      "amount": 618546,
+      "memo": "자기계발 관련 지출",
+      "imgUrl": "receipt475.jpg"
+    },
+    {
+      "id": 476,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-03-30",
+      "category": "금융소득",
+      "amount": 304168,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 477,
+      "userId": "user123",
+      "title": "주거/공과금 관련 지출",
+      "date": "2025-01-29",
+      "category": "주거/공과금",
+      "amount": 38969,
+      "memo": "주거/공과금 관련 지출",
+      "imgUrl": "receipt477.jpg"
+    },
+    {
+      "id": 478,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2024-12-02",
+      "category": "식사",
+      "amount": 822465,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt478.jpg"
+    },
+    {
+      "id": 479,
+      "userId": "user123",
+      "title": "교통 관련 지출",
+      "date": "2024-12-07",
+      "category": "교통",
+      "amount": 641914,
+      "memo": "교통 관련 지출",
+      "imgUrl": "receipt479.jpg"
+    },
+    {
+      "id": 480,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2024-12-06",
+      "category": "쇼핑",
+      "amount": 652491,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt480.jpg"
+    },
+    {
+      "id": 481,
+      "userId": "user123",
+      "title": "여행/유흥 관련 지출",
+      "date": "2025-03-25",
+      "category": "여행/유흥",
+      "amount": 856173,
+      "memo": "여행/유흥 관련 지출",
+      "imgUrl": "receipt481.jpg"
+    },
+    {
+      "id": 482,
+      "userId": "user123",
+      "title": "금융소득 수입",
+      "date": "2025-01-10",
+      "category": "금융소득",
+      "amount": 976604,
+      "memo": "금융소득 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 483,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-04-24",
+      "category": "중고거래",
+      "amount": 390208,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 484,
+      "userId": "user123",
+      "title": "투자수익 수입",
+      "date": "2024-12-18",
+      "category": "투자수익",
+      "amount": 1128095,
+      "memo": "투자수익 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 485,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2025-02-04",
+      "category": "중고거래",
+      "amount": 1981297,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 486,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-03-11",
+      "category": "캐시백/포인트",
+      "amount": 877352,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 487,
+      "userId": "user123",
+      "title": "중고거래 수입",
+      "date": "2024-12-04",
+      "category": "중고거래",
+      "amount": 104886,
+      "memo": "중고거래 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 488,
+      "userId": "user123",
+      "title": "문화/취미 관련 지출",
+      "date": "2025-02-18",
+      "category": "문화/취미",
+      "amount": 674680,
+      "memo": "문화/취미 관련 지출",
+      "imgUrl": "receipt488.jpg"
+    },
+    {
+      "id": 489,
+      "userId": "user123",
+      "title": "부수입 수입",
+      "date": "2025-04-15",
+      "category": "부수입",
+      "amount": 2249656,
+      "memo": "부수입 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 490,
+      "userId": "user123",
+      "title": "식사 관련 지출",
+      "date": "2025-03-09",
+      "category": "식사",
+      "amount": 646419,
+      "memo": "식사 관련 지출",
+      "imgUrl": "receipt490.jpg"
+    },
+    {
+      "id": 491,
+      "userId": "user123",
+      "title": "쇼핑 관련 지출",
+      "date": "2025-04-11",
+      "category": "쇼핑",
+      "amount": 977271,
+      "memo": "쇼핑 관련 지출",
+      "imgUrl": "receipt491.jpg"
+    },
+    {
+      "id": 492,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-03-10",
+      "category": "환급금",
+      "amount": 503582,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 493,
+      "userId": "user123",
+      "title": "기타 관련 지출",
+      "date": "2025-01-13",
+      "category": "기타",
+      "amount": 894127,
+      "memo": "기타 관련 지출",
+      "imgUrl": "receipt493.jpg"
+    },
+    {
+      "id": 494,
+      "userId": "user123",
+      "title": "상여 수입",
+      "date": "2025-02-07",
+      "category": "상여",
+      "amount": 783855,
+      "memo": "상여 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 495,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2024-12-21",
+      "category": "월급",
+      "amount": 435881,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 496,
+      "userId": "user123",
+      "title": "용돈 수입",
+      "date": "2025-01-27",
+      "category": "용돈",
+      "amount": 2406066,
+      "memo": "용돈 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 497,
+      "userId": "user123",
+      "title": "캐시백/포인트 수입",
+      "date": "2025-03-29",
+      "category": "캐시백/포인트",
+      "amount": 747603,
+      "memo": "캐시백/포인트 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 498,
+      "userId": "user123",
+      "title": "기타 수입",
+      "date": "2025-02-08",
+      "category": "기타",
+      "amount": 1738616,
+      "memo": "기타 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 499,
+      "userId": "user123",
+      "title": "환급금 수입",
+      "date": "2025-03-18",
+      "category": "환급금",
+      "amount": 831485,
+      "memo": "환급금 수입",
+      "imgUrl": ""
+    },
+    {
+      "id": 500,
+      "userId": "user123",
+      "title": "월급 수입",
+      "date": "2025-01-19",
+      "category": "월급",
+      "amount": 720375,
+      "memo": "월급 수입",
+      "imgUrl": ""
+    }
+  ],
+  "Category": [
+    { "id": 1, "name": "식사", "type": "expense", "icon": "🍚", "color": "#FF6B6B" },
+    { "id": 2, "name": "교통", "type": "expense", "icon": "🚗", "color": "#FFD93D" },
+    { "id": 3, "name": "쇼핑", "type": "expense", "icon": "🛒", "color": "#4D96FF" },
+    { "id": 4, "name": "문화/취미", "type": "expense", "icon": "🎬", "color": "#6BCB77" },
+    { "id": 5, "name": "건강/운동", "type": "expense", "icon": "💊", "color": "#F15BB5" },
+    { "id": 6, "name": "주거/공과금", "type": "expense", "icon": "🏠", "color": "#00C2A8" },
+    { "id": 7, "name": "가족", "type": "expense", "icon": "🍼", "color": "#E71D36" },
+    { "id": 8, "name": "자기계발", "type": "expense", "icon": "📚", "color": "#9B5DE5" },
+    { "id": 9, "name": "여행/유흥", "type": "expense", "icon": "✈️", "color": "#118AB2" },
+    { "id": 10, "name": "기타", "type": "expense", "icon": "❓", "color": "#008F7A" },
+    { "id": 11, "name": "월급", "type": "income", "icon": "💰", "color": "#B39CD0" },
+    { "id": 12, "name": "부수입", "type": "income", "icon": "💼", "color": "#4D8076" },
+    { "id": 13, "name": "용돈", "type": "income", "icon": "🎁", "color": "#F67280" },
+    { "id": 14, "name": "상여", "type": "income", "icon": "🏅", "color": "#355070" },
+    { "id": 15, "name": "금융소득", "type": "income", "icon": "🏦", "color": "#A3D2CA" },
+    { "id": 16, "name": "캐시백/포인트", "type": "income", "icon": "🎫", "color": "#FFD6A5" },
+    { "id": 17, "name": "투자수익", "type": "income", "icon": "📈", "color": "#FDFFB6" },
+    { "id": 18, "name": "환급금", "type": "income", "icon": "📩", "color": "#CAFFBF" },
+    { "id": 19, "name": "중고거래", "type": "income", "icon": "📦", "color": "#9BF6FF" },
+    { "id": 20, "name": "기타", "type": "income", "icon": "❓", "color": "#BDB2FF" }
+  ],
+  "Ment": [
+    {
+      "id": 1,
+      "condition": "category[0].amount >= 40000",
+      "message": "🍚 식비가 슬슬 쌓이고 있어요. 오늘은 간단하게 먹는 건 어때요?"
+    },
+    {
+      "id": 2,
+      "condition": "category[1].amount >= 30000",
+      "message": "🚗 교통비가 많아졌어요. 조금 줄이면 몸도 지갑도 가벼워질 거예요."
+    },
+    {
+      "id": 3,
+      "condition": "category[2].amount >= 50000",
+      "message": "🎬 문화생활 좋지만, 지갑이 잠시 쉬고 싶대요."
+    },
+    {
+      "id": 4,
+      "condition": "category[3].amount >= 20000",
+      "message": "🛒 편의점 지출이 늘었어요. 장보기도 고려해봐요!"
+    },
+    {
+      "id": 5,
+      "condition": "category[4].amount >= 60000",
+      "message": "💄 멋짐은 유지하되, 예산도 함께 챙겨봐요."
+    },
+    {
+      "id": 6,
+      "condition": "category[5].amount >= 30000",
+      "message": "🧻 생활용품은 필요할 때만! 장바구니를 점검해봐요."
+    },
+    {
+      "id": 7,
+      "condition": "category[6].amount >= 400000",
+      "message": "🏠 고정비가 꽤 커요. 체력처럼 예산도 아껴줘요."
+    },
+    {
+      "id": 8,
+      "condition": "category[7].amount >= 30000",
+      "message": "💊 건강을 위한 소비는 좋아요. 무리한 지출은 피해주세요."
+    },
+    {
+      "id": 9,
+      "condition": "category[8].amount >= 70000",
+      "message": "📚 교육은 투자! 계획적인 지출이면 장기들도 응원할 거예요."
+    },
+    {
+      "id": 10,
+      "condition": "category[9].amount >= 80000",
+      "message": "🎁 경조사 지출이 많네요. 마음도 지갑도 잘 챙겨주세요."
+    },
+    {
+      "id": 11,
+      "condition": "category[10].amount >= 30000",
+      "message": "👨‍👩‍👧 부모님께 드리는 정성, 예산 안에서도 충분히 전달돼요."
+    },
+    {
+      "id": 12,
+      "condition": "category[11].amount >= 15000",
+      "message": "📺 구독 서비스 점검해볼 시간이에요! 필요한 것만 유지해봐요."
+    },
+    {
+      "id": 13,
+      "condition": "category[12].amount >= 20000",
+      "message": "🐶 반려동물도 소중하지만, 계획적인 소비는 더 좋아요."
+    },
+    {
+      "id": 14,
+      "condition": "category[13].amount >= 250000",
+      "message": "✈️ 여행 경비가 늘고 있어요. 미리미리 계획하면 더 즐거워요."
+    },
+    {
+      "id": 15,
+      "condition": "category[14].amount >= 1000",
+      "message": "🙏 기부 감사합니다. 따뜻한 마음이 장기들까지 전해졌어요."
+    },
+    {
+      "id": 16,
+      "condition": "category[15].amount >= 20000",
+      "message": "🧾 업무 지출 완료! 필요한 소비였는지 점검해보세요."
+    },
+    {
+      "id": 17,
+      "condition": "category[16].amount >= 10000",
+      "message": "🎨 취미는 소중하지만, 예산 안에서 즐겨봐요."
+    },
+    {
+      "id": 18,
+      "condition": "category[17].amount >= 5000",
+      "message": "☕ 커피는 잠깐의 여유, 너무 자주면 심장이 바빠져요."
+    },
+    {
+      "id": 19,
+      "condition": "category[18].amount >= 15000",
+      "message": "🚕 택시 자주 타셨나요? 다리도 가끔은 움직여줘야 해요."
+    },
+    {
+      "id": 20,
+      "condition": "category[19].amount >= 10000",
+      "message": "🛡️ 보험은 미래를 위한 선택! 든든한 소비예요."
+    },
+    {
+      "id": 21,
+      "condition": "category[20].amount >= 15000",
+      "message": "💡 공과금 지출! 절약 습관을 들이면 장기들도 편해질 거예요."
+    },
+    {
+      "id": 22,
+      "condition": "category[21].amount >= 20000",
+      "message": "🍼 육아는 사랑이지만 예산도 지켜줘야 오래 가요."
+    },
+    {
+      "id": 23,
+      "condition": "category[22].amount >= 30000",
+      "message": "📱 전자기기 구매! 신중한 선택이 필요해요."
+    },
+    {
+      "id": 24,
+      "condition": "category[23].amount >= 25000",
+      "message": "🧹 이사/청소 지출이 생겼어요. 고생 많았어요!"
+    },
+    {
+      "id": 25,
+      "condition": "category[24].amount >= 20000",
+      "message": "🍻 유흥도 적당히! 간도, 예산도 휴식이 필요해요."
+    },
+    {
+      "id": 26,
+      "condition": "category[25].amount >= 10000",
+      "message": "📝 스터디 지출 완료! 계획적인 공부비는 뇌도 좋아해요."
+    },
+    {
+      "id": 27,
+      "condition": "category[26].amount >= 10000",
+      "message": "💿 콘텐츠 소비 중! 꼭 필요한 콘텐츠만 구독해봐요."
+    },
+    {
+      "id": 28,
+      "condition": "category[27].amount >= 15000",
+      "message": "🏋️ 운동비! 건강은 지키되 예산도 지켜줘요."
+    },
+    {
+      "id": 29,
+      "condition": "category[28].amount >= 10000",
+      "message": "👴 노후 준비! 지금부터 하나씩 준비하면 장기들도 안심해요."
+    },
+    {
+      "id": 30,
+      "condition": "category[29].amount >= 10000",
+      "message": "❓ 기타 지출이 늘고 있어요. 항목을 재정비해봐요."
+    },
+    {
+      "id": 31,
+      "condition": "category[30].amount >= 1",
+      "message": "💰 월급이 들어왔어요! 한 달의 출발이네요!"
+    },
+    {
+      "id": 32,
+      "condition": "category[31].amount >= 1",
+      "message": "💼 부수입이 생겼어요! 작아도 소중한 수입이에요."
+    },
+    {
+      "id": 33,
+      "condition": "category[32].amount >= 1",
+      "message": "🎁 용돈 받았네요! 계획 있게 써봐요."
+    },
+    {
+      "id": 34,
+      "condition": "category[33].amount >= 1",
+      "message": "🏅 상여금 입금! 수고의 보상이네요."
+    },
+    {
+      "id": 35,
+      "condition": "category[34].amount >= 1",
+      "message": "🏦 금융소득 생겼어요! 여유 있는 소비 기대할게요."
+    },
+    {
+      "id": 36,
+      "condition": "category[35].amount >= 1",
+      "message": "🎫 캐시백이 들어왔어요! 잘 챙기셨네요 😊"
+    },
+    {
+      "id": 37,
+      "condition": "category[36].amount >= 1",
+      "message": "📈 투자 수익 확인! 계획적인 투자 멋져요."
+    },
+    {
+      "id": 38,
+      "condition": "category[37].amount >= 1",
+      "message": "📩 환급금 입금 완료! 알뜰소비의 결과네요."
+    },
+    {
+      "id": 39,
+      "condition": "category[38].amount >= 1",
+      "message": "📦 중고거래 성공! 지갑도, 환경도 웃고 있어요."
+    },
+    {
+      "id": 40,
+      "condition": "category[39].amount >= 1",
+      "message": "❓ 기타 수입 발생! 어디서 온 걸까요? 기분 좋은 놀람이네요!"
+    },
+    {
+      "id": 41,
+      "condition": "totalExpense >= expenseGoal * 0.9",
+      "message": "🫀 장기들이 소리쳐요! '그만 써줘~!' 목표의 90%를 넘었어요!"
+    },
+    {
+      "id": 42,
+      "condition": "totalExpense >= expenseGoal * 0.7 && totalExpense < expenseGoal * 0.9",
+      "message": "🧠 뇌가 살짝 피곤해했어요. 지출 속도 조절이 필요해요!"
+    },
+    {
+      "id": 43,
+      "condition": "totalExpense >= expenseGoal * 0.5 && totalExpense < expenseGoal * 0.7",
+      "message": "🫁 폐가 말해요! '숨 쉴 틈은 아직 있어요~' 절반 넘었어요!"
+    },
+    {
+      "id": 44,
+      "condition": "totalExpense >= expenseGoal * 0.3 && totalExpense < expenseGoal * 0.5",
+      "message": "🦴 뼈가 느껴요! '아직 튼튼해요~' 소비 잘 관리 중이에요."
+    },
+    {
+      "id": 45,
+      "condition": "totalExpense < expenseGoal * 0.3",
+      "message": "🫀 장기들이 환호해요! '절약 짱이에요~ 지금처럼만!'"
+    }
+  ],
+  "Setting": [
+    {
+      "id": 1,
+      "userId": "user123",
+      "mode": "light"
+    }
+  ]
+}
