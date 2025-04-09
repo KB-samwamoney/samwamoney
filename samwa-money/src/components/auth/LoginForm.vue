@@ -33,7 +33,13 @@ const goToSignIn = () => {
       <div class="login-form">
         <h1>로그인</h1>
         <div class="auth-input">
-          <input v-model="userId" type="text" placeholder="아이디를 입력해주세요" class="input" />
+          <input
+            v-model="userId"
+            type="text"
+            placeholder="아이디를 입력해주세요"
+            autocomplete="username"
+            class="input"
+          />
           <input
             v-model="password"
             type="password"
