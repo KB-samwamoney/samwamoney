@@ -1,7 +1,12 @@
 <script setup></script>
 
 <template>
-  <div>로그인 폼</div>
+  <div class="login-form">
+    <p>로그인</p>
+  </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+/* .login-form {
+} */
+</style>

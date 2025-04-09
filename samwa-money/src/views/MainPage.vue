@@ -13,10 +13,9 @@
 
       <!-- 우측 내용 -->
       <main class="content-area">
-
-      <!-- searchBox -->
+        <!-- searchBox -->
         <section class="searchBox">
-          <SummaryBox />
+          <SearchBar />
         </section>
 
         <!-- 수입/지출 요약 박스 -->
@@ -36,6 +35,7 @@
 </template>
 
 <script setup>
+import SearchBar from '@/components/main/search/SearchBar.vue'
 </script>
 
 <style scoped>
@@ -67,8 +67,7 @@
 
 .searchBox {
   display: flex;
-  height: 100px;
-  background-color: rgb(177, 177, 177);
+  height: 150px;
 }
 
 .summary {

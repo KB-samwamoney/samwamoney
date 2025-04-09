@@ -1,5 +1,4 @@
 <template>
-  <<<<<<< HEAD:samwa-money/src/views/Main.vue
   <div class="main-container">
     <!-- 검색 바 컴포넌트 삽입 -->
     <SearchBar />
