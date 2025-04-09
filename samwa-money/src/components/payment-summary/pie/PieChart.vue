@@ -5,19 +5,35 @@
 </template>
 
 <script setup>
-import { onMounted } from 'vue'
+import { onMounted, watch, computed } from 'vue'
 import { useSummaryStore } from '@/stores/summaryStore'
 import { storeToRefs } from 'pinia'
+const props = defineProps({
+  type: String,
+  date: String, // 혹은 Number 타입이면 Number
+})
 
 const summaryStore = useSummaryStore()
 // 모든 카테고리를 스토어에서 일단 가져왔음
 const { currentCategory } = storeToRefs(summaryStore)
-// 수입 or 지출 값을 가져왔음
 const { currentTab } = storeToRefs(summaryStore)
+const { currentDate } = storeToRefs(summaryStore)
+// 필터링된 수입/지출값
+const { balanceList } = storeToRefs(summaryStore)
 
 onMounted(() => {
   summaryStore.filterCategory()
-  console.log('currentTab', currentTab)
+  console.log('-=-=-=-=-=-=-=-=-==--==--=-=-', balanceList.value)
+
+  console.log('!!!!!!!!!!!props.type, props.date', props.type, props.date)
+})
+
+watch([currentTab, currentDate], () => {
+  summaryStore.filterCategory() // 수입/지출 or 날짜 바뀔 때 실행
+  console.log('-=-=-=-=-=-=-=-=-==--==--=-=-', balanceList.value)
+  console.log(currentCategory.value.filter((item) => item.type === 'expense'))
+
+  console.log('!!!!!!!!!!!props.type, props.date', props.type, props.date)
 })
 
 // 차트 컴포넌트 불러오기기
@@ -25,19 +41,29 @@ import { Pie } from 'vue-chartjs'
 // chart.js에서 필요한 기능 등록
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
-// 차트에 들어갈 데이터터
-const data = {
-  // 가져온 카테고리 배열을 넣어줌
-  labels: ['Vue', 'React', 'Angular', '기타'],
-  datasets: [
-    {
-      // 카테고리 테이블에서 카테고리에 맞는 색 가져와서 배열에 넣어줘야함
-      backgroundColor: ['#41B883', '#E46651', '#00D8FF', '#003300'],
-      // 금액을
-      data: [40000, 0, 25000, 26000],
-    },
-  ],
-}
+const data = computed(() => {
+  const incomeCategories = currentCategory.value.filter((item) => item.type === 'income')
+  const expenseCategories = currentCategory.value.filter((item) => item.type === 'expense')
+  return currentTab.value === '수입'
+    ? {
+        labels: incomeCategories.map((item) => item.name),
+        datasets: [
+          {
+            backgroundColor: incomeCategories.map((item) => item.color),
+            data: currentCategory.value.filter((item) => item.type === 'income'),
+          },
+        ],
+      }
+    : {
+        labels: expenseCategories.map((item) => item.name),
+        datasets: [
+          {
+            backgroundColor: expenseCategories.map((item) => item.color),
+            data: currentCategory.value.filter((item) => item.type === 'expense'),
+          },
+        ],
+      }
+})
 // 차트 옵션
 const options = {
   responsive: true,

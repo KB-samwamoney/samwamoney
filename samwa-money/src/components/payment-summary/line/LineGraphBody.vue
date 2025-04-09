@@ -14,9 +14,7 @@ const { type } = defineProps({
 })
 watch(
   () => type,
-  (newVal) => {
-    console.log('✅ type이 바뀌었어요:', newVal)
-  },
+  (newVal) => {},
 )
 </script>
 <style scoped>
