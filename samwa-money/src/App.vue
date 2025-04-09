@@ -5,10 +5,9 @@ import MainPage from './views/MainPage.vue'
 </script>
 
 <template>
-  <div class="container">
-    <img src="./assets/img/삼와머니-로고.png" alt="삼와머니 로고" class="logo" width="100px" />
-  </div>
+  <Header />
   <MainPage />
+  <Footer />
 </template>
 
 <style scoped></style>

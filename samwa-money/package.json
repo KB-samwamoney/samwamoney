@@ -12,13 +12,13 @@
     "db": "json-server --watch db.json --port 5500"
   },
   "dependencies": {
-    "vue-chartjs": "^5.3.1",
-    "chart.js": "^4.0.0",
     "axios": "^1.8.4",
+    "chart.js": "^4.0.0",
     "json-server": "^0.17.0",
     "pinia": "^3.0.1",
     "v-calendar": "^3.1.2",
     "vue": "^3.5.13",
+    "vue-chartjs": "^5.3.1",
     "vue-router": "^4.5.0"
   },
   "devDependencies": {
