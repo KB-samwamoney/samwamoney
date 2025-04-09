@@ -42,4 +42,36 @@ const loginUser = async (credentials) => {
   }
 }
 
-export { registerUser, loginUser }
+// 비밀번호 찾기
+const findPassword = async ({ name, userId }) => {
+  try {
+    const response = await api.get('/Auth', {
+      params: { name, userId },
+    })
+    if (response.data.length > 0) {
+      // 임시로 비밀번호를 바로 반환
+      return response.data[0].password
+    } else {
+      throw new Error('일치하는 계정이 없습니다.')
+    }
+  } catch (error) {
+    console.error('비밀번호 찾기 실패:', error.response?.data || error.message)
+    throw error
+  }
+}
+
+// 비밀번호 변경
+const changePassword = async ({ userId, newPassword }) => {
+  try {
+    const response = await api.patch(`/Auth/${userId}`, {
+      password: newPassword,
+    })
+    console.log('비밀번호 변경 성공:', response.data)
+    return response.data
+  } catch (error) {
+    console.error('비밀번호 변경 실패:', error.response?.data || error.message)
+    throw error
+  }
+}
+
+export { registerUser, loginUser, findPassword, changePassword }

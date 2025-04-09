@@ -1,6 +1,6 @@
 import { ref } from 'vue'
 import { defineStore } from 'pinia'
-import { registerUser, loginUser } from '@/api/auth'
+import { registerUser, loginUser, findPassword, changePassword } from '@/api/auth'
 
 export const useAuthStore = defineStore('auth', () => {
   // 유저 관련 정보
@@ -9,6 +9,9 @@ export const useAuthStore = defineStore('auth', () => {
   const isLoggedIn = ref(!!user.value)
   // 에러 메시지 할당
   const errorMessage = ref('')
+
+  // 비밀번호 확인
+  const foundedpassword = ref('')
 
   // ✅ 로그인
   const login = async (credentials) => {
@@ -45,12 +48,25 @@ export const useAuthStore = defineStore('auth', () => {
     }
   }
 
+  // ✅ 비밀번호 찾기
+  const passwordCheck = async ({ name, userId }) => {
+    try {
+      const checkPassword = await findPassword({ name, userId })
+      foundedpassword.value = checkPassword
+      errorMessage.value = ''
+    } catch (error) {
+      errorMessage.value = error.message
+    }
+  }
+
   return {
     user,
     isLoggedIn,
     errorMessage,
+    foundedpassword,
     login,
     logout,
     register,
+    passwordCheck,
   }
 })
