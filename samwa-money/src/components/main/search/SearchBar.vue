@@ -7,12 +7,8 @@
         <option value="search_cash">금액</option>
         <option value="search_memo">메모</option>
       </select>
-      <input
-        :type="searchType === 'search_cash' ? 'number' : 'text'"
-        v-model="searchKeyword"
-        placeholder="검색어를 입력하세요."
-        class="search-input"
-      />
+      <input :type="searchType === 'search_cash' ? 'number' : 'text'" v-model="searchKeyword" placeholder="검색어를 입력하세요."
+        class="search-input" />
       <button class="search-btn" @click="handleSearch">
         <i class="fas fa-search"></i>
       </button>
@@ -30,12 +26,7 @@
       </div>
 
       <!-- 선택된 카테고리 버튼으로 표시 -->
-      <div
-        v-for="cat in categories"
-        :key="cat.id"
-        class="btn-cat"
-        @click="handleCategoryClick(cat.name)"
-      >
+      <div v-for="cat in categories" :key="cat.id" class="btn-cat" @click="handleCategoryClick(cat.name)">
         <div>{{ cat.icon }} {{ cat.name }}</div>
         <i class="fa-solid fa-xmark" @click.stop="removeCategory(cat.name)"></i>
       </div>

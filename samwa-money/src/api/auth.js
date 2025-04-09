@@ -42,4 +42,46 @@ const loginUser = async (credentials) => {
   }
 }
 
-export { registerUser, loginUser }
+// 비밀번호 찾기
+const findPassword = async ({ name, userId }) => {
+  try {
+    const response = await api.get('/Auth', {
+      params: { name, userId },
+    })
+    if (response.data.length > 0) {
+      // 임시로 비밀번호를 바로 반환
+      return response.data[0].password
+    } else {
+      throw new Error('일치하는 계정이 없습니다.')
+    }
+  } catch (error) {
+    console.error('비밀번호 찾기 실패:', error.response?.data || error.message)
+    throw error
+  }
+}
+
+// 회원정보 수정
+const changeUserInfo = async (userInfo) => {
+  try {
+    const response = await api.put(`/Auth/${userInfo.id}`, userInfo)
+    console.log('회원정보 수정 성공:', response.data)
+    return response.data
+  } catch (error) {
+    console.error('회원정보 수정 실패:', error.response?.data || error.message)
+    throw error
+  }
+}
+
+// 회원탈퇴
+const deleteUser = async (id) => {
+  try {
+    const response = await api.delete(`/Auth/${id}`)
+    console.log('회원탈퇴 성공:', response.data)
+    return true
+  } catch (error) {
+    console.error('회원탈퇴 실패:', error.response?.data || error.message)
+    throw error
+  }
+}
+
+export { registerUser, loginUser, findPassword, changeUserInfo, deleteUser }

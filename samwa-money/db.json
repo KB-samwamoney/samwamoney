@@ -3,7 +3,7 @@
     {
       "id": "1",
       "userId": "user123",
-      "password": "password123",
+      "password": "12345678",
       "name": "홍길동",
       "email": "user@example.com",
       "nickname": "UserNick",
