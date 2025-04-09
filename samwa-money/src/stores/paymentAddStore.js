@@ -1,14 +1,7 @@
 import { ref} from 'vue'
 import { defineStore } from 'pinia'
 import api from '@/utils/axios'
-
 import { useAuthStore } from '@/stores/authStore.js'
-
-
-
-
-
-
 
 
 export const usePaymentStore = defineStore('payment', () => {

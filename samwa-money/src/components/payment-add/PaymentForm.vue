@@ -2,11 +2,14 @@
 import { usePaymentStore } from '@/stores/paymentAddStore';
 import { onMounted, ref, watch } from 'vue';
 import ConfirmButton from '../button/ConfirmButton.vue';
+import { useToastStore } from '@/stores/toastStore';
+import PaymentModal from './PaymentModal.vue';
 
 const paymentStore = usePaymentStore()
+const toastStore = useToastStore()
 
 // 데이터 자장 함수
-const title = ref()
+const title = ref('')
 const titleInput = ref()
 const date = ref('')
 const category = ref('')
@@ -30,11 +33,11 @@ const handleChangeImg = (event) => {
     return
   }
   imgUrl.value = file;
-  console.log(imgUrl);
-
+  toastStore.showToast('이미지가 등록되었습니다')
 }
 //  저장된 이미지 삭제
 const imageDelete = () => {
+  toastStore.showToast('이미지가 삭제되었습니다')
   imgUrl.value = null
 }
 
@@ -50,19 +53,24 @@ const handleAmountInput = (event) => {
 }
 
 const createPayment = async () => {
-  if (!title.value.trim()) {
+  if (!String(title.value).trim()) {
+    toastStore.showToast('제목을 입력해주세요')
     return
   }
-  if (!date.value.trim()) {
+  if (!String(date.value).trim()) {
+    toastStore.showToast('날짜를 선택해주세요')
     return
   }
-  if (!amount.value.trim()) {
+  if (!String(amount.value).trim()) {
+    toastStore.showToast('금액을 입력해주세요')
     return
   }
   if (!String(category.value).trim()) {
+    toastStore.showToast('카테고리를 선택해주세요')
     return
   }
-  if (!memo.value.trim()) {
+  if (!String(memo.value).trim()) {
+    toastStore.showToast('메모를 입력해주세요')
     return
   }
 
@@ -93,6 +101,15 @@ const createPayment = async () => {
 onMounted(() => {
   titleInput.value?.focus()
 })
+const showModal = ref(false)
+
+const confirmSave = async () => {
+  showModal.value = false
+  await createPayment()
+}
+const cancelSave = () => {
+  showModal.value = false
+}
 
 </script>
 
@@ -160,8 +177,9 @@ onMounted(() => {
       </div>
       <div class="footer-btn">
         <ConfirmButton :name="'취소'" />
-        <ConfirmButton @create-payment="createPayment" :name="'완료'" />
+        <ConfirmButton @create-payment="createPayment" @click="showModal = true" :name="'완료'" />
       </div>
+      <PaymentModal :show="showModal" :message="'수입 및 지출 내용을 저장하시겠습니까?'" @confirm="confirmSave" @cancel="cancelSave" />
     </section>
   </div>
 </template>
