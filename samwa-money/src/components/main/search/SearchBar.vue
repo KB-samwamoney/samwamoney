@@ -39,6 +39,10 @@
         <div>{{ cat.icon }} {{ cat.name }}</div>
         <i class="fa-solid fa-xmark" @click.stop="removeCategory(cat.name)"></i>
       </div>
+
+      <div class="btn-catAll">
+        <div @click="removeAllCategory">전체 삭제</div>
+      </div>
     </div>
   </div>
 </template>
@@ -62,7 +66,7 @@ const selectedCategoryToAdd = ref(null) // 드롭다운에서 선택된 카테�
 // 컴포넌트가 마운트될 때 서버에서 카테고리 데이터 불러오기
 onMounted(async () => {
   try {
-    const res = await axios.get('http://localhost:3000/Category')
+    const res = await axios.get('http://localhost:5500/Category')
     allCategoryOptions.value = res.data
   } catch (error) {
     console.error('카테고리 불러오기 실패:', error)
@@ -74,7 +78,11 @@ const availableCategories = computed(() => allCategoryOptions.value)
 
 // 드롭다운에서 새 카테고리 선택되면 버튼으로 추가 (중복 방지)
 watch(selectedCategoryToAdd, (newVal) => {
-  if (newVal && !categories.value.some((cat) => cat.name === newVal.name)) {
+  if (
+    newVal &&
+    !categories.value.some((cat) => cat.name === newVal.name) &&
+    categories.value.length < 5
+  ) {
     categories.value.push(newVal)
   }
   selectedCategoryToAdd.value = null // 드롭다운 초기화
@@ -88,6 +96,14 @@ const removeCategory = (categoryName) => {
   emit('search', {
     type: 'search_category',
     keyword: categories.value.map((cat) => cat.name),
+  })
+}
+
+const removeAllCategory = () => {
+  categories.value = []
+  emit('search', {
+    type: 'search_category',
+    keyword: [],
   })
 }
 

@@ -65,8 +65,10 @@ option {
 
 .search-category {
   display: flex;
-  gap: 10px;
-  margin-top: 16px;
+  flex-wrap: wrap;
+  gap: 8px;
+  align-items: center;
+  margin-top: 10px;
 }
 
 .btn-cat {
@@ -80,6 +82,13 @@ option {
   font-size: 15px;
   white-space: nowrap;
   max-width: 100%;
+}
+
+.btn-catAll {
+  text-decoration: underline;
+  cursor: pointer;
+  position: fixed;
+  right: 120px;
 }
 
 .cat-label {
