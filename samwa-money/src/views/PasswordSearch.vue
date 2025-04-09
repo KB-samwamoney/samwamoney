@@ -1,22 +1,40 @@
 <script setup>
 import { ref } from 'vue'
+import { useAuthStore } from '@/stores/authStore.js'
+import PasswordSearchPopup from '@/components/auth/PasswordSearchPopup.vue'
 
-const password = ref('')
+const authStore = useAuthStore()
+
 const name = ref('')
+const userId = ref('')
+const showPassword = ref('')
+const showPopup = ref(false)
+
+// ✅ 비밀번호 찾기 함수
+const searchPassword = async () => {
+  await authStore.passwordCheck({ name: name.value.trim(), userId: userId.value.trim() })
+
+  if (authStore.errorMessage) {
+    alert(authStore.errorMessage)
+  } else {
+    showPassword.value = authStore.foundedpassword
+    showPopup.value = true // ✅ 이걸로 팝업 띄우기!
+  }
+}
 </script>
 
 <template>
   <div class="container">
     <h1>비밀번호 찾기</h1>
 
-    <form @submit.prevent="">
+    <form @submit.prevent="searchPassword">
       <div class="auth-input">
         <label for="name">이름</label>
         <input
           id="name"
           v-model="name"
-          type="email"
-          placeholder="이메일을 입력해주세요"
+          type="text"
+          placeholder="이름을 입력해주세요"
           class="input"
         />
 
@@ -34,6 +52,12 @@ const name = ref('')
       <button class="method-button" type="submit">찾기</button>
     </form>
   </div>
+  <PasswordSearchPopup
+    v-if="showPopup"
+    :password="showPassword"
+    :name="name"
+    @close="showPopup = false"
+  />
 </template>
 
 <style scoped>
