@@ -29,8 +29,6 @@
         </section>
       </main>
     </section>
-
-    <AddButton />
   </div>
 </template>
 

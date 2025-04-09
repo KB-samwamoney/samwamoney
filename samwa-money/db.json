@@ -1,5 +1,24 @@
 {
-  "Auth": [],
+  "Auth": [
+    {
+      "id": "a026",
+      "userId": "123",
+      "password": "123",
+      "name": "123",
+      "email": "123",
+      "nickname": "123",
+      "expense_limit": "123"
+    },
+    {
+      "id": "a8da",
+      "userId": "kb",
+      "password": "123456789",
+      "name": "kb",
+      "email": "kb@gmail.com",
+      "nickname": "kb",
+      "expense_limit": "123"
+    }
+  ],
   "Balance": [],
   "Summary": [],
   "categorySummary": [],
