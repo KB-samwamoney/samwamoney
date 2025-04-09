@@ -8,13 +8,12 @@
     <section class="main-body">
       <!-- 좌측 메뉴바 -->
       <aside class="sidebar">
-        <SidebarMenu />
+        <SideBar />
       </aside>
 
       <!-- 우측 내용 -->
       <main class="content-area">
-
-      <!-- searchBox -->
+        <!-- searchBox -->
         <section class="searchBox">
           <SummaryBox />
         </section>
@@ -37,6 +36,7 @@
 
 <script setup>
 import CalendarView from '@/components/main/calendar/CalendarView.vue';
+import SideBar from '@/components/sidebar/SideBar.vue'
 </script>
 
 <style scoped>
