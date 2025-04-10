@@ -1,21 +1,18 @@
 <script setup>
 import LogoImg from '@/assets/img/삼와머니-로고.png'
-import { useRouter, useRoute } from 'vue-router'
+import { useRouter } from 'vue-router'
 import { useAuthStore } from '@/stores/authStore'
-import { ref, onMounted, onUnmounted, computed } from 'vue'
+import { ref, onMounted, onUnmounted } from 'vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
-const route = useRoute()
-
-const isLoginPage = computed(() => route.path === '/')
 
 const goToHome = () => {
   router.push('/main')
 }
 
 const goToLogin = () => {
-  router.push('/main')
+  router.push('/')
 }
 
 const goToSignup = () => {
@@ -77,7 +74,7 @@ onUnmounted(() => {
     </div>
     <div class="nav-buttons">
       <template v-if="!authStore.isLoggedIn">
-        <button v-if="!isLoginPage" @click="goToLogin">로그인</button>
+        <button @click="goToLogin">로그인</button>
         <button @click="goToSignup">회원가입</button>
       </template>
 
