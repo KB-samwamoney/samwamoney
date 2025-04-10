@@ -26,11 +26,12 @@ import { computed, onMounted } from 'vue'
 const summaryStore = useSummaryStore()
 const { currentTab, currentDate } = storeToRefs(summaryStore)
 
+// 페이지 로딩시 값 세팅
 onMounted(() => {
   currentTab.value = '수입'
   currentDate.value = new Date()
 })
-// 날짜 정보 가져오기
+// 날짜 정보 가져오기 YYYY.MM 형태로 반환
 const formattedDate = computed(() => {
   const year = currentDate.value.getFullYear()
   const month = String(currentDate.value.getMonth() + 1).padStart(2, '0')

@@ -15,43 +15,53 @@ import { storeToRefs } from 'pinia'
 // Chart.js 등록
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
+// 데이터가 비어있는지 확인할 변수
+// 초기값 false
 const empty = ref(false)
 const summaryStore = useSummaryStore()
 const { currentCategory, currentTab, balanceList, currentDate } = storeToRefs(summaryStore)
 
-// 현재 연도-월 (예: 2025-04)
+// 날짜 정보 가져오기 YYYY-MM 형태로 반환
 const currentYearMonth = computed(() => {
   const year = currentDate.value.getFullYear()
   const month = String(currentDate.value.getMonth() + 1).padStart(2, '0')
   return `${year}-${month}`
 })
 
-// 현재 탭에 맞는 카테고리 (수입/지출)
+// 현재 탭(수입/지출)에 맞는 카테고리 배열 반환
 const filteredCategories = computed(() =>
   currentCategory.value.filter((cat) =>
     currentTab.value === '수입' ? cat.type === 'income' : cat.type === 'expense',
   ),
 )
 
-// 카테고리별 총합 계산 (현재 연도 & 월 기준)
+// 현재 선택된 연도-월과 탭(수입/지출)에 따라,
+// 각 카테고리별로 해당 월에 얼마를 썼는지(또는 벌었는지)
+// 총합을 계산해서 배열로 반환
 const categoryAmounts = computed(() => {
   return filteredCategories.value.map((cat) => {
     const total = balanceList.value
       .filter(
+        // 카테고리명이 현재 cat.name과 같은 것
+        // 날짜가 현재 연도-월인 것만 필터링
         (item) => item.category === cat.name && item.date.slice(0, 7) === currentYearMonth.value, // 연도+월 필터
       )
+      // 필터링된 항목들의 amount(금액)을 모두 더해서 총합을 계산
       .reduce((sum, item) => sum + item.amount, 0)
-
+    // 이 total 값을 배열에 하나씩 담아서 최종적으로 반환
     return total
   })
 })
 
 // 차트 데이터 구성
 const chartData = computed(() => ({
+  // 현재 탭에 맞는 카테고리 배열에서 name만 뽑아서 새 배열로 만들어줌
   labels: filteredCategories.value.map((cat) => cat.name),
   datasets: [
     {
+      // 현재 탭에 맞는 카테고리 배열에서 color만 뽑아서 새 배열로 만들어줌
       backgroundColor: filteredCategories.value.map((cat) => cat.color),
+      // 총 합을 계산한 배열을 data로 사용
       data: categoryAmounts.value,
     },
   ],
@@ -73,6 +83,8 @@ onMounted(async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
   let sum = 0
+  // categoryAmounts 값이 모두 0일 경우
+  // 데이터가 없음 문구 띄워주기 위한 로직
   for (const el of categoryAmounts.value) {
     sum += el
   }

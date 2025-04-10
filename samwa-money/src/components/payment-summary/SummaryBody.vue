@@ -1,19 +1,13 @@
 <template>
   <div class="summary-body">
-    <PieChartBody class="PieChartBody" :type="currentTab" :date="currentDate" />
-    <LineGraphBody class="LineGraphBody" :type="currentTab" :date="currentDate" />
+    <PieChartBody class="PieChartBody" />
+    <LineGraphBody class="LineGraphBody" />
   </div>
 </template>
 
 <script setup>
 import LineGraphBody from './line/LineGraphBody.vue'
 import PieChartBody from './pie/PieChartBody.vue'
-import { useSummaryStore } from '@/stores/summaryStore'
-import { storeToRefs } from 'pinia'
-
-const summaryStore = useSummaryStore()
-const { currentTab } = storeToRefs(summaryStore)
-const { currentDate } = storeToRefs(summaryStore)
 </script>
 <style scoped>
 .summary-body {

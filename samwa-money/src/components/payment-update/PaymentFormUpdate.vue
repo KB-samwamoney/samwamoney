@@ -27,16 +27,6 @@ const imgUrl = ref(null)
 const baseImg = ref(null)
 const dateInput = ref('')
 
-//이미지를 문장열로 변환해주는 로직
-const fileToBase64 = (file) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = (error) => reject(error)
-  })
-}
-
 const handleChangeImg = async (event) => {
   const file = event.target.files[0]
   if (file) {
@@ -107,7 +97,7 @@ const upDatePayment = async () => {
       icon: category.value.icon || categoryIcon.value,
       imgUrl: baseImg.value,
     }
-    await paymentStore.updatePayment(newPayment, props.id)
+    await paymentStore.updatePayment(newPayment, 100)
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
@@ -123,7 +113,7 @@ onMounted(async () => {
   if (paymentStore.paymentList.length === 0) {
     await paymentStore.fetchPayments()
   }
-  await paymentStore.serchPayment(100)
+  await paymentStore.searchPayment(100)
 
   date.value = paymentStore.findPayment.date
   amount.value = Number(paymentStore.findPayment.amount).toLocaleString()
@@ -207,7 +197,7 @@ onMounted(async () => {
         type="text"
         class="amount-input"
         placeholder="금액을 입력하세요"
-        v-model.number="amount"
+        v-model="amount"
         @input="handleAmountInput"
         value=""
       />
@@ -236,7 +226,7 @@ onMounted(async () => {
       <label class="upload-label">사진 </label>
       <label for="uploadImg" class="upload-box">
         <span v-if="!imgUrl">+</span>
-        <img v-else :src="baseImg" alt="미리보기 이미지" class="preview-img" />
+        <img v-else :src="imgUrl" alt="미리보기 이미지" class="preview-img" />
         <input type="file" id="uploadImg" hidden accept="image/*" @change="handleChangeImg" />
       </label>
       <button class="imgdelete-btn" @click="imageDelete" v-if="imgUrl">x</button>
