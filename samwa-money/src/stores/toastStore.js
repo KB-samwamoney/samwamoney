@@ -22,7 +22,6 @@ export const useToastStore = defineStore('toast', () => {
     }, duration)
   }
 
-
   const hideToast = () => {
     isVisible.value = false
     if (timer) {

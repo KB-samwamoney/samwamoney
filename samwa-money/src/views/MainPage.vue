@@ -29,6 +29,7 @@
           <SearchResult v-else :results="searchResults" />
         </section>
       </main>
+      <PlusButton class="plus-button" :circle="true" />
     </section>
   </div>
 </template>
@@ -41,6 +42,7 @@ import SideBar from '@/components/sidebar/SideBar.vue'
 import SummaryBox from '@/components/main/summary/SummaryBox.vue'
 import SearchResult from '@/components/main/search/SearchResult.vue'
 import { usePaymentStore } from '@/stores/paymentAddStore'
+import PlusButton from '@/components/button/PlusButton.vue'
 import api from '@/utils/axios.js'
 
 const paymentStore = usePaymentStore()
@@ -151,5 +153,12 @@ const handleSearch = async ({ type, keyword, categories }) => {
   flex-shrink: 0;
   flex: 1;
   padding: var(--space-l);
+}
+
+.plus-button {
+  position: fixed;
+  z-index: 1000;
+  right: var(--space-l);
+  bottom: var(--space-l);
 }
 </style>
