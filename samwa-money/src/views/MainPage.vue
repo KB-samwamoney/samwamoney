@@ -54,20 +54,20 @@ const updateViewDate = (date) => {
 }
 
 watch(selectedDate, (val) => {
-  console.log('🟦 [MainPage] selectedDate 변경됨')
+  // console.log('🟦 [MainPage] selectedDate 변경됨')
   paymentStore.viewDate = val
 })
 
 onMounted(async () => {
   paymentStore.viewDate = selectedDate.value
   await paymentStore.fetchPayments()
-  console.log('✅ [MainPage] 결제 내역 로드 완료')
+  // console.log('✅ [MainPage] 결제 내역 로드 완료')
 })
 
 watch(
   () => paymentStore.viewDate,
   (val) => {
-    console.log('📌 viewDate 변경됨:', val)
+    // console.log('📌 viewDate 변경됨:', val)
   },
   { immediate: true },
 )
@@ -80,7 +80,7 @@ const handleSearch = async ({ type, keyword, categories }) => {
   const res = await api.get('/Balance')
   const data = res.data
 
-  console.log('✅ 전달된 categories:', categories)
+  // console.log('✅ 전달된 categories:', categories)
 
   const filtered = data.filter((item) => {
     // ✅ 카테고리 필터: 선택된 게 없으면 전체 통과

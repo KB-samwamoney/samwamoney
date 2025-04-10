@@ -63,8 +63,8 @@ const goBack = () => {
         </div>
       </div>
       <div class="action-buttons">
-        <button class="go-back" @click="goBack">뒤로가기</button>
-        <button class="save-button" @click="saveMode">저장하기</button>
+        <button class="go-back" @click="goBack">뒤로</button>
+        <button class="save-button" @click="saveMode">저장</button>
       </div>
     </div>
   </div>
