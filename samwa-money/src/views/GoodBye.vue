@@ -21,7 +21,7 @@ const handleWithdraw = async () => {
 
   await authStore.withdraw()
   alert(`${nickname}님 탈퇴되었습니다. 안녕히 가세요`)
-  router.push('/')
+  router.push('/main')
 }
 </script>
 

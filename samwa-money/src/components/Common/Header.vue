@@ -7,11 +7,11 @@ const router = useRouter()
 const authStore = useAuthStore()
 
 const goToHome = () => {
-  router.push('/')
+  router.push('/main')
 }
 
 const goToLogin = () => {
-  router.push('/auth')
+  router.push('/main')
 }
 
 const goToSignup = () => {
@@ -20,7 +20,7 @@ const goToSignup = () => {
 
 const handleLogout = () => {
   authStore.logout()
-  router.push('/auth')
+  router.push('/main')
 }
 </script>
 

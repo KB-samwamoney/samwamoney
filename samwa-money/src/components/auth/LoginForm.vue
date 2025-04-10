@@ -13,7 +13,7 @@ const handleLogin = async () => {
 
   if (authStore.isLoggedIn) {
     console.log('로그인 성공!')
-    router.push('/')
+    router.push('/main')
   } else {
     alert(authStore.errorMessage)
   }
