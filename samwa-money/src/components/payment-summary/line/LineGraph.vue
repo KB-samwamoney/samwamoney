@@ -121,6 +121,10 @@ watch([currentTab, currentDate], async () => {
 <style scoped>
 .line-chart {
   width: 100%;
-  height: 300px;
+  height: 350px;
+  background-color: var(--white);
+  border: 1px solid var(--light-yellow);
+  padding: var(--space-m);
+  border-radius: 12px;
 }
 </style>

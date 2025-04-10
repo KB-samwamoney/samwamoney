@@ -18,11 +18,13 @@ import SummaryHeader from '@/components/payment-summary/SummaryHeader.vue'
 </template>
 
 <style scoped>
+.wrap {
+  width: 100%;
+}
 .main-body {
   display: flex;
 }
 .sidebar {
   width: 300px;
-  background-color: #fff6da;
 }
 </style>

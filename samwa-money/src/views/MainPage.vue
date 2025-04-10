@@ -19,11 +19,7 @@
         </section>
         <!-- 수입/지출 요약 박스 -->
         <section class="summary">
-          <SummaryBox
-            v-if="summaryItems.length"
-            :month="currentMonth"
-            :items="summaryItems"
-          />
+          <SummaryBox v-if="summaryItems.length" :month="currentMonth" :items="summaryItems" />
         </section>
 
         <!-- 캘린더, 월별 리스트, 검색박스 -->
@@ -39,15 +35,15 @@
 import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
-import SummaryBox from '@/components/main/summary/SummaryBox.vue';
+import SummaryBox from '@/components/main/summary/SummaryBox.vue'
 
-import { ref } from 'vue';
+import { ref } from 'vue'
 
-const currentMonth = ref(4); // 예시로 4월
+const currentMonth = ref(4) // 예시로 4월
 const summaryItems = ref([
   { date: '2025-04-01', type: '수입', amount: 3000000 },
-  { date: '2025-04-05', type: '지출', amount: 2500000 }
-]);
+  { date: '2025-04-05', type: '지출', amount: 2500000 },
+])
 </script>
 
 <style scoped>
@@ -68,7 +64,6 @@ const summaryItems = ref([
 
 .sidebar {
   width: 300px;
-  background-color: #fff6da;
 }
 
 .content-area {

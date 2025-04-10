@@ -18,9 +18,12 @@ const { currentDate } = storeToRefs(summaryStore)
 <style scoped>
 .summary-body {
   display: flex;
+  padding: var(--space-l);
+  padding-top: 0;
   gap: 2rem; /* 차트 사이 여백 */
   justify-content: space-between;
   align-items: flex-start; /* 필요시 조정 */
+  max-width: 1100px;
 }
 /* 각 영역의 고정 너비를 줄 수도 있음 */
 .summary-body > * {
