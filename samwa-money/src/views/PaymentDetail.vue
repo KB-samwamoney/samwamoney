@@ -11,7 +11,7 @@ const paymentId = ref(route.params.id)
 
 
 <template>
-  <PaymentDetailList :id="paymentId" />
+  <PaymentDetailList :id="Number(paymentId)" />
 </template>
 
 <style scoped></style>
