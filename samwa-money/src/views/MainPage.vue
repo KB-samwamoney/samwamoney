@@ -19,13 +19,19 @@
         <section class="resultBox">
           <!-- 1. 검색 전 → CalendarView -->
           <CalendarView
-            v-if="searchResults === null"
-            v-model:selectedDate="selectedDate"
-            @update:viewDate="updateViewDate"
+            :selectedDate="selectedDate"
+            @update:selectedDate="selectedDate = $event"
+            @update:viewDate="viewDate = $event"
           />
 
           <!-- 2. 검색 결과 → SearchResult 보여주기 -->
-          <SearchResult v-else :results="searchResults" />
+          <SearchResult v-if="searchResults && searchResults.length" :results="searchResults" />
+          <CalendarView
+            v-else
+            :selectedDate="selectedDate"
+            @update:selectedDate="selectedDate = $event"
+            @update:viewDate="viewDate = $event"
+          />
         </section>
       </main>
     </section>
@@ -34,6 +40,9 @@
 
 <script setup>
 import { ref, computed, onMounted, watch } from 'vue'
+const viewDate = ref(new Date())
+const selectedDate = ref(new Date())
+const searchResults = ref(null)
 import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
