@@ -4,10 +4,12 @@
     <v-calendar
       class="calendar"
       mode="month"
-      v-model="selectedDate"
+      :model-value="props.selectedDate.getTime()"
       show-six-weeks
       is-expanded
       style="height: 100%; width: 100%;"
+      @update:view-date="handleViewDateChange"
+      @update:model-value="handleModelValueChange"
     >
       <!-- 날짜 셀 커스터마이징 -->
       <template #day-content="{ day }">
@@ -37,16 +39,21 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { onMounted, computed, watch } from 'vue'
 import { usePaymentStore } from '@/stores/paymentAddStore'
 
-// 선택된 날짜
-const selectedDate = ref(new Date())
+// 부모로부터 선택된 날짜를 props로 받음
+const props = defineProps({
+  selectedDate: Date
+})
+
+// 부모에게 선택된 날짜를 업데이트로 전달
+const emit = defineEmits(['update:selectedDate', 'update:viewDate'])
 
 // Pinia 스토어에서 결제 데이터 사용
 const paymentStore = usePaymentStore()
 
-// 컴포넌트가 마운트될 때 사용자 결제 데이터 불러오기
+// 최초 마운트 시 결제 내역 불러오기
 onMounted(async () => {
   await paymentStore.fetchPayments()
   console.log('불러온 결제 데이터:', paymentStore.paymentList)
@@ -54,12 +61,12 @@ onMounted(async () => {
 
 // 날짜 클릭 시 선택된 날짜 변경
 const selectDate = (date) => {
-  selectedDate.value = date
+  emit('update:selectedDate', date)
 }
 
 // 날짜가 현재 선택된 날짜인지 확인
 const isSelected = (date) => {
-  return formatDate(date) === formatDate(selectedDate.value)
+  return formatDate(date) === formatDate(props.selectedDate)
 }
 
 // 날짜를 'YYYY-MM-DD' 형식으로 변환
@@ -74,6 +81,21 @@ const hasTransaction = (date) => {
   return Array.isArray(transactionMap.value[key]) && transactionMap.value[key].length > 0
 }
 
+// 월이 바뀌었을 때 (〈 〉 또는 월 선택)
+const handleViewDateChange = (newViewDate) => {
+  const newDate = new Date(newViewDate)
+  emit('update:selectedDate', newDate)
+  emit('update:viewDate', newDate)
+}
+
+// model-value 변경 시 수동 처리
+const handleModelValueChange = (val) => {
+  const date = new Date(val)
+  emit('update:selectedDate', date)
+  emit('update:viewDate', date)
+  console.log('📆 [CalendarBody] @update:model-value 강제 트리거됨:', date)
+}
+
 // 카테고리 이름으로 수입/지출 구분
 const isIncome = (category) => {
   const incomeCategories = [
@@ -86,19 +108,12 @@ const isIncome = (category) => {
 // paymentList 데이터를 날짜별로 정리한 객체로 변환 (ex. { '2025-04-09': [{...}, {...}] })
 const transactionMap = computed(() => {
   const map = {}
-
   paymentStore.paymentList.forEach((item) => {
     const date = formatDate(item.date)
     const type = isIncome(item.category) ? 'income' : 'expense'
-
     if (!map[date]) map[date] = []
-
-    map[date].push({
-      type,
-      amount: item.amount
-    })
+    map[date].push({ type, amount: item.amount })
   })
-
   return map
 })
 
@@ -107,10 +122,14 @@ const getTransactionsByDate = (date) => {
   const key = formatDate(date)
   return transactionMap.value[key] || []
 }
+
+watch(() => props.selectedDate, (val) => {
+  console.log('🟨 props.selectedDate 변경됨:', val)
+})
 </script>
 
 <style>
-/* 전체 달력 컨테이너 */
+/* 스타일 동일 */
 .calendar-container {
   width: 100%;
   height: 100%;
@@ -118,13 +137,11 @@ const getTransactionsByDate = (date) => {
   flex-direction: column;
 }
 
-/* 달력 기본 사이즈 */
 .calendar {
   width: 100%;
   height: 100%;
 }
 
-/* 달력 레이아웃 스타일 */
 .vc-container {
   width: 100% !important;
   height: 100% !important;
@@ -134,7 +151,6 @@ const getTransactionsByDate = (date) => {
   box-sizing: border-box;
 }
 
-/* 주, 일 구조 */
 .vc-weeks {
   flex: 1 !important;
   display: flex;
@@ -147,7 +163,6 @@ const getTransactionsByDate = (date) => {
   display: flex;
 }
 
-/* 각 날짜 셀 */
 .vc-day {
   flex: 1 !important;
   display: flex;
@@ -157,7 +172,6 @@ const getTransactionsByDate = (date) => {
   box-sizing: border-box;
 }
 
-/* 날짜 셀 안쪽 */
 .day-cell {
   flex: 1;
   height: 100%;
@@ -172,13 +186,11 @@ const getTransactionsByDate = (date) => {
   background-color: var(--light-white);
 }
 
-/* 선택된 날짜 강조 */
 .day-cell.selected {
   background-color: var(--baby-pink);
   border: 2px solid var(--light-yellow);
 }
 
-/* 달력 상단 월/년 헤더 */
 .vc-header {
   margin-bottom: 50px !important;
   font-weight: bold;
@@ -193,13 +205,11 @@ const getTransactionsByDate = (date) => {
   font-weight: 600;
 }
 
-/* 날짜 숫자 */
 .day-number {
   font-weight: bold;
   margin-bottom: 4px;
 }
 
-/* 거래 내역 텍스트 스타일 */
 .transactions {
   font-size: 12px;
   display: flex;
@@ -207,12 +217,10 @@ const getTransactionsByDate = (date) => {
   gap: 2px;
 }
 
-/* 수입 스타일 */
 .income {
   color: var(--blue);
 }
 
-/* 지출 스타일 */
 .expense {
   color: var(--danger);
 }

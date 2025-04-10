@@ -19,7 +19,7 @@
 </template>
 
 <script setup>
-import { computed } from 'vue'
+import { computed, watch } from 'vue'
 
 const props = defineProps({
   month: {
@@ -43,6 +43,10 @@ const expenseTotal = computed(() =>
     .filter(item => item.type === '지출')
     .reduce((sum, item) => sum + item.amount, 0)
 )
+
+watch(() => props.items, (val) => {
+  console.log('📦 [SummaryBox] props.items 변경됨:', val)
+}, { deep: true, immediate: true })
 </script>
 
 <style scoped>
