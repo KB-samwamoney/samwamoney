@@ -28,7 +28,7 @@ const route = useRoute()
   width: 100%;
   height: 100%;
   padding: 1.5rem;
-  background-color: #fefaf2;
+  background-color: var(--lighter-yellow);
   font-weight: bold;
 }
 
