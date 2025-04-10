@@ -1,21 +1,16 @@
 <template>
   <div class="calendar-view">
-    <CalendarHeader
-      :currentMode="mode"
-      @updateMode="mode = $event"
-    />
+    <CalendarHeader :currentMode="mode" @updateMode="mode = $event" />
 
     <div v-if="mode === 'calendar'" class="calendar-content">
       <CalendarBody
         :selectedDate="props.selectedDate"
-        @update:selectedDate="val => emit('update:selectedDate', val)"
-        @update:viewDate="val => emit('update:viewDate', val)"
+        @update:selectedDate="(val) => emit('update:selectedDate', val)"
+        @update:viewDate="(val) => emit('update:viewDate', val)"
       />
     </div>
 
-    <MonthlyBody
-      v-if="mode === 'monthly'"
-    />
+    <MonthlyBody v-if="mode === 'monthly'" />
   </div>
 </template>
 
@@ -28,8 +23,8 @@ import MonthlyBody from './MonthlyBody.vue'
 const props = defineProps({
   selectedDate: {
     type: Date,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const mode = ref('calendar')
