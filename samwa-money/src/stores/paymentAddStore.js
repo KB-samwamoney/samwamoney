@@ -33,8 +33,7 @@ export const usePaymentStore = defineStore('payment', () => {
       loading.value = false
     }
   }
-
-  // 정보 저장하기
+  // 지출 및 수입 정보 저장하기
   const createPayment = async (paymentData) => {
     loading.value = true
     error.value = null
@@ -161,6 +160,33 @@ export const usePaymentStore = defineStore('payment', () => {
     { deep: true, immediate: true },
   )
 
+  // 상세정보 수정하기
+const updatePayment = async (updateVal, id) => {
+  loading.value = true
+  error.value = null
+
+  try {
+    const updatedPayment = {
+      userId: authStore.user.userId,
+      ...updateVal
+    }
+    const response = await api.put(`/Balance/${id}`, updatedPayment)
+    console.log("수정된 데이터----",response.data);
+
+
+    const index = paymentList.value.findIndex(item => item.id == id)
+    if (index !== -1) {
+      paymentList.value[index] = {
+        ...paymentList.value[index],
+        ...response.data
+      }
+    }
+  } catch (err) {
+    console.log('수정에 실패했습니다', err)
+  } finally {
+    loading.value = false
+  }
+}
   return {
     loading,
     error,
@@ -181,5 +207,6 @@ export const usePaymentStore = defineStore('payment', () => {
     searchPayment,
     isIncome,
     setViewDate,
+    updatePayment
   }
 })
