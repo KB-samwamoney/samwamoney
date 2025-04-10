@@ -12,7 +12,9 @@
         v-model="searchKeyword"
         placeholder="검색어를 입력하세요."
         class="search-input"
+        @keydown.enter="handleSearch"
       />
+
       <button class="search-btn" @click="handleSearch">
         <i class="fas fa-search"></i>
       </button>
@@ -51,14 +53,11 @@
 import { ref, computed, watch, onMounted } from 'vue'
 import axios from 'axios'
 
-// 부모 컴포넌트로 검색 이벤트 보내기 위한 emit 선언
-const emit = defineEmits(['search'])
+const emit = defineEmits(['search', 'emit'])
 
-// 검색 관련 반응형 변수 선언
-const searchType = ref('search_title') // 기본값: 제목
-const searchKeyword = ref('') // 입력된 검색어
+const searchType = ref('search_title')
+const searchKeyword = ref('')
 
-// 카테고리 관련 반응형 변수 선언
 const categories = ref([]) // 사용자가 선택한 카테고리 목록
 const allCategoryOptions = ref([]) // 전체 카테고리
 const selectedCategoryToAdd = ref(null) // 드롭다운에서 선택된 카테고리
@@ -101,17 +100,27 @@ const removeCategory = (categoryName) => {
 
 const removeAllCategory = () => {
   categories.value = []
-  emit('search', {
-    type: 'search_category',
-    keyword: [],
-  })
+  searchKeyword.value = ''
+
+  emit('reset')
 }
 
-// 검색 버튼 눌렀을 때 실행 → 부모로 검색 emit
 const handleSearch = () => {
+  const selectedCategories = categories.value.map((cat) => cat.name)
+  const isKeywordEmpty = searchKeyword.value.trim() === ''
+  const isCategoryEmpty = selectedCategories.length === 0
+
+  // 검색어도 없고, 카테고리도 선택 안 했으면 새로고침
+  if (isKeywordEmpty && isCategoryEmpty) {
+    window.location.reload()
+    return
+  }
+
+  // 검색어 + 카테고리 모두 전달
   emit('search', {
     type: searchType.value,
     keyword: searchKeyword.value,
+    categories: selectedCategories,
   })
 }
 

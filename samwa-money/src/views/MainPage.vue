@@ -15,11 +15,7 @@
       <main class="content-area">
         <!-- searchBox -->
         <section class="searchBox">
-          <SearchBar @search="handleSearch" />
-        </section>
-
-        <section class="resultBox">
-          <SearchResult :results="searchResults" />
+          <SearchBar @search="handleSearch" @reset="handleReset" />
         </section>
 
         <!-- 수입/지출 요약 박스 -->
@@ -27,9 +23,12 @@
           <SummaryBox v-if="summaryItems.length" :month="currentMonth" :items="summaryItems" />
         </section>
 
-        <!-- 캘린더, 월별 리스트, 검색박스 -->
-        <section class="calendar">
-          <CalendarView />
+        <section class="resultBox">
+          <!-- 1. 검색 전 → CalendarView -->
+          <CalendarView v-if="searchResults === null" />
+
+          <!-- 2. 검색 결과 → SearchResult 보여주기 -->
+          <SearchResult v-else :results="searchResults" />
         </section>
       </main>
     </section>
@@ -53,21 +52,41 @@ const summaryItems = ref([
 ])
 
 // search 관련 반응형 변수 선언
-const searchResults = ref([])
+const searchResults = ref(null)
 
-const handleSearch = async ({ type, keyword }) => {
+const handleReset = () => {
+  searchResults.value = null
+}
+
+const handleSearch = async ({ type, keyword, categories }) => {
   const res = await axios.get('http://localhost:5500/Balance')
-  const data = res.data
+  let data = res.data
 
-  if (type === 'search_category') {
-    searchResults.value = data.filter((item) => keyword.includes(item.category))
-  } else if (type === 'search_title') {
-    searchResults.value = data.filter((item) => item.title.includes(keyword))
-  } else if (type === 'search_cash') {
-    searchResults.value = data.filter((item) => item.amount === Number(keyword))
-  } else if (type === 'search_memo') {
-    searchResults.value = data.filter((item) => item.memo.includes(keyword))
+  if (type === 'search_all') {
+    searchResults.value = data.sort((a, b) => new Date(b.date) - new Date(a.date))
+    return
   }
+
+  // 기본 필터링
+  let filtered = data.filter((item) => {
+    const categoryMatched =
+      !categories || categories.length === 0 || categories.includes(item.category)
+
+    let keywordMatched = true
+    if (type === 'search_title') {
+      keywordMatched = item.title.includes(keyword)
+    } else if (type === 'search_memo') {
+      keywordMatched = item.memo.includes(keyword)
+    } else if (type === 'search_cash') {
+      keywordMatched = item.amount === Number(keyword)
+    } else if (type === 'search_category') {
+      keywordMatched = true
+    }
+
+    return categoryMatched && keywordMatched
+  })
+
+  searchResults.value = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
 }
 </script>
 
@@ -85,17 +104,21 @@ const handleSearch = async ({ type, keyword }) => {
 .main-body {
   display: flex;
   flex: 1;
+  min-height: 0; /* 콘텐츠가 늘어져도 부모 영역 초과 못 하게 */
+  overflow: hidden; /* 필요시 스크롤 조절 */
 }
 
 .sidebar {
   width: 300px;
   background-color: #fff6da;
+  flex-shrink: 0; /* 절대 줄어들지 않도록 설정 */
 }
 
 .content-area {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto; /* 내부 콘텐츠가 넘칠 때 스크롤 가능하게 */
 }
 
 .searchBox {
@@ -116,5 +139,6 @@ const handleSearch = async ({ type, keyword }) => {
 .resultBox {
   padding: 1rem;
   flex-shrink: 0;
+  flex: 1; /* 남은 공간 꽉 채우게 */
 }
 </style>

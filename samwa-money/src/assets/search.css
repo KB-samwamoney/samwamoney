@@ -1,6 +1,6 @@
 /* 검색 전체 부분 */
 .search-bar {
-  background-color: #fef9ee;
+  background-color: var(--light-white);
   padding: 20px;
   width: 100%;
   max-width: 900px;
@@ -13,11 +13,11 @@
   display: flex;
   align-items: center;
   border: 1px solid #ffe066;
-  border-radius: 10px;
+  border-radius: var(--radius);
   overflow: hidden;
-  margin-bottom: 16px;
+  margin-bottom: var(--space-m);
   padding-left: 10px;
-  gap: 8px;
+  gap: var(--space-s);
 }
 
 /* 검색 부분 */
@@ -25,7 +25,7 @@
   flex: 1;
   border: none;
   padding: 12px;
-  font-size: 16px;
+  font-size: var(--space-m);
 }
 
 /* 검색 버튼 */
@@ -41,15 +41,15 @@
 option {
   background-color: white;
   color: black;
-  font-size: 16px;
-  padding: 8px;
+  font-size: var(--space-m);
+  padding: var(--space-s);
 }
 
 /* 카테고리 추가 */
 .search-category {
   display: flex;
   flex-wrap: wrap;
-  gap: 8px;
+  gap: var(--space-s);
   align-items: center;
   margin-top: 10px;
 }
@@ -61,7 +61,7 @@ option {
   gap: 6px;
   padding: 6px 12px;
   border: 1px dashed #aaa;
-  border-radius: 12px;
+  border-radius: var(--radius);
   background-color: #fff8e7;
   font-size: 15px;
   white-space: nowrap;
@@ -87,6 +87,6 @@ option {
 }
 
 .fa-xmark {
-  font-size: 14px;
+  font-size: var(--space-m);
   cursor: pointer;
 }
