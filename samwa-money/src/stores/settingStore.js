@@ -9,7 +9,7 @@ export const useSettingStore = defineStore('setting', () => {
   const applyTheme = () => {
     const root = document.documentElement
     if (mode.value === 'dark') {
-      root.style.setProperty('--white', '#a7a7a7')
+      root.style.setProperty('--white', '#2C2C2E')
       root.style.setProperty('--light-white', '#121212') // 더 어두운 배경색
       root.style.setProperty('--baby-pink', '#2c2022') // 어두운 핑크 계열
       root.style.setProperty('--light-yellow', '#ffb300') // 어두워진 노란색

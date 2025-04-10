@@ -68,6 +68,7 @@ button {
   border-bottom: 3px solid transparent;
   transition: all 0.2s;
   font-family: 'Pretendard', sans-serif;
+  color: var(--black);
 }
 
 button.active {

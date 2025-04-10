@@ -13,21 +13,25 @@ const router = createRouter({
       path: '/main',
       name: 'main',
       component: () => import('@/views/MainPage.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/my-page',
       name: 'my-page',
       component: () => import('@/views/MyPage.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/good-bye',
       name: 'good-bye',
       component: () => import('@/views/GoodBye.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/profile-edit',
       name: 'profile-edit',
       component: () => import('@/views/ProfileEdit.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/sign-in',
@@ -43,31 +47,37 @@ const router = createRouter({
       path: '/payment-add',
       name: 'payment-add',
       component: () => import('@/views/PaymentAdd.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/payment-summary',
       name: 'payment-summary',
       component: () => import('@/views/PaymentSummary.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/payment-detail/:id',
       name: 'payment-detail',
       component: () => import('@/views/PaymentDetail.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/payment-update/:id',
       name: 'payment-update',
       component: () => import('@/views/PaymentUpdate.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/daily-payment',
       name: 'daily-payment',
       component: () => import('@/views/DailyPayment.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/setting',
       name: 'setting',
-      component: () => import('@/views/Setting.vue'),
+      component: () => import('@/views/SettingView.vue'),
+      meta: { requiresAuth: true },
     },
     {
       path: '/terms',
@@ -86,14 +96,14 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   const isLoggedIn = authStore.isLoggedIn
 
-  const guestOnlyRoutes = ['/sign-in', '/', '/password-search']
+  const guestOnlyRoutes = ['/', '/sign-in', '/password-search']
 
-  if (!isLoggedIn && !guestOnlyRoutes.includes(to.path)) {
-    alert('로그인하세요.')
-    next('/')
+  if (to.meta.requiresAuth && !isLoggedIn) {
+    // 로그인 필요하지만 안 한 경우
+    next('/sign-in')
   } else if (isLoggedIn && guestOnlyRoutes.includes(to.path)) {
-    alert('이미 로그인 되었습니다.')
-    next('/')
+    // 로그인 했는데 다시 로그인/비번찾기/회원가입 가려고 할 때
+    next('/main')
   } else {
     next()
   }

@@ -215,6 +215,7 @@ const handleDateClick = (date) => {
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
+  background-color: var(--white);
 }
 
 .vc-weeks {
@@ -236,6 +237,7 @@ const handleDateClick = (date) => {
   min-height: 120px;
   padding: 4px;
   box-sizing: border-box;
+  color: var(--black);
 }
 
 .day-cell {
@@ -269,6 +271,10 @@ const handleDateClick = (date) => {
 .vc-title {
   font-size: 20px;
   font-weight: 600;
+}
+
+.vc-title span {
+  color: var(--black);
 }
 
 .day-number {

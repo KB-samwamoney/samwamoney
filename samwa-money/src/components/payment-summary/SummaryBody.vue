@@ -12,13 +12,12 @@ import PieChartBody from './pie/PieChartBody.vue'
 <style scoped>
 .summary-body {
   display: flex;
+  flex-wrap: wrap;
   padding: var(--space-l);
   padding-top: 0;
-  gap: 2rem; /* 차트 사이 여백 */
-  justify-content: space-between;
-  align-items: flex-start; /* 필요시 조정 */
-  background-color: var(--light-white);
-  max-width: 1100px;
+  gap: 2rem;
+  justify-content: center;
+  align-items: flex-start;
 }
 /* 각 영역의 고정 너비를 줄 수도 있음 */
 .summary-body > * {

@@ -24,11 +24,16 @@
   border: none;
   padding: 12px;
   font-size: var(--space-m);
+  background-color: var(--white);
+  outline: none;
 }
 
 .search-select {
   border-radius: var(--space-s);
   font-family: 'Pretendard', sans-serif;
+  background-color: var(--white);
+  color: var(--black);
+  outline: none;
 }
 
 /* 검색 버튼 */
@@ -42,8 +47,8 @@
 
 /* 옵션 태그 */
 option {
-  background-color: white;
-  color: black;
+  background-color: var(--white);
+  color: var(--black);
   font-size: var(--space-m);
   padding: var(--space-s);
 }
@@ -102,4 +107,6 @@ option {
   border-radius: var(--space-s);
   text-align: center;
   font-weight: bold;
+  background-color: var(--white);
+  color: var(--black);
 }

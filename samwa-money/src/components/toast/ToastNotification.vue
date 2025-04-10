@@ -1,32 +1,22 @@
 <script setup>
-import { useToastStore } from '@/stores/toastStore'
-import { storeToRefs } from 'pinia'
+defineProps({
+  message: String,
+  type: {
+    type: String,
+    default: 'success',
+  },
+  isVisible: Boolean,
+})
 
-const toastStore = useToastStore()
-const { message, type, isVisible } = storeToRefs(toastStore)
-
-const getTypeClass = () => {
-  switch (type.value) {
-    case 'success':
-      return 'toast-success'
-    case 'error':
-      return 'toast-error'
-    case 'info':
-      return 'toast-info'
-    default:
-      return 'toast-success'
-  }
-}
+const emit = defineEmits(['close'])
 </script>
 
 <template>
   <Transition name="toast">
-    <div v-if="isVisible" class="toast-container" :class="getTypeClass()">
+    <div v-if="isVisible" class="toast-container" :class="`toast-${type}`">
       <div class="toast-content">
         <div class="toast-message">{{ message }}</div>
-        <button class="toast-close" @click="toastStore.hideToast">
-          &times;
-        </button>
+        <button class="toast-close" @click="emit('close')">&times;</button>
       </div>
     </div>
   </Transition>
@@ -69,21 +59,21 @@ const getTypeClass = () => {
 }
 
 .toast-success {
-  background-color: #d4edda;
-  color: #155724;
-  border: 1px solid #c3e6cb;
+  background-color: var(--real-yellow);
+  color: var(--black);
+  border: 1px solid var(--white);
 }
 
 .toast-error {
-  background-color: #f8d7da;
-  color: #721c24;
-  border: 1px solid #f5c6cb;
+  background-color: var(--baby-pink);
+  color: var(--danger);
+  border: 1px solid var(--baby-pink);
 }
 
 .toast-info {
-  background-color: #d1ecf1;
-  color: #0c5460;
-  border: 1px solid #bee5eb;
+  background-color: var(--white);
+  color: var(--blue);
+  border: 1px solid var(--white);
 }
 
 /* 애니메이션 효과 */
