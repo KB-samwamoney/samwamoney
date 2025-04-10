@@ -6,13 +6,13 @@ const router = createRouter({
   routes: [
     {
       path: '/',
-      name: 'main',
-      component: () => import('@/views/MainPage.vue'),
-    },
-    {
-      path: '/auth',
       name: 'auth',
       component: () => import('@/views/Auth.vue'),
+    },
+    {
+      path: '/main',
+      name: 'main',
+      component: () => import('@/views/MainPage.vue'),
     },
     {
       path: '/my-page',
@@ -86,11 +86,11 @@ router.beforeEach((to, from, next) => {
   const authStore = useAuthStore()
   const isLoggedIn = authStore.isLoggedIn
 
-  const guestOnlyRoutes = ['/sign-in', '/auth', '/password-search']
+  const guestOnlyRoutes = ['/sign-in', '/', '/password-search']
 
   if (!isLoggedIn && !guestOnlyRoutes.includes(to.path)) {
     alert('로그인하세요.')
-    next('/auth')
+    next('/')
   } else if (isLoggedIn && guestOnlyRoutes.includes(to.path)) {
     alert('이미 로그인 되었습니다.')
     next('/')

@@ -2,6 +2,7 @@
 import { usePaymentStore } from '@/stores/paymentAddStore';
 import { onMounted, ref, watch } from 'vue';
 import ConfirmButton from '../button/ConfirmButton.vue';
+import ConfirmButton from '../button/ConfirmButton.vue';
 import { useToastStore } from '@/stores/toastStore';
 import PaymentModal from './PaymentModal.vue';
 import { useRouter } from 'vue-router';
@@ -201,6 +202,10 @@ const cancelSave = () => {
 
         <button class="imgdelete-btn" @click="imageDelete" v-if="imgUrl">x</button>
 
+      </div>
+      <div class="footer-btn">
+        <ConfirmButton :name="'취소'" />
+        <ConfirmButton @create-payment="createPayment" :name="'완료'" />
       </div>
       <div class="footer-btn">
         <ConfirmButton :name="'취소'" />

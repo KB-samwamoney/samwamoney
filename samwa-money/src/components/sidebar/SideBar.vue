@@ -7,7 +7,7 @@ const route = useRoute()
 <template>
   <nav class="sidebar">
     <ul>
-      <li :class="{ active: route.path === '/' }">
+      <li :class="{ active: route.path === '/main' }">
         <router-link to="/">위장부</router-link>
       </li>
       <li :class="{ active: route.path === '/payment-summary' }">
