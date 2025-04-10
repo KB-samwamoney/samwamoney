@@ -1,6 +1,6 @@
 <template>
   <div class="line-chart">
-    <Line :data="chartData" :options="options" />
+    <Line v-if="!empty" :data="chartData" :options="options" />
     <div v-if="empty" class="empty">데이터가 존재하지 않습니다.</div>
   </div>
 </template>
@@ -118,6 +118,8 @@ onMounted(async () => {
   }
   if (sum === 0) {
     empty.value = true
+  } else {
+    empty.value = false
   }
 })
 
