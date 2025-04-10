@@ -26,8 +26,10 @@ watch(
 </script>
 <style scoped>
 .line-graph-body {
+  background-color: var(--lighter-yellow);
+  margin: var(--space-s);
+  padding: var(--space-m);
   display: flex;
-  gap: 2rem; /* 차트 사이 여백 */
   flex-direction: column;
 }
 </style>

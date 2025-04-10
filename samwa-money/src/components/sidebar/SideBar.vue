@@ -52,7 +52,7 @@ const route = useRoute()
 }
 
 .sidebar li.active {
-  background-color: white;
-  border: 2px solid #f7e8a4;
+  background-color: var(--light-white);
+  border: 2px solid var(--light-yellow);
 }
 </style>

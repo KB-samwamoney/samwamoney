@@ -40,104 +40,14 @@ import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
 import SummaryBox from '@/components/main/summary/SummaryBox.vue'
-import SearchResult from '@/components/main/search/SearchResult.vue'
-import { usePaymentStore } from '@/stores/paymentAddStore'
-import axios from 'axios'
 
-const paymentStore = usePaymentStore()
-const selectedDate = ref(new Date())
-const viewDate = ref(new Date())
-const searchResults = ref(null)
+import { ref } from 'vue'
 
-const updateViewDate = (date) => {
-  console.log('📅 [MainPage] updateViewDate 실행됨:', date)
-  viewDate.value = date
-}
-
-const currentMonth = computed(() => viewDate.value.getMonth() + 1)
-const currentYear = computed(() => viewDate.value.getFullYear())
-
-const isIncome = (category) => {
-  const incomeCategories = [
-    '월급', '용돈', '기타', '상여', '금융소득',
-    '부수입', '환급금', '투자수익', '중고거래', '캐시백/포인트'
-  ]
-  return incomeCategories.includes(category)
-}
-
-const summaryItems = computed(() => {
-  const month = currentMonth.value
-  const year = currentYear.value
-  const list = paymentStore.paymentList
-
-  console.log(`💡 [SummaryItems] 연도: ${year}, 월: ${month}`)
-  console.log('📦 현재 paymentList:', list)
-
-  const items = list
-    .filter(item => {
-      const itemDate = new Date(item.date)
-      return (
-        itemDate.getFullYear() === year &&
-        itemDate.getMonth() + 1 === month
-      )
-    })
-    .map(item => ({
-      type: isIncome(item.category) ? '수입' : '지출',
-      amount: item.amount,
-      date: item.date
-    }))
-
-  console.log(`📊 [SummaryItems] ${month}월 수입/지출 목록:`, items)
-  return items
-})
-
-watch(viewDate, (val) => {
-  console.log('📌 [MainPage] viewDate 변경됨:', val)
-})
-
-watch(selectedDate, (val) => {
-  console.log('🟦 [MainPage] selectedDate 변경됨:', val)
-  viewDate.value = val
-})
-
-onMounted(async () => {
-  await paymentStore.fetchPayments()
-  console.log('✅ [MainPage] 결제 내역 로드 완료:', paymentStore.paymentList)
-})
-
-const handleReset = () => {
-  searchResults.value = null
-}
-
-const handleSearch = async ({ type, keyword, categories }) => {
-  const res = await axios.get('http://localhost:5500/Balance')
-  let data = res.data
-
-  if (type === 'search_all') {
-    searchResults.value = data.sort((a, b) => new Date(b.date) - new Date(a.date))
-    return
-  }
-
-  let filtered = data.filter((item) => {
-    const categoryMatched =
-      !categories || categories.length === 0 || categories.includes(item.category)
-
-    let keywordMatched = true
-    if (type === 'search_title') {
-      keywordMatched = item.title.includes(keyword)
-    } else if (type === 'search_memo') {
-      keywordMatched = item.memo.includes(keyword)
-    } else if (type === 'search_cash') {
-      keywordMatched = item.amount === Number(keyword)
-    } else if (type === 'search_category') {
-      keywordMatched = true
-    }
-
-    return categoryMatched && keywordMatched
-  })
-
-  searchResults.value = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
-}
+const currentMonth = ref(4) // 예시로 4월
+const summaryItems = ref([
+  { date: '2025-04-01', type: '수입', amount: 3000000 },
+  { date: '2025-04-05', type: '지출', amount: 2500000 },
+])
 </script>
 
 <style scoped>
@@ -160,8 +70,6 @@ const handleSearch = async ({ type, keyword, categories }) => {
 
 .sidebar {
   width: 300px;
-  background-color: #fff6da;
-  flex-shrink: 0;
 }
 
 .content-area {

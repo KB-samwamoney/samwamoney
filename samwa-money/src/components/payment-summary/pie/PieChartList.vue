@@ -1,6 +1,8 @@
 <template>
   <div class="pie-summary">
-    <div class="total">총 {{ currentTab }}: {{ totalAmount.toLocaleString() }} 원</div>
+    <div class="total">
+      <span>총 {{ currentTab }}:</span> <span>{{ totalAmount.toLocaleString() }} 원</span>
+    </div>
 
     <div class="category-list">
       <div class="category-item" v-for="(cat, i) in filteredCategories" :key="cat.name">
@@ -78,6 +80,8 @@ watch([currentTab, currentDate], async () => {
 }
 
 .total {
+  display: flex;
+  justify-content: space-between;
   font-weight: bold;
   margin-bottom: 1rem;
   font-size: 1.1rem;
