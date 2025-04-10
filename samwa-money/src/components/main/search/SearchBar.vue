@@ -83,7 +83,14 @@ watch(selectedCategoryToAdd, (newVal) => {
     categories.value.length < 5
   ) {
     categories.value.push(newVal)
+
+    emit('search', {
+      type: 'search_category',
+      keyword: categories.value.map((cat) => cat.name),
+      categories: categories.value.map((cat) => cat.name),
+    })
   }
+
   selectedCategoryToAdd.value = null // 드롭다운 초기화
 })
 
@@ -128,20 +135,29 @@ const handleCategoryClick = (categoryName) => {
   const index = categories.value.findIndex((cat) => cat.name === categoryName)
 
   if (index !== -1) {
-    // 이미 있으면 제거 (토글)
+    // 이미 선택된 항목이면 제거
     categories.value.splice(index, 1)
+
+    // 딱 하나였던 항목 제거
+    if (categories.value.length === 0) {
+      setTimeout(() => {
+        emit('reset')
+      }, 300)
+      return
+    }
   } else {
-    // 없으면 추가
+    // 선택되지 않은 항목이면 추가
     const catToAdd = allCategoryOptions.value.find((cat) => cat.name === categoryName)
     if (catToAdd) {
       categories.value.push(catToAdd)
     }
   }
 
-  // 필터링을 위해 검색 emit
+  // 그 외엔 검색 emit
   emit('search', {
     type: 'search_category',
-    keyword: categories.value.map((cat) => cat.name), // 배열로 전달
+    keyword: categories.value.map((cat) => cat.name),
+    categories: categories.value.map((cat) => cat.name),
   })
 }
 </script>
