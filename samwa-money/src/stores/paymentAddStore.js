@@ -187,6 +187,20 @@ const updatePayment = async (updateVal, id) => {
     loading.value = false
   }
 }
+
+  // 항목 삭제하기
+  const deletePayment = async (id) => {
+    loading.value = true
+    error.value = null
+    try {
+      await api.delete(`/Balance/${id}`)
+      paymentList.value = paymentList.value.filter(list => list.id != id)
+    } catch (err) {
+      console.log(`게시물 삭제에 실패했습니다${err}`);
+    } finally {
+      loading.value = false
+    }
+  }
   return {
     loading,
     error,
@@ -207,6 +221,7 @@ const updatePayment = async (updateVal, id) => {
     searchPayment,
     isIncome,
     setViewDate,
-    updatePayment
+    updatePayment,
+    deletePayment
   }
 })

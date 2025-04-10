@@ -1,9 +1,30 @@
 <script setup>
-const props = defineProps({
+import { usePaymentStore } from '@/stores/paymentAddStore';
+import { useToastStore } from '@/stores/toastStore';
+
+const paymentStore = usePaymentStore()
+const toastStore = useToastStore()
+
+defineProps({
   isOpen: Boolean,
   date: String,
   items: Array,
 })
+
+const handleDelete = async (id) => {
+  const confirmed = window.confirm('정말로 삭제하시겠습니까? 삭제한 데이터는 복구할 수 없습니다.');
+  if (!confirmed) {
+    toastStore.showToast('삭제가 취소되었습니다.');
+    return;
+  }
+  try {
+    await paymentStore.deletePayment(id)
+    toastStore.showToast('게시글이 삭제되었습니다')
+  } catch (err) {
+    console.log(`게시글 삭제에 실패 했습니다. ${err}`);
+
+  }
+}
 </script>
 
 <template>
@@ -29,11 +50,13 @@ const props = defineProps({
             <div :class="['amount', item.type]">
               {{ item.type === 'income' ? '+' : '-' }}{{ item.amount.toLocaleString() }}원
             </div>
+            <div class="trash-button" @click.stop.prevent="handleDelete(item.id)"><i class="fa-solid fa-trash"></i>
+            </div>
           </div>
         </div>
       </div>
     </div>
-    <div v-else class="no-content">해당 날짜의 내역이 없습니다.</div>
+    <div v-else class=" no-content">해당 날짜의 내역이 없습니다.</div>
   </div>
 </template>
 
@@ -134,5 +157,24 @@ const props = defineProps({
 
 .no-content {
   font-size: 1.2rem;
+}
+
+/* trash */
+.trash-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+  font-size: 18px;
+}
+
+.fa-trash {
+  transition: 0.2s;
+  cursor: pointer;
+}
+
+.fa-trash:hover {
+  transform: scale(1.2);
 }
 </style>
