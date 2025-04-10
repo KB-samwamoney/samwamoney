@@ -43,6 +43,7 @@ const { balanceList, currentCategory, currentTab, currentDate } = storeToRefs(su
 
 const currentMonth = computed(() => String(currentDate.value.getMonth() + 1).padStart(2, '0'))
 
+// 카테고리 이름(name)을 키, 타입(type) 을 value 값으로 저장하는 객체 생성
 const categoryTypeMap = computed(() => {
   const map = {}
   currentCategory.value.forEach((cat) => {
@@ -51,6 +52,7 @@ const categoryTypeMap = computed(() => {
   return map
 })
 
+// 리스트를 만들어주고 정렬해줌
 const filteredList = computed(() =>
   balanceList.value
     .filter((item) => {

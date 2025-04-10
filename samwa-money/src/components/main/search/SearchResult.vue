@@ -153,7 +153,7 @@ const goNextPageGroup = () => {
 
 .pagination-wrapper button.active {
   background: var(--blue);
-  color: white;
+  color: var(--white);
   font-weight: bold;
   border-color: var(--blue);
 }

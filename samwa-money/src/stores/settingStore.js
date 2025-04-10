@@ -14,6 +14,7 @@ export const useSettingStore = defineStore('setting', () => {
       root.style.setProperty('--baby-pink', '#2c2022') // 어두운 핑크 계열
       root.style.setProperty('--light-yellow', '#ffb300') // 어두워진 노란색
       root.style.setProperty('--lighter-yellow', '#121212') // 따뜻한 어두운 노란색
+      root.style.setProperty('--real-yellow', '#f59e0b')
       root.style.setProperty('--blue', '#2979ca') // 어두운 파란색
       root.style.setProperty('--green', '#2a9d57') // 어두운 초록색
       root.style.setProperty('--brown', '#8b4f3d') // 어두운 갈색
@@ -27,6 +28,7 @@ export const useSettingStore = defineStore('setting', () => {
       root.style.setProperty('--baby-pink', '#ffeeee')
       root.style.setProperty('--light-yellow', '#ffe596')
       root.style.setProperty('--lighter-yellow', '#fef6d9')
+      root.style.setProperty('--real-yellow', '#ffe066')
       root.style.setProperty('--blue', '#168eff')
       root.style.setProperty('--green', '#20a845')
       root.style.setProperty('--brown', '#c85a37')

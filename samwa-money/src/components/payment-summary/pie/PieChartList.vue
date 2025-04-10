@@ -26,32 +26,39 @@ import { storeToRefs } from 'pinia'
 const summaryStore = useSummaryStore()
 const { currentTab, currentCategory, balanceList, currentDate } = storeToRefs(summaryStore)
 
-// 현재 연도-월 문자열 구하기 (2025-04)
+// 날짜 정보 가져오기 YYYY-MM 형태로 반환
 const currentYearMonth = computed(() => {
   const year = currentDate.value.getFullYear()
   const month = String(currentDate.value.getMonth() + 1).padStart(2, '0')
   return `${year}-${month}`
 })
 
-// 현재 탭에 맞는 카테고리만 추출
+// 현재 탭(수입/지출)에 맞는 카테고리 배열 반환
 const filteredCategories = computed(() =>
   currentCategory.value.filter((cat) =>
     currentTab.value === '수입' ? cat.type === 'income' : cat.type === 'expense',
   ),
 )
 
-// 카테고리별 합산
+// 현재 선택된 연도-월과 탭(수입/지출)에 따라,
+// 각 카테고리별로 해당 월에 얼마를 썼는지(또는 벌었는지)
+// 총합을 계산해서 배열로 반환
 const categoryAmounts = computed(() => {
   return filteredCategories.value.map((cat) => {
-    return balanceList.value
+    const total = balanceList.value
       .filter(
-        (item) => item.category === cat.name && item.date.slice(0, 7) === currentYearMonth.value,
+        // 카테고리명이 현재 cat.name과 같은 것
+        // 날짜가 현재 연도-월인 것만 필터링
+        (item) => item.category === cat.name && item.date.slice(0, 7) === currentYearMonth.value, // 연도+월 필터
       )
+      // 필터링된 항목들의 amount(금액)을 모두 더해서 총합을 계산
       .reduce((sum, item) => sum + item.amount, 0)
+    // 이 total 값을 배열에 하나씩 담아서 최종적으로 반환
+    return total
   })
 })
 
-// 총합
+// 카테고리별 사용금액 총합
 const totalAmount = computed(() => categoryAmounts.value.reduce((sum, val) => sum + val, 0))
 
 // 비율 계산
@@ -60,12 +67,13 @@ const getPercent = (amount) => {
   return Math.round((amount / totalAmount.value) * 100)
 }
 
-// 데이터 로드
+// 최초 로딩 시 데이터 가져오기
 onMounted(async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
 })
 
+// 수입/지출 탭 or 날짜 변경 시 다시 필터링
 watch([currentTab, currentDate], async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
