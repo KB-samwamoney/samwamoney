@@ -2,28 +2,25 @@
   <div class="calendar-header">
     <!-- 왼쪽 버튼 영역 -->
     <div class="left">
-      <button
-        :class="{ active: currentMode === 'calendar' }"
-        @click="setMode('calendar')"
-      >
+      <button :class="{ active: currentMode === 'calendar' }" @click="setMode('calendar')">
         달력
       </button>
-      <button
-        :class="{ active: currentMode === 'monthly' }"
-        @click="setMode('monthly')"
-      >
+      <button :class="{ active: currentMode === 'monthly' }" @click="setMode('monthly')">
         월별
       </button>
     </div>
 
     <!-- 오른쪽 멘트 영역 -->
     <div class="right">
-      <p class="summary-ment">{{ summaryMent() }}</p>
+      <div class="summary-ment">
+        <PaymentAnalyze />
+      </div>
     </div>
   </div>
 </template>
 
 <script setup>
+import PaymentAnalyze from '@/components/main/ment/PaymentAnalyze.vue'
 const { currentMode } = defineProps(['currentMode'])
 
 const emit = defineEmits(['updateMode'])
@@ -33,7 +30,7 @@ const setMode = (mode) => {
 }
 
 const summaryMent = () => {
-  return "이번 달은 수입이 지출보다 많아요! 💰"
+  return '이번 달은 수입이 지출보다 많아요! 💰'
 }
 </script>
 

@@ -71,9 +71,11 @@
 }
 
 :root {
+  --white: #ffffff;
   --light-white: #fff9ef;
   --baby-pink: #ffeeee;
   --light-yellow: #ffe596;
+  --lighter-yellow: #fef6d9;
   --blue: #168eff;
   --green: #20a845;
   --brown: #c85a37;
@@ -121,4 +123,10 @@ img {
 .container {
   margin: 0 auto;
   padding: 0;
+}
+
+.wrapper {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
