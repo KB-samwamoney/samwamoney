@@ -57,7 +57,9 @@ const { currentMonth, incomeTotal, expenseTotal, totalBalance } = storeToRefs(pa
 }
 
 .label {
-  font-size: 14px;
+  font-size: 20px;
+  font-weight: bold;
+  letter-spacing: 1px;
   margin-bottom: 0.3rem;
 }
 
@@ -74,7 +76,7 @@ const { currentMonth, incomeTotal, expenseTotal, totalBalance } = storeToRefs(pa
 }
 
 .value {
-  font-size: 20px;
+  font-size: 24px;
   font-weight: bold;
   white-space: nowrap;
 }
