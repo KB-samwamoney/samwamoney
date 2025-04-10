@@ -59,6 +59,53 @@ onMounted(async () => {
   console.log('불러온 결제 데이터:', paymentStore.paymentList)
 })
 
+// 최초 마운트 시 결제 내역 불러오기 및 화살표 버튼 이벤트 설정
+onMounted(async () => {
+  await paymentStore.fetchPayments()
+  console.log('불러온 결제 데이터:', paymentStore.paymentList)
+
+  // 화살표 버튼에 이벤트 추가
+  setupArrowButtons()
+})
+
+// 화살표 버튼에 커스텀 이벤트 추가
+const setupArrowButtons = () => {
+  // 약간 지연을 주어 DOM이 완전히 렌더링된 후 실행
+  setTimeout(() => {
+    // 이전 월 버튼
+    const prevButton = document.querySelector('.vc-arrow.vc-prev')
+    if (prevButton) {
+      const originalClickHandler = prevButton.onclick
+      prevButton.onclick = (e) => {
+        // 기존 v-calendar 이벤트 실행 (월 변경)
+        if (originalClickHandler) originalClickHandler(e)
+
+        // 현재 보여지는 달에서 1개월 이전으로 설정
+        const newDate = new Date(paymentStore.viewDate)
+        newDate.setMonth(newDate.getMonth() - 1)
+        paymentStore.viewDate = newDate
+        console.log('이전 달로 이동, 스토어 viewDate 업데이트:', newDate)
+      }
+    }
+
+    // 다음 월 버튼
+    const nextButton = document.querySelector('.vc-arrow.vc-next')
+    if (nextButton) {
+      const originalClickHandler = nextButton.onclick
+      nextButton.onclick = (e) => {
+        // 기존 v-calendar 이벤트 실행 (월 변경)
+        if (originalClickHandler) originalClickHandler(e)
+
+        // 현재 보여지는 달에서 1개월 다음으로 설정
+        const newDate = new Date(paymentStore.viewDate)
+        newDate.setMonth(newDate.getMonth() + 1)
+        paymentStore.viewDate = newDate
+        console.log('다음 달로 이동, 스토어 viewDate 업데이트:', newDate)
+      }
+    }
+  }, 100) // 100ms 지연
+}
+
 // 날짜 클릭 시 선택된 날짜 변경
 const selectDate = (date) => {
   emit('update:selectedDate', date)
@@ -240,5 +287,23 @@ const handleDateClick = (date) => {
 
 .expense {
   color: var(--danger);
+}
+
+.vc-arrow.vc-prev,
+.vc-arrow.vc-next {
+  background-color: var(--light-white) !important; /* 배경색 변경 */
+  color: var(--black) !important; /* 아이콘 색상 변경 */
+  border-radius: 50%; /* 둥근 모양으로 만들기 */
+  padding: 8px; /* 패딩 추가 */
+}
+
+/* 호버 효과 추가 */
+.vc-arrow.vc-prev:hover,
+.vc-arrow.vc-next:hover {
+  background-color: var(--light-yellow) !important;
+}
+
+.vc-title {
+  background-color: var(--white) !important;
 }
 </style>
