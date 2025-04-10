@@ -1,5 +1,6 @@
 import { createRouter, createWebHistory } from 'vue-router'
 import { useAuthStore } from '@/stores/authStore'
+import { useSettingStore } from '@/stores/settingStore'
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -90,6 +91,14 @@ const router = createRouter({
       component: () => import('@/views/Privacy.vue'),
     },
   ],
+})
+
+router.beforeEach(async (to, from, next) => {
+  const settingStore = useSettingStore()
+  if (!settingStore.mode) {
+    await settingStore.loadSetting()
+  }
+  next()
 })
 
 router.beforeEach((to, from, next) => {

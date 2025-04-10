@@ -1,18 +1,28 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSettingStore } from '@/stores/settingStore'
 import SideBar from '@/components/sidebar/SideBar.vue'
 import { useToastStore } from '@/stores/toastStore.js'
 
 const router = useRouter()
-const settingStore = useSettingStore()
-const selectedMode = ref(settingStore.mode)
 const toastStore = useToastStore()
+const settingStore = useSettingStore()
 
-const saveMode = () => {
+const selectedMode = ref('light')
+
+onMounted(async () => {
   try {
-    settingStore.mode = selectedMode.value
+    await settingStore.loadSetting()
+    selectedMode.value = settingStore.mode
+  } catch (error) {
+    console.error('설정 불러오기 실패:', error)
+  }
+})
+
+const saveMode = async () => {
+  try {
+    await settingStore.saveMode(selectedMode.value)
     toastStore.showToast('모드가 변경되었습니다.', 'success')
   } catch (error) {
     console.error(error)
