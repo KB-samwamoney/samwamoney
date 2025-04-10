@@ -130,8 +130,10 @@ const handleSearch = async ({ type, keyword, categories }) => {
 }
 
 .searchBox {
+  width: 100%;
   display: flex;
   height: 150px;
+  padding: var(--space-l);
 }
 
 .summary {
