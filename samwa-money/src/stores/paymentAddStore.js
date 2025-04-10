@@ -92,9 +92,9 @@ export const usePaymentStore = defineStore('payment', () => {
         throw new Error('해당 ID의 정보를 찾을 수 없습니다.')
       }
       findPayment.value = response
-      console.log(findPayment.value)
+      // console.log(findPayment.value)
     } catch (err) {
-      console.log(`상세 정보 불러오기 실패`, err)
+      // console.log(`상세 정보 불러오기 실패`, err)
     } finally {
       loading.value = false
     }
@@ -155,38 +155,37 @@ export const usePaymentStore = defineStore('payment', () => {
   watch(
     summaryItems,
     (val) => {
-      console.log('✅ summaryItems 변경됨')
+      // console.log('✅ summaryItems 변경됨')
     },
     { deep: true, immediate: true },
   )
 
   // 상세정보 수정하기
-const updatePayment = async (updateVal, id) => {
-  loading.value = true
-  error.value = null
+  const updatePayment = async (updateVal, id) => {
+    loading.value = true
+    error.value = null
 
-  try {
-    const updatedPayment = {
-      userId: authStore.user.userId,
-      ...updateVal
-    }
-    const response = await api.put(`/Balance/${id}`, updatedPayment)
-    console.log("수정된 데이터----",response.data);
-
-
-    const index = paymentList.value.findIndex(item => item.id == id)
-    if (index !== -1) {
-      paymentList.value[index] = {
-        ...paymentList.value[index],
-        ...response.data
+    try {
+      const updatedPayment = {
+        userId: authStore.user.userId,
+        ...updateVal,
       }
+      const response = await api.put(`/Balance/${id}`, updatedPayment)
+      // console.log('수정된 데이터----', response.data)
+
+      const index = paymentList.value.findIndex((item) => item.id == id)
+      if (index !== -1) {
+        paymentList.value[index] = {
+          ...paymentList.value[index],
+          ...response.data,
+        }
+      }
+    } catch (err) {
+      // console.log('수정에 실패했습니다', err)
+    } finally {
+      loading.value = false
     }
-  } catch (err) {
-    console.log('수정에 실패했습니다', err)
-  } finally {
-    loading.value = false
   }
-}
   return {
     loading,
     error,
@@ -207,6 +206,6 @@ const updatePayment = async (updateVal, id) => {
     searchPayment,
     isIncome,
     setViewDate,
-    updatePayment
+    updatePayment,
   }
 })

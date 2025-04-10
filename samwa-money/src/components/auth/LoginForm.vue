@@ -12,7 +12,7 @@ const handleLogin = async () => {
   await authStore.login({ userId: userId.value, password: password.value })
 
   if (authStore.isLoggedIn) {
-    console.log('로그인 성공!')
+    // console.log('로그인 성공!')
     router.push('/main')
   } else {
     alert(authStore.errorMessage)

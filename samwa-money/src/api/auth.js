@@ -12,7 +12,7 @@ const registerUser = async (userData) => {
     }
 
     const response = await api.post('/Auth', userData)
-    console.log('회원가입 성공:', response.data)
+    // console.log('회원가입 성공')
     return response.data
   } catch (error) {
     console.error('회원가입 실패:', error.response?.data || error.message)
@@ -31,7 +31,7 @@ const loginUser = async (credentials) => {
       },
     })
     if (response.data.length > 0) {
-      console.log('로그인 성공:', response.data[0])
+      // console.log('로그인 성공')
       return response.data[0]
     } else {
       throw new Error('아이디 또는 비밀번호가 일치하지 않습니다.')
@@ -64,7 +64,7 @@ const findPassword = async ({ name, userId }) => {
 const changeUserInfo = async (userInfo) => {
   try {
     const response = await api.put(`/Auth/${userInfo.id}`, userInfo)
-    console.log('회원정보 수정 성공:', response.data)
+    // console.log('회원정보 수정 성공')
     return response.data
   } catch (error) {
     console.error('회원정보 수정 실패:', error.response?.data || error.message)
@@ -75,8 +75,8 @@ const changeUserInfo = async (userInfo) => {
 // 회원탈퇴
 const deleteUser = async (id) => {
   try {
-    const response = await api.delete(`/Auth/${id}`)
-    console.log('회원탈퇴 성공:', response.data)
+    await api.delete(`/Auth/${id}`)
+    // console.log('회원탈퇴 성공')
     return true
   } catch (error) {
     console.error('회원탈퇴 실패:', error.response?.data || error.message)
