@@ -1,7 +1,7 @@
 <template>
   <div class="summary-body">
-    <PieChartBody class="PieChartBody" :type="currentTab" />
-    <LineGraphBody class="LineGraphBody" :type="currentTab" />
+    <PieChartBody class="PieChartBody" :type="currentTab" :date="currentDate" />
+    <LineGraphBody class="LineGraphBody" :type="currentTab" :date="currentDate" />
   </div>
 </template>
 
@@ -13,6 +13,7 @@ import { storeToRefs } from 'pinia'
 
 const summaryStore = useSummaryStore()
 const { currentTab } = storeToRefs(summaryStore)
+const { currentDate } = storeToRefs(summaryStore)
 </script>
 <style scoped>
 .summary-body {

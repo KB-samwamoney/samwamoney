@@ -9,7 +9,7 @@ const props = defineProps({
 }
 )
 
-const emit = defineEmits(['create-payment'])
+
 
 
 
@@ -21,11 +21,10 @@ const handleEvent = () => {
     router.push({ name: 'payment-update' })
   }
   if (props.name === '완료') {
-    emit('create-payment')
-    console.log(`${props.name}`);
+    // emit('create-payment')
   }
   if (props.name === '취소') {
-    router.push({ name: 'main' })
+    router.back()
   }
 }
 
