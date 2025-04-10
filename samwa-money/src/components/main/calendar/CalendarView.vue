@@ -7,18 +7,28 @@
         :selectedDate="props.selectedDate"
         @update:selectedDate="(val) => emit('update:selectedDate', val)"
         @update:viewDate="(val) => emit('update:viewDate', val)"
+        @open-modal="handleOpenModal"
       />
     </div>
 
     <MonthlyBody v-if="mode === 'monthly'" />
+
+    <DailyPaymentModal
+      :isOpen="isModalOpen"
+      :date="selectedDateForModal"
+      :items="filteredItems"
+      @close="isModalOpen = false"
+    />
   </div>
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, computed } from 'vue'
 import CalendarHeader from './CalendarHeader.vue'
 import CalendarBody from './CalendarBody.vue'
 import MonthlyBody from './MonthlyBody.vue'
+import DailyPaymentModal from '@/components/main/daily/DailyPaymentModal.vue'
+import { usePaymentStore } from '@/stores/paymentAddStore'
 
 const props = defineProps({
   selectedDate: {
@@ -27,13 +37,22 @@ const props = defineProps({
   },
 })
 
-const mode = ref('calendar')
-
 const emit = defineEmits(['update:selectedDate', 'update:viewDate'])
 
-// const handleViewDateChange = (date) => {
-//   emit('update:viewDate', date) // 📤 부모로 전달
-// }
+const mode = ref('calendar')
+const isModalOpen = ref(false)
+const selectedDateForModal = ref('')
+
+const paymentStore = usePaymentStore()
+
+const filteredItems = computed(() =>
+  paymentStore.paymentList.filter((item) => item.date === selectedDateForModal.value),
+)
+
+const handleOpenModal = (dateStr) => {
+  selectedDateForModal.value = dateStr
+  isModalOpen.value = true
+}
 </script>
 
 <style scoped>

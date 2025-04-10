@@ -7,7 +7,7 @@
       :model-value="props.selectedDate.getTime()"
       show-six-weeks
       is-expanded
-      style="height: 100%; width: 100%;"
+      style="height: 100%; width: 100%"
       @update:view-date="handleViewDateChange"
       @update:model-value="handleModelValueChange"
     >
@@ -44,11 +44,11 @@ import { usePaymentStore } from '@/stores/paymentAddStore'
 
 // 부모로부터 선택된 날짜를 props로 받음
 const props = defineProps({
-  selectedDate: Date
+  selectedDate: Date,
 })
 
 // 부모에게 선택된 날짜를 업데이트로 전달
-const emit = defineEmits(['update:selectedDate', 'update:viewDate'])
+const emit = defineEmits(['update:selectedDate', 'update:viewDate', 'open-modal'])
 
 // Pinia 스토어에서 결제 데이터 사용
 const paymentStore = usePaymentStore()
@@ -62,6 +62,7 @@ onMounted(async () => {
 // 날짜 클릭 시 선택된 날짜 변경
 const selectDate = (date) => {
   emit('update:selectedDate', date)
+  emit('open-modal', formatDate(date)) // 모달 열기
 }
 
 // 날짜가 현재 선택된 날짜인지 확인
@@ -99,8 +100,16 @@ const handleModelValueChange = (val) => {
 // 카테고리 이름으로 수입/지출 구분
 const isIncome = (category) => {
   const incomeCategories = [
-    '월급', '용돈', '기타', '상여', '금융소득',
-    '부수입', '환급금', '투자수익', '중고거래', '캐시백/포인트'
+    '월급',
+    '용돈',
+    '기타',
+    '상여',
+    '금융소득',
+    '부수입',
+    '환급금',
+    '투자수익',
+    '중고거래',
+    '캐시백/포인트',
   ]
   return incomeCategories.includes(category)
 }
@@ -123,9 +132,17 @@ const getTransactionsByDate = (date) => {
   return transactionMap.value[key] || []
 }
 
-watch(() => props.selectedDate, (val) => {
-  console.log('🟨 props.selectedDate 변경됨:', val)
-})
+watch(
+  () => props.selectedDate,
+  (val) => {
+    console.log('🟨 props.selectedDate 변경됨:', val)
+  },
+)
+
+const handleDateClick = (date) => {
+  const dateStr = date.toISOString().split('T')[0]
+  emit('open-modal', dateStr)
+}
 </script>
 
 <style>
