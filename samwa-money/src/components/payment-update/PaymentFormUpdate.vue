@@ -27,6 +27,15 @@ const imgUrl = ref(null)
 const baseImg = ref(null)
 const dateInput = ref('')
 
+//이미지를 문자열로 변환해주는 로직
+const fileToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = (error) => reject(error)
+  })
+}
 const handleChangeImg = async (event) => {
   const file = event.target.files[0]
   if (file) {
@@ -36,7 +45,9 @@ const handleChangeImg = async (event) => {
   if (imgUrl.value) {
     baseImg.value = await fileToBase64(imgUrl.value)
   }
+  imgUrl.value = baseImg.value
 }
+
 //이미지 삭제
 const imageDelete = () => {
   if (previewUrl.value) {
@@ -95,9 +106,9 @@ const upDatePayment = async () => {
       amount: Number(String(amount.value).replace(/,/g, '')),
       memo: memo.value,
       icon: category.value.icon || categoryIcon.value,
-      imgUrl: baseImg.value,
+      imgUrl: imgUrl.value,
     }
-    await paymentStore.updatePayment(newPayment, Number(props.id))
+    await paymentStore.updatePayment(newPayment, props.id)
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
@@ -113,7 +124,7 @@ onMounted(async () => {
   if (paymentStore.paymentList.length === 0) {
     await paymentStore.fetchPayments()
   }
-  await paymentStore.searchPayment(Number(props.id))
+  await paymentStore.searchPayment(props.id)
 
   date.value = paymentStore.findPayment.date
   amount.value = Number(paymentStore.findPayment.amount).toLocaleString()
@@ -126,6 +137,10 @@ onMounted(async () => {
 
   categoryName.value = paymentStore.findPayment.category
   categoryIcon.value = paymentStore.findPayment.category
+
+  category.value = paymentStore.categoryList.find(
+    (cat) => cat.name === categoryName.value
+  ) || ''  // 없을 경우 빈 문자열로 fallback
 
   titleInput.value?.focus()
 })
@@ -142,49 +157,23 @@ onMounted(async () => {
       <div class="category-body">
         <div class="expenses-income">
           <div>
-            <input
-              type="radio"
-              name="select-category"
-              value="income"
-              id="income"
-              hidden
-              v-model="type"
-            />
-            <label
-              for="income"
-              class="toggle-btn"
-              :class="{ 'selected-income': type === 'income' }"
-              @click="filterPayments"
-              >💰 수입
+            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type" />
+            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
+              @click="filterPayments">💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input
-              type="radio"
-              name="select-category"
-              value="expense"
-              id="expense"
-              hidden
-              v-model="type"
-            />
-            <label
-              for="expense"
-              class="toggle-btn"
-              :class="{ 'selected-expense': type === 'expense' }"
-              @click="filterPayments"
-            >
+            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type" />
+            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
+              @click="filterPayments">
               💸 지출
             </label>
           </div>
         </div>
         <select class="category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option
-            v-for="category in paymentStore.categoryList"
-            :key="category.id"
-            :value="category"
-          >
+          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
             {{ category.name }}{{ category.icon }}
           </option>
         </select>
@@ -193,25 +182,13 @@ onMounted(async () => {
     <hr />
     <div class="amount-container">
       <label class="amount-title">금액입력</label>
-      <input
-        type="text"
-        class="amount-input"
-        placeholder="금액을 입력하세요"
-        v-model="amount"
-        @input="handleAmountInput"
-        value=""
-      />
+      <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model="amount" @input="handleAmountInput"
+        value="" />
     </div>
     <hr />
     <div class="date-container">
       <label>날짜선택 :</label>
-      <input
-        type="date"
-        class="date-input"
-        ref="dateInput"
-        v-model="date"
-        @focus="openDatePicker"
-      />
+      <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker" />
     </div>
     <hr />
 

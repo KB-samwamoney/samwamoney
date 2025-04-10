@@ -10,7 +10,7 @@ const paymentId = ref(route.params.id)
 </script>
 
 <template>
-  <PaymentFormUpdate :id="paymentId" />
+  <PaymentFormUpdate :id="Number(paymentId)" />
 </template>
 
 <style scoped></style>

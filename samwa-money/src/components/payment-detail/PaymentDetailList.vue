@@ -1,6 +1,5 @@
 <script setup>
 import { ref, onMounted } from 'vue'
-import { useRoute } from 'vue-router'
 import { usePaymentStore } from '@/stores/paymentAddStore'
 import { useRouter } from 'vue-router'
 
@@ -8,7 +7,7 @@ const props = defineProps({
   id: Number,
 })
 
-const route = useRoute()
+
 const router = useRouter()
 const paymentStore = usePaymentStore()
 
@@ -28,11 +27,9 @@ const goUpDate = () => {
 }
 
 onMounted(async () => {
-  const paymentId = route.params.id
-  console.log('✅ route id:', paymentId)
 
-  await paymentStore.fetchPayments(Number(props.id))
-  await paymentStore.searchPayment(Number(props.id))
+  await paymentStore.fetchPayments()
+  await paymentStore.searchPayment(props.id)
 
   const payment = paymentStore.findPayment
   console.log('📦 상세 데이터:', payment)
@@ -61,7 +58,7 @@ onMounted(async () => {
 
     <div class="amount-container">
       <div>월급</div>
-      <div class="amount">{{ amount }}</div>
+      <div class="amount">{{ amount.toLocaleString() }}</div>
     </div>
 
 
@@ -118,7 +115,6 @@ onMounted(async () => {
 }
 
 .img-container {
-  border: 1px solid red;
   max-height: 300px;
   width: calc(100% - 2rem);
   margin: auto;
@@ -127,6 +123,8 @@ onMounted(async () => {
   display: flex;
   justify-content: center;
   align-items: center;
+  background-color: var(--light-gray);
+  border-radius: var(--radius);
 }
 
 .date-container,

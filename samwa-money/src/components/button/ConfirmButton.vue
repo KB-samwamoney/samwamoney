@@ -9,7 +9,6 @@ const props = defineProps({
   name: String,
 })
 
-const emit = defineEmits(['create-payment'])
 
 const handleEvent = () => {
   if (props.name === '확인') {
