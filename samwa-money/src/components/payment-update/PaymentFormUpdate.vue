@@ -4,24 +4,48 @@ import { useToastStore } from '@/stores/toastStore';
 import { onMounted, ref } from 'vue';
 import { watch } from 'vue';
 import { useRouter } from 'vue-router';
+import { defineProps } from 'vue';
 const paymentStore = usePaymentStore()
 const toastStore = useToastStore()
 const router = useRouter()
-const previewUrl = ref(null)
+const titleInput = ref('')
 
+const props = defineProps({
+  id: Number
+})
 
+const title = ref('')
 const date = ref('')
 const type = ref('')
 const category = ref('')
+const categoryName = ref('')
+const categoryIcon = ref('')
 const amount = ref('')
 const memo = ref('')
+const previewUrl = ref(null) //이미지 출력관련 함수
 const imgUrl = ref(null)
+const baseImg = ref(null)
+const dateInput = ref('')
 
-const handleChangeImg = (event) => {
+
+//이미지를 문장열로 변환해주는 로직
+const fileToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = (error) => reject(error)
+  })
+}
+
+const handleChangeImg = async (event) => {
   const file = event.target.files[0]
   if (file) {
     imgUrl.value = file
     previewUrl.value = URL.createObjectURL(file)
+  }
+  if (imgUrl.value) {
+    baseImg.value = await fileToBase64(imgUrl.value)
   }
 }
 //이미지 삭제
@@ -30,9 +54,13 @@ const imageDelete = () => {
     URL.revokeObjectURL(previewUrl.value) // 메모리 누수 방지
   }
   imgUrl.value = null
-  previewUrl.value = null
+  previewUrl.value = ''
 }
 
+
+const openDatePicker = () => {
+  dateInput.value?.showPicker?.() || dateInput.value?.click()
+}
 
 watch(type, (newVal) => {
   category.value = ''
@@ -51,16 +79,6 @@ const formatWithComma = (value) => {
 const handleAmountInput = (event) => {
   const value = event.target.value
   amount.value = formatWithComma(value)
-}
-
-//이미지를 문자열로 변환해주는 로직
-const fileToBase64 = (file) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = (error) => reject(error)
-  })
 }
 
 
@@ -83,23 +101,21 @@ const upDatePayment = async () => {
   }
 
   try {
-    let base64Img = ''
-    if (imgUrl.value) {
-      base64Img = await fileToBase64(imgUrl.value)
-    }
     const newPayment = {
-
+      title: title.value,
       date: date.value,
-      category: category.value,
-      amount: amount.value,
+      category: category.value.name || categoryName.value,
+      type: type.value,
+      amount: Number(String(amount.value).replace(/,/g, '')),
       memo: memo.value,
-      imgUrl: base64Img
+      icon: category.value.icon || categoryIcon.value,
+      imgUrl: baseImg.value,
     }
-    await paymentStore.createPayment(newPayment)
+    await paymentStore.updatePayment(newPayment, props.id)
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
-    console.log(error);
+    console.log('❌ 저장 중 에러 발생:', error)
 
   }
 }
@@ -112,18 +128,22 @@ onMounted(async () => {
   if (paymentStore.paymentList.length === 0) {
     await paymentStore.fetchPayments()
   }
-  await paymentStore.serchPayment('2dp0ntg')
+  await paymentStore.serchPayment(100)
 
 
   date.value = paymentStore.findPayment.date
-  amount.value = paymentStore.findPayment.amount
+  amount.value = Number(paymentStore.findPayment.amount).toLocaleString()
   memo.value = paymentStore.findPayment.memo
   imgUrl.value = paymentStore.findPayment.imgUrl
   type.value = paymentStore.findPayment.type
+  title.value = paymentStore.findPayment.title
 
   await paymentStore.getcategoryList(type.value)
 
-  category.value = paymentStore.findPayment.category
+  categoryName.value = paymentStore.findPayment.category
+  categoryIcon.value = paymentStore.findPayment.category
+
+  titleInput.value?.focus()
 })
 
 </script>
@@ -131,6 +151,12 @@ onMounted(async () => {
 <template>
 
   <div class="container">
+
+    <div class="title-container">
+      <input class="title-input" ref='titleInput' type="text" v-model="title">
+    </div>
+
+
     <div class="category-container">
       <div class="category-title"><label>카테고리</label></div>
       <div class="category-body">
@@ -152,7 +178,7 @@ onMounted(async () => {
         </div>
         <select class=" category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category.id">
+          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
             {{ category.name }}{{ category.icon }}</option>
         </select>
       </div>
@@ -165,10 +191,8 @@ onMounted(async () => {
     </div>
     <hr>
     <div class="date-container">
-      <label class="date-title">날짜선택</label>
-      <label @click="openDatePicker">
-        <input type="date" class="date-input" v-model="date" ref="dateInput" />
-      </label>
+      <label>날짜선택 :</label>
+      <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker">
     </div>
     <hr>
 
@@ -183,16 +207,18 @@ onMounted(async () => {
       <label class="upload-label">사진 </label>
       <label for="uploadImg" class="upload-box">
         <span v-if="!imgUrl">+</span>
-        <img v-else :src="imgUrl" alt="미리보기 이미지" class="preview-img" />
+        <img v-else :src="baseImg" alt="미리보기 이미지" class="preview-img" />
         <input type="file" id="uploadImg" hidden accept="image/*" @change="handleChangeImg" />
       </label>
-      <button class="imgdelete-btn" @click="imageDelete" v-if="previewUrl">x</button>
+      <button class="imgdelete-btn" @click="imageDelete" v-if="imgUrl">x</button>
     </div>
+
     <div class="buttons">
       <button class="btn cancel" @click="cancel">취소</button>
       <button class="btn confirm" @click="upDatePayment">확인</button>
     </div>
   </div>
+
 
 </template>
 
@@ -202,9 +228,10 @@ onMounted(async () => {
   flex-direction: column;
   gap: 18px;
   width: 738px;
-  margin: auto;
+  margin: 20px auto;
   padding: 2rem 0;
-
+  background-color: var(--lighter-yellow);
+  border-radius: var(--radius);
 }
 
 .category-title label,
@@ -214,6 +241,32 @@ onMounted(async () => {
 .upload-label {
   font-size: 24px;
   font-weight: 600;
+}
+
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 738px;
+  max-height: 112px;
+  margin: auto;
+  padding: 2rem 0;
+  width: calc(100% - 2rem);
+  margin: auto;
+}
+
+.title-input {
+  width: 100%;
+  height: 80px;
+  border-radius: var(--radius);
+  border: 1px solid var(--dark-gray);
+  text-align: center;
+  font-size: 50px;
+}
+
+.title-input h1 {
+  font-size: 60px;
 }
 
 /* ------카테고리------ */
@@ -276,7 +329,9 @@ onMounted(async () => {
 
 
 /* ---------- 날찌선택 ----------- */
-
+.date-input {
+  cursor: pointer;
+}
 
 
 
@@ -299,10 +354,9 @@ textarea {
 .upload-container {
   display: flex;
   justify-content: space-between;
-
+  position: relative;
   width: calc(100% - 2rem);
   margin: auto;
-
 }
 
 .upload-box {
@@ -315,6 +369,27 @@ textarea {
   font-size: 30px;
   border-radius: var(--radius);
   border: 1px dotted var(--dark-gray);
+  cursor: pointer;
+}
+
+.imgdelete-btn {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 18px;
+  height: 18px;
+  background-color: var(--light-gray);
+  border: 1px solid var(--dark-gray);
+  border-radius: 50%;
+  cursor: pointer;
+  right: -5px;
+  top: -5px;
+  transition: transform 0.2s ease;
+}
+
+.imgdelete-btn:hover {
+  transform: scale(1.3);
 }
 
 
