@@ -128,7 +128,7 @@ const handleSearch = async ({ type, keyword, categories }) => {
 
 .summary {
   display: flex;
-  padding: var(--space-m);
+  padding: var(--space-s) var(--space-l);
 }
 
 .calendar {
@@ -140,5 +140,6 @@ const handleSearch = async ({ type, keyword, categories }) => {
   padding: 1rem;
   flex-shrink: 0;
   flex: 1;
+  padding: var(--space-l);
 }
 </style>
