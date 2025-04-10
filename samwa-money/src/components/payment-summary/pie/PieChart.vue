@@ -1,11 +1,12 @@
 <template>
   <div class="pie-chart">
-    <Pie :data="chartData" :options="options" />
+    <Pie v-if="!empty" :data="chartData" :options="options" />
+    <div v-if="empty" class="empty">데이터가 존재하지 않습니다.</div>
   </div>
 </template>
 
 <script setup>
-import { computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { Pie } from 'vue-chartjs'
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
 
@@ -15,7 +16,7 @@ import { storeToRefs } from 'pinia'
 // Chart.js 등록
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
-// 스토어 연결
+const empty = ref(false)
 const summaryStore = useSummaryStore()
 const { currentCategory, currentTab, balanceList, currentDate } = storeToRefs(summaryStore)
 
@@ -72,22 +73,48 @@ const options = {
 onMounted(async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
+  let sum = 0
+  for (const el of categoryAmounts.value) {
+    sum += el
+  }
+  if (sum === 0) {
+    empty.value = true
+  } else {
+    empty.value = false
+  }
 })
 
 // ✅ 수입/지출 탭 or 날짜 변경 시 다시 필터링
 watch([currentTab, currentDate], async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
+  let sum = 0
+  for (const el of categoryAmounts.value) {
+    sum += el
+  }
+  if (sum === 0) {
+    empty.value = true
+  } else {
+    empty.value = false
+  }
 })
 </script>
 
 <style scoped>
 .pie-chart {
+  position: relative;
   height: 350px;
   background-color: var(--white);
   border: 1px solid var(--light-yellow);
   padding: var(--space-m);
   margin: var(--space-m) var(--space-l);
   border-radius: 12px;
+}
+.empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
 }
 </style>

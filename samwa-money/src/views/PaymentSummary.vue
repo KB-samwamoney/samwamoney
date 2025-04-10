@@ -26,6 +26,7 @@ const searchResults = ref([])
 <style scoped>
 .wrap {
   width: 100%;
+  background-color: var(--light-white);
 }
 .main-body {
   display: flex;
