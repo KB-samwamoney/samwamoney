@@ -9,8 +9,12 @@ const props = defineProps({
 <template>
   <div class="modal-content">
     <div v-if="Array.isArray(items) && items.length">
-      <div class="item-box" v-for="(item, index) in items" :key="item.id || index"
-        @click="$router.push(`/payment-detail/${item.id}`)">
+      <div
+        class="item-box"
+        v-for="(item, index) in items"
+        :key="item.id || index"
+        @click="$router.push(`/payment-detail/${item.id}`)"
+      >
         <div class="item-row">
           <div class="item-left">
             <div class="item-title">{{ item.icon }} {{ item.title }}</div>
@@ -40,8 +44,8 @@ const props = defineProps({
 <style scoped>
 /* item */
 .item-box {
-  background: white;
-  border: 1px solid #ddd;
+  background: var(--white);
+  border: 1px solid var(--light-gray);
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
@@ -79,7 +83,7 @@ const props = defineProps({
 
 .item-meta {
   font-size: 0.9rem;
-  color: var(--dark-gray);
+  color: var(--black);
 }
 
 .item-content {
