@@ -8,13 +8,20 @@
 <script setup>
 import LineGraph from './LineGraph.vue'
 import LineGraphList from './LineGraphList.vue'
+import { useSummaryStore } from '@/stores/summaryStore'
 import { watch } from 'vue'
-const { type } = defineProps({
-  type: String, // '수입' 또는 '지출'
+
+const summaryStore = useSummaryStore()
+const props = defineProps({
+  type: String,
+  date: String,
 })
 watch(
-  () => type,
-  (newVal) => {},
+  () => props.type,
+  (newVal) => {
+    summaryStore.filterCategory()
+    summaryStore.filterBalance()
+  },
 )
 </script>
 <style scoped>
