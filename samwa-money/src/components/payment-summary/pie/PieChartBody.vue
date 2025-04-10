@@ -1,28 +1,34 @@
 <template>
   <div class="pie-chart-body">
-    <PieChart :type="type" />
-    <PieChartList :type="type" />
+    <PieChart :type="props.type" :date="props.date" />
+    <PieChartList :type="props.type" :date="props.date" />
   </div>
 </template>
 
 <script setup>
 import PieChart from './PieChart.vue'
 import PieChartList from './PieChartList.vue'
+import { useSummaryStore } from '@/stores/summaryStore'
 import { watch } from 'vue'
-const { type } = defineProps({
-  type: String, // '수입' 또는 '지출'
+
+const summaryStore = useSummaryStore()
+const props = defineProps({
+  type: String,
+  date: String,
 })
 watch(
-  () => type,
+  () => props.type,
   (newVal) => {
-    console.log('✅ type이 바뀌었어요:', newVal)
+    summaryStore.filterCategory()
+    summaryStore.filterBalance()
   },
 )
 </script>
 <style scoped>
 .pie-chart-body {
+  background-color: var(--lighter-yellow);
+  margin: var(--space-s);
   display: flex;
-  gap: 2rem; /* 차트 사이 여백 */
   flex-direction: column;
 }
 </style>

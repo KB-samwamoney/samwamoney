@@ -2,21 +2,29 @@
 import { usePaymentStore } from '@/stores/paymentAddStore';
 import { onMounted, ref, watch } from 'vue';
 import ConfirmButton from '../button/ConfirmButton.vue';
+import ConfirmButton from '../button/ConfirmButton.vue';
+import { useToastStore } from '@/stores/toastStore';
+import PaymentModal from './PaymentModal.vue';
+import { useRouter } from 'vue-router';
 
 const paymentStore = usePaymentStore()
+const toastStore = useToastStore()
+const router = useRouter()
+
+const dateInput = ref(null)
 
 // 데이터 자장 함수
-const title = ref()
+const title = ref('')
 const titleInput = ref()
 const date = ref('')
 const category = ref('')
 const amount = ref('')
 const imgUrl = ref(null)
 const memo = ref('')
+const type = ref()
 
 //  카테고리 리스트 변경
-const selectedPayment = ref()
-watch(selectedPayment, (newVal) => {
+watch(type, (newVal) => {
   category.value = ''
   if (newVal) {
     paymentStore.getcategoryList(newVal)
@@ -30,11 +38,11 @@ const handleChangeImg = (event) => {
     return
   }
   imgUrl.value = file;
-  console.log(imgUrl);
-
+  toastStore.showToast('이미지가 등록되었습니다')
 }
 //  저장된 이미지 삭제
 const imageDelete = () => {
+  toastStore.showToast('이미지가 삭제되었습니다')
   imgUrl.value = null
 }
 
@@ -49,50 +57,88 @@ const handleAmountInput = (event) => {
   amount.value = formatWithComma(value)
 }
 
+// 날짜 입력칸 어디든 클릭시 리스트 출력
+const openDatePicker = () => {
+  dateInput.value?.showPicker?.() || dateInput.value?.click()
+}
+//이미지를 문자열로 변환해주는 로직
+const fileToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = (error) => reject(error)
+  })
+}
+
+//저장 함수
 const createPayment = async () => {
-  if (!title.value.trim()) {
+  if (!String(title.value).trim()) {
+    toastStore.showToast('제목을 입력해주세요')
     return
   }
-  if (!date.value.trim()) {
+  if (!String(date.value).trim()) {
+    toastStore.showToast('날짜를 선택해주세요')
     return
   }
-  if (!amount.value.trim()) {
+  if (!String(amount.value).trim()) {
+    toastStore.showToast('금액을 입력해주세요')
     return
   }
-  if (!category.value.trim()) {
+  if (!String(category.value).trim()) {
+    toastStore.showToast('카테고리를 선택해주세요')
     return
   }
-  if (!memo.value.trim()) {
+  if (!String(memo.value).trim()) {
+    toastStore.showToast('메모를 입력해주세요')
     return
   }
 
   try {
+    let base64Img = ''
+    if (imgUrl.value) {
+      base64Img = await fileToBase64(imgUrl.value)
+    }
     const newPayment = {
       title: title.value,
       date: date.value,
-      category: category.value,
-      amount: amount.value,
+      category: category.value.name,
+      icon: category.value.icon,
+      amount: Number(String(amount.value).replace(/,/g, '')),
       memo: memo.value,
-      imgUrl: imgUrl.value
+      imgUrl: base64Img,
+      type: type.value
     }
     await paymentStore.createPayment(newPayment)
+    toastStore.showToast('저장되었습니다')
+    await router.push({ name: 'main' })
   } catch (error) {
-    console.log(error.value);
+    console.log(error);
 
-  } finally {
+  }
+  finally {
     title.value = ''
     date.value = ''
     category.value = ''
     amount.value = ''
     memo.value = ''
     imgUrl.value = ''
+    type.value = ''
   }
 }
 // 페이지 로드시 제목 입력칸 포커스
 onMounted(() => {
   titleInput.value?.focus()
 })
+const showModal = ref(false)
 
+const confirmSave = async () => {
+  showModal.value = false
+  await createPayment()
+}
+const cancelSave = () => {
+  showModal.value = false
+}
 </script>
 
 <template>
@@ -106,22 +152,22 @@ onMounted(() => {
 
       <div class="date-container">
         <label>날짜선택 :</label>
-        <input type="date" class="date-input" v-model="date">
+        <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker">
       </div>
 
       <div class="category-container">
         <label>카테고리 :</label>
         <div class="expenses-income">
           <div>
-            <input type="radio" name="select-category" value="income" id="income" hidden v-model="selectedPayment">
-            <label for="income" class="toggle-btn" :class="{ 'selected-income': selectedPayment === 'income' }"
+            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type">
+            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
               @click="filterPayments">💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="selectedPayment">
-            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': selectedPayment === 'expense' }"
+            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type">
+            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
               @click="filterPayments">
               💸 지출
             </label>
@@ -129,7 +175,7 @@ onMounted(() => {
         </div>
         <select class=" category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category.id">
+          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
             {{ category.name }}{{ category.icon }}</option>
         </select>
       </div>
@@ -161,6 +207,12 @@ onMounted(() => {
         <ConfirmButton :name="'취소'" />
         <ConfirmButton @create-payment="createPayment" :name="'완료'" />
       </div>
+      <div class="footer-btn">
+        <ConfirmButton :name="'취소'" />
+        <ConfirmButton @create-payment="createPayment" @click="showModal = true" :name="'완료'" />
+      </div>
+      <PaymentModal @create-payment="createPayment" :show="showModal" :message="'수입 및 지출 내용을 저장하시겠습니까?'"
+        @confirm="confirmSave" @cancel="cancelSave" />
     </section>
   </div>
 </template>
@@ -168,6 +220,7 @@ onMounted(() => {
 <style scoped>
 .container {
   max-width: 900px;
+  height: 730px;
   width: calc(100% - 2rem);
   margin: auto;
   padding: 2rem 0;
@@ -229,12 +282,12 @@ onMounted(() => {
 
 .selected-income {
   background-color: var(--blue);
-  color: black;
+  color: var(--dark);
 }
 
 .toggle-btn.selected-expense {
   background-color: var(--danger);
-  color: black;
+  color: var(--dark);
 }
 
 .toggle-title {

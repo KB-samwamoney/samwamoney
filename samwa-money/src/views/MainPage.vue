@@ -1,82 +1,130 @@
 <template>
   <div class="main-page">
-    <!-- 헤더 (로고 + 검색 + 카테고리 필터) -->
-    <section class="main-header">
-      <HeaderSearch />
-    </section>
-
     <section class="main-body">
-      <!-- 좌측 메뉴바 -->
       <aside class="sidebar">
         <SideBar />
       </aside>
 
-      <!-- 우측 내용 -->
       <main class="content-area">
-        <!-- searchBox -->
         <section class="searchBox">
-          <SearchBar />
-        </section>
-        <!-- 수입/지출 요약 박스 -->
-        <section class="summary">
-          <SummaryBox
-            v-if="summaryItems.length"
-            :month="currentMonth"
-            :items="summaryItems"
-          />
+          <SearchBar @search="handleSearch" @reset="handleReset" />
         </section>
 
-        <!-- 캘린더, 월별 리스트, 검색박스 -->
-        <section class="calendar">
-          <CalendarView />
+        <section class="summary">
+          <SummaryBox />
+        </section>
+
+        <section class="resultBox">
+          <!-- 1. 검색 전 → CalendarView -->
+          <CalendarView
+            v-if="searchResults === null"
+            v-model:selectedDate="selectedDate"
+            @update:viewDate="updateViewDate"
+          />
+
+          <!-- 2. 검색 결과 → SearchResult 보여주기 -->
+          <SearchResult v-else :results="searchResults" />
         </section>
       </main>
     </section>
-
-    <AddButton />
   </div>
 </template>
 
 <script setup>
+import { ref, onMounted, watch } from 'vue'
 import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
-import SummaryBox from '@/components/main/summary/SummaryBox.vue';
+import SummaryBox from '@/components/main/summary/SummaryBox.vue'
+import SearchResult from '@/components/main/search/SearchResult.vue'
+import { usePaymentStore } from '@/stores/paymentAddStore'
+import api from '@/utils/axios.js'
 
-import { ref } from 'vue';
+const paymentStore = usePaymentStore()
+const selectedDate = ref(new Date())
+const searchResults = ref(null)
 
-const currentMonth = ref(4); // 예시로 4월
-const summaryItems = ref([
-  { date: '2025-04-01', type: '수입', amount: 3000000 },
-  { date: '2025-04-05', type: '지출', amount: 2500000 }
-]);
+const updateViewDate = (date) => {
+  paymentStore.setViewDate(date)
+}
+
+watch(selectedDate, (val) => {
+  console.log('🟦 [MainPage] selectedDate 변경됨')
+  paymentStore.viewDate = val
+})
+
+onMounted(async () => {
+  paymentStore.viewDate = selectedDate.value
+  await paymentStore.fetchPayments()
+  console.log('✅ [MainPage] 결제 내역 로드 완료')
+})
+
+watch(
+  () => paymentStore.viewDate,
+  (val) => {
+    console.log('📌 viewDate 변경됨:', val)
+  },
+  { immediate: true },
+)
+
+const handleReset = () => {
+  searchResults.value = null
+}
+
+const handleSearch = async ({ type, keyword, categories }) => {
+  const res = await api.get('/Balance')
+  let data = res.data
+
+  if (type === 'search_all') {
+    searchResults.value = data.sort((a, b) => new Date(b.date) - new Date(a.date))
+    return
+  }
+
+  let filtered = data.filter((item) => {
+    const categoryMatched =
+      !categories || categories.length === 0 || categories.includes(item.category)
+
+    let keywordMatched = true
+    if (type === 'search_title') {
+      keywordMatched = item.title.includes(keyword)
+    } else if (type === 'search_memo') {
+      keywordMatched = item.memo.includes(keyword)
+    } else if (type === 'search_cash') {
+      keywordMatched = item.amount === Number(keyword)
+    } else if (type === 'search_category') {
+      keywordMatched = true
+    }
+
+    return categoryMatched && keywordMatched
+  })
+
+  searchResults.value = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
+}
 </script>
 
 <style scoped>
 .main-page {
-  background-color: #fef9ee;
+  background-color: var(--light-white);
   display: flex;
   flex-direction: column;
-}
-
-.main-header {
-  border-bottom: 1px solid #eee;
 }
 
 .main-body {
   display: flex;
   flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .sidebar {
   width: 300px;
-  background-color: #fff6da;
 }
 
 .content-area {
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .searchBox {
@@ -86,11 +134,17 @@ const summaryItems = ref([
 
 .summary {
   display: flex;
-  height: 130px;
+  padding: var(--space-m);
 }
 
 .calendar {
   display: flex;
-  flex: 1; /* 남은 공간 꽉 채우기 */
+  flex: 1;
+}
+
+.resultBox {
+  padding: 1rem;
+  flex-shrink: 0;
+  flex: 1;
 }
 </style>
