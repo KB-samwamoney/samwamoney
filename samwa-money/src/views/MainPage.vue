@@ -118,8 +118,6 @@ const handleSearch = async ({ type, keyword, categories }) => {
 
 .sidebar {
   width: 300px;
-  background-color: #fff6da;
-  flex-shrink: 0;
 }
 
 .content-area {

@@ -72,15 +72,16 @@ const formatPrice = (price) => {
 
 <style scoped>
 .line-chart-list {
-  margin-top: 1rem;
+  margin-top: var(--space-l);
   padding: 0.5rem;
-  background: #fff9e6;
+  background: var(--white);
   border-radius: 12px;
   border: 1px solid #f0e6cc;
+  max-height: 610px;
 }
 
 .table-wrapper {
-  max-height: 250px;
+  max-height: 600px;
   overflow-y: auto;
 }
 
@@ -100,10 +101,16 @@ table {
   min-width: 350px;
 }
 
+th {
+  top: 0;
+  position: sticky;
+  background-color: var(--white);
+}
+
 th,
 td {
   padding: 0.5rem;
-  text-align: left;
+  text-align: center;
   border-bottom: 1px solid #eee;
 }
 

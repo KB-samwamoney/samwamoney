@@ -26,8 +26,9 @@ watch(
 </script>
 <style scoped>
 .pie-chart-body {
+  background-color: var(--lighter-yellow);
+  margin: var(--space-s);
   display: flex;
-  gap: 2rem; /* 차트 사이 여백 */
   flex-direction: column;
 }
 </style>
