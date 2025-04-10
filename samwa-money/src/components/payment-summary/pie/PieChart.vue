@@ -83,9 +83,11 @@ watch([currentTab, currentDate], async () => {
 
 <style scoped>
 .pie-chart {
-  height: 400px;
-  border: 1px solid #ddd;
-  padding: 1rem;
+  height: 350px;
+  background-color: var(--white);
+  border: 1px solid var(--light-yellow);
+  padding: var(--space-m);
+  margin: var(--space-m) var(--space-l);
   border-radius: 12px;
 }
 </style>

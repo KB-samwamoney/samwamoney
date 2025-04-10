@@ -24,12 +24,14 @@ const searchResults = ref([])
 </template>
 
 <style scoped>
+.wrap {
+  width: 100%;
+}
 .main-body {
   display: flex;
   background-color: #fff5f5;
 }
 .sidebar {
   width: 300px;
-  background-color: #fff6da;
 }
 </style>

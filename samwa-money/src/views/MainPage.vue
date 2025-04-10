@@ -38,14 +38,6 @@ import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
 import SummaryBox from '@/components/main/summary/SummaryBox.vue'
-import SearchResult from '@/components/main/search/SearchResult.vue'
-import { usePaymentStore } from '@/stores/paymentAddStore'
-import axios from 'axios'
-
-const paymentStore = usePaymentStore()
-const selectedDate = ref(new Date())
-const viewDate = ref(new Date())
-const searchResults = ref(null)
 
 const updateViewDate = (date) => {
   console.log('📅 [MainPage] updateViewDate 실행됨:', date)
@@ -163,8 +155,6 @@ const handleSearch = async ({ type, keyword, categories }) => {
 
 .sidebar {
   width: 300px;
-  background-color: #fff6da;
-  flex-shrink: 0;
 }
 
 .content-area {
