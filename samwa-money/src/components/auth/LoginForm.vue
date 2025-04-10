@@ -103,6 +103,10 @@ h1 {
   border: none;
 }
 
+.method-button:hover {
+  background-color: var(--baby-pink);
+}
+
 .other {
   text-align: end;
   color: var(--dark-gray);
