@@ -1,12 +1,12 @@
 import { defineStore } from 'pinia'
-import { reactive, ref } from 'vue'
+import { ref } from 'vue'
 import summary from '@/api/summary'
 
 export const useSummaryStore = defineStore('summary', () => {
   // 수입, 지출 버튼을 위한 변수
   const currentTab = ref('수입')
   // 모든 Balance 값을 저장할 배열
-  const balanceList = reactive([])
+  const balanceList = ref([])
   // 모든 카테고리 목록을 저장할 배열
   const currentCategory = ref([])
   // 현재 선택된 월(달) 값 - 오늘 날짜 기준
