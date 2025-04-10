@@ -6,16 +6,27 @@ const props = defineProps({
   message: String
 })
 
-const emit = defineEmits(['confirm', 'cancel'])
+
+
+const emit = defineEmits(['confirm', 'cancel', 'create-payment'])
+
+const confilm = () => {
+  emit('confirm', 'create-payment')
+}
+
+const cancel = () => {
+  emit('cancel')
+}
+
 </script>
 
 <template>
   <div v-if="show" class="modal-overlay">
     <div class="modal">
-      <p class="modal-text">{{ message }}</p>
+      <p class="modal-text">{{ props.message }}</p>
       <div class="modal-buttons">
-        <button class="btn cancel" @click="$emit('cancel')">취소</button>
-        <button class="btn confirm" @click="$emit('confirm')">확인</button>
+        <button class="btn cancel" @click="cancel">취소</button>
+        <button class="btn confirm" @click="confilm">확인</button>
       </div>
     </div>
   </div>
