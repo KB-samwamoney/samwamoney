@@ -1,8 +1,6 @@
 <template>
   <div class="main-page">
-    <section class="main-header">
-      <HeaderSearch />
-    </section>
+    <section class="main-header"></section>
 
     <section class="main-body">
       <aside class="sidebar">
@@ -59,8 +57,16 @@ const currentYear = computed(() => viewDate.value.getFullYear())
 
 const isIncome = (category) => {
   const incomeCategories = [
-    '월급', '용돈', '기타', '상여', '금융소득',
-    '부수입', '환급금', '투자수익', '중고거래', '캐시백/포인트'
+    '월급',
+    '용돈',
+    '기타',
+    '상여',
+    '금융소득',
+    '부수입',
+    '환급금',
+    '투자수익',
+    '중고거래',
+    '캐시백/포인트',
   ]
   return incomeCategories.includes(category)
 }
@@ -74,17 +80,14 @@ const summaryItems = computed(() => {
   console.log('📦 현재 paymentList:', list)
 
   const items = list
-    .filter(item => {
+    .filter((item) => {
       const itemDate = new Date(item.date)
-      return (
-        itemDate.getFullYear() === year &&
-        itemDate.getMonth() + 1 === month
-      )
+      return itemDate.getFullYear() === year && itemDate.getMonth() + 1 === month
     })
-    .map(item => ({
+    .map((item) => ({
       type: isIncome(item.category) ? '수입' : '지출',
       amount: item.amount,
-      date: item.date
+      date: item.date,
     }))
 
   console.log(`📊 [SummaryItems] ${month}월 수입/지출 목록:`, items)
