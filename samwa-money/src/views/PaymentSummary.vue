@@ -17,8 +17,10 @@ const searchResults = ref([])
     <div class="wrap">
       <SummaryHeader />
       <!-- ✅ 검색창 넣기 -->
-      <SummaryBody v-if="!searchResults.length" />
-      <SearchResult v-else :results="searchResults" />
+      <div class="body-wrap">
+        <SummaryBody v-if="!searchResults.length" />
+        <SearchResult v-else :results="searchResults" />
+      </div>
     </div>
   </div>
 </template>
@@ -27,6 +29,9 @@ const searchResults = ref([])
 .wrap {
   width: 100%;
   background-color: var(--light-white);
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
 }
 .main-body {
   display: flex;
@@ -34,5 +39,10 @@ const searchResults = ref([])
 }
 .sidebar {
   width: 300px;
+}
+
+.body-wrap {
+  display: flex;
+  justify-content: center;
 }
 </style>
