@@ -9,10 +9,9 @@ onMounted(async () => {
   if (paymentStore.paymentList.length === 0) {
     await paymentStore.fetchPayments()
   }
-  await paymentStore.serchPayment('2dp0ntg')
+  await paymentStore.searchPayment('2dp0ntg')
   title.value = paymentStore.findPayment.title
 })
-
 </script>
 
 <template>

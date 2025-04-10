@@ -7,7 +7,7 @@
       "name": "홍길동",
       "email": "user@example.com",
       "nickname": "UserNick",
-      "expense_limit": 1000000
+      "expense_limit": "12348344532"
     },
     {
       "id": "63bb",
@@ -1366,28 +1366,38 @@
   "Ment": [
     {
       "id": "1",
-      "condition": "totalExpense >= expenseGoal * 0.9",
-      "message": "🫀 장기들이 소리쳐요! '그만 써줘~!' 목표의 90%를 넘었어요!"
+      "condition": "totalExpense >= expenseGoal * 0.95",
+      "message": "🆘 장기 비상!\n거의 다 썼어요! 예산 95% 초과!"
     },
     {
       "id": "2",
-      "condition": "totalExpense >= expenseGoal * 0.7 && totalExpense < expenseGoal * 0.9",
-      "message": "🧠 뇌가 살짝 피곤해했어요. 지출 속도 조절이 필요해요!"
+      "condition": "totalExpense >= expenseGoal * 0.85 && totalExpense < expenseGoal * 0.95",
+      "message": "👀 경고!\n지출이 임계치에 근접했어요."
     },
     {
       "id": "3",
-      "condition": "totalExpense >= expenseGoal * 0.5 && totalExpense < expenseGoal * 0.7",
-      "message": "🫁 폐가 말해요! '숨 쉴 틈은 아직 있어요~' 절반 넘었어요!"
+      "condition": "totalExpense >= expenseGoal * 0.7 && totalExpense < expenseGoal * 0.85",
+      "message": "🤯 뇌가 피곤해요.\n지출 속도 조절이 필요해요!"
     },
     {
       "id": "4",
-      "condition": "totalExpense >= expenseGoal * 0.3 && totalExpense < expenseGoal * 0.5",
-      "message": "🦴 뼈가 느껴요! '아직 튼튼해요~' 소비 잘 관리 중이에요."
+      "condition": "totalExpense >= expenseGoal * 0.5 && totalExpense < expenseGoal * 0.7",
+      "message": "😷 폐가 말해요!\n'숨 쉴 틈은 아직 있어요~'"
     },
     {
       "id": "5",
-      "condition": "totalExpense < expenseGoal * 0.3",
-      "message": "🫀 장기들이 환호해요! '절약 짱이에요~ 지금처럼만!'"
+      "condition": "totalExpense >= expenseGoal * 0.3 && totalExpense < expenseGoal * 0.5",
+      "message": "🦴 뼈가 느껴요!\n소비 잘 관리 중이에요!"
+    },
+    {
+      "id": "6",
+      "condition": "totalExpense >= expenseGoal * 0.1 && totalExpense < expenseGoal * 0.3",
+      "message": "💪 절약 천재!\n지금처럼만 하면 완벽해요!"
+    },
+    {
+      "id": "7",
+      "condition": "totalExpense < expenseGoal * 0.1",
+      "message": "🧘 소비 명상 중?\n거의 안 쓰셨네요!"
     }
   ],
   "Setting": [

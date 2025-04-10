@@ -1,3 +1,27 @@
+<template>
+  <div class="calendar-view">
+    <CalendarHeader :currentMode="mode" @updateMode="mode = $event" />
+
+    <div v-if="mode === 'calendar'" class="calendar-content">
+      <CalendarBody
+        :selectedDate="props.selectedDate"
+        @update:selectedDate="(val) => emit('update:selectedDate', val)"
+        @update:viewDate="(val) => emit('update:viewDate', val)"
+        @open-modal="handleOpenModal"
+      />
+    </div>
+
+    <MonthlyBody v-if="mode === 'monthly'" />
+
+    <DailyPaymentModal
+      :isOpen="isModalOpen"
+      :date="selectedDateForModal"
+      :items="filteredItems"
+      @close="isModalOpen = false"
+    />
+  </div>
+</template>
+
 <script setup>
 import { ref, computed } from 'vue'
 import CalendarHeader from './CalendarHeader.vue'
@@ -21,7 +45,6 @@ const selectedDateForModal = ref('')
 
 const paymentStore = usePaymentStore()
 
-// ⬇ computed로 변환
 const filteredItems = computed(() =>
   paymentStore.paymentList.filter((item) => item.date === selectedDateForModal.value),
 )
@@ -32,30 +55,6 @@ const handleOpenModal = (dateStr) => {
 }
 </script>
 
-<template>
-  <div class="calendar-view">
-    <CalendarHeader :currentMode="mode" @updateMode="mode = $event" />
-
-    <div v-if="mode === 'calendar'" class="calendar-content">
-      <CalendarBody
-        :selectedDate="selectedDate"
-        @update:selectedDate="(val) => emit('update:selectedDate', val)"
-        @update:viewDate="(val) => emit('update:viewDate', val)"
-        @open-modal="handleOpenModal"
-      />
-    </div>
-
-    <DailyPaymentModal
-      :isOpen="isModalOpen"
-      :date="selectedDateForModal"
-      :items="filteredItems || []"
-      @close="isModalOpen = false"
-    />
-
-    <MonthlyBody v-if="mode === 'monthly'" />
-  </div>
-</template>
-
 <style scoped>
 .calendar-view {
   width: 100%;
@@ -64,6 +63,7 @@ const handleOpenModal = (dateStr) => {
   flex-direction: column;
   box-sizing: border-box;
 }
+
 .calendar-content {
   min-height: 600px;
   display: flex;
