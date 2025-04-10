@@ -1,30 +1,33 @@
 <template>
   <div class="main-page">
-    <!-- 헤더 (로고 + 검색 + 카테고리 필터) -->
     <section class="main-header">
       <HeaderSearch />
     </section>
 
     <section class="main-body">
-      <!-- 좌측 메뉴바 -->
       <aside class="sidebar">
         <SideBar />
       </aside>
 
-      <!-- 우측 내용 -->
       <main class="content-area">
-        <!-- searchBox -->
         <section class="searchBox">
-          <SearchBar />
+          <SearchBar @search="handleSearch" @reset="handleReset" />
         </section>
-        <!-- 수입/지출 요약 박스 -->
+
         <section class="summary">
           <SummaryBox v-if="summaryItems.length" :month="currentMonth" :items="summaryItems" />
         </section>
 
-        <!-- 캘린더, 월별 리스트, 검색박스 -->
-        <section class="calendar">
-          <CalendarView />
+        <section class="resultBox">
+          <!-- 1. 검색 전 → CalendarView -->
+          <CalendarView
+            v-if="searchResults === null"
+            v-model:selectedDate="selectedDate"
+            @update:viewDate="updateViewDate"
+          />
+
+          <!-- 2. 검색 결과 → SearchResult 보여주기 -->
+          <SearchResult v-else :results="searchResults" />
         </section>
       </main>
     </section>
@@ -32,6 +35,7 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted, watch } from 'vue'
 import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
@@ -48,7 +52,7 @@ const summaryItems = ref([
 
 <style scoped>
 .main-page {
-  background-color: #fef9ee;
+  background-color: var(--light-white);
   display: flex;
   flex-direction: column;
 }
@@ -60,6 +64,8 @@ const summaryItems = ref([
 .main-body {
   display: flex;
   flex: 1;
+  min-height: 0;
+  overflow: hidden;
 }
 
 .sidebar {
@@ -70,6 +76,7 @@ const summaryItems = ref([
   flex: 1;
   display: flex;
   flex-direction: column;
+  overflow-y: auto;
 }
 
 .searchBox {
@@ -84,6 +91,12 @@ const summaryItems = ref([
 
 .calendar {
   display: flex;
-  flex: 1; /* 남은 공간 꽉 채우기 */
+  flex: 1;
+}
+
+.resultBox {
+  padding: 1rem;
+  flex-shrink: 0;
+  flex: 1;
 }
 </style>

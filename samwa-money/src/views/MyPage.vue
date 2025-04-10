@@ -1,5 +1,6 @@
 <script setup>
 import LogoutPopup from '@/components/auth/LogoutPopup.vue'
+import SideBar from '@/components/sidebar/SideBar.vue'
 import { useAuthStore } from '@/stores/authStore'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
@@ -43,43 +44,48 @@ const goToEdit = () => {
 </script>
 
 <template>
-  <div class="container">
-    <h1>뇌 센터</h1>
-    <h2 class="section-title">뇌 정보</h2>
-    <hr class="divider" />
-    <div class="info-body">
-      <div class="info">
-        <span class="title">아이디</span>
-        <span class="content">{{ authStore.user.userId }}</span>
-      </div>
-      <div class="info">
-        <span class="title">비밀번호</span>
-        <span class="content">{{ authStore.user.password }}</span>
-      </div>
-      <div class="info">
-        <span class="title">닉네임</span>
-        <span class="content">{{ authStore.user.nickname }}</span>
-      </div>
-      <div class="info">
-        <span class="title">이번 달 목표 지출액</span>
-        <span class="content">{{ authStore.user.expense_limit.toLocaleString() }}</span>
-      </div>
-      <div class="info">
-        <span class="title">가입일</span>
-        <span class="content">{{ formatDate(authStore.user.join_date) }}</span>
-      </div>
+  <div class="main-body">
+    <div class="side-bar">
+      <SideBar />
     </div>
-    <h2 class="section-title">뇌 탈출하기</h2>
-    <hr class="divider" />
-    <div class="method">
-      <span class="title" @click="handleLogout">로그아웃</span>
-    </div>
-    <div class="method">
-      <span class="title delete" @click="goToGoodBye">회원탈퇴</span>
-    </div>
-    <div class="action-buttons">
-      <button type="button" class="go-back" @click="goBack">뒤로가기</button>
-      <button type="button" class="go-edit" @click="goToEdit">수정하기</button>
+    <div class="container">
+      <h1>뇌 센터</h1>
+      <h2 class="section-title">뇌 정보</h2>
+      <hr class="divider" />
+      <div class="info-body">
+        <div class="info">
+          <span class="title">아이디</span>
+          <span class="content">{{ authStore.user.userId }}</span>
+        </div>
+        <div class="info">
+          <span class="title">비밀번호</span>
+          <span class="content">{{ authStore.user.password }}</span>
+        </div>
+        <div class="info">
+          <span class="title">닉네임</span>
+          <span class="content">{{ authStore.user.nickname }}</span>
+        </div>
+        <div class="info">
+          <span class="title">이번 달 목표 지출액</span>
+          <span class="content">{{ authStore.user.expense_limit.toLocaleString() }}</span>
+        </div>
+        <div class="info">
+          <span class="title">가입일</span>
+          <span class="content">{{ formatDate(authStore.user.join_date) }}</span>
+        </div>
+      </div>
+      <h2 class="section-title">뇌 탈출하기</h2>
+      <hr class="divider" />
+      <div class="method">
+        <span class="title" @click="handleLogout">로그아웃</span>
+      </div>
+      <div class="method">
+        <span class="title delete" @click="goToGoodBye">회원탈퇴</span>
+      </div>
+      <div class="action-buttons">
+        <button type="button" class="go-back" @click="goBack">뒤로가기</button>
+        <button type="button" class="go-edit" @click="goToEdit">수정하기</button>
+      </div>
     </div>
   </div>
   <LogoutPopup
@@ -91,6 +97,17 @@ const goToEdit = () => {
 </template>
 
 <style scoped>
+.main-body {
+  display: flex;
+  flex: 1;
+  background-color: var(--light-white);
+}
+
+.side-bar {
+  width: 300px;
+  background-color: var(--lighter-yellow);
+}
+
 .container {
   width: 100vh;
   min-height: 100vh;

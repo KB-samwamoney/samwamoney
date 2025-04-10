@@ -1,6 +1,7 @@
 <script setup>
 import { ref } from 'vue'
 import { useSettingStore } from '@/stores/settingStore'
+import SideBar from '@/components/sidebar/SideBar.vue'
 
 const settingStore = useSettingStore()
 const selectedMode = ref(settingStore.mode)
@@ -12,33 +13,49 @@ const saveMode = () => {
 </script>
 
 <template>
-  <div class="container">
-    <h1>환경 설정</h1>
-    <h2 class="section-title">모드 설정</h2>
-    <hr class="divider" />
-    <div class="card-wrapper">
-      <div
-        class="mode-card"
-        :class="{ active: selectedMode === 'light' }"
-        @click="selectedMode = 'light'"
-      >
-        <h3>🌞 신체 모드</h3>
-        <p>밝고 따뜻한 테마</p>
-      </div>
-      <div
-        class="mode-card"
-        :class="{ active: selectedMode === 'dark' }"
-        @click="selectedMode = 'dark'"
-      >
-        <h3>🌙 내장 모드</h3>
-        <p>차분하고 눈에 편한 테마</p>
-      </div>
+  <div class="main-body">
+    <div class="side-bar">
+      <SideBar />
     </div>
-    <button class="save-button" @click="saveMode">저장하기</button>
+    <div class="container">
+      <h1>환경 설정</h1>
+      <h2 class="section-title">모드 설정</h2>
+      <hr class="divider" />
+      <div class="card-wrapper">
+        <div
+          class="mode-card"
+          :class="{ active: selectedMode === 'light' }"
+          @click="selectedMode = 'light'"
+        >
+          <h3>🌞 신체 모드</h3>
+          <p>밝고 따뜻한 테마</p>
+        </div>
+        <div
+          class="mode-card"
+          :class="{ active: selectedMode === 'dark' }"
+          @click="selectedMode = 'dark'"
+        >
+          <h3>🌙 내장 모드</h3>
+          <p>차분하고 눈에 편한 테마</p>
+        </div>
+      </div>
+      <button class="save-button" @click="saveMode">저장하기</button>
+    </div>
   </div>
 </template>
 
 <style scoped>
+.main-body {
+  display: flex;
+  flex: 1;
+  background-color: var(--light-white);
+}
+
+.side-bar {
+  width: 300px;
+  background-color: var(--lighter-yellow);
+}
+
 .container {
   width: 100vh;
   min-height: 65vh;

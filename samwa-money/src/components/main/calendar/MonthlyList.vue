@@ -1,78 +1,161 @@
 <template>
-  <div class="monthly-detail">
-    <h2>{{ month }}월 수입/지출 내역</h2>
+  <div>
+    <div v-if="payments.length > 0" class="payment-list">
+      <h3>{{ month }}월 수입/지출 내역</h3>
 
-    <ul v-if="filteredItems.length > 0">
-      <li
-        v-for="(item, index) in filteredItems"
-        :key="index"
-        class="item"
-      >
-        <span>{{ item.date }}</span>
-        <span>{{ item.type }}</span>
-        <span>{{ item.amount.toLocaleString() }}원</span>
-      </li>
-    </ul>
+      <div class="summary">
+        총 수입: <span class="income">{{ totalIncome.toLocaleString() }}원</span>
+        /
+        총 지출: <span class="expense">{{ totalExpense.toLocaleString() }}원</span>
+      </div>
 
-    <p v-else class="empty">해당 달에는 내역이 없습니다.</p>
+      <div class="payment-list-scroll">
+        <div
+          v-for="(item, index) in payments"
+          :key="index"
+          class="payment-item"
+          :class="item.type === 'income' ? 'income' : 'expense'"
+        >
+          <div class="date">{{ formatDate(item.date) }}</div>
+
+          <div class="title">
+            <span class="icon">{{ item.icon }}</span>
+            {{ item.title }}
+          </div>
+
+          <div class="amount">
+            {{ item.type === 'income' ? '+' : '-' }}{{ item.amount.toLocaleString() }}원
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div v-else class="empty-message">
+      {{ month }}월에 등록된 내역이 없어요.
+    </div>
   </div>
 </template>
 
 <script setup>
-import { ref, computed } from 'vue'
+import { computed } from 'vue'
+import { usePaymentStore } from '@/stores/paymentAddStore'
 
 const props = defineProps({
-  month: {
-    type: Number,
-    required: true
-  }
+  month: Number
 })
 
-const allData = ref([
-  { date: '2025-03-01', type: '수입', amount: 100000 },
-  { date: '2025-03-05', type: '지출', amount: 20000 },
-  { date: '2025-04-01', type: '수입', amount: 120000 },
-  { date: '2025-04-07', type: '지출', amount: 30000 },
-  { date: '2025-05-10', type: '수입', amount: 99999 },
-])
+const paymentStore = usePaymentStore()
 
-const filteredItems = computed(() =>
-  allData.value.filter(item => {
-    const itemMonth = new Date(item.date).getMonth() + 1
-    return itemMonth === props.month
-  })
+// 해당 월의 내역 가져오기
+const payments = computed(() =>
+  paymentStore.getPaymentsByMonth(props.month).slice().sort((a, b) => new Date(b.date) - new Date(a.date))
 )
+
+// 총 수입 계산
+const totalIncome = computed(() =>
+  payments.value
+    .filter(item => item.type === 'income')
+    .reduce((sum, item) => sum + item.amount, 0)
+)
+
+// 총 지출 계산
+const totalExpense = computed(() =>
+  payments.value
+    .filter(item => item.type === 'expense')
+    .reduce((sum, item) => sum + item.amount, 0)
+)
+
+// 날짜 포맷 함수
+const formatDate = (dateStr) => {
+  const date = new Date(dateStr)
+  return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`
+}
 </script>
 
 <style scoped>
-.monthly-detail {
-  background-color: var(--light-white);
-  border: 2px solid var(--light-yellow);
-  border-radius: 10px;
+.payment-list {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
   padding: 1rem;
+  border-radius: 8px;
   margin-top: 0.5rem;
-  margin-bottom: 1rem;
-  box-shadow: 0 2px 5px rgba(255, 182, 193, 0.15);
 }
 
-h2 {
-  font-size: 18px;
+.summary {
   font-weight: bold;
-  margin-bottom: 1rem;
-  color: var(--light-yellow);
+  margin-bottom: 0.75rem;
+  font-size: 14px;
 }
 
-.item {
+.income {
+  color: var(--blue);
+}
+
+.expense {
+  color: #e74c3c;
+}
+
+.payment-list-scroll {
+  max-height: 400px;
+  overflow-y: auto;
+  padding-right: 0.5rem;
+}
+
+/* 리스트 카드 스타일 */
+.payment-item {
+  background: #fff;
+  border: 1px solid #ffe58f;
+  border-radius: 8px;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
   display: flex;
   justify-content: space-between;
-  padding: 0.5rem 0;
-  border-bottom: 1px dashed var(--light-yellow);
-  font-size: 15px;
+  align-items: center;
+  font-size: 14px;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
-.empty {
-  color: #888;
+.payment-item.income .amount {
+  color: var(--blue);
+}
+
+.payment-item.expense .amount {
+  color: var(--danger);
+}
+
+.date {
+  flex: 1;
+  font-weight: 500;
+  color: var(--black);
+}
+
+.title {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-weight: 600;
+}
+
+.icon {
+  font-size: 1.2rem;
+}
+
+.amount {
+  min-width: 100px;
+  text-align: right;
+  font-weight: bold;
+}
+
+.empty-message {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
+  padding: 1rem;
+  border-radius: 8px;
+  margin-top: 0.5rem;
+  color: #999;
+  font-style: italic;
   text-align: center;
-  padding: 1rem 0;
+  font-size: 14px;
 }
 </style>
