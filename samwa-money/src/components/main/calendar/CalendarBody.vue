@@ -212,7 +212,7 @@ const handleDateClick = (date) => {
   margin-bottom: 50px !important;
   font-weight: bold;
   font-size: 18px;
-  color: #333;
+  color: var(--black);
   justify-content: space-between;
   align-items: center;
 }

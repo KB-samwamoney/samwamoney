@@ -14,6 +14,7 @@ const props = defineProps({
         v-for="(item, index) in items"
         :key="item.id || index"
         @click="$router.push(`/detail/${item.id}`)"
+        :item="item"
       >
         <div class="item-row">
           <div class="item-left">
