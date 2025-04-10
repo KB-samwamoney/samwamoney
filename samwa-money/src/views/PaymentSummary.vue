@@ -1,38 +1,57 @@
 <script setup>
-import { ref } from 'vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
 import SummaryBody from '@/components/payment-summary/SummaryBody.vue'
 import SummaryHeader from '@/components/payment-summary/SummaryHeader.vue'
-import SearchResult from '@/components/main/search/SearchResult.vue'
-
-const searchResults = ref([])
 </script>
 
 <template>
   <div class="main-body">
-    <aside class="sidebar">
+    <div class="side-bar">
       <SideBar />
-    </aside>
+    </div>
 
     <div class="wrap">
       <SummaryHeader />
-      <!-- ✅ 검색창 넣기 -->
-      <SummaryBody v-if="!searchResults.length" />
-      <SearchResult v-else :results="searchResults" />
+      <div class="body-wrapper">
+        <SummaryBody />
+      </div>
     </div>
   </div>
 </template>
 
 <style scoped>
-.wrap {
-  width: 100%;
-  background-color: var(--light-white);
-}
 .main-body {
   display: flex;
-  background-color: #fff5f5;
+  flex: 1;
+  background-color: var(--light-white);
 }
-.sidebar {
-  width: 300px;
+
+.wrap {
+  flex: 1;
+  width: 100%;
+  max-width: 1200px;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-l);
+  box-sizing: border-box;
+  padding: 0 1rem;
+}
+
+.side-bar {
+  min-width: 300px;
+  background-color: var(--lighter-yellow);
+}
+
+.body-wraper {
+  width: 100%;
+  display: flex;
+  gap: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
+  flex-wrap: wrap;
+  justify-content: center;
 }
 </style>

@@ -4,9 +4,8 @@
       <h3>{{ month }}월 수입/지출 내역</h3>
 
       <div class="summary">
-        총 수입: <span class="income">{{ totalIncome.toLocaleString() }}원</span>
-        /
-        총 지출: <span class="expense">{{ totalExpense.toLocaleString() }}원</span>
+        총 수입: <span class="income">{{ totalIncome.toLocaleString() }}원</span> / 총 지출:
+        <span class="expense">{{ totalExpense.toLocaleString() }}원</span>
       </div>
 
       <div class="payment-list-scroll">
@@ -30,9 +29,7 @@
       </div>
     </div>
 
-    <div v-else class="empty-message">
-      {{ month }}월에 등록된 내역이 없어요.
-    </div>
+    <div v-else class="empty-message">{{ month }}월에 등록된 내역이 없어요.</div>
   </div>
 </template>
 
@@ -41,28 +38,31 @@ import { computed } from 'vue'
 import { usePaymentStore } from '@/stores/paymentAddStore'
 
 const props = defineProps({
-  month: Number
+  month: Number,
 })
 
 const paymentStore = usePaymentStore()
 
 // 해당 월의 내역 가져오기
 const payments = computed(() =>
-  paymentStore.getPaymentsByMonth(props.month).slice().sort((a, b) => new Date(b.date) - new Date(a.date))
+  paymentStore
+    .getPaymentsByMonth(props.month)
+    .slice()
+    .sort((a, b) => new Date(b.date) - new Date(a.date)),
 )
 
 // 총 수입 계산
 const totalIncome = computed(() =>
   payments.value
-    .filter(item => item.type === 'income')
-    .reduce((sum, item) => sum + item.amount, 0)
+    .filter((item) => item.type === 'income')
+    .reduce((sum, item) => sum + item.amount, 0),
 )
 
 // 총 지출 계산
 const totalExpense = computed(() =>
   payments.value
-    .filter(item => item.type === 'expense')
-    .reduce((sum, item) => sum + item.amount, 0)
+    .filter((item) => item.type === 'expense')
+    .reduce((sum, item) => sum + item.amount, 0),
 )
 
 // 날짜 포맷 함수
@@ -148,12 +148,12 @@ const formatDate = (dateStr) => {
 }
 
 .empty-message {
-  background-color: #fffbe6;
-  border: 1px solid #ffe58f;
+  background-color: var(--baby-pink);
+  border: 1px solid var(--light-yellow);
   padding: 1rem;
   border-radius: 8px;
   margin-top: 0.5rem;
-  color: #999;
+  color: var(--dark-gray);
   font-style: italic;
   text-align: center;
   font-size: 14px;

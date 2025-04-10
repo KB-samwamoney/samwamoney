@@ -1,14 +1,13 @@
 <script setup>
-import { defineProps } from 'vue'
+import { defineProps, defineEmits } from 'vue'
 import { useRouter } from 'vue-router'
 
+const emit = defineEmits(['create-payment'])
 const router = useRouter()
 
 const props = defineProps({
   name: String,
 })
-
-const emit = defineEmits(['create-payment'])
 
 const handleEvent = () => {
   if (props.name === '확인') {

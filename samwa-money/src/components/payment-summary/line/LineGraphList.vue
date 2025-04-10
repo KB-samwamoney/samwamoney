@@ -43,6 +43,7 @@ const { balanceList, currentCategory, currentTab, currentDate } = storeToRefs(su
 
 const currentMonth = computed(() => String(currentDate.value.getMonth() + 1).padStart(2, '0'))
 
+// 카테고리 이름(name)을 키, 타입(type) 을 value 값으로 저장하는 객체 생성
 const categoryTypeMap = computed(() => {
   const map = {}
   currentCategory.value.forEach((cat) => {
@@ -51,6 +52,7 @@ const categoryTypeMap = computed(() => {
   return map
 })
 
+// 리스트를 만들어주고 정렬해줌
 const filteredList = computed(() =>
   balanceList.value
     .filter((item) => {
@@ -109,7 +111,7 @@ const formatPrice = (price) => {
   padding: 0.5rem;
   background: var(--white);
   border-radius: 12px;
-  border: 1px solid #f0e6cc;
+  border: 1px solid var(--real-yellow);
   max-height: 610px;
 }
 .empty {
@@ -129,7 +131,7 @@ const formatPrice = (price) => {
   width: 6px;
 }
 .table-wrapper::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: var(--light-gray);
   border-radius: 4px;
 }
 table {
@@ -147,17 +149,17 @@ th,
 td {
   padding: 0.5rem;
   text-align: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--light-gray);
 }
 .amount {
   text-align: right;
-  color: #e63946;
+  color: var(--danger);
   font-weight: 600;
 }
 .income {
-  color: #3b82f6; /* 파란색 계열 */
+  color: var(--blue); /* 파란색 계열 */
 }
 .expense {
-  color: #ef4444; /* 빨간색 계열 */
+  color: var(--danger); /* 빨간색 계열 */
 }
 </style>

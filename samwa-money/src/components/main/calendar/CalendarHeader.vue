@@ -28,10 +28,6 @@ const emit = defineEmits(['updateMode'])
 const setMode = (mode) => {
   emit('updateMode', mode)
 }
-
-const summaryMent = () => {
-  return '이번 달은 수입이 지출보다 많아요! 💰'
-}
 </script>
 
 <style scoped>
@@ -66,11 +62,13 @@ const summaryMent = () => {
 button {
   background: none;
   border: none;
-  font-size: 16px;
+  font-size: 20px;
   padding: 8px 12px;
   cursor: pointer;
   border-bottom: 3px solid transparent;
   transition: all 0.2s;
+  font-family: 'Pretendard', sans-serif;
+  color: var(--black);
 }
 
 button.active {

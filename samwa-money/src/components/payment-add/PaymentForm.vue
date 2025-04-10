@@ -102,11 +102,11 @@ const createPayment = async () => {
       title: title.value,
       date: date.value,
       category: category.value.name,
-      icon: category.value.icon,
+      type: type.value,
       amount: Number(String(amount.value).replace(/,/g, '')),
       memo: memo.value,
+      icon: category.value.icon,
       imgUrl: base64Img,
-      type: type.value,
     }
     await paymentStore.createPayment(newPayment)
     toastStore.showToast('저장되었습니다')

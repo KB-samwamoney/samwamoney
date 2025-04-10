@@ -2,6 +2,7 @@ import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { useAuthStore } from '@/stores/authStore.js'
 import { fetchCategory, postPayment, fetchPaymentsById } from '@/api/category.js'
+import api from '@/utils/axios'
 
 export const usePaymentStore = defineStore('payment', () => {
   const authStore = useAuthStore()
@@ -81,7 +82,6 @@ export const usePaymentStore = defineStore('payment', () => {
   const searchPayment = async (id) => {
     loading.value = true
     error.value = null
-
     try {
       if (!Array.isArray(paymentList.value)) {
         throw new Error('paymentList가 배열이 아님!')

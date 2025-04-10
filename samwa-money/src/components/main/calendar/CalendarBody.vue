@@ -120,7 +120,9 @@ const isSelected = (date) => {
 // 날짜를 'YYYY-MM-DD' 형식으로 변환
 const formatDate = (date) => {
   if (!date) return ''
-  return new Date(date).toISOString().split('T')[0]
+  const d = new Date(date)
+  d.setHours(0, 0, 0, 0) // 시간정보 초기화
+  return d.toISOString().split('T')[0]
 }
 
 // 해당 날짜에 거래가 있는지 여부 확인
@@ -213,6 +215,7 @@ const handleDateClick = (date) => {
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
+  background-color: var(--white);
 }
 
 .vc-weeks {
@@ -234,6 +237,7 @@ const handleDateClick = (date) => {
   min-height: 120px;
   padding: 4px;
   box-sizing: border-box;
+  color: var(--black);
 }
 
 .day-cell {
@@ -267,6 +271,10 @@ const handleDateClick = (date) => {
 .vc-title {
   font-size: 20px;
   font-weight: 600;
+}
+
+.vc-title span {
+  color: var(--black);
 }
 
 .day-number {

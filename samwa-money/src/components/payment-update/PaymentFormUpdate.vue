@@ -27,16 +27,6 @@ const imgUrl = ref(null)
 const baseImg = ref(null)
 const dateInput = ref('')
 
-//이미지를 문장열로 변환해주는 로직
-const fileToBase64 = (file) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = (error) => reject(error)
-  })
-}
-
 const handleChangeImg = async (event) => {
   const file = event.target.files[0]
   if (file) {
@@ -107,7 +97,7 @@ const upDatePayment = async () => {
       icon: category.value.icon || categoryIcon.value,
       imgUrl: baseImg.value,
     }
-    await paymentStore.updatePayment(newPayment, props.id)
+    await paymentStore.updatePayment(newPayment, Number(props.id))
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
@@ -123,7 +113,7 @@ onMounted(async () => {
   if (paymentStore.paymentList.length === 0) {
     await paymentStore.fetchPayments()
   }
-  await paymentStore.serchPayment(100)
+  await paymentStore.searchPayment(Number(props.id))
 
   date.value = paymentStore.findPayment.date
   amount.value = Number(paymentStore.findPayment.amount).toLocaleString()
@@ -202,19 +192,19 @@ onMounted(async () => {
     </div>
     <hr />
     <div class="amount-container">
-      <label class="amount-title">금액입력</label>
+      <label class="amount-title">금액 입력</label>
       <input
         type="text"
         class="amount-input"
         placeholder="금액을 입력하세요"
-        v-model.number="amount"
+        v-model="amount"
         @input="handleAmountInput"
         value=""
       />
     </div>
     <hr />
     <div class="date-container">
-      <label>날짜선택 :</label>
+      <label style="font-weight: 600; font-size: 18px;">날짜 선택</label>
       <input
         type="date"
         class="date-input"
@@ -236,7 +226,7 @@ onMounted(async () => {
       <label class="upload-label">사진 </label>
       <label for="uploadImg" class="upload-box">
         <span v-if="!imgUrl">+</span>
-        <img v-else :src="baseImg" alt="미리보기 이미지" class="preview-img" />
+        <img v-else :src="imgUrl" alt="미리보기 이미지" class="preview-img" />
         <input type="file" id="uploadImg" hidden accept="image/*" @change="handleChangeImg" />
       </label>
       <button class="imgdelete-btn" @click="imageDelete" v-if="imgUrl">x</button>
@@ -253,55 +243,46 @@ onMounted(async () => {
 .container {
   display: flex;
   flex-direction: column;
-  gap: 18px;
-  width: 738px;
-  margin: 20px auto;
-  padding: 2rem 0;
-  background-color: var(--lighter-yellow);
-  border-radius: var(--radius);
+  gap: 20px;
+  width: 680px;
+  margin: 40px auto;
+  padding: 28px 32px;
+  background-color: #fffbe6;
+  border-radius: 16px;
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
 
-.category-title label,
-.date-title,
-.amount-title,
-.memo-title,
-.upload-label {
-  font-size: 24px;
-  font-weight: 600;
-}
-
+/* ------ 제목 ------ */
 .title-container {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 738px;
-  max-height: 112px;
-  margin: auto;
-  padding: 2rem 0;
-  width: calc(100% - 2rem);
-  margin: auto;
+  text-align: center;
 }
 
 .title-input {
   width: 100%;
-  height: 80px;
-  border-radius: var(--radius);
-  border: 1px solid var(--dark-gray);
+  height: 60px;
+  border-radius: 10px;
+  border: 1.5px solid #ccc;
+  font-size: 32px;
+  font-weight: 600;
   text-align: center;
-  font-size: 50px;
+  padding: 8px 12px;
+  transition: border-color 0.3s;
+}
+.title-input:focus {
+  border-color: #ffd24c;
+  outline: none;
 }
 
-.title-input h1 {
-  font-size: 60px;
-}
-
-/* ------카테고리------ */
+/* ------ 카테고리 ------ */
 .category-container {
-  flex-direction: column;
   display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
 
-  width: calc(100% - 2rem);
-  margin: auto;
+.category-title label {
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .category-body {
@@ -312,145 +293,180 @@ onMounted(async () => {
 
 .expenses-income {
   display: flex;
-  gap: 30px;
+  gap: 20px;
 }
 
 .toggle-btn {
-  padding: var(--space-s) var(--space-m);
+  padding: 6px 14px;
+  border-radius: 8px;
+  background-color: #f2f2f2;
+  color: #333;
+  font-weight: 500;
   cursor: pointer;
-  border-radius: var(--radius);
-  background-color: var(--light-gray);
-  color: var(--dark-gray);
+  transition: all 0.3s;
 }
 
 .selected-income {
-  background-color: var(--blue);
-  color: var(--dark);
+  background-color: #91d5a7;
+  color: #fff;
 }
 
-.toggle-btn.selected-expense {
-  background-color: var(--danger);
-  color: var(--dark);
+.selected-expense {
+  background-color: #f66e6e;
+  color: #fff;
 }
 
-.toggle-title {
-  color: var(--light-gray);
+.category-input {
+  font-weight: bold;
+  text-align: center;
+  width: 240px;
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 0 12px;
+  font-size: 15px;
+  background-color: white;
 }
 
-/* ------- 컨테이너 -------- */
+/* ------ 금액, 날짜 ------ */
 .amount-container,
 .date-container {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
-  width: calc(100% - 2rem);
-  margin: auto;
 }
 
-/* ---------- 날찌선택 ----------- */
+.amount-title,
+.date-title,
+.memo-title,
+.upload-label {
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.amount-input,
 .date-input {
-  cursor: pointer;
+  width: 240px;
+  height: 42px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  text-align: center;
+  font-size: 16px;
+  transition: border-color 0.3s;
+}
+.amount-input:focus,
+.date-input:focus {
+  border-color: #ffd24c;
+  outline: none;
 }
 
-/* --------- 메모 ---------- */
+/* ------ 메모 ------ */
 .memo-container {
   display: flex;
   flex-direction: column;
-  width: calc(100% - 2rem);
-  margin: auto;
+  gap: 8px;
 }
 
 textarea {
-  height: 94px;
+  height: 100px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  padding: 12px;
+  font-size: 15px;
   resize: none;
-  border-radius: var(--radius);
-  padding: 10px;
+  background-color: white;
+}
+textarea:focus {
+  border-color: #ffd24c;
+  outline: none;
 }
 
-/* -------- 사진 첨부 --------- */
+/* ------ 이미지 업로드 ------ */
 .upload-container {
   display: flex;
-  justify-content: space-between;
+  align-items: center;
+  gap: 20px;
   position: relative;
-  width: calc(100% - 2rem);
-  margin: auto;
+  justify-content: space-between;
 }
 
 .upload-box {
+  width: 160px;
+  height: 160px;
+  border-radius: 10px;
+  background-color: #f2f2f2;
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 200px;
-  height: 200px;
-  background-color: var(--light-gray);
-  font-size: 30px;
-  border-radius: var(--radius);
-  border: 1px dotted var(--dark-gray);
+  font-size: 36px;
+  border: 2px dashed #ccc;
   cursor: pointer;
+  overflow: hidden;
+  transition: border-color 0.3s;
+}
+
+.upload-box:hover {
+  border-color: #ffd24c;
+}
+
+.preview-img {
+  font-size: 15px;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .imgdelete-btn {
   position: absolute;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  width: 18px;
-  height: 18px;
-  background-color: var(--light-gray);
-  border: 1px solid var(--dark-gray);
+  right: -6px;
+  top: -6px;
+  width: 22px;
+  height: 22px;
+  background-color: #fff;
+  border: 1px solid #888;
   border-radius: 50%;
-  cursor: pointer;
-  right: -5px;
-  top: -5px;
-  transition: transform 0.2s ease;
-}
-
-.imgdelete-btn:hover {
-  transform: scale(1.3);
-}
-
-/* ---------  input 요소---------- */
-.category-input,
-.amount-input,
-.date-input {
-  width: 300px;
-  height: 42px;
-  border-radius: var(--radius);
-  border: 1px solid var(--dark-gray);
+  font-size: 14px;
+  font-weight: bold;
+  line-height: 20px;
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+.imgdelete-btn:hover {
+  transform: scale(1.15);
 }
 
-/* ------- 번튼 -------- */
-
+/* ------ 버튼 ------ */
 .buttons {
   display: flex;
-
-  width: calc(100% - 2rem);
-  margin: auto;
-  gap: 20px;
-  justify-content: right;
+  justify-content: flex-end;
+  gap: 12px;
+  margin-top: 10px;
 }
 
 .btn {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
   width: 100px;
   height: 40px;
   font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
+  font-weight: 600;
   border: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  cursor: pointer;
+  transition: background-color 0.2s, transform 0.2s;
 }
 
 .btn.cancel {
-  background-color: #ffe596;
+  background-color: #e0e0e0;
+  color: #333;
 }
 
 .btn.confirm {
-  background-color: #ffe596;
+  background-color: #ffd24c;
+  color: #333;
+}
+
+.btn:hover {
+  transform: scale(1.05);
 }
 </style>
+

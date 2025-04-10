@@ -45,8 +45,15 @@ const selectedDateForModal = ref('')
 
 const paymentStore = usePaymentStore()
 
+const formatDate = (date) => {
+  if (!date) return ''
+  const d = new Date(date)
+  d.setHours(0, 0, 0, 0)
+  return d.toISOString().split('T')[0]
+}
+
 const filteredItems = computed(() =>
-  paymentStore.paymentList.filter((item) => item.date === selectedDateForModal.value),
+  paymentStore.paymentList.filter((item) => formatDate(item.date) === selectedDateForModal.value),
 )
 
 const handleOpenModal = (dateStr) => {

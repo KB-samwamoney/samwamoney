@@ -1,7 +1,17 @@
-<script setup></script>
+<script setup>
+import PaymentDetailList from '@/components/payment-detail/PaymentDetailList.vue';
+import { ref } from 'vue';
+import { useRoute } from 'vue-router'
+
+const route = useRoute()
+const paymentId = ref(route.params.id)
+
+
+</script>
+
 
 <template>
-  <div>소비 디테일 페이지</div>
+  <PaymentDetailList :id="paymentId" />
 </template>
 
 <style scoped></style>

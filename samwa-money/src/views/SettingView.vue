@@ -1,14 +1,38 @@
 <script setup>
 import { ref } from 'vue'
+import { useRouter } from 'vue-router'
 import { useSettingStore } from '@/stores/settingStore'
 import SideBar from '@/components/sidebar/SideBar.vue'
+import ToastNotification from '@/components/toast/ToastNotification.vue'
 
+const router = useRouter()
 const settingStore = useSettingStore()
 const selectedMode = ref(settingStore.mode)
+const toastMessage = ref('')
+const toastType = ref('success')
+const toastVisible = ref(false)
+
+const showToast = (msg, type = 'success') => {
+  toastMessage.value = msg
+  toastType.value = type
+  toastVisible.value = true
+
+  setTimeout(() => {
+    toastVisible.value = false
+  }, 3000)
+}
 
 const saveMode = () => {
   settingStore.mode = selectedMode.value
-  alert('모드가 변경되었습니다.')
+  showToast('모드가 변경되었습니다.', 'success')
+}
+
+const handleToastClose = () => {
+  toastVisible.value = false
+}
+
+const goBack = () => {
+  router.back()
 }
 </script>
 
@@ -23,7 +47,7 @@ const saveMode = () => {
       <hr class="divider" />
       <div class="card-wrapper">
         <div
-          class="mode-card"
+          class="light-mode-card"
           :class="{ active: selectedMode === 'light' }"
           @click="selectedMode = 'light'"
         >
@@ -31,7 +55,7 @@ const saveMode = () => {
           <p>밝고 따뜻한 테마</p>
         </div>
         <div
-          class="mode-card"
+          class="dark-mode-card"
           :class="{ active: selectedMode === 'dark' }"
           @click="selectedMode = 'dark'"
         >
@@ -39,8 +63,17 @@ const saveMode = () => {
           <p>차분하고 눈에 편한 테마</p>
         </div>
       </div>
-      <button class="save-button" @click="saveMode">저장하기</button>
+      <div class="action-buttons">
+        <button class="go-back" @click="goBack">뒤로가기</button>
+        <button class="save-button" @click="saveMode">저장하기</button>
+      </div>
     </div>
+    <ToastNotification
+      :message="toastMessage"
+      :type="toastType"
+      :isVisible="toastVisible"
+      @close="handleToastClose"
+    />
   </div>
 </template>
 
@@ -58,7 +91,7 @@ const saveMode = () => {
 
 .container {
   width: 100vh;
-  min-height: 65vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -87,14 +120,14 @@ h1 {
 
 .card-wrapper {
   display: flex;
-  gap: var(--space-l);
-  margin-top: var(--space-m);
-  margin-bottom: var(--space-xl);
+  gap: 100px;
+  margin-top: 100px;
+  margin-bottom: 100px;
   flex-wrap: wrap;
   justify-content: center;
 }
 
-.mode-card {
+.light-mode-card {
   width: 220px;
   height: 160px;
   padding: var(--space-m);
@@ -107,41 +140,100 @@ h1 {
   text-align: center;
 }
 
-.mode-card h3 {
+.light-mode-card h3 {
   font-size: 22px;
   margin-bottom: var(--space-s);
 }
 
-.mode-card p {
+.light-mode-card p {
   font-size: 16px;
   color: var(--dark-gray);
 }
 
-.mode-card:hover {
+.light-mode-card:hover {
   transform: translateY(-3px);
   box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
 }
 
-.mode-card.active {
+.light-mode-card.active {
   border-color: var(--danger);
   background-color: var(--light-yellow);
 }
 
+.dark-mode-card {
+  width: 220px;
+  height: 160px;
+  padding: var(--space-m);
+  border-radius: var(--radius);
+  border: 2px solid var(--light-gray);
+  background-color: var(--light-white);
+  box-shadow: 2px 2px 8px rgba(0, 0, 0, 0.05);
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-align: center;
+}
+
+.dark-mode-card h3 {
+  font-size: 22px;
+  margin-bottom: var(--space-s);
+}
+
+.dark-mode-card p {
+  font-size: 16px;
+  color: var(--dark-gray);
+}
+
+.dark-mode-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 2px 4px 12px rgba(0, 0, 0, 0.1);
+}
+
+.dark-mode-card.active {
+  border-color: var(--dark-gray);
+  background-color: var(--black);
+  color: var(--white);
+}
+
 .save-button {
   background-color: var(--danger);
-  color: white;
-  font-size: 18px;
+  color: var(--light-white);
+  font-size: var(--space-m);
   font-weight: 700;
   border: none;
   border-radius: var(--radius);
   padding: var(--space-m) var(--space-l);
   cursor: pointer;
-  transition: background-color 0.2s ease;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
   font-family: 'Pretendard', sans-serif;
 }
 
 .save-button:hover {
+  transform: translateY(-2px);
+}
+
+.action-buttons {
+  display: flex;
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+  justify-content: center;
+}
+
+.go-back {
   background-color: var(--light-yellow);
   color: var(--black);
+  font-size: var(--space-m);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-m) var(--space-l);
+  cursor: pointer;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.go-back:hover {
+  transform: translateY(-2px);
 }
 </style>
