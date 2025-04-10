@@ -3,23 +3,20 @@ import { defineStore } from 'pinia'
 import api from '@/utils/axios'
 import { useAuthStore } from '@/stores/authStore.js'
 
-
 export const usePaymentStore = defineStore('payment', () => {
   const authStore = useAuthStore()
 
   const loading = ref(false)
   const error = ref(null)
 
-  const paymentList = ref([])     // 결제 내역
-  const categoryList = ref([])    // 카테고리 목록
+  const paymentList = ref([]) // 결제 내역
+  const categoryList = ref([]) // 카테고리 목록
 
   const getcategoryList = async (paymentType) => {
     try {
       loading.value = true
       const response = await api.get(`/Category`)
-      categoryList.value = response.data.filter(
-        list => list.type === paymentType
-      )
+      categoryList.value = response.data.filter((list) => list.type === paymentType)
     } catch (error) {
       console.error(`카테고리 불러오기 실패: ${error}`)
     } finally {
@@ -34,7 +31,7 @@ export const usePaymentStore = defineStore('payment', () => {
     try {
       const newPayment = {
         userId: authStore.user.userId,
-        ...paymentData
+        ...paymentData,
       }
       const response = await api.post(`/Balance`, newPayment)
       paymentList.value.push(response.data)
@@ -68,6 +65,6 @@ export const usePaymentStore = defineStore('payment', () => {
     categoryList,
     getcategoryList,
     createPayment,
-    fetchPayments
+    fetchPayments,
   }
 })
