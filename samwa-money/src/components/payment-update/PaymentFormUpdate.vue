@@ -97,7 +97,7 @@ const upDatePayment = async () => {
       icon: category.value.icon || categoryIcon.value,
       imgUrl: baseImg.value,
     }
-    await paymentStore.updatePayment(newPayment, 100)
+    await paymentStore.updatePayment(newPayment, Number(props.id))
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
@@ -113,7 +113,7 @@ onMounted(async () => {
   if (paymentStore.paymentList.length === 0) {
     await paymentStore.fetchPayments()
   }
-  await paymentStore.searchPayment(100)
+  await paymentStore.searchPayment(Number(props.id))
 
   date.value = paymentStore.findPayment.date
   amount.value = Number(paymentStore.findPayment.amount).toLocaleString()

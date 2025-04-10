@@ -10,7 +10,7 @@ const props = defineProps({
   <div class="modal-content">
     <div v-if="Array.isArray(items) && items.length">
       <div class="item-box" v-for="(item, index) in items" :key="item.id || index"
-        @click="$router.push(`/detail/${item.id}`)" :item="item">
+        @click="$router.push(`/payment-detail/${item.id}`)">
         <div class="item-row">
           <div class="item-left">
             <div class="item-title">{{ item.icon }} {{ item.title }}</div>
@@ -45,6 +45,7 @@ const props = defineProps({
   border-radius: 8px;
   padding: 1rem;
   margin-bottom: 1rem;
+  cursor: pointer;
 }
 
 .item-title {

@@ -82,7 +82,6 @@ export const usePaymentStore = defineStore('payment', () => {
   const searchPayment = async (id) => {
     loading.value = true
     error.value = null
-
     try {
       if (!Array.isArray(paymentList.value)) {
         throw new Error('paymentList가 배열이 아님!')
