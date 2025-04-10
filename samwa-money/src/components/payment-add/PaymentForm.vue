@@ -1,10 +1,10 @@
 <script setup>
-import { usePaymentStore } from '@/stores/paymentAddStore';
-import { onMounted, ref, watch } from 'vue';
-import ConfirmButton from '../button/ConfirmButton.vue';
-import { useToastStore } from '@/stores/toastStore';
-import PaymentModal from './PaymentModal.vue';
-import { useRouter } from 'vue-router';
+import { usePaymentStore } from '@/stores/paymentAddStore'
+import { onMounted, ref, watch } from 'vue'
+import ConfirmButton from '../button/ConfirmButton.vue'
+import { useToastStore } from '@/stores/toastStore'
+import PaymentModal from './PaymentModal.vue'
+import { useRouter } from 'vue-router'
 
 const paymentStore = usePaymentStore()
 const toastStore = useToastStore()
@@ -36,7 +36,7 @@ const handleChangeImg = (event) => {
     imgUrl.value = null
     return
   }
-  imgUrl.value = file;
+  imgUrl.value = file
   toastStore.showToast('이미지가 등록되었습니다')
 }
 //  저장된 이미지 삭제
@@ -112,10 +112,8 @@ const createPayment = async () => {
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
-    console.log(error);
-
-  }
-  finally {
+    console.log(error)
+  } finally {
     title.value = ''
     date.value = ''
     category.value = ''
@@ -141,48 +139,92 @@ const cancelSave = () => {
 </script>
 
 <template>
-
   <div class="container">
     <section class="payment-body">
       <div class="title-container">
         <label>제목 :</label>
-        <input type="text" placeholder="제목을 입력하세요" class="title-input" ref='titleInput' v-model="title">
+        <input
+          type="text"
+          placeholder="제목을 입력하세요"
+          class="title-input"
+          ref="titleInput"
+          v-model="title"
+        />
       </div>
 
       <div class="date-container">
         <label>날짜선택 :</label>
-        <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker">
+        <input
+          type="date"
+          class="date-input"
+          ref="dateInput"
+          v-model="date"
+          @focus="openDatePicker"
+        />
       </div>
 
       <div class="category-container">
         <label>카테고리 :</label>
         <div class="expenses-income">
           <div>
-            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type">
-            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
-              @click="filterPayments">💰 수입
+            <input
+              type="radio"
+              name="select-category"
+              value="income"
+              id="income"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="income"
+              class="toggle-btn"
+              :class="{ 'selected-income': type === 'income' }"
+              @click="filterPayments"
+              >💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type">
-            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
-              @click="filterPayments">
+            <input
+              type="radio"
+              name="select-category"
+              value="expense"
+              id="expense"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="expense"
+              class="toggle-btn"
+              :class="{ 'selected-expense': type === 'expense' }"
+              @click="filterPayments"
+            >
               💸 지출
             </label>
           </div>
         </div>
-        <select class=" category-input" v-model="category">
+        <select class="category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
-            {{ category.name }}{{ category.icon }}</option>
+          <option
+            v-for="category in paymentStore.categoryList"
+            :key="category.id"
+            :value="category"
+          >
+            {{ category.name }}{{ category.icon }}
+          </option>
         </select>
       </div>
 
       <div class="amount-container">
         <label>금액입력 : </label>
-        <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model.number="amount"
-          @input="handleAmountInput" value='원'>
+        <input
+          type="text"
+          class="amount-input"
+          placeholder="금액을 입력하세요"
+          v-model.number="amount"
+          @input="handleAmountInput"
+          value="원"
+        />
       </div>
 
       <div class="memo-container">
@@ -200,14 +242,18 @@ const cancelSave = () => {
         </label>
 
         <button class="imgdelete-btn" @click="imageDelete" v-if="imgUrl">x</button>
-
       </div>
       <div class="footer-btn">
         <ConfirmButton :name="'취소'" />
         <ConfirmButton @create-payment="createPayment" :name="'완료'" />
       </div>
-      <PaymentModal @create-payment="createPayment" :show="showModal" :message="'수입 및 지출 내용을 저장하시겠습니까?'"
-        @confirm="confirmSave" @cancel="cancelSave" />
+      <PaymentModal
+        @create-payment="createPayment"
+        :show="showModal"
+        :message="'수입 및 지출 내용을 저장하시겠습니까?'"
+        @confirm="confirmSave"
+        @cancel="cancelSave"
+      />
     </section>
   </div>
 </template>
@@ -299,7 +345,6 @@ const cancelSave = () => {
   padding: var(--space-s);
 }
 
-
 /* img 업로드 */
 .upload-container {
   display: flex;
@@ -308,7 +353,6 @@ const cancelSave = () => {
   font-family: sans-serif;
   position: relative;
 }
-
 
 .upload-box {
   border: 1px dotted var(--dark-gray);

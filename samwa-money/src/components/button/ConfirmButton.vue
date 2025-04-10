@@ -1,14 +1,15 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue';
-import { useRouter } from 'vue-router';
+import { defineProps, defineEmits } from 'vue'
+import { useRouter } from 'vue-router'
 
 const emit = defineEmits(['create-payment'])
 const router = useRouter()
 
 const props = defineProps({
-  name: String
-}
-)
+  name: String,
+})
+
+const emit = defineEmits(['create-payment'])
 
 const handleEvent = () => {
   if (props.name === '확인') {
@@ -19,34 +20,27 @@ const handleEvent = () => {
   }
   if (props.name === '완료') {
     emit('create-payment')
+    console.log(`${props.name}`)
   }
   if (props.name === '취소') {
-    router.back()
+    router.push({ name: 'main' })
   }
 }
-
-
-
 </script>
 
 <template>
-
-  <button class='button' @click="handleEvent">{{ props.name
-  }}</button>
-
-
-
+  <button class="button" @click="handleEvent">{{ props.name }}</button>
 </template>
 
 <style scoped>
 .button {
-  background-color: #FFE596;
+  background-color: #ffe596;
   width: 140px;
   height: 40px;
   font-size: 24px;
   border: none;
   border-radius: 10px;
   cursor: pointer;
-  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2)
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 </style>
