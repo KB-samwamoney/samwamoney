@@ -60,6 +60,14 @@ export const usePaymentStore = defineStore('payment', () => {
     }
   }
 
+  // 특정 월의 결제 내역만 반환
+  const getPaymentsByMonth = (month) => {
+    return paymentList.value.filter(payment => {
+      const date = new Date(payment.date)
+      return date.getMonth() + 1 === month
+    })
+  }
+
   //상세 정보 가져오기
   const serchPayment = async (id) => {
     loading.value = true
@@ -92,6 +100,7 @@ export const usePaymentStore = defineStore('payment', () => {
     getcategoryList,
     createPayment,
     fetchPayments,
+    getPaymentsByMonth,
     serchPayment,
   }
 })
