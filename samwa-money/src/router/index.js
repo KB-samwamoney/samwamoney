@@ -55,7 +55,7 @@ const router = createRouter({
       component: () => import('@/views/PaymentDetail.vue'),
     },
     {
-      path: '/payment-update',
+      path: '/payment-update/:id',
       name: 'payment-update',
       component: () => import('@/views/PaymentUpdate.vue'),
     },
