@@ -1,12 +1,8 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue'
-
 const props = defineProps({
   show: Boolean,
-  message: String
+  message: String,
 })
-
-
 
 const emit = defineEmits(['confirm', 'cancel', 'create-payment'])
 
@@ -17,7 +13,6 @@ const confilm = () => {
 const cancel = () => {
   emit('cancel')
 }
-
 </script>
 
 <template>

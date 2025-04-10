@@ -112,7 +112,8 @@ const createPayment = async () => {
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
-    console.log(error)
+    return error
+    // console.log(error)
   } finally {
     title.value = ''
     date.value = ''
@@ -142,56 +143,100 @@ const cancelSave = () => {
   <div class="container">
     <section class="payment-body">
       <div class="title-container">
-        <label>제목 :</label>
-        <input type="text" placeholder="제목을 입력하세요" class="title-input" ref="titleInput" v-model="title" />
+        <label>제목</label>
+        <input
+          type="text"
+          placeholder="제목을 입력하세요"
+          class="title-input"
+          ref="titleInput"
+          v-model="title"
+        />
       </div>
 
       <div class="date-container">
-        <label>날짜선택 :</label>
-        <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker" />
+        <label>날짜선택</label>
+        <input
+          type="date"
+          class="date-input"
+          ref="dateInput"
+          v-model="date"
+          @focus="openDatePicker"
+        />
       </div>
 
       <div class="category-container">
-        <label>카테고리 :</label>
+        <label>카테고리</label>
         <div class="expenses-income">
           <div>
-            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type" />
-            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
-              @click="filterPayments">💰 수입
+            <input
+              type="radio"
+              name="select-category"
+              value="income"
+              id="income"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="income"
+              class="toggle-btn"
+              :class="{ 'selected-income': type === 'income' }"
+              @click="filterPayments"
+              >💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type" />
-            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
-              @click="filterPayments">
+            <input
+              type="radio"
+              name="select-category"
+              value="expense"
+              id="expense"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="expense"
+              class="toggle-btn"
+              :class="{ 'selected-expense': type === 'expense' }"
+              @click="filterPayments"
+            >
               💸 지출
             </label>
           </div>
         </div>
         <select class="category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
+          <option
+            v-for="category in paymentStore.categoryList"
+            :key="category.id"
+            :value="category"
+          >
             {{ category.name }}{{ category.icon }}
           </option>
         </select>
       </div>
 
       <div class="amount-container">
-        <label>금액입력 : </label>
-        <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model.number="amount"
-          @input="handleAmountInput" value="원" />
+        <label>금액입력</label>
+        <input
+          type="text"
+          class="amount-input"
+          placeholder="금액을 입력하세요"
+          v-model.number="amount"
+          @input="handleAmountInput"
+          value="원"
+        />
       </div>
 
       <div class="memo-container">
         <div>
-          <label>메모 : </label>
+          <label>메모</label>
         </div>
         <textarea class="textarea-input" placeholder="내용을 입력하세요" v-model="memo"></textarea>
       </div>
 
       <div class="upload-container">
-        <label class="upload-label">사진 첨부 :</label>
+        <label class="upload-label">사진 첨부</label>
         <label for="uploadImg" class="upload-box">
           <span>{{ imgUrl ? imgUrl.name : '+' }}</span>
           <input type="file" id="uploadImg" hidden accept="image/*" @change="handleChangeImg" />
@@ -199,17 +244,28 @@ const cancelSave = () => {
 
         <button class="imgdelete-btn" @click="imageDelete" v-if="imgUrl">x</button>
       </div>
-      <div class="footer-btn">
-        <ConfirmButton :name="'취소'" />
-        <ConfirmButton :name="'완료'" @click="showModal = true" />
+      <div class="action-buttons">
+        <ConfirmButton :name="'취소'" class="go-back" />
+        <ConfirmButton :name="'완료'" @click="showModal = true" class="save-button" />
       </div>
-      <PaymentModal @create-payment="createPayment" :show="showModal" :message="'수입 및 지출 내용을 저장하시겠습니까?'"
-        @confirm="confirmSave" @cancel="cancelSave" />
+      <PaymentModal
+        @create-payment="createPayment"
+        :show="showModal"
+        :message="'수입 및 지출 내용을 저장하시겠습니까?'"
+        @confirm="confirmSave"
+        @cancel="cancelSave"
+      />
     </section>
   </div>
 </template>
 
 <style scoped>
+label {
+  font-size: 20px;
+  color: var(--black);
+  font-weight: 700;
+}
+
 .container {
   max-width: 900px;
   height: 730px;
@@ -335,9 +391,48 @@ const cancelSave = () => {
   transform: scale(1.3);
 }
 
-.footer-btn {
+.action-buttons {
   display: flex;
-  gap: 20px;
-  justify-content: right;
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+  justify-content: center;
+}
+
+.save-button {
+  background-color: var(--danger);
+  color: var(--light-white);
+  font-size: var(--space-m);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-m) var(--space-l);
+  cursor: pointer;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
+  height: 50px;
+}
+
+.save-button:hover {
+  transform: translateY(-2px);
+}
+
+.go-back {
+  background-color: var(--light-yellow);
+  color: var(--black);
+  font-size: var(--space-m);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-m) var(--space-l);
+  cursor: pointer;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
+  height: 50px;
+}
+
+.go-back:hover {
+  transform: translateY(-2px);
 }
 </style>

@@ -1,10 +1,8 @@
 <script setup>
 import { usePaymentStore } from '@/stores/paymentAddStore'
 import { useToastStore } from '@/stores/toastStore'
-import { onMounted, ref } from 'vue'
-import { watch } from 'vue'
+import { onMounted, ref, watch } from 'vue'
 import { useRouter } from 'vue-router'
-import { defineProps } from 'vue'
 const paymentStore = usePaymentStore()
 const toastStore = useToastStore()
 const router = useRouter()
@@ -112,7 +110,7 @@ const upDatePayment = async () => {
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
-    console.log('❌ 저장 중 에러 발생:', error)
+    // console.log('❌ 저장 중 에러 발생:', error)
   }
 }
 
@@ -138,9 +136,7 @@ onMounted(async () => {
   categoryName.value = paymentStore.findPayment.category
   categoryIcon.value = paymentStore.findPayment.category
 
-  category.value = paymentStore.categoryList.find(
-    (cat) => cat.name === categoryName.value
-  ) || ''  // 없을 경우 빈 문자열로 fallback
+  category.value = paymentStore.categoryList.find((cat) => cat.name === categoryName.value) || '' // 없을 경우 빈 문자열로 fallback
 
   titleInput.value?.focus()
 })
@@ -157,23 +153,49 @@ onMounted(async () => {
       <div class="category-body">
         <div class="expenses-income">
           <div>
-            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type" />
-            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
-              @click="filterPayments">💰 수입
+            <input
+              type="radio"
+              name="select-category"
+              value="income"
+              id="income"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="income"
+              class="toggle-btn"
+              :class="{ 'selected-income': type === 'income' }"
+              @click="filterPayments"
+              >💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type" />
-            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
-              @click="filterPayments">
+            <input
+              type="radio"
+              name="select-category"
+              value="expense"
+              id="expense"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="expense"
+              class="toggle-btn"
+              :class="{ 'selected-expense': type === 'expense' }"
+              @click="filterPayments"
+            >
               💸 지출
             </label>
           </div>
         </div>
         <select class="category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
+          <option
+            v-for="category in paymentStore.categoryList"
+            :key="category.id"
+            :value="category"
+          >
             {{ category.name }}{{ category.icon }}
           </option>
         </select>
@@ -182,13 +204,25 @@ onMounted(async () => {
     <hr />
     <div class="amount-container">
       <label class="amount-title">금액 입력</label>
-      <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model="amount" @input="handleAmountInput"
-        value="" />
+      <input
+        type="text"
+        class="amount-input"
+        placeholder="금액을 입력하세요"
+        v-model="amount"
+        @input="handleAmountInput"
+        value=""
+      />
     </div>
     <hr />
     <div class="date-container">
       <label>날짜선택 :</label>
-      <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker" />
+      <input
+        type="date"
+        class="date-input"
+        ref="dateInput"
+        v-model="date"
+        @focus="openDatePicker"
+      />
     </div>
     <hr />
 
@@ -200,7 +234,7 @@ onMounted(async () => {
     </div>
     <hr />
     <div class="upload-container">
-      <label class="upload-label">사진 </label>
+      <label class="upload-label">사진 업로드 (선택)</label>
       <label for="uploadImg" class="upload-box">
         <span v-if="!imgUrl">+</span>
         <img v-else :src="imgUrl" alt="미리보기 이미지" class="preview-img" />
@@ -224,7 +258,7 @@ onMounted(async () => {
   width: 680px;
   margin: 40px auto;
   padding: 28px 32px;
-  background-color: #fffbe6;
+  background-color: var(--lighter-yellow);
   border-radius: 16px;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.05);
 }
@@ -238,16 +272,19 @@ onMounted(async () => {
   width: 100%;
   height: 60px;
   border-radius: 10px;
-  border: 1.5px solid #ccc;
-  font-size: 32px;
+  border: 1.5px solid var(--light-gray);
+  font-size: 25px;
   font-weight: 600;
   text-align: center;
   padding: 8px 12px;
   transition: border-color 0.3s;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: 'Pretendard', sans-serif;
 }
 
 .title-input:focus {
-  border-color: #ffd24c;
+  border-color: var(--real-yellow);
   outline: none;
 }
 
@@ -277,21 +314,21 @@ onMounted(async () => {
 .toggle-btn {
   padding: 6px 14px;
   border-radius: 8px;
-  background-color: #f2f2f2;
-  color: #333;
+  background-color: var(--white);
+  color: var(--black);
   font-weight: 500;
   cursor: pointer;
   transition: all 0.3s;
 }
 
 .selected-income {
-  background-color: #91d5a7;
-  color: #fff;
+  background-color: var(--green);
+  color: var(--white);
 }
 
 .selected-expense {
-  background-color: #f66e6e;
-  color: #fff;
+  background-color: var(--danger);
+  color: var(--white);
 }
 
 .category-input {
@@ -300,10 +337,11 @@ onMounted(async () => {
   width: 240px;
   height: 42px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--white);
   padding: 0 12px;
   font-size: 15px;
-  background-color: white;
+  background-color: var(--white);
+  color: var(--black);
 }
 
 /* ------ 금액, 날짜 ------ */
@@ -327,16 +365,27 @@ onMounted(async () => {
   width: 240px;
   height: 42px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--light-gray);
   text-align: center;
   font-size: 16px;
   transition: border-color 0.3s;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: 'Pretendard', sans-serif;
 }
 
 .amount-input:focus,
 .date-input:focus {
-  border-color: #ffd24c;
+  border-color: var(--real-yellow);
   outline: none;
+}
+
+input[type='date']::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  cursor: pointer;
+  position: absolute;
+  right: 12px;
+  top: 10px;
 }
 
 /* ------ 메모 ------ */
@@ -349,22 +398,23 @@ onMounted(async () => {
 textarea {
   height: 100px;
   border-radius: 8px;
-  border: 1px solid #ccc;
+  border: 1px solid var(--light-gray);
   padding: 12px;
   font-size: 15px;
   resize: none;
-  background-color: white;
+  background-color: var(--white);
+  color: var(--black);
+  font-family: 'Pretendard', sans-serif;
 }
 
 textarea:focus {
-  border-color: #ffd24c;
+  border-color: var(--real-yellow);
   outline: none;
 }
 
 /* ------ 이미지 업로드 ------ */
 .upload-container {
   display: flex;
-  align-items: center;
   gap: 20px;
   position: relative;
   justify-content: space-between;
@@ -374,19 +424,19 @@ textarea:focus {
   width: 160px;
   height: 160px;
   border-radius: 10px;
-  background-color: #f2f2f2;
+  background-color: var(--white);
   display: flex;
   justify-content: center;
   align-items: center;
   font-size: 36px;
-  border: 2px dashed #ccc;
+  border: 2px dashed var(--light-gray);
   cursor: pointer;
   overflow: hidden;
   transition: border-color 0.3s;
 }
 
 .upload-box:hover {
-  border-color: #ffd24c;
+  border-color: var(--real-yellow);
 }
 
 .preview-img {
@@ -402,8 +452,8 @@ textarea:focus {
   top: -6px;
   width: 22px;
   height: 22px;
-  background-color: #fff;
-  border: 1px solid #888;
+  background-color: var(--white);
+  border: 1px solid var(--dark-gray);
   border-radius: 50%;
   font-size: 14px;
   font-weight: bold;
@@ -420,33 +470,55 @@ textarea:focus {
 /* ------ 버튼 ------ */
 .buttons {
   display: flex;
-  justify-content: flex-end;
-  gap: 12px;
-  margin-top: 10px;
+  justify-content: center;
+  gap: var(--space-m);
 }
 
 .btn {
+  display: flex;
+  gap: var(--space-m);
+  margin-top: var(--space-l);
+  justify-content: center;
   width: 100px;
-  height: 40px;
   font-size: 16px;
   font-weight: 600;
   border: none;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.2s, transform 0.2s;
+  transition:
+    background-color 0.2s,
+    transform 0.2s;
 }
 
 .btn.cancel {
-  background-color: #e0e0e0;
-  color: #333;
+  background-color: var(--light-yellow);
+  color: var(--black);
+  font-size: var(--space-m);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-m) var(--space-l);
+  cursor: pointer;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .btn.confirm {
-  background-color: #ffd24c;
-  color: #333;
+  background-color: var(--danger);
+  color: var(--light-white);
+  font-size: var(--space-m);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-m) var(--space-l);
+  cursor: pointer;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .btn:hover {
-  transform: scale(1.05);
+  transform: translateY(-2px);
 }
 </style>
