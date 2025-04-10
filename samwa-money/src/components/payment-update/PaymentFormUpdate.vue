@@ -1,17 +1,17 @@
 <script setup>
-import { usePaymentStore } from '@/stores/paymentAddStore';
-import { useToastStore } from '@/stores/toastStore';
-import { onMounted, ref } from 'vue';
-import { watch } from 'vue';
-import { useRouter } from 'vue-router';
-import { defineProps } from 'vue';
+import { usePaymentStore } from '@/stores/paymentAddStore'
+import { useToastStore } from '@/stores/toastStore'
+import { onMounted, ref } from 'vue'
+import { watch } from 'vue'
+import { useRouter } from 'vue-router'
+import { defineProps } from 'vue'
 const paymentStore = usePaymentStore()
 const toastStore = useToastStore()
 const router = useRouter()
 const titleInput = ref('')
 
 const props = defineProps({
-  id: Number
+  id: Number,
 })
 
 const title = ref('')
@@ -26,7 +26,6 @@ const previewUrl = ref(null) //이미지 출력관련 함수
 const imgUrl = ref(null)
 const baseImg = ref(null)
 const dateInput = ref('')
-
 
 //이미지를 문장열로 변환해주는 로직
 const fileToBase64 = (file) => {
@@ -57,7 +56,6 @@ const imageDelete = () => {
   previewUrl.value = ''
 }
 
-
 const openDatePicker = () => {
   dateInput.value?.showPicker?.() || dateInput.value?.click()
 }
@@ -78,16 +76,6 @@ const formatWithComma = (value) => {
 const handleAmountInput = (event) => {
   const value = event.target.value
   amount.value = formatWithComma(value)
-}
-
-//이미지를 문자열로 변환해주는 로직
-const fileToBase64 = (file) => {
-  return new Promise((resolve, reject) => {
-    const reader = new FileReader()
-    reader.readAsDataURL(file)
-    reader.onload = () => resolve(reader.result)
-    reader.onerror = (error) => reject(error)
-  })
 }
 
 const upDatePayment = async () => {
@@ -124,7 +112,6 @@ const upDatePayment = async () => {
     await router.push({ name: 'main' })
   } catch (error) {
     console.log('❌ 저장 중 에러 발생:', error)
-
   }
 }
 
@@ -137,7 +124,6 @@ onMounted(async () => {
     await paymentStore.fetchPayments()
   }
   await paymentStore.serchPayment(100)
-
 
   date.value = paymentStore.findPayment.date
   amount.value = Number(paymentStore.findPayment.amount).toLocaleString()
@@ -157,48 +143,85 @@ onMounted(async () => {
 
 <template>
   <div class="container">
-
     <div class="title-container">
-      <input class="title-input" ref='titleInput' type="text" v-model="title">
+      <input class="title-input" ref="titleInput" type="text" v-model="title" />
     </div>
-
 
     <div class="category-container">
       <div class="category-title"><label>카테고리</label></div>
       <div class="category-body">
         <div class="expenses-income">
           <div>
-            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type" />
-            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
-              @click="filterPayments">💰 수입
+            <input
+              type="radio"
+              name="select-category"
+              value="income"
+              id="income"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="income"
+              class="toggle-btn"
+              :class="{ 'selected-income': type === 'income' }"
+              @click="filterPayments"
+              >💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type" />
-            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
-              @click="filterPayments">
+            <input
+              type="radio"
+              name="select-category"
+              value="expense"
+              id="expense"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="expense"
+              class="toggle-btn"
+              :class="{ 'selected-expense': type === 'expense' }"
+              @click="filterPayments"
+            >
               💸 지출
             </label>
           </div>
         </div>
         <select class="category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
-            {{ category.name }}{{ category.icon }}</option>
+          <option
+            v-for="category in paymentStore.categoryList"
+            :key="category.id"
+            :value="category"
+          >
+            {{ category.name }}{{ category.icon }}
+          </option>
         </select>
       </div>
     </div>
     <hr />
     <div class="amount-container">
       <label class="amount-title">금액입력</label>
-      <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model.number="amount" @input="handleAmountInput"
-        value="" />
+      <input
+        type="text"
+        class="amount-input"
+        placeholder="금액을 입력하세요"
+        v-model.number="amount"
+        @input="handleAmountInput"
+        value=""
+      />
     </div>
     <hr />
     <div class="date-container">
       <label>날짜선택 :</label>
-      <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker">
+      <input
+        type="date"
+        class="date-input"
+        ref="dateInput"
+        v-model="date"
+        @focus="openDatePicker"
+      />
     </div>
     <hr />
 
@@ -224,8 +247,6 @@ onMounted(async () => {
       <button class="btn confirm" @click="upDatePayment">확인</button>
     </div>
   </div>
-
-
 </template>
 
 <style scoped>
@@ -248,7 +269,6 @@ onMounted(async () => {
   font-size: 24px;
   font-weight: 600;
 }
-
 
 .title-container {
   display: flex;
@@ -332,8 +352,6 @@ onMounted(async () => {
 .date-input {
   cursor: pointer;
 }
-
-
 
 /* --------- 메모 ---------- */
 .memo-container {
