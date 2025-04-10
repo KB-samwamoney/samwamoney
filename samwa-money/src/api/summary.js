@@ -1,7 +1,7 @@
 import api from '@/utils/axios'
 
-// 선택된 월에 맞는 blance 값 객체 리스트로 모두 가져오기
-const getBalance = async (month, type) => {
+// blance 객체 리스트로 모두 가져오기
+const getBalance = async () => {
   try {
     const response = await api.get('/Balance')
 
