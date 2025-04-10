@@ -24,29 +24,29 @@ import { computed, watch } from 'vue'
 const props = defineProps({
   month: {
     type: Number,
-    required: true
+    required: true,
   },
   items: {
     type: Array,
-    required: true
-  }
+    required: true,
+  },
 })
 
 const incomeTotal = computed(() =>
-  props.items
-    .filter(item => item.type === '수입')
-    .reduce((sum, item) => sum + item.amount, 0)
+  props.items.filter((item) => item.type === '수입').reduce((sum, item) => sum + item.amount, 0),
 )
 
 const expenseTotal = computed(() =>
-  props.items
-    .filter(item => item.type === '지출')
-    .reduce((sum, item) => sum + item.amount, 0)
+  props.items.filter((item) => item.type === '지출').reduce((sum, item) => sum + item.amount, 0),
 )
 
-watch(() => props.items, (val) => {
-  console.log('📦 [SummaryBox] props.items 변경됨:', val)
-}, { deep: true, immediate: true })
+watch(
+  () => props.items,
+  (val) => {
+    console.log('📦 [SummaryBox] props.items 변경됨:', val)
+  },
+  { deep: true, immediate: true },
+)
 </script>
 
 <style scoped>

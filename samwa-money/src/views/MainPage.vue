@@ -42,7 +42,7 @@ import SideBar from '@/components/sidebar/SideBar.vue'
 import SummaryBox from '@/components/main/summary/SummaryBox.vue'
 import SearchResult from '@/components/main/search/SearchResult.vue'
 import { usePaymentStore } from '@/stores/paymentAddStore'
-import axios from 'axios'
+import api from '@/utils/axios.js'
 
 const paymentStore = usePaymentStore()
 const selectedDate = ref(new Date())
@@ -59,8 +59,16 @@ const currentYear = computed(() => viewDate.value.getFullYear())
 
 const isIncome = (category) => {
   const incomeCategories = [
-    '월급', '용돈', '기타', '상여', '금융소득',
-    '부수입', '환급금', '투자수익', '중고거래', '캐시백/포인트'
+    '월급',
+    '용돈',
+    '기타',
+    '상여',
+    '금융소득',
+    '부수입',
+    '환급금',
+    '투자수익',
+    '중고거래',
+    '캐시백/포인트',
   ]
   return incomeCategories.includes(category)
 }
@@ -74,17 +82,14 @@ const summaryItems = computed(() => {
   console.log('📦 현재 paymentList:', list)
 
   const items = list
-    .filter(item => {
+    .filter((item) => {
       const itemDate = new Date(item.date)
-      return (
-        itemDate.getFullYear() === year &&
-        itemDate.getMonth() + 1 === month
-      )
+      return itemDate.getFullYear() === year && itemDate.getMonth() + 1 === month
     })
-    .map(item => ({
+    .map((item) => ({
       type: isIncome(item.category) ? '수입' : '지출',
       amount: item.amount,
-      date: item.date
+      date: item.date,
     }))
 
   console.log(`📊 [SummaryItems] ${month}월 수입/지출 목록:`, items)
@@ -110,7 +115,7 @@ const handleReset = () => {
 }
 
 const handleSearch = async ({ type, keyword, categories }) => {
-  const res = await axios.get('http://localhost:5500/Balance')
+  const res = await api.get('/Balance')
   let data = res.data
 
   if (type === 'search_all') {

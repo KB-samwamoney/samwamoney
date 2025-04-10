@@ -1,4 +1,4 @@
-import { ref } from 'vue'
+import { computed, ref } from 'vue'
 import { defineStore } from 'pinia'
 import api from '@/utils/axios'
 import { useAuthStore } from '@/stores/authStore.js'
@@ -62,7 +62,7 @@ export const usePaymentStore = defineStore('payment', () => {
 
   // 특정 월의 결제 내역만 반환
   const getPaymentsByMonth = (month) => {
-    return paymentList.value.filter(payment => {
+    return paymentList.value.filter((payment) => {
       const date = new Date(payment.date)
       return date.getMonth() + 1 === month
     })
