@@ -1,4 +1,5 @@
 <script setup>
+import { useToastStore } from '@/stores/toastStore.js'
 import ToastNotification from '@/components/toast/ToastNotification.vue'
 import { useAuthStore } from '@/stores/authStore.js'
 import { useRouter } from 'vue-router'
@@ -7,30 +8,18 @@ import { ref } from 'vue'
 const authStore = useAuthStore()
 const router = useRouter()
 const user = ref({ ...authStore.user })
-const toastVisible = ref(false)
-const toastMessage = ref('')
-const toastType = ref('success')
-
-const showToast = (msg, type = 'success') => {
-  toastMessage.value = msg
-  toastType.value = type
-  toastVisible.value = true
-
-  setTimeout(() => {
-    toastVisible.value = false
-  }, 3000)
-}
+const toastStore = useToastStore()
 
 const handleUpdate = async () => {
   const success = await authStore.updateUserInfo(user.value)
 
   if (success) {
-    showToast('회원정보가 수정되었습니다!', 'success')
+    toastStore.showToast('회원정보가 수정되었습니다!', 'success')
     setTimeout(() => {
       router.push('/my-page')
     }, 1000)
   } else {
-    showToast('수정 실패: ' + authStore.errorMessage, 'error')
+    toastStore.showToast('수정 실패: ' + authStore.errorMessage, 'error')
   }
 }
 </script>

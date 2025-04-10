@@ -15,7 +15,7 @@ export const useSummaryStore = defineStore('summary', () => {
   // summer.js에서 모든 객체 리스트를 가져온다
   const filterBalance = async () => {
     balanceList.value = await summary.getBalance()
-    console.log('summaryStore.js: 18번째 balanceList', balanceList)
+    // console.log('summaryStore.js: 18번째 balanceList', balanceList)
   }
 
   // 월을 반환해줌
@@ -29,7 +29,7 @@ export const useSummaryStore = defineStore('summary', () => {
     currentCategory.value = currentCategory.value.filter((cat) =>
       currentTab.value === '수입' ? cat.type === 'income' : cat.type === 'expense',
     )
-    console.log('currentCategory 값을 잘 받아오는지 확인 ', currentCategory.value)
+    // console.log('currentCategory 값을 잘 받아오는지 확인 ', currentCategory.value)
   }
 
   return {

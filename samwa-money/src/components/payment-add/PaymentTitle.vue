@@ -1,6 +1,4 @@
-<script setup>
-
-</script>
+<script setup></script>
 
 <template>
   <section class="container">
@@ -22,5 +20,9 @@
 .payment-title {
   text-align: center;
   font-size: 48px;
+}
+
+h1 {
+  font-size: var(--space-xl);
 }
 </style>

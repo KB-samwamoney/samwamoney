@@ -138,12 +138,12 @@ const handleSearch = () => {
     keyword: searchKeyword.value,
     categories: selectedCategories,
   })
-  console.log(
-    '[SearchBar.vue] emit search:',
-    searchType.value,
-    searchKeyword.value,
-    selectedCategories,
-  )
+  // console.log(
+  //   '[SearchBar.vue] emit search:',
+  //   searchType.value,
+  //   searchKeyword.value,
+  //   selectedCategories,
+  // )
 }
 
 const handleCategoryClick = (categoryName) => {
