@@ -2,6 +2,7 @@ import { computed, ref, watch } from 'vue'
 import { defineStore } from 'pinia'
 import { useAuthStore } from '@/stores/authStore.js'
 import { fetchCategory, postPayment, fetchPaymentsById } from '@/api/category.js'
+import api from '@/utils/axios'
 
 export const usePaymentStore = defineStore('payment', () => {
   const authStore = useAuthStore()

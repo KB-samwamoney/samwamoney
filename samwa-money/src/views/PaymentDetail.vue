@@ -1,7 +1,13 @@
-<script setup></script>
+<script setup>
+import PaymentDetailList from '@/components/payment-detail/PaymentDetailList.vue';
+
+
+
+</script>
+
 
 <template>
-  <div>소비 디테일 페이지</div>
+  <PaymentDetailList />
 </template>
 
 <style scoped></style>
