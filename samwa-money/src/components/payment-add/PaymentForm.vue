@@ -20,10 +20,10 @@ const category = ref('')
 const amount = ref('')
 const imgUrl = ref(null)
 const memo = ref('')
+const type = ref()
 
 //  카테고리 리스트 변경
-const selectedPayment = ref()
-watch(selectedPayment, (newVal) => {
+watch(type, (newVal) => {
   category.value = ''
   if (newVal) {
     paymentStore.getcategoryList(newVal)
@@ -101,10 +101,12 @@ const createPayment = async () => {
     const newPayment = {
       title: title.value,
       date: date.value,
-      category: category.value,
-      amount: amount.value,
+      category: category.value.name,
+      icon: category.value.icon,
+      amount: Number(String(amount.value).replace(/,/g, '')),
       memo: memo.value,
-      imgUrl: base64Img
+      imgUrl: base64Img,
+      type: type.value
     }
     await paymentStore.createPayment(newPayment)
     toastStore.showToast('저장되었습니다')
@@ -120,10 +122,10 @@ const createPayment = async () => {
     amount.value = ''
     memo.value = ''
     imgUrl.value = ''
-    selectedPayment.value = ''
+    type.value = ''
   }
 }
-// 페이지 로드시 제목 입력칸 포커스ß
+// 페이지 로드시 제목 입력칸 포커스
 onMounted(() => {
   titleInput.value?.focus()
 })
@@ -149,24 +151,22 @@ const cancelSave = () => {
 
       <div class="date-container">
         <label>날짜선택 :</label>
-        <label @click="openDatePicker">
-          <input type="date" class="date-input" v-model="date" ref="dateInput" />
-        </label>
+        <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker">
       </div>
 
       <div class="category-container">
         <label>카테고리 :</label>
         <div class="expenses-income">
           <div>
-            <input type="radio" name="select-category" value="income" id="income" hidden v-model="selectedPayment">
-            <label for="income" class="toggle-btn" :class="{ 'selected-income': selectedPayment === 'income' }"
+            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type">
+            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
               @click="filterPayments">💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="selectedPayment">
-            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': selectedPayment === 'expense' }"
+            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type">
+            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
               @click="filterPayments">
               💸 지출
             </label>
@@ -174,7 +174,7 @@ const cancelSave = () => {
         </div>
         <select class=" category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category.id">
+          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
             {{ category.name }}{{ category.icon }}</option>
         </select>
       </div>
@@ -277,12 +277,12 @@ const cancelSave = () => {
 
 .selected-income {
   background-color: var(--blue);
-  color: black;
+  color: var(--dark);
 }
 
 .toggle-btn.selected-expense {
   background-color: var(--danger);
-  color: black;
+  color: var(--dark);
 }
 
 .toggle-title {

@@ -123,8 +123,8 @@ const handleSignin = async () => {
         <label for="expense">한 달 간 목표 지출</label>
         <input
           id="expense"
-          v-model="expense"
-          type="text"
+          v-model.number="expense"
+          type="number"
           placeholder="한 달 간 목표 지출을 입력해주세요"
           class="input"
         />
@@ -177,6 +177,10 @@ h1 {
   align-items: center;
   justify-content: center;
   border: none;
+}
+
+.method-button:hover {
+  background-color: var(--baby-pink);
 }
 
 .nickname-explain {

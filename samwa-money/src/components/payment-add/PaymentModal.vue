@@ -47,7 +47,7 @@ const cancel = () => {
 }
 
 .modal {
-  background: #fff;
+  background: var(--light-white);
   padding: 2rem;
   border-radius: 10px;
   width: 300px;
@@ -76,10 +76,10 @@ const cancel = () => {
 }
 
 .btn.cancel {
-  background-color: #f3f3f3;
+  background-color: var(--light-yellow);
 }
 
 .btn.confirm {
-  background-color: #ffe596;
+  background-color: var(--light-yellow);
 }
 </style>
