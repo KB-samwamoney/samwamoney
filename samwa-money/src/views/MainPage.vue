@@ -1,33 +1,28 @@
 <template>
   <div class="main-page">
-    <!-- 헤더 (로고 + 검색 + 카테고리 필터) -->
     <section class="main-header">
       <HeaderSearch />
     </section>
 
     <section class="main-body">
-      <!-- 좌측 메뉴바 -->
       <aside class="sidebar">
         <SideBar />
       </aside>
 
-      <!-- 우측 내용 -->
       <main class="content-area">
-        <!-- searchBox -->
         <section class="searchBox">
           <SearchBar />
         </section>
-        <!-- 수입/지출 요약 박스 -->
+
         <section class="summary">
-          <SummaryBox
-            :month="currentMonth"
-            :items="summaryItems"
-          />
+          <SummaryBox :month="currentMonth" :items="summaryItems" />
         </section>
 
-        <!-- 캘린더, 월별 리스트, 검색박스 -->
         <section class="calendar">
-          <CalendarView v-model:selectedDate="selectedDate" />
+          <CalendarView
+            v-model:selectedDate="selectedDate"
+            @update:viewDate="updateViewDate"
+          />
         </section>
       </main>
     </section>
@@ -43,25 +38,39 @@ import SummaryBox from '@/components/main/summary/SummaryBox.vue'
 import { usePaymentStore } from '@/stores/paymentAddStore'
 
 const paymentStore = usePaymentStore()
-
-// 사용자 선택 기준 날짜
 const selectedDate = ref(new Date())
+const viewDate = ref(new Date())
 
-// 선택한 날짜의 월
-const currentMonth = computed(() => selectedDate.value.getMonth() + 1)
+const updateViewDate = (date) => {
+  console.log('📅 [MainPage] updateViewDate 실행됨:', date)
+  viewDate.value = date
+}
 
-watch(selectedDate, (newVal) => {
-  console.log('📌 선택된 날짜 변경됨:', newVal)
-})
+const currentMonth = computed(() => viewDate.value.getMonth() + 1)
+const currentYear = computed(() => viewDate.value.getFullYear())
 
-// 수입/지출 필터링
+const isIncome = (category) => {
+  const incomeCategories = [
+    '월급', '용돈', '기타', '상여', '금융소득',
+    '부수입', '환급금', '투자수익', '중고거래', '캐시백/포인트'
+  ]
+  return incomeCategories.includes(category)
+}
+
 const summaryItems = computed(() => {
-  return paymentStore.paymentList
+  const month = currentMonth.value
+  const year = currentYear.value
+  const list = paymentStore.paymentList
+
+  console.log(`💡 [SummaryItems] 연도: ${year}, 월: ${month}`)
+  console.log('📦 현재 paymentList:', list)
+
+  const items = list
     .filter(item => {
       const itemDate = new Date(item.date)
       return (
-        itemDate.getFullYear() === selectedDate.value.getFullYear() &&
-        itemDate.getMonth() + 1 === currentMonth.value
+        itemDate.getFullYear() === year &&
+        itemDate.getMonth() + 1 === month
       )
     })
     .map(item => ({
@@ -69,20 +78,24 @@ const summaryItems = computed(() => {
       amount: item.amount,
       date: item.date
     }))
+
+  console.log(`📊 [SummaryItems] ${month}월 수입/지출 목록:`, items)
+  return items
 })
 
-// 수입 카테고리 판별
-const isIncome = (category) => {
-  const incomeCategories = ['월급', '용돈', '기타', '상여', '금융소득', '부수입', '환급금', '투자수익', '중고거래', '캐시백/포인트']
-  return incomeCategories.includes(category)
-}
+watch(viewDate, (val) => {
+  console.log('📌 [MainPage] viewDate 변경됨:', val)
+})
 
-// 최초 실행 시 결제 내역 로딩
+watch(selectedDate, (val) => {
+  console.log('🟦 [MainPage] selectedDate 변경됨:', val)
+  viewDate.value = val
+})
+
 onMounted(async () => {
   await paymentStore.fetchPayments()
+  console.log('✅ [MainPage] 결제 내역 로드 완료:', paymentStore.paymentList)
 })
-
-// 나중에 CalendarView → MainPage 로 selectedDate 바꾸고 싶으면 이걸로 emit 가능
 </script>
 
 <style scoped>
@@ -124,6 +137,6 @@ onMounted(async () => {
 
 .calendar {
   display: flex;
-  flex: 1; /* 남은 공간 꽉 채우기 */
+  flex: 1;
 }
 </style>
