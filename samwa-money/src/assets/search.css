@@ -1,0 +1,92 @@
+/* 검색 전체 부분 */
+.search-bar {
+  background-color: var(--light-white);
+  padding: 20px;
+  width: 100%;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+/* 검색창 */
+.search-input-wrapper {
+  background-color: white;
+  display: flex;
+  align-items: center;
+  border: 1px solid #ffe066;
+  border-radius: var(--radius);
+  overflow: hidden;
+  margin-bottom: var(--space-m);
+  padding-left: 10px;
+  gap: var(--space-s);
+}
+
+/* 검색 부분 */
+.search-input {
+  flex: 1;
+  border: none;
+  padding: 12px;
+  font-size: var(--space-m);
+}
+
+/* 검색 버튼 */
+.search-btn {
+  background-color: #fffbe6;
+  border: none;
+  padding: 12px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+/* 옵션 태그 */
+option {
+  background-color: white;
+  color: black;
+  font-size: var(--space-m);
+  padding: var(--space-s);
+}
+
+/* 카테고리 추가 */
+.search-category {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--space-s);
+  align-items: center;
+  margin-top: 10px;
+}
+
+/* 선택된 카테고리 버튼 */
+.btn-cat {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 6px 12px;
+  border: 1px dashed #aaa;
+  border-radius: var(--radius);
+  background-color: #fff8e7;
+  font-size: 15px;
+  white-space: nowrap;
+  max-width: 100%;
+}
+
+.search-category .btn-cat:hover {
+  background-color: #ffe066;
+}
+
+/* 전체 삭제 버튼 */
+.btn-catAll {
+  text-decoration: underline;
+  cursor: pointer;
+  position: absolute;
+  right: 120px;
+}
+
+.cat-label {
+  display: inline-flex;
+  align-items: center;
+  white-space: nowrap;
+}
+
+.fa-xmark {
+  font-size: var(--space-m);
+  cursor: pointer;
+}
