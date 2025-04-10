@@ -1,9 +1,5 @@
 <template>
   <div class="main-page">
-    <section class="main-header">
-      <HeaderSearch />
-    </section>
-
     <section class="main-body">
       <aside class="sidebar">
         <SideBar />
@@ -15,7 +11,7 @@
         </section>
 
         <section class="summary">
-          <SummaryBox v-if="summaryItems.length" :month="currentMonth" :items="summaryItems" />
+          <SummaryBox />
         </section>
 
         <section class="resultBox">
@@ -35,17 +31,75 @@
 </template>
 
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted, watch } from 'vue'
 import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
 import SummaryBox from '@/components/main/summary/SummaryBox.vue'
+import SearchResult from '@/components/main/search/SearchResult.vue'
+import { usePaymentStore } from '@/stores/paymentAddStore'
+import api from '@/utils/axios.js'
 
-const currentMonth = ref(4) // 예시로 4월
-const summaryItems = ref([
-  { date: '2025-04-01', type: '수입', amount: 3000000 },
-  { date: '2025-04-05', type: '지출', amount: 2500000 },
-])
+const paymentStore = usePaymentStore()
+const selectedDate = ref(new Date())
+const searchResults = ref(null)
+
+const updateViewDate = (date) => {
+  paymentStore.setViewDate(date)
+}
+
+watch(selectedDate, (val) => {
+  console.log('🟦 [MainPage] selectedDate 변경됨')
+  paymentStore.viewDate = val
+})
+
+onMounted(async () => {
+  paymentStore.viewDate = selectedDate.value
+  await paymentStore.fetchPayments()
+  console.log('✅ [MainPage] 결제 내역 로드 완료')
+})
+
+watch(
+  () => paymentStore.viewDate,
+  (val) => {
+    console.log('📌 viewDate 변경됨:', val)
+  },
+  { immediate: true },
+)
+
+const handleReset = () => {
+  searchResults.value = null
+}
+
+const handleSearch = async ({ type, keyword, categories }) => {
+  const res = await api.get('/Balance')
+  let data = res.data
+
+  if (type === 'search_all') {
+    searchResults.value = data.sort((a, b) => new Date(b.date) - new Date(a.date))
+    return
+  }
+
+  let filtered = data.filter((item) => {
+    const categoryMatched =
+      !categories || categories.length === 0 || categories.includes(item.category)
+
+    let keywordMatched = true
+    if (type === 'search_title') {
+      keywordMatched = item.title.includes(keyword)
+    } else if (type === 'search_memo') {
+      keywordMatched = item.memo.includes(keyword)
+    } else if (type === 'search_cash') {
+      keywordMatched = item.amount === Number(keyword)
+    } else if (type === 'search_category') {
+      keywordMatched = true
+    }
+
+    return categoryMatched && keywordMatched
+  })
+
+  searchResults.value = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
+}
 </script>
 
 <style scoped>
@@ -53,10 +107,6 @@ const summaryItems = ref([
   background-color: var(--light-white);
   display: flex;
   flex-direction: column;
-}
-
-.main-header {
-  border-bottom: 1px solid #eee;
 }
 
 .main-body {
@@ -84,7 +134,7 @@ const summaryItems = ref([
 
 .summary {
   display: flex;
-  height: 130px;
+  padding: var(--space-m);
 }
 
 .calendar {

@@ -1,14 +1,13 @@
 <script setup>
-import { usePaymentStore } from '@/stores/paymentAddStore';
-import { useToastStore } from '@/stores/toastStore';
-import { onMounted, ref } from 'vue';
-import { watch } from 'vue';
-import { useRouter } from 'vue-router';
+import { usePaymentStore } from '@/stores/paymentAddStore'
+import { useToastStore } from '@/stores/toastStore'
+import { onMounted, ref } from 'vue'
+import { watch } from 'vue'
+import { useRouter } from 'vue-router'
 const paymentStore = usePaymentStore()
 const toastStore = useToastStore()
 const router = useRouter()
 const previewUrl = ref(null)
-
 
 const date = ref('')
 const type = ref('')
@@ -33,14 +32,12 @@ const imageDelete = () => {
   previewUrl.value = null
 }
 
-
 watch(type, (newVal) => {
   category.value = ''
   if (newVal) {
     paymentStore.getcategoryList(newVal)
   }
 })
-
 
 // 금액 입력시 숫자만 출력 및 , 표시
 const formatWithComma = (value) => {
@@ -62,7 +59,6 @@ const fileToBase64 = (file) => {
     reader.onerror = (error) => reject(error)
   })
 }
-
 
 const upDatePayment = async () => {
   if (!String(date.value).trim()) {
@@ -88,19 +84,17 @@ const upDatePayment = async () => {
       base64Img = await fileToBase64(imgUrl.value)
     }
     const newPayment = {
-
       date: date.value,
       category: category.value,
       amount: amount.value,
       memo: memo.value,
-      imgUrl: base64Img
+      imgUrl: base64Img,
     }
     await paymentStore.createPayment(newPayment)
     toastStore.showToast('저장되었습니다')
     await router.push({ name: 'main' })
   } catch (error) {
-    console.log(error);
-
+    console.log(error)
   }
 }
 
@@ -112,8 +106,7 @@ onMounted(async () => {
   if (paymentStore.paymentList.length === 0) {
     await paymentStore.fetchPayments()
   }
-  await paymentStore.serchPayment('2dp0ntg')
-
+  await paymentStore.searchPayment('2dp0ntg')
 
   date.value = paymentStore.findPayment.date
   amount.value = paymentStore.findPayment.amount
@@ -125,52 +118,83 @@ onMounted(async () => {
 
   category.value = paymentStore.findPayment.category
 })
-
 </script>
 
 <template>
-
   <div class="container">
     <div class="category-container">
       <div class="category-title"><label>카테고리</label></div>
       <div class="category-body">
         <div class="expenses-income">
           <div>
-            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type">
-            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
-              @click="filterPayments">💰 수입
+            <input
+              type="radio"
+              name="select-category"
+              value="income"
+              id="income"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="income"
+              class="toggle-btn"
+              :class="{ 'selected-income': type === 'income' }"
+              @click="filterPayments"
+              >💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type">
-            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
-              @click="filterPayments">
+            <input
+              type="radio"
+              name="select-category"
+              value="expense"
+              id="expense"
+              hidden
+              v-model="type"
+            />
+            <label
+              for="expense"
+              class="toggle-btn"
+              :class="{ 'selected-expense': type === 'expense' }"
+              @click="filterPayments"
+            >
               💸 지출
             </label>
           </div>
         </div>
-        <select class=" category-input" v-model="category">
+        <select class="category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category.id">
-            {{ category.name }}{{ category.icon }}</option>
+          <option
+            v-for="category in paymentStore.categoryList"
+            :key="category.id"
+            :value="category.id"
+          >
+            {{ category.name }}{{ category.icon }}
+          </option>
         </select>
       </div>
     </div>
-    <hr>
+    <hr />
     <div class="amount-container">
       <label class="amount-title">금액입력</label>
-      <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model.number="amount" @input="handleAmountInput"
-        value=''>
+      <input
+        type="text"
+        class="amount-input"
+        placeholder="금액을 입력하세요"
+        v-model.number="amount"
+        @input="handleAmountInput"
+        value=""
+      />
     </div>
-    <hr>
+    <hr />
     <div class="date-container">
       <label class="date-title">날짜선택</label>
       <label @click="openDatePicker">
         <input type="date" class="date-input" v-model="date" ref="dateInput" />
       </label>
     </div>
-    <hr>
+    <hr />
 
     <div class="memo-container">
       <div>
@@ -178,7 +202,7 @@ onMounted(async () => {
       </div>
       <textarea class="textarea-input" placeholder="내용을 입력하세요" v-model="memo"></textarea>
     </div>
-    <hr>
+    <hr />
     <div class="upload-container">
       <label class="upload-label">사진 </label>
       <label for="uploadImg" class="upload-box">
@@ -193,7 +217,6 @@ onMounted(async () => {
       <button class="btn confirm" @click="upDatePayment">확인</button>
     </div>
   </div>
-
 </template>
 
 <style scoped>
@@ -204,7 +227,6 @@ onMounted(async () => {
   width: 738px;
   margin: auto;
   padding: 2rem 0;
-
 }
 
 .category-title label,
@@ -225,19 +247,16 @@ onMounted(async () => {
   margin: auto;
 }
 
-
 .category-body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-
 }
 
 .expenses-income {
   display: flex;
   gap: 30px;
 }
-
 
 .toggle-btn {
   padding: var(--space-s) var(--space-m);
@@ -255,7 +274,6 @@ onMounted(async () => {
 .toggle-btn.selected-expense {
   background-color: var(--danger);
   color: var(--dark);
-
 }
 
 .toggle-title {
@@ -271,14 +289,9 @@ onMounted(async () => {
 
   width: calc(100% - 2rem);
   margin: auto;
-
 }
 
-
 /* ---------- 날찌선택 ----------- */
-
-
-
 
 /* --------- 메모 ---------- */
 .memo-container {
@@ -302,7 +315,6 @@ textarea {
 
   width: calc(100% - 2rem);
   margin: auto;
-
 }
 
 .upload-box {
@@ -316,7 +328,6 @@ textarea {
   border-radius: var(--radius);
   border: 1px dotted var(--dark-gray);
 }
-
 
 /* ---------  input 요소---------- */
 .category-input,
@@ -338,7 +349,6 @@ textarea {
   margin: auto;
   gap: 20px;
   justify-content: right;
-
 }
 
 .btn {
@@ -356,10 +366,10 @@ textarea {
 }
 
 .btn.cancel {
-  background-color: #FFE596;
+  background-color: #ffe596;
 }
 
 .btn.confirm {
-  background-color: #FFE596;
+  background-color: #ffe596;
 }
 </style>
