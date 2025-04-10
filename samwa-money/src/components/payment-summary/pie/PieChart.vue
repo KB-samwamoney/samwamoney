@@ -12,7 +12,6 @@ import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } f
 
 import { useSummaryStore } from '@/stores/summaryStore'
 import { storeToRefs } from 'pinia'
-
 // Chart.js 등록
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
 
@@ -20,21 +19,21 @@ const empty = ref(false)
 const summaryStore = useSummaryStore()
 const { currentCategory, currentTab, balanceList, currentDate } = storeToRefs(summaryStore)
 
-// ✅ 현재 연도-월 (예: 2025-04)
+// 현재 연도-월 (예: 2025-04)
 const currentYearMonth = computed(() => {
   const year = currentDate.value.getFullYear()
   const month = String(currentDate.value.getMonth() + 1).padStart(2, '0')
   return `${year}-${month}`
 })
 
-// ✅ 현재 탭에 맞는 카테고리 (수입/지출)
+// 현재 탭에 맞는 카테고리 (수입/지출)
 const filteredCategories = computed(() =>
   currentCategory.value.filter((cat) =>
     currentTab.value === '수입' ? cat.type === 'income' : cat.type === 'expense',
   ),
 )
 
-// ✅ 카테고리별 총합 계산 (현재 연도 & 월 기준)
+// 카테고리별 총합 계산 (현재 연도 & 월 기준)
 const categoryAmounts = computed(() => {
   return filteredCategories.value.map((cat) => {
     const total = balanceList.value
@@ -47,7 +46,7 @@ const categoryAmounts = computed(() => {
   })
 })
 
-// ✅ 차트 데이터 구성
+// 차트 데이터 구성
 const chartData = computed(() => ({
   labels: filteredCategories.value.map((cat) => cat.name),
   datasets: [
@@ -58,7 +57,7 @@ const chartData = computed(() => ({
   ],
 }))
 
-// ✅ 차트 옵션
+// 차트 옵션
 const options = {
   responsive: true,
   maintainAspectRatio: false,
@@ -69,7 +68,7 @@ const options = {
   },
 }
 
-// ✅ 최초 로딩 시 데이터 가져오기
+// 최초 로딩 시 데이터 가져오기
 onMounted(async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
@@ -84,7 +83,7 @@ onMounted(async () => {
   }
 })
 
-// ✅ 수입/지출 탭 or 날짜 변경 시 다시 필터링
+// 수입/지출 탭 or 날짜 변경 시 다시 필터링
 watch([currentTab, currentDate], async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
