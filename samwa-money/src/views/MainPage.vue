@@ -11,7 +11,11 @@
         </section>
 
         <section class="summary">
-          <SummaryBox />
+          <SummaryBox
+            v-if="searchResults === null"
+            v-model:selectedDate="selectedDate"
+            @update:viewDate="updateViewDate"
+          />
         </section>
 
         <section class="resultBox">
@@ -74,10 +78,19 @@ const handleSearch = async ({ type, keyword, categories }) => {
   const res = await api.get('/Balance')
   const data = res.data
 
+  console.log('✅ 전달된 categories:', categories)
+  console.log(
+    '🔍 데이터 내 카테고리들:',
+    data.map((item) => item.category),
+  )
+
   let filtered = data.filter((item) => {
     const categoryMatched =
-      !categories || categories.length === 0 || categories.includes(item.category)
+      Array.isArray(categories) && categories.length > 0
+        ? categories.includes(item.category)
+        : false // ✅ 카테고리 없으면 무조건 false
 
+    // ✅ 키워드 필터
     let keywordMatched = true
     if (type === 'search_title') {
       keywordMatched = item.title.includes(keyword)
@@ -85,8 +98,6 @@ const handleSearch = async ({ type, keyword, categories }) => {
       keywordMatched = item.memo.includes(keyword)
     } else if (type === 'search_cash') {
       keywordMatched = item.amount === Number(keyword)
-    } else if (type === 'search_category') {
-      keywordMatched = true
     }
 
     return categoryMatched && keywordMatched
