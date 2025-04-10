@@ -93,11 +93,12 @@ const goToEdit = () => {
 <style scoped>
 .container {
   width: 100vh;
-  min-height: 115vh;
+  min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-top: var(--space-xl);
+  margin-top: var(--space-l);
+  margin-bottom: var(--space-l);
 }
 
 h1 {
@@ -118,19 +119,20 @@ h1 {
 }
 
 .title {
-  font-size: 25px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 .content {
-  font-size: 20px;
+  font-size: 18px;
   font-weight: 500;
 }
 
 .section-title {
   align-self: flex-start;
-  font-size: var(--space-l);
+  font-size: 25px;
   font-weight: 800;
+  padding-left: var(--space-s);
 }
 
 .divider {
