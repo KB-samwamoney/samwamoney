@@ -7,7 +7,9 @@
       </div>
 
       <div class="modal-body">
-        <DailyPaymentList :items="items" :date="date" />
+        <div class="modal-list">
+          <DailyPaymentList :items="items" :date="date" />
+        </div>
         <div class="button-wrapper">
           <button class="modal-button" @click="closeModal">확인</button>
         </div>
@@ -93,9 +95,10 @@ const formattedDate = computed(() => {
   padding: 1rem;
 }
 .modal-box {
-  background: #fff9ef;
+  background: var(--light-white);
   border-radius: 10px;
-  width: 500px;
+  width: 600px;
+  height: 500px;
   max-width: 90vw;
   max-height: 90vh;
   overflow-y: auto;
@@ -116,6 +119,7 @@ const formattedDate = computed(() => {
   border-radius: var(--radius);
   font-weight: bold;
   cursor: pointer;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .button-wrapper {
@@ -123,5 +127,10 @@ const formattedDate = computed(() => {
   justify-content: center;
   margin-top: 1.5rem;
   width: 100%;
+}
+
+.modal-list {
+  height: 300px;
+  overflow-y: scroll;
 }
 </style>
