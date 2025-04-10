@@ -29,7 +29,6 @@ const months = ref(Array.from({ length: 12 }, (_, i) => i + 1))
 const selectedMonth = ref(null)
 
 function selectMonth(month) {
-  // 이미 선택된 월을 다시 누르면 닫기 (토글)
   selectedMonth.value = selectedMonth.value === month ? null : month
 }
 </script>

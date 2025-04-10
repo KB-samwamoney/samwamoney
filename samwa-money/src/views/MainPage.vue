@@ -20,7 +20,6 @@
         <!-- 수입/지출 요약 박스 -->
         <section class="summary">
           <SummaryBox
-            v-if="summaryItems.length"
             :month="currentMonth"
             :items="summaryItems"
           />
@@ -28,7 +27,7 @@
 
         <!-- 캘린더, 월별 리스트, 검색박스 -->
         <section class="calendar">
-          <CalendarView />
+          <CalendarView v-model:selectedDate="selectedDate" />
         </section>
       </main>
     </section>
@@ -36,18 +35,54 @@
 </template>
 
 <script setup>
+import { ref, computed, onMounted, watch } from 'vue'
 import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
-import SummaryBox from '@/components/main/summary/SummaryBox.vue';
+import SummaryBox from '@/components/main/summary/SummaryBox.vue'
+import { usePaymentStore } from '@/stores/paymentAddStore'
 
-import { ref } from 'vue';
+const paymentStore = usePaymentStore()
 
-const currentMonth = ref(4); // 예시로 4월
-const summaryItems = ref([
-  { date: '2025-04-01', type: '수입', amount: 3000000 },
-  { date: '2025-04-05', type: '지출', amount: 2500000 }
-]);
+// 사용자 선택 기준 날짜
+const selectedDate = ref(new Date())
+
+// 선택한 날짜의 월
+const currentMonth = computed(() => selectedDate.value.getMonth() + 1)
+
+watch(selectedDate, (newVal) => {
+  console.log('📌 선택된 날짜 변경됨:', newVal)
+})
+
+// 수입/지출 필터링
+const summaryItems = computed(() => {
+  return paymentStore.paymentList
+    .filter(item => {
+      const itemDate = new Date(item.date)
+      return (
+        itemDate.getFullYear() === selectedDate.value.getFullYear() &&
+        itemDate.getMonth() + 1 === currentMonth.value
+      )
+    })
+    .map(item => ({
+      type: isIncome(item.category) ? '수입' : '지출',
+      amount: item.amount,
+      date: item.date
+    }))
+})
+
+// 수입 카테고리 판별
+const isIncome = (category) => {
+  const incomeCategories = ['월급', '용돈', '기타', '상여', '금융소득', '부수입', '환급금', '투자수익', '중고거래', '캐시백/포인트']
+  return incomeCategories.includes(category)
+}
+
+// 최초 실행 시 결제 내역 로딩
+onMounted(async () => {
+  await paymentStore.fetchPayments()
+})
+
+// 나중에 CalendarView → MainPage 로 selectedDate 바꾸고 싶으면 이걸로 emit 가능
 </script>
 
 <style scoped>

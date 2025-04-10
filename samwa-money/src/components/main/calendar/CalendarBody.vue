@@ -4,10 +4,11 @@
     <v-calendar
       class="calendar"
       mode="month"
-      v-model="selectedDate"
+      :model-value="props.selectedDate"
       show-six-weeks
       is-expanded
       style="height: 100%; width: 100%;"
+      @update:view-date="handleViewDateChange"
     >
       <!-- 날짜 셀 커스터마이징 -->
       <template #day-content="{ day }">
@@ -37,16 +38,24 @@
 </template>
 
 <script setup>
-import { ref, onMounted, computed } from 'vue'
+import { onMounted, computed } from 'vue'
 import { usePaymentStore } from '@/stores/paymentAddStore'
 
+// 부모로부터 선택된 날짜를 props로 받음
+const props = defineProps({
+  selectedDate: Date
+})
+
+// 부모에게 선택된 날짜를 업데이트로 전달
+const emit = defineEmits(['update:selectedDate'])
+
 // 선택된 날짜
-const selectedDate = ref(new Date())
+// const selectedDate = ref(new Date())
 
 // Pinia 스토어에서 결제 데이터 사용
 const paymentStore = usePaymentStore()
 
-// 컴포넌트가 마운트될 때 사용자 결제 데이터 불러오기
+// 최초 마운트 시 결제 내역 불러오기
 onMounted(async () => {
   await paymentStore.fetchPayments()
   console.log('불러온 결제 데이터:', paymentStore.paymentList)
@@ -54,12 +63,13 @@ onMounted(async () => {
 
 // 날짜 클릭 시 선택된 날짜 변경
 const selectDate = (date) => {
-  selectedDate.value = date
+  // selectedDate.value = date
+  emit('update:selectedDate', date)
 }
 
 // 날짜가 현재 선택된 날짜인지 확인
 const isSelected = (date) => {
-  return formatDate(date) === formatDate(selectedDate.value)
+  return formatDate(date) === formatDate(props.selectedDate)
 }
 
 // 날짜를 'YYYY-MM-DD' 형식으로 변환
@@ -72,6 +82,11 @@ const formatDate = (date) => {
 const hasTransaction = (date) => {
   const key = formatDate(date)
   return Array.isArray(transactionMap.value[key]) && transactionMap.value[key].length > 0
+}
+
+const handleViewDateChange = (newViewDate) => {
+  // 현재 보고 있는 달이 바뀌었을 때 부모로 전달
+  emit('update:selectedDate', new Date(newViewDate))
 }
 
 // 카테고리 이름으로 수입/지출 구분

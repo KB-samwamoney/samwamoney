@@ -6,7 +6,10 @@
     />
 
     <div v-if="mode === 'calendar'" class="calendar-content">
-      <CalendarBody />
+      <CalendarBody
+        :selectedDate="props.selectedDate"
+        @update:selectedDate="emit('update:selectedDate', $event)"
+      />
     </div>
 
     <MonthlyBody
@@ -22,6 +25,11 @@ import CalendarBody from './CalendarBody.vue'
 import MonthlyBody from './MonthlyBody.vue'
 
 const mode = ref('calendar')
+
+const props = defineProps({
+  selectedDate: Date
+})
+const emit = defineEmits(['update:selectedDate'])
 </script>
 
 <style scoped>
