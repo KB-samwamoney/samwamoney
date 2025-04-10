@@ -249,12 +249,13 @@ onMounted(async () => {
 
 .selected-income {
   background-color: var(--blue);
-  color: black;
+  color: var(--dark);
 }
 
 .toggle-btn.selected-expense {
   background-color: var(--danger);
-  color: black;
+  color: var(--dark);
+
 }
 
 .toggle-title {
