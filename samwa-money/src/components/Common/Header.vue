@@ -1,11 +1,14 @@
 <script setup>
 import LogoImg from '@/assets/img/삼와머니-로고.png'
-import { useRouter } from 'vue-router'
+import { useRouter, useRoute } from 'vue-router'
 import { useAuthStore } from '@/stores/authStore'
-import { ref, onMounted, onUnmounted } from 'vue'
+import { ref, onMounted, onUnmounted, computed } from 'vue'
 
 const router = useRouter()
 const authStore = useAuthStore()
+const route = useRoute()
+
+const isLoginPage = computed(() => route.path === '/')
 
 const goToHome = () => {
   router.push('/main')
@@ -21,12 +24,11 @@ const goToSignup = () => {
 
 const handleLogout = () => {
   authStore.logout()
-  router.push('/main')
+  router.push('/')
 }
 
 // 눈 움직임 관련 로직
 const eyes = ref([])
-const header = ref(null)
 
 const handleMouseMove = (e) => {
   eyes.value.forEach((eye) => {
@@ -75,9 +77,10 @@ onUnmounted(() => {
     </div>
     <div class="nav-buttons">
       <template v-if="!authStore.isLoggedIn">
-        <button @click="goToLogin">로그인</button>
+        <button v-if="!isLoginPage" @click="goToLogin">로그인</button>
         <button @click="goToSignup">회원가입</button>
       </template>
+
       <template v-else>
         <button @click="handleLogout">로그아웃</button>
       </template>
@@ -151,7 +154,7 @@ button {
   padding: 10px 16px;
   cursor: pointer;
   font-weight: 600;
-  font-family: 'Pretendard';
+  font-family: 'Pretendard', sans-serif;
   color: var(--black);
 }
 </style>

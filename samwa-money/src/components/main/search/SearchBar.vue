@@ -178,4 +178,3 @@ const handleCategoryClick = (categoryName) => {
 </script>
 
 <style scoped src="@/assets/search.css"></style>
-<style scoped></style>
