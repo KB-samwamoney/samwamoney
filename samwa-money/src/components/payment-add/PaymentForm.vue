@@ -4,9 +4,13 @@ import { onMounted, ref, watch } from 'vue';
 import ConfirmButton from '../button/ConfirmButton.vue';
 import { useToastStore } from '@/stores/toastStore';
 import PaymentModal from './PaymentModal.vue';
+import { useRouter } from 'vue-router';
 
 const paymentStore = usePaymentStore()
 const toastStore = useToastStore()
+const router = useRouter()
+
+const dateInput = ref(null)
 
 // 데이터 자장 함수
 const title = ref('')
@@ -52,6 +56,21 @@ const handleAmountInput = (event) => {
   amount.value = formatWithComma(value)
 }
 
+// 날짜 입력칸 어디든 클릭시 리스트 출력
+const openDatePicker = () => {
+  dateInput.value?.showPicker?.() || dateInput.value?.click()
+}
+//이미지를 문자열로 변환해주는 로직
+const fileToBase64 = (file) => {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader()
+    reader.readAsDataURL(file)
+    reader.onload = () => resolve(reader.result)
+    reader.onerror = (error) => reject(error)
+  })
+}
+
+//저장 함수
 const createPayment = async () => {
   if (!String(title.value).trim()) {
     toastStore.showToast('제목을 입력해주세요')
@@ -75,17 +94,23 @@ const createPayment = async () => {
   }
 
   try {
+    let base64Img = ''
+    if (imgUrl.value) {
+      base64Img = await fileToBase64(imgUrl.value)
+    }
     const newPayment = {
       title: title.value,
       date: date.value,
       category: category.value,
       amount: amount.value,
       memo: memo.value,
-      imgUrl: imgUrl.value
+      imgUrl: base64Img
     }
     await paymentStore.createPayment(newPayment)
+    toastStore.showToast('저장되었습니다')
+    await router.push({ name: 'main' })
   } catch (error) {
-    console.log(error.value);
+    console.log(error);
 
   }
   finally {
@@ -95,9 +120,10 @@ const createPayment = async () => {
     amount.value = ''
     memo.value = ''
     imgUrl.value = ''
+    selectedPayment.value = ''
   }
 }
-// 페이지 로드시 제목 입력칸 포커스
+// 페이지 로드시 제목 입력칸 포커스ß
 onMounted(() => {
   titleInput.value?.focus()
 })
@@ -110,7 +136,6 @@ const confirmSave = async () => {
 const cancelSave = () => {
   showModal.value = false
 }
-
 </script>
 
 <template>
@@ -124,7 +149,9 @@ const cancelSave = () => {
 
       <div class="date-container">
         <label>날짜선택 :</label>
-        <input type="date" class="date-input" v-model="date">
+        <label @click="openDatePicker">
+          <input type="date" class="date-input" v-model="date" ref="dateInput" />
+        </label>
       </div>
 
       <div class="category-container">
@@ -179,7 +206,8 @@ const cancelSave = () => {
         <ConfirmButton :name="'취소'" />
         <ConfirmButton @create-payment="createPayment" @click="showModal = true" :name="'완료'" />
       </div>
-      <PaymentModal :show="showModal" :message="'수입 및 지출 내용을 저장하시겠습니까?'" @confirm="confirmSave" @cancel="cancelSave" />
+      <PaymentModal @create-payment="createPayment" :show="showModal" :message="'수입 및 지출 내용을 저장하시겠습니까?'"
+        @confirm="confirmSave" @cancel="cancelSave" />
     </section>
   </div>
 </template>
@@ -187,6 +215,7 @@ const cancelSave = () => {
 <style scoped>
 .container {
   max-width: 900px;
+  height: 730px;
   width: calc(100% - 2rem);
   margin: auto;
   padding: 2rem 0;

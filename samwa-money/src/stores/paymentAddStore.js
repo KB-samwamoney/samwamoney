@@ -11,7 +11,9 @@ export const usePaymentStore = defineStore('payment', () => {
 
   const paymentList = ref([]) // 결제 내역
   const categoryList = ref([]) // 카테고리 목록
+  const findPayment = ref('') // 상세 정보 가져오기
 
+  //카테고리 리스트 불러오기
   const getcategoryList = async (paymentType) => {
     try {
       loading.value = true
@@ -23,7 +25,7 @@ export const usePaymentStore = defineStore('payment', () => {
       loading.value = false
     }
   }
-
+  // 정보 저장하기
   const createPayment = async (paymentData) => {
     loading.value = true
     error.value = null
@@ -58,13 +60,38 @@ export const usePaymentStore = defineStore('payment', () => {
     }
   }
 
+  //상세 정보 가져오기
+  const serchPayment = async (id) => {
+    loading.value = true
+    error.value = null
+
+    try {
+      if (!Array.isArray(paymentList.value)) {
+        throw new Error('paymentList가 배열이 아님!')
+      }
+      const response = paymentList.value.find((item) => item.id === id)
+
+      if (!response) {
+        throw new Error('해당 ID의 정보를 찾을 수 없습니다.')
+      }
+      findPayment.value = response
+      console.log(findPayment.value)
+    } catch (err) {
+      console.log(`상세 정보 불러오기 실패`, err)
+    } finally {
+      loading.value = false
+    }
+  }
+
   return {
     loading,
     error,
     paymentList,
     categoryList,
+    findPayment,
     getcategoryList,
     createPayment,
     fetchPayments,
+    serchPayment,
   }
 })
