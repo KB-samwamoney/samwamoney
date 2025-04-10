@@ -147,7 +147,7 @@ const handleSearch = async ({ type, keyword, categories }) => {
 
 <style scoped>
 .main-page {
-  background-color: #fef9ee;
+  background-color: var(--light-white);
   display: flex;
   flex-direction: column;
 }

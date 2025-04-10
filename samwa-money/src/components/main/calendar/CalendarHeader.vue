@@ -40,7 +40,7 @@ const summaryMent = () => {
   justify-content: space-between;
   align-items: center;
   flex-wrap: wrap;
-  background-color: #fff6da;
+  background-color: var(--light-white);
   padding: 10px 20px;
   gap: 10px;
 }

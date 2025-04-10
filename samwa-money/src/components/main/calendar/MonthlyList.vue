@@ -14,12 +14,17 @@
           v-for="(item, index) in payments"
           :key="index"
           class="payment-item"
-          :class="item.type === '수입' ? 'income' : 'expense'"
+          :class="item.type === 'income' ? 'income' : 'expense'"
         >
-          <div class="date">{{ item.date }}</div>
-          <div class="type">{{ item.type }}</div>
+          <div class="date">{{ formatDate(item.date) }}</div>
+
+          <div class="title">
+            <span class="icon">{{ item.icon }}</span>
+            {{ item.title }}
+          </div>
+
           <div class="amount">
-            {{ item.type === '수입' ? '+' : '-' }}{{ item.amount.toLocaleString() }}원
+            {{ item.type === 'income' ? '+' : '-' }}{{ item.amount.toLocaleString() }}원
           </div>
         </div>
       </div>
@@ -42,21 +47,29 @@ const props = defineProps({
 const paymentStore = usePaymentStore()
 
 // 해당 월의 내역 가져오기
-const payments = computed(() => paymentStore.getPaymentsByMonth(props.month))
+const payments = computed(() =>
+  paymentStore.getPaymentsByMonth(props.month).slice().sort((a, b) => new Date(b.date) - new Date(a.date))
+)
 
 // 총 수입 계산
 const totalIncome = computed(() =>
   payments.value
-    .filter(item => item.type === '수입')
+    .filter(item => item.type === 'income')
     .reduce((sum, item) => sum + item.amount, 0)
 )
 
 // 총 지출 계산
 const totalExpense = computed(() =>
   payments.value
-    .filter(item => item.type === '지출')
+    .filter(item => item.type === 'expense')
     .reduce((sum, item) => sum + item.amount, 0)
 )
+
+// 날짜 포맷 함수
+const formatDate = (dateStr) => {
+  const date = new Date(dateStr)
+  return `${date.getFullYear()}.${date.getMonth() + 1}.${date.getDate()}`
+}
 </script>
 
 <style scoped>
@@ -75,7 +88,7 @@ const totalExpense = computed(() =>
 }
 
 .income {
-  color: #2ecc71;
+  color: var(--blue);
 }
 
 .expense {
@@ -102,15 +115,30 @@ const totalExpense = computed(() =>
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.05);
 }
 
+.payment-item.income .amount {
+  color: var(--blue);
+}
+
+.payment-item.expense .amount {
+  color: var(--danger);
+}
+
 .date {
   flex: 1;
   font-weight: 500;
+  color: var(--black);
 }
 
-.type {
-  width: 50px;
-  text-align: center;
+.title {
+  flex: 2;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
   font-weight: 600;
+}
+
+.icon {
+  font-size: 1.2rem;
 }
 
 .amount {
@@ -120,11 +148,14 @@ const totalExpense = computed(() =>
 }
 
 .empty-message {
+  background-color: #fffbe6;
+  border: 1px solid #ffe58f;
   padding: 1rem;
-  background-color: #f5f5f5;
   border-radius: 8px;
   margin-top: 0.5rem;
   color: #999;
   font-style: italic;
+  text-align: center;
+  font-size: 14px;
 }
 </style>
