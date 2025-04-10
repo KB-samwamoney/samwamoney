@@ -12,7 +12,7 @@ const goToHome = () => {
 }
 
 const goToLogin = () => {
-  router.push('/main')
+  router.push('/')
 }
 
 const goToSignup = () => {
@@ -21,12 +21,11 @@ const goToSignup = () => {
 
 const handleLogout = () => {
   authStore.logout()
-  router.push('/main')
+  router.push('/')
 }
 
 // 눈 움직임 관련 로직
 const eyes = ref([])
-const header = ref(null)
 
 const handleMouseMove = (e) => {
   eyes.value.forEach((eye) => {
@@ -78,6 +77,7 @@ onUnmounted(() => {
         <button @click="goToLogin">로그인</button>
         <button @click="goToSignup">회원가입</button>
       </template>
+
       <template v-else>
         <button @click="handleLogout">로그아웃</button>
       </template>
@@ -151,7 +151,7 @@ button {
   padding: 10px 16px;
   cursor: pointer;
   font-weight: 600;
-  font-family: 'Pretendard';
+  font-family: 'Pretendard', sans-serif;
   color: var(--black);
 }
 </style>

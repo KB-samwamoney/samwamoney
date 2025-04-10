@@ -30,7 +30,7 @@ const { currentMonth, incomeTotal, expenseTotal, totalBalance } = storeToRefs(pa
 .summary-box {
   width: 100%;
   height: 100%;
-  background-color: #fff;
+  background-color: var(--white);
   border: 1px solid var(--dark-gray);
   border-radius: 10px;
   padding: 1rem;
@@ -79,6 +79,7 @@ const { currentMonth, incomeTotal, expenseTotal, totalBalance } = storeToRefs(pa
   font-size: 24px;
   font-weight: bold;
   white-space: nowrap;
+  color: var(--black);
 }
 
 .empty-message {

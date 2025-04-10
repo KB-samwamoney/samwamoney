@@ -1,15 +1,38 @@
-import { ref, watch } from 'vue'
+import { ref, watch, onMounted } from 'vue'
 import { defineStore } from 'pinia'
+import { fetchSetting, updateSetting } from '@/api/setting.js'
 
 export const useSettingStore = defineStore('setting', () => {
-  // 저장된 값이 있으면 그걸로, 없으면 'light'
-  const savedMode = localStorage.getItem('mode') || 'light'
-  const mode = ref(savedMode)
+  const mode = ref('light')
+
+  // API에서 설정값 가져오기
+  const loadSetting = async () => {
+    try {
+      const settings = await fetchSetting()
+      if (settings.length > 0) {
+        mode.value = settings[0].mode
+        applyTheme()
+      }
+    } catch (error) {
+      console.error('설정값을 불러오는데 실패했습니다:', error)
+    }
+  }
+
+  // 모드 변경 시 API와 로컬 스토리지 업데이트
+  const saveMode = async (newMode) => {
+    try {
+      await updateSetting({ id: 1, mode: newMode })
+      mode.value = newMode
+      localStorage.setItem('mode', newMode)
+    } catch (error) {
+      console.error('모드 변경에 실패했습니다:', error)
+    }
+  }
 
   const applyTheme = () => {
     const root = document.documentElement
     if (mode.value === 'dark') {
-      root.style.setProperty('--white', '#a7a7a7')
+      root.style.setProperty('--white', '#2C2C2E')
       root.style.setProperty('--light-white', '#121212') // 더 어두운 배경색
       root.style.setProperty('--baby-pink', '#2c2022') // 어두운 핑크 계열
       root.style.setProperty('--light-yellow', '#ffb300') // 어두워진 노란색
@@ -39,15 +62,15 @@ export const useSettingStore = defineStore('setting', () => {
     }
   }
 
-  // 모드가 바뀔 때마다 테마 적용 + 로컬스토리지에 저장
-  watch(
-    mode,
-    (newMode) => {
-      applyTheme()
-      localStorage.setItem('mode', newMode)
-    },
-    { immediate: true },
-  )
+  // 모드가 변경될 때마다 테마 적용
+  watch(mode, (newMode) => {
+    applyTheme(newMode)
+  })
 
-  return { mode, applyTheme }
+  // 컴포넌트 마운트 시 설정값 로드
+  onMounted(() => {
+    loadSetting()
+  })
+
+  return { mode, saveMode }
 })

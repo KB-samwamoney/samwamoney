@@ -1,4 +1,6 @@
 <script setup>
+import { useToastStore } from '@/stores/toastStore.js'
+import ToastNotification from '@/components/toast/ToastNotification.vue'
 import { useAuthStore } from '@/stores/authStore.js'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
@@ -6,15 +8,18 @@ import { ref } from 'vue'
 const authStore = useAuthStore()
 const router = useRouter()
 const user = ref({ ...authStore.user })
+const toastStore = useToastStore()
 
 const handleUpdate = async () => {
   const success = await authStore.updateUserInfo(user.value)
 
   if (success) {
-    alert('회원정보가 수정되었습니다!')
-    router.push('/my-page')
+    toastStore.showToast('회원정보가 수정되었습니다!', 'success')
+    setTimeout(() => {
+      router.push('/my-page')
+    }, 1000)
   } else {
-    alert('수정 실패: ' + authStore.errorMessage)
+    toastStore.showToast('수정 실패: ' + authStore.errorMessage, 'error')
   }
 }
 </script>
@@ -38,6 +43,12 @@ const handleUpdate = async () => {
 
       <button type="submit" class="submit-btn">수정 완료</button>
     </form>
+    <ToastNotification
+      :message="toastMessage"
+      :type="toastType"
+      :isVisible="toastVisible"
+      @close="toastVisible = false"
+    />
   </div>
 </template>
 

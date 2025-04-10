@@ -111,7 +111,7 @@ const formatPrice = (price) => {
   padding: 0.5rem;
   background: var(--white);
   border-radius: 12px;
-  border: 1px solid #f0e6cc;
+  border: 1px solid var(--real-yellow);
   max-height: 610px;
 }
 .empty {
@@ -131,7 +131,7 @@ const formatPrice = (price) => {
   width: 6px;
 }
 .table-wrapper::-webkit-scrollbar-thumb {
-  background-color: #ccc;
+  background-color: var(--light-gray);
   border-radius: 4px;
 }
 table {
@@ -149,17 +149,17 @@ th,
 td {
   padding: 0.5rem;
   text-align: center;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid var(--light-gray);
 }
 .amount {
   text-align: right;
-  color: #e63946;
+  color: var(--danger);
   font-weight: 600;
 }
 .income {
-  color: #3b82f6; /* 파란색 계열 */
+  color: var(--blue); /* 파란색 계열 */
 }
 .expense {
-  color: #ef4444; /* 빨간색 계열 */
+  color: var(--danger); /* 빨간색 계열 */
 }
 </style>

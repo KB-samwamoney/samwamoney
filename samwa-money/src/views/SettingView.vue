@@ -1,16 +1,33 @@
 <script setup>
-import { ref } from 'vue'
+import { ref, onMounted } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSettingStore } from '@/stores/settingStore'
 import SideBar from '@/components/sidebar/SideBar.vue'
+import { useToastStore } from '@/stores/toastStore.js'
 
 const router = useRouter()
+const toastStore = useToastStore()
 const settingStore = useSettingStore()
-const selectedMode = ref(settingStore.mode)
 
-const saveMode = () => {
-  settingStore.mode = selectedMode.value
-  alert('모드가 변경되었습니다.')
+const selectedMode = ref('light')
+
+onMounted(async () => {
+  try {
+    await settingStore.loadSetting()
+    selectedMode.value = settingStore.mode
+  } catch (error) {
+    console.error('설정 불러오기 실패:', error)
+  }
+})
+
+const saveMode = async () => {
+  try {
+    await settingStore.saveMode(selectedMode.value)
+    toastStore.showToast('모드가 변경되었습니다.', 'success')
+  } catch (error) {
+    console.error(error)
+    toastStore.showToast('모드 변경에 실패했습니다. 다시 시도해주세요.', 'error')
+  }
 }
 
 const goBack = () => {
@@ -46,8 +63,8 @@ const goBack = () => {
         </div>
       </div>
       <div class="action-buttons">
-        <button class="go-back" @click="goBack">뒤로가기</button>
-        <button class="save-button" @click="saveMode">저장하기</button>
+        <button class="go-back" @click="goBack">뒤로</button>
+        <button class="save-button" @click="saveMode">저장</button>
       </div>
     </div>
   </div>

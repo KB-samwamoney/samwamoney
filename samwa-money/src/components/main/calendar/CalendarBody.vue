@@ -56,13 +56,13 @@ const paymentStore = usePaymentStore()
 // 최초 마운트 시 결제 내역 불러오기
 onMounted(async () => {
   await paymentStore.fetchPayments()
-  console.log('불러온 결제 데이터:', paymentStore.paymentList)
+  // console.log('불러온 결제 데이터')
 })
 
 // 최초 마운트 시 결제 내역 불러오기 및 화살표 버튼 이벤트 설정
 onMounted(async () => {
   await paymentStore.fetchPayments()
-  console.log('불러온 결제 데이터:', paymentStore.paymentList)
+  // console.log('불러온 결제 데이터')
 
   // 화살표 버튼에 이벤트 추가
   setupArrowButtons()
@@ -84,7 +84,7 @@ const setupArrowButtons = () => {
         const newDate = new Date(paymentStore.viewDate)
         newDate.setMonth(newDate.getMonth() - 1)
         paymentStore.viewDate = newDate
-        console.log('이전 달로 이동, 스토어 viewDate 업데이트:', newDate)
+        // console.log('이전 달로 이동, 스토어 viewDate 업데이트')
       }
     }
 
@@ -100,7 +100,7 @@ const setupArrowButtons = () => {
         const newDate = new Date(paymentStore.viewDate)
         newDate.setMonth(newDate.getMonth() + 1)
         paymentStore.viewDate = newDate
-        console.log('다음 달로 이동, 스토어 viewDate 업데이트:', newDate)
+        // console.log('다음 달로 이동, 스토어 viewDate 업데이트')
       }
     }
   }, 100) // 100ms 지연
@@ -143,7 +143,7 @@ const handleModelValueChange = (val) => {
   const date = new Date(val)
   emit('update:selectedDate', date)
   emit('update:viewDate', date)
-  console.log('📆 [CalendarBody] @update:model-value 강제 트리거됨:', date)
+  // console.log('📆 [CalendarBody] @update:model-value 강제 트리거됨:', date)
 }
 
 // 카테고리 이름으로 수입/지출 구분
@@ -184,7 +184,7 @@ const getTransactionsByDate = (date) => {
 watch(
   () => props.selectedDate,
   (val) => {
-    console.log('🟨 props.selectedDate 변경됨:', val)
+    // console.log('🟨 props.selectedDate 변경됨:', val)
   },
 )
 
@@ -215,6 +215,7 @@ const handleDateClick = (date) => {
   flex-direction: column;
   padding: 20px;
   box-sizing: border-box;
+  background-color: var(--white);
 }
 
 .vc-weeks {
@@ -236,6 +237,7 @@ const handleDateClick = (date) => {
   min-height: 120px;
   padding: 4px;
   box-sizing: border-box;
+  color: var(--black);
 }
 
 .day-cell {
@@ -269,6 +271,10 @@ const handleDateClick = (date) => {
 .vc-title {
   font-size: 20px;
   font-weight: 600;
+}
+
+.vc-title span {
+  color: var(--black);
 }
 
 .day-number {
