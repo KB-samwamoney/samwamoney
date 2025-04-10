@@ -31,7 +31,7 @@ const goToGoodBye = () => {
 
 const confirmLogout = () => {
   authStore.logout()
-  router.push('/')
+  router.push('/main')
 }
 
 const goBack = () => {
