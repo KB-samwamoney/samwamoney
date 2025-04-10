@@ -8,7 +8,7 @@ const route = useRoute()
   <nav class="sidebar">
     <ul>
       <li :class="{ active: route.path === '/main' }">
-        <router-link to="/">위장부</router-link>
+        <router-link to="/main">위장부</router-link>
       </li>
       <li :class="{ active: route.path === '/payment-summary' }">
         <router-link to="/payment-summary">간편요약</router-link>
