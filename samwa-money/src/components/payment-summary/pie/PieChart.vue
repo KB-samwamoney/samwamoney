@@ -1,70 +1,63 @@
 <template>
   <div class="pie-chart">
-    <Pie :data="data" :options="options" />
+    <Pie :data="chartData" :options="options" />
   </div>
 </template>
 
 <script setup>
-import { onMounted, watch, computed } from 'vue'
+import { computed, watch, onMounted } from 'vue'
+import { Pie } from 'vue-chartjs'
+import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
+
 import { useSummaryStore } from '@/stores/summaryStore'
 import { storeToRefs } from 'pinia'
-const props = defineProps({
-  type: String,
-  date: String, // 혹은 Number 타입이면 Number
-})
 
-const summaryStore = useSummaryStore()
-// 모든 카테고리를 스토어에서 일단 가져왔음
-const { currentCategory } = storeToRefs(summaryStore)
-const { currentTab } = storeToRefs(summaryStore)
-const { currentDate } = storeToRefs(summaryStore)
-// 필터링된 수입/지출값
-const { balanceList } = storeToRefs(summaryStore)
-
-onMounted(() => {
-  summaryStore.filterCategory()
-  console.log('-=-=-=-=-=-=-=-=-==--==--=-=-', balanceList.value)
-
-  console.log('!!!!!!!!!!!props.type, props.date', props.type, props.date)
-})
-
-watch([currentTab, currentDate], () => {
-  summaryStore.filterCategory() // 수입/지출 or 날짜 바뀔 때 실행
-  console.log('-=-=-=-=-=-=-=-=-==--==--=-=-', balanceList.value)
-  console.log(currentCategory.value.filter((item) => item.type === 'expense'))
-
-  console.log('!!!!!!!!!!!props.type, props.date', props.type, props.date)
-})
-
-// 차트 컴포넌트 불러오기기
-import { Pie } from 'vue-chartjs'
-// chart.js에서 필요한 기능 등록
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, CategoryScale } from 'chart.js'
+// Chart.js 등록
 ChartJS.register(Title, Tooltip, Legend, ArcElement, CategoryScale)
-const data = computed(() => {
-  const incomeCategories = currentCategory.value.filter((item) => item.type === 'income')
-  const expenseCategories = currentCategory.value.filter((item) => item.type === 'expense')
-  return currentTab.value === '수입'
-    ? {
-        labels: incomeCategories.map((item) => item.name),
-        datasets: [
-          {
-            backgroundColor: incomeCategories.map((item) => item.color),
-            data: currentCategory.value.filter((item) => item.type === 'income'),
-          },
-        ],
-      }
-    : {
-        labels: expenseCategories.map((item) => item.name),
-        datasets: [
-          {
-            backgroundColor: expenseCategories.map((item) => item.color),
-            data: currentCategory.value.filter((item) => item.type === 'expense'),
-          },
-        ],
-      }
+
+// 스토어 연결
+const summaryStore = useSummaryStore()
+const { currentCategory, currentTab, balanceList, currentDate } = storeToRefs(summaryStore)
+
+// ✅ 현재 연도-월 (예: 2025-04)
+const currentYearMonth = computed(() => {
+  const year = currentDate.value.getFullYear()
+  const month = String(currentDate.value.getMonth() + 1).padStart(2, '0')
+  return `${year}-${month}`
 })
-// 차트 옵션
+
+// ✅ 현재 탭에 맞는 카테고리 (수입/지출)
+const filteredCategories = computed(() =>
+  currentCategory.value.filter((cat) =>
+    currentTab.value === '수입' ? cat.type === 'income' : cat.type === 'expense',
+  ),
+)
+
+// ✅ 카테고리별 총합 계산 (현재 연도 & 월 기준)
+const categoryAmounts = computed(() => {
+  return filteredCategories.value.map((cat) => {
+    const total = balanceList.value
+      .filter(
+        (item) => item.category === cat.name && item.date.slice(0, 7) === currentYearMonth.value, // 연도+월 필터
+      )
+      .reduce((sum, item) => sum + item.amount, 0)
+
+    return total
+  })
+})
+
+// ✅ 차트 데이터 구성
+const chartData = computed(() => ({
+  labels: filteredCategories.value.map((cat) => cat.name),
+  datasets: [
+    {
+      backgroundColor: filteredCategories.value.map((cat) => cat.color),
+      data: categoryAmounts.value,
+    },
+  ],
+}))
+
+// ✅ 차트 옵션
 const options = {
   responsive: true,
   maintainAspectRatio: false,
@@ -74,9 +67,25 @@ const options = {
     },
   },
 }
+
+// ✅ 최초 로딩 시 데이터 가져오기
+onMounted(async () => {
+  await summaryStore.filterBalance()
+  await summaryStore.filterCategory()
+})
+
+// ✅ 수입/지출 탭 or 날짜 변경 시 다시 필터링
+watch([currentTab, currentDate], async () => {
+  await summaryStore.filterBalance()
+  await summaryStore.filterCategory()
+})
 </script>
+
 <style scoped>
 .pie-chart {
-  border: 1px solid red;
+  height: 400px;
+  border: 1px solid #ddd;
+  padding: 1rem;
+  border-radius: 12px;
 }
 </style>

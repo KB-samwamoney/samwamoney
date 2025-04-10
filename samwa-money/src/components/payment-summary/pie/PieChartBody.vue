@@ -14,7 +14,7 @@ import { watch } from 'vue'
 const summaryStore = useSummaryStore()
 const props = defineProps({
   type: String,
-  date: String, // 혹은 Number 타입이면 Number
+  date: String,
 })
 watch(
   () => props.type,
