@@ -74,7 +74,7 @@ watch([currentTab, currentDate], async () => {
 
 <style scoped>
 .pie-summary {
-  background-color: #fef6d9;
+  background-color: var(--lighter-yellow);
   padding: 1rem;
   border-radius: 12px;
 }
@@ -86,7 +86,7 @@ watch([currentTab, currentDate], async () => {
   margin-bottom: 1rem;
   font-size: 1.1rem;
   padding: 0.5rem;
-  background: white;
+  background-color: var(--white);
   border-radius: 8px;
   border: 1px solid #ddd;
 }
@@ -101,7 +101,7 @@ watch([currentTab, currentDate], async () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background: white;
+  background-color: var(--white);
   border-radius: 8px;
   border: 1px solid #ddd;
   padding: 0.5rem 0.75rem;

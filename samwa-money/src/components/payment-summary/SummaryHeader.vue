@@ -59,6 +59,7 @@ const nextMonth = () => {
   justify-content: space-between;
   align-items: center;
   margin: var(--space-s);
+  background-color: var(--light-white);
   max-width: 1100px;
 }
 .bar {

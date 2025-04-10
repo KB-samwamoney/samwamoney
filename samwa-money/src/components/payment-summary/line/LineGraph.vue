@@ -1,11 +1,12 @@
 <template>
   <div class="line-chart">
-    <Line :data="chartData" :options="options" />
+    <Line v-if="!empty" :data="chartData" :options="options" />
+    <div v-if="empty" class="empty">데이터가 존재하지 않습니다.</div>
   </div>
 </template>
 
 <script setup>
-import { computed, watch, onMounted } from 'vue'
+import { ref, computed, watch, onMounted } from 'vue'
 import { Line } from 'vue-chartjs'
 import {
   Chart as ChartJS,
@@ -22,6 +23,7 @@ import { storeToRefs } from 'pinia'
 
 ChartJS.register(Title, Tooltip, Legend, LineElement, PointElement, CategoryScale, LinearScale)
 
+const empty = ref(false)
 const summaryStore = useSummaryStore()
 const { currentDate, currentTab, balanceList, currentCategory } = storeToRefs(summaryStore)
 
@@ -110,21 +112,47 @@ const options = {
 onMounted(async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
+  let sum = 0
+  for (const el of dailyTotals.value) {
+    sum += el
+  }
+  if (sum === 0) {
+    empty.value = true
+  } else {
+    empty.value = false
+  }
 })
 
 watch([currentTab, currentDate], async () => {
   await summaryStore.filterBalance()
   await summaryStore.filterCategory()
+  let sum = 0
+  for (const el of dailyTotals.value) {
+    sum += el
+  }
+  if (sum === 0) {
+    empty.value = true
+  } else {
+    empty.value = false
+  }
 })
 </script>
 
 <style scoped>
 .line-chart {
+  position: relative;
   width: 100%;
   height: 350px;
   background-color: var(--white);
   border: 1px solid var(--light-yellow);
   padding: var(--space-m);
   border-radius: 12px;
+}
+.empty {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.1rem;
 }
 </style>
