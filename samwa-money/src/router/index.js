@@ -50,7 +50,7 @@ const router = createRouter({
       component: () => import('@/views/PaymentSummary.vue'),
     },
     {
-      path: '/payment-detail',
+      path: '/payment-detail/:id',
       name: 'payment-detail',
       component: () => import('@/views/PaymentDetail.vue'),
     },

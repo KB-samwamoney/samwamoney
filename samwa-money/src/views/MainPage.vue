@@ -21,7 +21,6 @@
             v-model:selectedDate="selectedDate"
             @update:viewDate="updateViewDate"
           />
-
           <!-- 2. 검색 결과 → SearchResult 보여주기 -->
           <SearchResult v-else :results="searchResults" />
         </section>
@@ -73,12 +72,7 @@ const handleReset = () => {
 
 const handleSearch = async ({ type, keyword, categories }) => {
   const res = await api.get('/Balance')
-  let data = res.data
-
-  if (type === 'search_all') {
-    searchResults.value = data.sort((a, b) => new Date(b.date) - new Date(a.date))
-    return
-  }
+  const data = res.data
 
   let filtered = data.filter((item) => {
     const categoryMatched =
@@ -134,7 +128,7 @@ const handleSearch = async ({ type, keyword, categories }) => {
 
 .summary {
   display: flex;
-  padding: var(--space-m);
+  padding: var(--space-s) var(--space-l);
 }
 
 .calendar {
@@ -146,5 +140,6 @@ const handleSearch = async ({ type, keyword, categories }) => {
   padding: 1rem;
   flex-shrink: 0;
   flex: 1;
+  padding: var(--space-l);
 }
 </style>

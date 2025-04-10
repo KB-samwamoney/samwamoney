@@ -9,10 +9,10 @@
 
 /* 검색창 */
 .search-input-wrapper {
-  background-color: white;
+  background-color: var(--white);
   display: flex;
   align-items: center;
-  border: 1px solid #ffe066;
+  border: 1px solid var(--real-yellow);
   border-radius: var(--radius);
   overflow: hidden;
   margin-bottom: var(--space-m);
@@ -30,7 +30,7 @@
 
 /* 검색 버튼 */
 .search-btn {
-  background-color: #fffbe6;
+  background-color: var(--real-yellow);
   border: none;
   padding: 12px;
   cursor: pointer;
@@ -58,18 +58,19 @@ option {
 .btn-cat {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
+  gap: var(--space-s);
   padding: 6px 12px;
-  border: 1px dashed #aaa;
+  border: 1px dashed var(--dark-gray);
   border-radius: var(--radius);
-  background-color: #fff8e7;
+  background-color: var(--light-white);
   font-size: 15px;
   white-space: nowrap;
   max-width: 100%;
+  cursor: pointer;
 }
 
 .search-category .btn-cat:hover {
-  background-color: #ffe066;
+  background-color: var(--real-yellow);
 }
 
 /* 전체 삭제 버튼 */
