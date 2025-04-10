@@ -2,7 +2,6 @@
 import { usePaymentStore } from '@/stores/paymentAddStore';
 import { onMounted, ref, watch } from 'vue';
 import ConfirmButton from '../button/ConfirmButton.vue';
-import ConfirmButton from '../button/ConfirmButton.vue';
 import { useToastStore } from '@/stores/toastStore';
 import PaymentModal from './PaymentModal.vue';
 import { useRouter } from 'vue-router';
@@ -103,11 +102,11 @@ const createPayment = async () => {
       title: title.value,
       date: date.value,
       category: category.value.name,
-      icon: category.value.icon,
+      type: type.value,
       amount: Number(String(amount.value).replace(/,/g, '')),
       memo: memo.value,
+      icon: category.value.icon,
       imgUrl: base64Img,
-      type: type.value
     }
     await paymentStore.createPayment(newPayment)
     toastStore.showToast('저장되었습니다')
@@ -206,10 +205,6 @@ const cancelSave = () => {
       <div class="footer-btn">
         <ConfirmButton :name="'취소'" />
         <ConfirmButton @create-payment="createPayment" :name="'완료'" />
-      </div>
-      <div class="footer-btn">
-        <ConfirmButton :name="'취소'" />
-        <ConfirmButton @create-payment="createPayment" @click="showModal = true" :name="'완료'" />
       </div>
       <PaymentModal @create-payment="createPayment" :show="showModal" :message="'수입 및 지출 내용을 저장하시겠습니까?'"
         @confirm="confirmSave" @cancel="cancelSave" />

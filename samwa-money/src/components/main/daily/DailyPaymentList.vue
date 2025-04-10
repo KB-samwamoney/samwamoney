@@ -9,12 +9,8 @@ const props = defineProps({
 <template>
   <div class="modal-content">
     <div v-if="Array.isArray(items) && items.length">
-      <div
-        class="item-box"
-        v-for="(item, index) in items"
-        :key="item.id || index"
-        @click="$router.push(`/detail/${item.id}`)"
-      >
+      <div class="item-box" v-for="(item, index) in items" :key="item.id || index"
+        @click="$router.push(`/detail/${item.id}`)" :item="item">
         <div class="item-row">
           <div class="item-left">
             <div class="item-title">{{ item.icon }} {{ item.title }}</div>
@@ -50,73 +46,87 @@ const props = defineProps({
   padding: 1rem;
   margin-bottom: 1rem;
 }
+
 .item-title {
   font-weight: bold;
   font-size: 20px;
   margin-bottom: 0.5rem;
 }
+
 .item-row {
   display: flex;
   justify-content: space-between;
   gap: 1rem;
 }
+
 .item-left {
   flex: 1;
 }
+
 .item-right {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
   white-space: nowrap;
 }
+
 .item-type {
   font-size: 0.8rem;
   color: var(--dark-gray);
   margin-bottom: 0.2rem;
 }
+
 .item-meta {
   font-size: 0.9rem;
   color: var(--dark-gray);
 }
+
 .item-content {
   font-size: 0.9rem;
   color: var(--black);
   margin-left: 0.5rem;
   font-weight: bold;
 }
+
 .item-amount-box {
   display: flex;
   flex-direction: column;
   align-items: flex-end;
 }
+
 .item-method {
   font-size: 0.8rem;
   color: var(--dark-gray);
   margin-bottom: 0.2rem;
 }
+
 .item-type.income {
   color: var(--blue);
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
   font-weight: bold;
 }
+
 .item-type.expense {
   color: var(--danger);
   font-size: 0.8rem;
   margin-bottom: 0.2rem;
   font-weight: bold;
 }
+
 /* amount */
 .amount.income {
   color: var(--blue);
   font-size: 20px;
   font-weight: bold;
 }
+
 .amount.expense {
   color: var(--danger);
   font-size: 20px;
   font-weight: bold;
 }
+
 .amout {
   white-space: nowrap;
 }
