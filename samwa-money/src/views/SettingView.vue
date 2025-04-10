@@ -3,14 +3,32 @@ import { ref } from 'vue'
 import { useRouter } from 'vue-router'
 import { useSettingStore } from '@/stores/settingStore'
 import SideBar from '@/components/sidebar/SideBar.vue'
+import ToastNotification from '@/components/toast/ToastNotification.vue'
 
 const router = useRouter()
 const settingStore = useSettingStore()
 const selectedMode = ref(settingStore.mode)
+const toastMessage = ref('')
+const toastType = ref('success')
+const toastVisible = ref(false)
+
+const showToast = (msg, type = 'success') => {
+  toastMessage.value = msg
+  toastType.value = type
+  toastVisible.value = true
+
+  setTimeout(() => {
+    toastVisible.value = false
+  }, 3000)
+}
 
 const saveMode = () => {
   settingStore.mode = selectedMode.value
-  alert('모드가 변경되었습니다.')
+  showToast('모드가 변경되었습니다.', 'success')
+}
+
+const handleToastClose = () => {
+  toastVisible.value = false
 }
 
 const goBack = () => {
@@ -50,6 +68,12 @@ const goBack = () => {
         <button class="save-button" @click="saveMode">저장하기</button>
       </div>
     </div>
+    <ToastNotification
+      :message="toastMessage"
+      :type="toastType"
+      :isVisible="toastVisible"
+      @close="handleToastClose"
+    />
   </div>
 </template>
 

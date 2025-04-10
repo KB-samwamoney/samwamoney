@@ -96,7 +96,7 @@ watch([currentTab, currentDate], async () => {
   padding: 0.5rem;
   background-color: var(--white);
   border-radius: 8px;
-  border: 1px solid #ddd;
+  border: 1px solid var(--light-gray);
 }
 
 .category-list {
@@ -117,7 +117,7 @@ watch([currentTab, currentDate], async () => {
 
 .percent {
   padding: 0.2rem 0.5rem;
-  color: white;
+  color: var(--white);
   font-weight: bold;
   border-radius: 4px;
   min-width: 36px;
@@ -132,7 +132,6 @@ watch([currentTab, currentDate], async () => {
 }
 
 .amount {
-  font-weight: bold;
-  color: #444;
+  color: var(--black);
 }
 </style>

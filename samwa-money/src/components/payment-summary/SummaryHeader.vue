@@ -4,7 +4,7 @@
       <button @click="currentTab = '수입'" :class="{ incomeActive: currentTab === '수입' }">
         수입
       </button>
-      <span class="bar">|</span>
+      <span class="bar"> | </span>
       <button @click="currentTab = '지출'" :class="{ expenseActive: currentTab === '지출' }">
         지출
       </button>
@@ -12,7 +12,7 @@
 
     <div class="date-picker">
       <button @click="prevMonth" class="preBtn">◀</button>
-      <span class="date">{{ formattedDate }}</span>
+      <span class="date"> {{ formattedDate }} </span>
       <button @click="nextMonth" class="nextBtn">▶</button>
     </div>
   </div>
@@ -54,6 +54,7 @@ const nextMonth = () => {
 </script>
 <style scoped>
 .summary-toggle {
+  width: 90%;
   height: var(--space-xl);
   display: flex;
   padding: var(--space-l);
@@ -61,7 +62,6 @@ const nextMonth = () => {
   align-items: center;
   margin: var(--space-s);
   background-color: var(--light-white);
-  max-width: 1100px;
 }
 .bar {
   font-size: var(--space-l);
@@ -75,8 +75,7 @@ const nextMonth = () => {
   outline: none;
   box-shadow: none;
   font-weight: bold;
-  font: inherit;
-  font-size: var(--space-l);
+  font-size: 30px;
   cursor: pointer;
 }
 .incomeActive {
@@ -87,7 +86,8 @@ const nextMonth = () => {
 }
 
 .date-picker {
-  background-color: var(--lighter-yellow);
+  padding: var(--space-s);
+  text-align: center;
 }
 .date {
   border: none;
@@ -97,19 +97,19 @@ const nextMonth = () => {
   outline: none;
   box-shadow: none;
   font: inherit;
-  font-size: var(--space-l);
+  font-size: 25px;
 }
 .preBtn,
 .nextBtn {
   background: none;
   color: var(--black);
   border: none;
-  padding: 0;
+  padding: var(--space-s);
   margin: 0;
   outline: none;
   box-shadow: none;
   font: inherit;
-  font-size: var(--space-l);
+  font-size: 25px;
   cursor: pointer;
 }
 </style>

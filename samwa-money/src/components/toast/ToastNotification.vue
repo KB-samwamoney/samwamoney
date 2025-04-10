@@ -1,32 +1,22 @@
 <script setup>
-import { useToastStore } from '@/stores/toastStore'
-import { storeToRefs } from 'pinia'
+defineProps({
+  message: String,
+  type: {
+    type: String,
+    default: 'success',
+  },
+  isVisible: Boolean,
+})
 
-const toastStore = useToastStore()
-const { message, type, isVisible } = storeToRefs(toastStore)
-
-const getTypeClass = () => {
-  switch (type.value) {
-    case 'success':
-      return 'toast-success'
-    case 'error':
-      return 'toast-error'
-    case 'info':
-      return 'toast-info'
-    default:
-      return 'toast-success'
-  }
-}
+const emit = defineEmits(['close'])
 </script>
 
 <template>
   <Transition name="toast">
-    <div v-if="isVisible" class="toast-container" :class="getTypeClass()">
+    <div v-if="isVisible" class="toast-container" :class="`toast-${type}`">
       <div class="toast-content">
         <div class="toast-message">{{ message }}</div>
-        <button class="toast-close" @click="toastStore.hideToast">
-          &times;
-        </button>
+        <button class="toast-close" @click="emit('close')">&times;</button>
       </div>
     </div>
   </Transition>
