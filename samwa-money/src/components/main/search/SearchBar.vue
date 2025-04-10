@@ -87,21 +87,30 @@ watch(selectedCategoryToAdd, (newVal) => {
     emit('search', {
       type: 'search_category',
       keyword: categories.value.map((cat) => cat.name),
-      categories: categories.value.map((cat) => cat.name),
+      categories: categories.value.map((cat) => cat.name), // ✅ 반드시 같이!
     })
   }
 
-  selectedCategoryToAdd.value = null // 드롭다운 초기화
+  selectedCategoryToAdd.value = null
 })
 
 // X 버튼 누르면 카테고리 제거
 const removeCategory = (categoryName) => {
   categories.value = categories.value.filter((cat) => cat.name !== categoryName)
 
-  // 삭제 후 다시 검색 emit
+  // 하나 남은 거였으면 → reset
+  if (categories.value.length === 0) {
+    setTimeout(() => {
+      emit('reset')
+    }, 200)
+    return
+  }
+
+  // 하나 이상 있으면 → 다시 검색
   emit('search', {
     type: 'search_category',
     keyword: categories.value.map((cat) => cat.name),
+    categories: categories.value.map((cat) => cat.name),
   })
 }
 
@@ -135,30 +144,30 @@ const handleCategoryClick = (categoryName) => {
   const index = categories.value.findIndex((cat) => cat.name === categoryName)
 
   if (index !== -1) {
-    // 이미 선택된 항목이면 제거
     categories.value.splice(index, 1)
 
-    // 딱 하나였던 항목 제거
+    // 딱 하나였던 걸 지웠으면 reset
     if (categories.value.length === 0) {
       setTimeout(() => {
         emit('reset')
-      }, 300)
+      }, 200)
       return
     }
   } else {
-    // 선택되지 않은 항목이면 추가
     const catToAdd = allCategoryOptions.value.find((cat) => cat.name === categoryName)
     if (catToAdd) {
       categories.value.push(catToAdd)
     }
   }
 
-  // 그 외엔 검색 emit
-  emit('search', {
-    type: 'search_category',
-    keyword: categories.value.map((cat) => cat.name),
-    categories: categories.value.map((cat) => cat.name),
-  })
+  // 하나 이상 있으면 emit
+  if (categories.value.length > 0) {
+    emit('search', {
+      type: 'search_category',
+      keyword: categories.value.map((cat) => cat.name),
+      categories: categories.value.map((cat) => cat.name),
+    })
+  }
 }
 </script>
 
