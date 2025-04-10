@@ -120,7 +120,9 @@ const isSelected = (date) => {
 // 날짜를 'YYYY-MM-DD' 형식으로 변환
 const formatDate = (date) => {
   if (!date) return ''
-  return new Date(date).toISOString().split('T')[0]
+  const d = new Date(date)
+  d.setHours(0, 0, 0, 0) // 시간정보 초기화
+  return d.toISOString().split('T')[0]
 }
 
 // 해당 날짜에 거래가 있는지 여부 확인
