@@ -1,6 +1,6 @@
 <template>
-  <div class="summary-box">
-    <h3 class="title">{{ month }}월 내역</h3>
+  <div class="summary-box" v-if="!paymentStore.loading && paymentStore.paymentList.length > 0">
+    <h3 class="title">{{ currentMonth }}월 내역</h3>
     <div class="summary-items">
       <div class="item">
         <p class="label income">수입</p>
@@ -12,46 +12,23 @@
       </div>
       <div class="item">
         <p class="label total">합계</p>
-        <p class="value total-amount">{{ (incomeTotal - expenseTotal).toLocaleString() }}원</p>
+        <p class="value total-amount">{{ totalBalance.toLocaleString() }}원</p>
       </div>
     </div>
   </div>
 </template>
 
 <script setup>
-import { computed, watch } from 'vue'
+import { storeToRefs } from 'pinia'
+import { usePaymentStore } from '@/stores/paymentAddStore'
 
-const props = defineProps({
-  month: {
-    type: Number,
-    required: true,
-  },
-  items: {
-    type: Array,
-    required: true,
-  },
-})
-
-const incomeTotal = computed(() =>
-  props.items.filter((item) => item.type === '수입').reduce((sum, item) => sum + item.amount, 0),
-)
-
-const expenseTotal = computed(() =>
-  props.items.filter((item) => item.type === '지출').reduce((sum, item) => sum + item.amount, 0),
-)
-
-watch(
-  () => props.items,
-  (val) => {
-    console.log('📦 [SummaryBox] props.items 변경됨:', val)
-  },
-  { deep: true, immediate: true },
-)
+const paymentStore = usePaymentStore()
+const { currentMonth, incomeTotal, expenseTotal, totalBalance } = storeToRefs(paymentStore)
 </script>
 
 <style scoped>
 .summary-box {
-  width: 100%; /* 부모 너비에 맞게 꽉 채우기 */
+  width: 100%;
   height: 100%;
   background-color: #fff;
   border: 1px solid var(--dark-gray);
@@ -100,5 +77,12 @@ watch(
   font-size: 20px;
   font-weight: bold;
   white-space: nowrap;
+}
+
+.empty-message {
+  font-size: 16px;
+  color: var(--dark-gray);
+  padding: 1rem 0;
+  text-align: center;
 }
 </style>
