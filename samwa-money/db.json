@@ -21,7 +21,7 @@
   ],
   "Balance": [
     {
-      "id": "1",
+      "id": 1,
       "userId": "user123",
       "title": "펀드 환급",
       "date": "2025-01-03",
@@ -33,7 +33,7 @@
       "imgUrl": "receipt179.jpg"
     },
     {
-      "id": "2",
+      "id": 2,
       "userId": "user123",
       "title": "명절 상여금",
       "date": "2025-04-06",
@@ -45,7 +45,7 @@
       "imgUrl": "receipt180.jpg"
     },
     {
-      "id": "3",
+      "id": 3,
       "userId": "user123",
       "title": "적립금 받음",
       "date": "2025-04-03",
@@ -57,7 +57,7 @@
       "imgUrl": "receipt181.jpg"
     },
     {
-      "id": "4",
+      "id": 4,
       "userId": "user123",
       "title": "추가 용돈!",
       "date": "2025-01-30",
@@ -69,7 +69,7 @@
       "imgUrl": "receipt182.jpg"
     },
     {
-      "id": "5",
+      "id": 5,
       "userId": "user123",
       "title": "건강보험 환급",
       "date": "2025-02-19",
@@ -81,7 +81,7 @@
       "imgUrl": "receipt183.jpg"
     },
     {
-      "id": "6",
+      "id": 6,
       "userId": "user123",
       "title": "스터디카페 결제",
       "date": "2025-04-09",
@@ -93,7 +93,7 @@
       "imgUrl": "receipt184.jpg"
     },
     {
-      "id": "7",
+      "id": 7,
       "userId": "user123",
       "title": "봄맞이 옷 쇼핑",
       "date": "2025-02-15",
@@ -105,7 +105,7 @@
       "imgUrl": "receipt185.jpg"
     },
     {
-      "id": "8",
+      "id": 8,
       "userId": "user123",
       "title": "옷 팔았다!",
       "date": "2025-03-19",
@@ -117,7 +117,7 @@
       "imgUrl": "receipt186.jpg"
     },
     {
-      "id": "9",
+      "id": 9,
       "userId": "user123",
       "title": "올리브영 털기",
       "date": "2025-02-13",
@@ -129,7 +129,7 @@
       "imgUrl": "receipt187.jpg"
     },
     {
-      "id": "10",
+      "id": 10,
       "userId": "user123",
       "title": "코딩 교재 구매",
       "date": "2025-03-15",
@@ -141,7 +141,7 @@
       "imgUrl": "receipt188.jpg"
     },
     {
-      "id": "11",
+      "id": 11,
       "userId": "user123",
       "title": "스터디카페 결제",
       "date": "2025-02-22",
@@ -153,7 +153,7 @@
       "imgUrl": "receipt189.jpg"
     },
     {
-      "id": "12",
+      "id": 12,
       "userId": "user123",
       "title": "혼밥 데이~",
       "date": "2025-01-09",
@@ -165,7 +165,7 @@
       "imgUrl": "receipt190.jpg"
     },
     {
-      "id": "13",
+      "id": 13,
       "userId": "user123",
       "title": "가족 외식",
       "date": "2025-01-25",
@@ -177,7 +177,7 @@
       "imgUrl": "receipt191.jpg"
     },
     {
-      "id": "14",
+      "id": 14,
       "userId": "user123",
       "title": "영양제 샀다",
       "date": "2025-01-10",
@@ -189,7 +189,7 @@
       "imgUrl": "receipt192.jpg"
     },
     {
-      "id": "15",
+      "id": 15,
       "userId": "user123",
       "title": "이자 받음",
       "date": "2025-02-13",
@@ -201,7 +201,7 @@
       "imgUrl": "receipt193.jpg"
     },
     {
-      "id": "16",
+      "id": 16,
       "userId": "user123",
       "title": "월세 이체",
       "date": "2025-01-15",
@@ -213,7 +213,7 @@
       "imgUrl": "receipt194.jpg"
     },
     {
-      "id": "17",
+      "id": 17,
       "userId": "user123",
       "title": "금융 수입",
       "date": "2025-02-25",
@@ -225,7 +225,7 @@
       "imgUrl": "receipt195.jpg"
     },
     {
-      "id": "18",
+      "id": 18,
       "userId": "user123",
       "title": "프로젝트 인센",
       "date": "2025-03-20",
@@ -237,7 +237,7 @@
       "imgUrl": "receipt196.jpg"
     },
     {
-      "id": "19",
+      "id": 19,
       "userId": "user123",
       "title": "세금 환급",
       "date": "2025-03-18",
@@ -249,7 +249,7 @@
       "imgUrl": "receipt197.jpg"
     },
     {
-      "id": "20",
+      "id": 20,
       "userId": "user123",
       "title": "보너스!",
       "date": "2025-01-18",
@@ -261,7 +261,7 @@
       "imgUrl": "receipt198.jpg"
     },
     {
-      "id": "21",
+      "id": 21,
       "userId": "user123",
       "title": "관리비",
       "date": "2025-02-06",
@@ -273,7 +273,7 @@
       "imgUrl": "receipt199.jpg"
     },
     {
-      "id": "22",
+      "id": 22,
       "userId": "user123",
       "title": "전시회 티켓",
       "date": "2025-02-24",
@@ -285,7 +285,7 @@
       "imgUrl": "receipt200.jpg"
     },
     {
-      "id": "23",
+      "id": 23,
       "userId": "user123",
       "title": "넷플릭스 결제",
       "date": "2025-04-06",
@@ -297,7 +297,7 @@
       "imgUrl": "receipt201.jpg"
     },
     {
-      "id": "24",
+      "id": 24,
       "userId": "user123",
       "title": "클럽 입장료",
       "date": "2025-03-11",
@@ -309,7 +309,7 @@
       "imgUrl": "receipt202.jpg"
     },
     {
-      "id": "25",
+      "id": 25,
       "userId": "user123",
       "title": "영수증 분실",
       "date": "2025-03-04",
@@ -321,7 +321,7 @@
       "imgUrl": "receipt203.jpg"
     },
     {
-      "id": "26",
+      "id": 26,
       "userId": "user123",
       "title": "택시 탔다 ㅠㅠ",
       "date": "2025-02-12",
@@ -333,7 +333,7 @@
       "imgUrl": "receipt204.jpg"
     },
     {
-      "id": "27",
+      "id": 27,
       "userId": "user123",
       "title": "당근마켓 수입",
       "date": "2025-01-02",
@@ -345,7 +345,7 @@
       "imgUrl": "receipt205.jpg"
     },
     {
-      "id": "28",
+      "id": 28,
       "userId": "user123",
       "title": "지원언니랑 저녁 약속",
       "date": "2025-01-18",
@@ -357,7 +357,7 @@
       "imgUrl": "receipt206.jpg"
     },
     {
-      "id": "29",
+      "id": 29,
       "userId": "user123",
       "title": "주식 팔았다",
       "date": "2025-04-05",
@@ -369,7 +369,7 @@
       "imgUrl": "receipt207.jpg"
     },
     {
-      "id": "30",
+      "id": 30,
       "userId": "user123",
       "title": "영수증 분실",
       "date": "2025-02-08",
@@ -381,7 +381,7 @@
       "imgUrl": "receipt208.jpg"
     },
     {
-      "id": "31",
+      "id": 31,
       "userId": "user123",
       "title": "스터디카페 결제",
       "date": "2025-01-04",
@@ -393,7 +393,7 @@
       "imgUrl": "receipt209.jpg"
     },
     {
-      "id": "32",
+      "id": 32,
       "userId": "user123",
       "title": "인터넷 요금",
       "date": "2025-02-14",
@@ -405,7 +405,7 @@
       "imgUrl": "receipt210.jpg"
     },
     {
-      "id": "33",
+      "id": 33,
       "userId": "user123",
       "title": "주차장 정산",
       "date": "2025-02-28",
@@ -417,7 +417,7 @@
       "imgUrl": "receipt211.jpg"
     },
     {
-      "id": "34",
+      "id": 34,
       "userId": "user123",
       "title": "첫 월급!",
       "date": "2025-03-07",
@@ -429,7 +429,7 @@
       "imgUrl": "receipt212.jpg"
     },
     {
-      "id": "35",
+      "id": 35,
       "userId": "user123",
       "title": "3월 월급날",
       "date": "2025-01-29",
@@ -441,7 +441,7 @@
       "imgUrl": "receipt213.jpg"
     },
     {
-      "id": "36",
+      "id": 36,
       "userId": "user123",
       "title": "옷 팔았다!",
       "date": "2025-02-06",
@@ -453,7 +453,7 @@
       "imgUrl": "receipt214.jpg"
     },
     {
-      "id": "37",
+      "id": 37,
       "userId": "user123",
       "title": "예금 만기",
       "date": "2025-01-27",
@@ -465,7 +465,7 @@
       "imgUrl": "receipt215.jpg"
     },
     {
-      "id": "38",
+      "id": 38,
       "userId": "user123",
       "title": "이자 받음",
       "date": "2025-02-04",
@@ -477,7 +477,7 @@
       "imgUrl": "receipt216.jpg"
     },
     {
-      "id": "39",
+      "id": 39,
       "userId": "user123",
       "title": "배당금 정산",
       "date": "2025-01-20",
@@ -489,7 +489,7 @@
       "imgUrl": "receipt217.jpg"
     },
     {
-      "id": "40",
+      "id": 40,
       "userId": "user123",
       "title": "기타 수입",
       "date": "2025-01-15",
@@ -501,7 +501,7 @@
       "imgUrl": "receipt218.jpg"
     },
     {
-      "id": "41",
+      "id": 41,
       "userId": "user123",
       "title": "관리비",
       "date": "2025-02-03",
@@ -513,7 +513,7 @@
       "imgUrl": "receipt219.jpg"
     },
     {
-      "id": "42",
+      "id": 42,
       "userId": "user123",
       "title": "콘서트 예매",
       "date": "2025-03-09",
@@ -525,7 +525,7 @@
       "imgUrl": "receipt220.jpg"
     },
     {
-      "id": "43",
+      "id": 43,
       "userId": "user123",
       "title": "뭔가 결제됨;;",
       "date": "2025-01-21",
@@ -537,7 +537,7 @@
       "imgUrl": "receipt221.jpg"
     },
     {
-      "id": "44",
+      "id": 44,
       "userId": "user123",
       "title": "펀드 환급",
       "date": "2025-02-07",
@@ -549,7 +549,7 @@
       "imgUrl": "receipt222.jpg"
     },
     {
-      "id": "45",
+      "id": 45,
       "userId": "user123",
       "title": "관리비",
       "date": "2025-02-15",
@@ -561,7 +561,7 @@
       "imgUrl": "receipt223.jpg"
     },
     {
-      "id": "46",
+      "id": 46,
       "userId": "user123",
       "title": "코딩 교재 구매",
       "date": "2025-02-01",
@@ -573,7 +573,7 @@
       "imgUrl": "receipt224.jpg"
     },
     {
-      "id": "47",
+      "id": 47,
       "userId": "user123",
       "title": "클럽 입장료",
       "date": "2025-04-08",
@@ -585,7 +585,7 @@
       "imgUrl": "receipt225.jpg"
     },
     {
-      "id": "48",
+      "id": 48,
       "userId": "user123",
       "title": "지원언니랑 저녁 약속",
       "date": "2025-01-01",
@@ -597,7 +597,7 @@
       "imgUrl": "receipt226.jpg"
     },
     {
-      "id": "49",
+      "id": 49,
       "userId": "user123",
       "title": "부업 정산",
       "date": "2025-01-28",
@@ -609,7 +609,7 @@
       "imgUrl": "receipt227.jpg"
     },
     {
-      "id": "50",
+      "id": 50,
       "userId": "user123",
       "title": "세금 환급",
       "date": "2025-04-07",
@@ -621,7 +621,7 @@
       "imgUrl": "receipt228.jpg"
     },
     {
-      "id": "51",
+      "id": 51,
       "userId": "user123",
       "title": "이마트 간식 쇼핑",
       "date": "2025-02-25",
@@ -633,7 +633,7 @@
       "imgUrl": "receipt229.jpg"
     },
     {
-      "id": "52",
+      "id": 52,
       "userId": "user123",
       "title": "포인트 캐시백",
       "date": "2025-01-08",
@@ -645,7 +645,7 @@
       "imgUrl": "receipt230.jpg"
     },
     {
-      "id": "53",
+      "id": 53,
       "userId": "user123",
       "title": "콘서트 예매",
       "date": "2025-02-08",
@@ -657,7 +657,7 @@
       "imgUrl": "receipt231.jpg"
     },
     {
-      "id": "54",
+      "id": 54,
       "userId": "user123",
       "title": "충동구매...",
       "date": "2025-02-24",
@@ -669,7 +669,7 @@
       "imgUrl": "receipt232.jpg"
     },
     {
-      "id": "55",
+      "id": 55,
       "userId": "user123",
       "title": "코딩 교재 구매",
       "date": "2025-03-05",
@@ -681,7 +681,7 @@
       "imgUrl": "receipt233.jpg"
     },
     {
-      "id": "56",
+      "id": 56,
       "userId": "user123",
       "title": "카드 캐시백",
       "date": "2025-02-24",
@@ -693,7 +693,7 @@
       "imgUrl": "receipt234.jpg"
     },
     {
-      "id": "57",
+      "id": 57,
       "userId": "user123",
       "title": "중고폰 판매",
       "date": "2025-01-27",
@@ -705,7 +705,7 @@
       "imgUrl": "receipt235.jpg"
     },
     {
-      "id": "58",
+      "id": 58,
       "userId": "user123",
       "title": "배당금 정산",
       "date": "2025-03-09",
@@ -717,7 +717,7 @@
       "imgUrl": "receipt236.jpg"
     },
     {
-      "id": "59",
+      "id": 59,
       "userId": "user123",
       "title": "부업 정산",
       "date": "2025-01-07",
@@ -729,7 +729,7 @@
       "imgUrl": "receipt237.jpg"
     },
     {
-      "id": "60",
+      "id": 60,
       "userId": "user123",
       "title": "펀드 환급",
       "date": "2025-04-10",
@@ -741,7 +741,7 @@
       "imgUrl": "receipt238.jpg"
     },
     {
-      "id": "61",
+      "id": 61,
       "userId": "user123",
       "title": "세금 환급",
       "date": "2025-04-05",
@@ -753,7 +753,7 @@
       "imgUrl": "receipt239.jpg"
     },
     {
-      "id": "62",
+      "id": 62,
       "userId": "user123",
       "title": "올리브영 털기",
       "date": "2025-02-12",
@@ -765,7 +765,7 @@
       "imgUrl": "receipt240.jpg"
     },
     {
-      "id": "63",
+      "id": 63,
       "userId": "user123",
       "title": "영양제 샀다",
       "date": "2025-02-16",
@@ -777,7 +777,7 @@
       "imgUrl": "receipt241.jpg"
     },
     {
-      "id": "64",
+      "id": 64,
       "userId": "user123",
       "title": "영화 '듄2' 봤다!",
       "date": "2025-02-22",
@@ -789,7 +789,7 @@
       "imgUrl": "receipt242.jpg"
     },
     {
-      "id": "65",
+      "id": 65,
       "userId": "user123",
       "title": "첫 월급!",
       "date": "2025-02-05",
@@ -801,7 +801,7 @@
       "imgUrl": "receipt243.jpg"
     },
     {
-      "id": "66",
+      "id": 66,
       "userId": "user123",
       "title": "형 생일 케이크",
       "date": "2025-02-21",
@@ -813,7 +813,7 @@
       "imgUrl": "receipt244.jpg"
     },
     {
-      "id": "67",
+      "id": 67,
       "userId": "user123",
       "title": "지하철 타고 이동!",
       "date": "2025-01-24",
@@ -825,7 +825,7 @@
       "imgUrl": "receipt245.jpg"
     },
     {
-      "id": "68",
+      "id": 68,
       "userId": "user123",
       "title": "부업 정산",
       "date": "2025-03-09",
@@ -837,7 +837,7 @@
       "imgUrl": "receipt246.jpg"
     },
     {
-      "id": "69",
+      "id": 69,
       "userId": "user123",
       "title": "전기세 납부",
       "date": "2025-02-23",
@@ -849,7 +849,7 @@
       "imgUrl": "receipt247.jpg"
     },
     {
-      "id": "70",
+      "id": 70,
       "userId": "user123",
       "title": "넷플릭스 결제",
       "date": "2025-03-13",
@@ -861,7 +861,7 @@
       "imgUrl": "receipt248.jpg"
     },
     {
-      "id": "71",
+      "id": 71,
       "userId": "user123",
       "title": "봄맞이 옷 쇼핑",
       "date": "2025-01-01",
@@ -873,7 +873,7 @@
       "imgUrl": "receipt249.jpg"
     },
     {
-      "id": "72",
+      "id": 72,
       "userId": "user123",
       "title": "부모님 사랑",
       "date": "2025-03-06",
@@ -885,7 +885,7 @@
       "imgUrl": "receipt250.jpg"
     },
     {
-      "id": "73",
+      "id": 73,
       "userId": "user123",
       "title": "ETF 수익!",
       "date": "2025-03-04",
@@ -897,7 +897,7 @@
       "imgUrl": "receipt251.jpg"
     },
     {
-      "id": "74",
+      "id": 74,
       "userId": "user123",
       "title": "명절 상여금",
       "date": "2025-02-17",
@@ -909,7 +909,7 @@
       "imgUrl": "receipt252.jpg"
     },
     {
-      "id": "75",
+      "id": 75,
       "userId": "user123",
       "title": "적립금 받음",
       "date": "2025-01-06",
@@ -921,7 +921,7 @@
       "imgUrl": "receipt253.jpg"
     },
     {
-      "id": "76",
+      "id": 76,
       "userId": "user123",
       "title": "서포터즈 활동비",
       "date": "2025-02-13",
@@ -933,7 +933,7 @@
       "imgUrl": "receipt254.jpg"
     },
     {
-      "id": "77",
+      "id": 77,
       "userId": "user123",
       "title": "봄맞이 옷 쇼핑",
       "date": "2025-01-19",
@@ -945,7 +945,7 @@
       "imgUrl": "receipt255.jpg"
     },
     {
-      "id": "78",
+      "id": 78,
       "userId": "user123",
       "title": "지하철 타고 이동!",
       "date": "2025-01-10",
@@ -957,7 +957,7 @@
       "imgUrl": "receipt256.jpg"
     },
     {
-      "id": "79",
+      "id": 79,
       "userId": "user123",
       "title": "배당금",
       "date": "2025-03-11",
@@ -969,7 +969,7 @@
       "imgUrl": "receipt257.jpg"
     },
     {
-      "id": "80",
+      "id": 80,
       "userId": "user123",
       "title": "건강보험 환급",
       "date": "2025-01-01",
@@ -981,7 +981,7 @@
       "imgUrl": "receipt258.jpg"
     },
     {
-      "id": "81",
+      "id": 81,
       "userId": "user123",
       "title": "주차장 정산",
       "date": "2025-02-10",
@@ -993,7 +993,7 @@
       "imgUrl": "receipt259.jpg"
     },
     {
-      "id": "82",
+      "id": 82,
       "userId": "user123",
       "title": "예금 만기",
       "date": "2025-02-02",
@@ -1005,7 +1005,7 @@
       "imgUrl": "receipt260.jpg"
     },
     {
-      "id": "83",
+      "id": 83,
       "userId": "user123",
       "title": "할머니 용돈",
       "date": "2025-01-09",
@@ -1017,7 +1017,7 @@
       "imgUrl": "receipt261.jpg"
     },
     {
-      "id": "84",
+      "id": 84,
       "userId": "user123",
       "title": "주식 팔았다",
       "date": "2025-01-03",
@@ -1029,7 +1029,7 @@
       "imgUrl": "receipt262.jpg"
     },
     {
-      "id": "85",
+      "id": 85,
       "userId": "user123",
       "title": "당근마켓 수입",
       "date": "2025-01-30",
@@ -1041,7 +1041,7 @@
       "imgUrl": "receipt263.jpg"
     },
     {
-      "id": "86",
+      "id": 86,
       "userId": "user123",
       "title": "주차장 정산",
       "date": "2025-02-21",
@@ -1053,7 +1053,7 @@
       "imgUrl": "receipt264.jpg"
     },
     {
-      "id": "87",
+      "id": 87,
       "userId": "user123",
       "title": "월급 들어왔다💸",
       "date": "2025-02-22",
@@ -1065,7 +1065,7 @@
       "imgUrl": "receipt265.jpg"
     },
     {
-      "id": "88",
+      "id": 88,
       "userId": "user123",
       "title": "혼밥 데이~",
       "date": "2025-01-21",
@@ -1077,7 +1077,7 @@
       "imgUrl": "receipt266.jpg"
     },
     {
-      "id": "89",
+      "id": 89,
       "userId": "user123",
       "title": "이자 받음",
       "date": "2025-02-25",
@@ -1089,7 +1089,7 @@
       "imgUrl": "receipt267.jpg"
     },
     {
-      "id": "90",
+      "id": 90,
       "userId": "user123",
       "title": "버스비",
       "date": "2025-03-13",
@@ -1101,7 +1101,7 @@
       "imgUrl": "receipt268.jpg"
     },
     {
-      "id": "91",
+      "id": 91,
       "userId": "user123",
       "title": "월세 이체",
       "date": "2025-01-21",
@@ -1113,7 +1113,7 @@
       "imgUrl": "receipt269.jpg"
     },
     {
-      "id": "92",
+      "id": 92,
       "userId": "user123",
       "title": "부업 정산",
       "date": "2025-03-05",
@@ -1125,7 +1125,7 @@
       "imgUrl": "receipt270.jpg"
     },
     {
-      "id": "93",
+      "id": 93,
       "userId": "user123",
       "title": "1박2일 여행비",
       "date": "2025-01-08",
@@ -1137,7 +1137,7 @@
       "imgUrl": "receipt271.jpg"
     },
     {
-      "id": "94",
+      "id": 94,
       "userId": "user123",
       "title": "명절 상여금",
       "date": "2025-01-21",
@@ -1149,7 +1149,7 @@
       "imgUrl": "receipt272.jpg"
     },
     {
-      "id": "95",
+      "id": 95,
       "userId": "user123",
       "title": "올리브영 털기",
       "date": "2025-03-19",
@@ -1161,7 +1161,7 @@
       "imgUrl": "receipt273.jpg"
     },
     {
-      "id": "96",
+      "id": 96,
       "userId": "user123",
       "title": "버스비",
       "date": "2025-04-01",
@@ -1173,7 +1173,7 @@
       "imgUrl": "receipt274.jpg"
     },
     {
-      "id": "97",
+      "id": 97,
       "userId": "user123",
       "title": "보너스 포함 월급",
       "date": "2025-01-10",
@@ -1185,7 +1185,7 @@
       "imgUrl": "receipt275.jpg"
     },
     {
-      "id": "98",
+      "id": 98,
       "userId": "user123",
       "title": "자격증 응시료",
       "date": "2025-02-14",
@@ -1197,7 +1197,7 @@
       "imgUrl": "receipt276.jpg"
     },
     {
-      "id": "99",
+      "id": 99,
       "userId": "user123",
       "title": "지하철 타고 이동!",
       "date": "2025-01-18",
@@ -1209,7 +1209,7 @@
       "imgUrl": "receipt277.jpg"
     },
     {
-      "id": "100",
+      "id": 100,
       "userId": "user123",
       "title": "결제 할인",
       "date": "2025-02-02",
@@ -1221,7 +1221,7 @@
       "imgUrl": "receipt278.jpg"
     },
     {
-      "id": "101",
+      "id": 101,
       "userId": "user123",
       "title": "가족 외식",
       "date": "2025-01-01",
@@ -1233,7 +1233,7 @@
       "imgUrl": "receipt279.jpg"
     },
     {
-      "id": "102",
+      "id": 102,
       "userId": "user123",
       "title": "생각지도 못한 수입",
       "date": "2025-01-22",
@@ -1245,7 +1245,7 @@
       "imgUrl": "receipt280.jpg"
     },
     {
-      "id": "103",
+      "id": 103,
       "userId": "user123",
       "title": "월급 들어왔다💸",
       "date": "2025-03-01",
@@ -1257,7 +1257,7 @@
       "imgUrl": "receipt281.jpg"
     },
     {
-      "id": "104",
+      "id": 104,
       "userId": "user123",
       "title": "추가 인센",
       "date": "2025-01-17",
@@ -1269,7 +1269,7 @@
       "imgUrl": "receipt282.jpg"
     },
     {
-      "id": "105",
+      "id": 105,
       "userId": "user123",
       "title": "늦은 야식 타임",
       "date": "2025-03-22",
@@ -1281,7 +1281,7 @@
       "imgUrl": "receipt283.jpg"
     },
     {
-      "id": "106",
+      "id": 106,
       "userId": "user123",
       "title": "지원언니랑 저녁 약속",
       "date": "2025-01-16",
@@ -1293,7 +1293,7 @@
       "imgUrl": "receipt284.jpg"
     },
     {
-      "id": "107",
+      "id": 107,
       "userId": "user123",
       "title": "주차장 정산",
       "date": "2025-03-11",
@@ -1305,7 +1305,7 @@
       "imgUrl": "receipt285.jpg"
     },
     {
-      "id": "108",
+      "id": 108,
       "userId": "user123",
       "title": "ETF 수익!",
       "date": "2025-02-09",
@@ -1317,7 +1317,7 @@
       "imgUrl": "receipt286.jpg"
     },
     {
-      "id": "109",
+      "id": 109,
       "userId": "user123",
       "title": "세금 환급",
       "date": "2025-01-30",
@@ -1329,7 +1329,7 @@
       "imgUrl": "receipt287.jpg"
     },
     {
-      "id": "110",
+      "id": 110,
       "userId": "user123",
       "title": "기타 수입",
       "date": "2025-01-12",
@@ -1341,7 +1341,7 @@
       "imgUrl": "receipt288.jpg"
     },
     {
-      "id": "111",
+      "id": 111,
       "userId": "user123",
       "title": "봄맞이 옷 쇼핑",
       "date": "2025-01-20",
@@ -1353,7 +1353,7 @@
       "imgUrl": "receipt289.jpg"
     },
     {
-      "id": "112",
+      "id": 112,
       "userId": "user123",
       "title": "코인 수익 발생",
       "date": "2025-01-27",
@@ -1365,7 +1365,7 @@
       "imgUrl": "receipt290.jpg"
     },
     {
-      "id": "113",
+      "id": 113,
       "userId": "user123",
       "title": "건강보험 환급",
       "date": "2025-01-27",
@@ -1377,7 +1377,7 @@
       "imgUrl": "receipt291.jpg"
     },
     {
-      "id": "114",
+      "id": 114,
       "userId": "user123",
       "title": "1박2일 여행비",
       "date": "2025-01-01",
@@ -1389,7 +1389,7 @@
       "imgUrl": "receipt292.jpg"
     },
     {
-      "id": "115",
+      "id": 115,
       "userId": "user123",
       "title": "지하철 타고 이동!",
       "date": "2025-03-28",
@@ -1401,7 +1401,7 @@
       "imgUrl": "receipt293.jpg"
     },
     {
-      "id": "116",
+      "id": 116,
       "userId": "user123",
       "title": "영화 '듄2' 봤다!",
       "date": "2025-02-21",
@@ -1413,7 +1413,7 @@
       "imgUrl": "receipt294.jpg"
     },
     {
-      "id": "117",
+      "id": 117,
       "userId": "user123",
       "title": "기타 활동비",
       "date": "2025-02-08",
@@ -1425,7 +1425,7 @@
       "imgUrl": "receipt295.jpg"
     },
     {
-      "id": "118",
+      "id": 118,
       "userId": "user123",
       "title": "관리비",
       "date": "2025-02-02",
@@ -1437,7 +1437,7 @@
       "imgUrl": "receipt296.jpg"
     },
     {
-      "id": "119",
+      "id": 119,
       "userId": "user123",
       "title": "영수증 분실",
       "date": "2025-02-01",
@@ -1449,7 +1449,7 @@
       "imgUrl": "receipt297.jpg"
     },
     {
-      "id": "120",
+      "id": 120,
       "userId": "user123",
       "title": "클럽 입장료",
       "date": "2025-03-05",
@@ -1461,7 +1461,7 @@
       "imgUrl": "receipt298.jpg"
     },
     {
-      "id": "121",
+      "id": 121,
       "userId": "user123",
       "title": "부모님 교통비",
       "date": "2025-04-05",
@@ -1473,7 +1473,7 @@
       "imgUrl": "receipt299.jpg"
     },
     {
-      "id": "122",
+      "id": 122,
       "userId": "user123",
       "title": "건강보험 환급",
       "date": "2025-01-03",
@@ -1485,7 +1485,7 @@
       "imgUrl": "receipt300.jpg"
     },
     {
-      "id": "123",
+      "id": 123,
       "userId": "user123",
       "title": "급하게 산 거",
       "date": "2025-01-11",
@@ -1497,7 +1497,7 @@
       "imgUrl": "receipt301.jpg"
     },
     {
-      "id": "124",
+      "id": 124,
       "userId": "user123",
       "title": "클럽 입장료",
       "date": "2025-03-16",
@@ -1509,7 +1509,7 @@
       "imgUrl": "receipt302.jpg"
     },
     {
-      "id": "125",
+      "id": 125,
       "userId": "user123",
       "title": "물건 정리",
       "date": "2025-03-15",
@@ -1521,7 +1521,7 @@
       "imgUrl": "receipt303.jpg"
     },
     {
-      "id": "126",
+      "id": 126,
       "userId": "user123",
       "title": "과외비 받음",
       "date": "2025-02-21",
@@ -1533,7 +1533,7 @@
       "imgUrl": "receipt304.jpg"
     },
     {
-      "id": "127",
+      "id": 127,
       "userId": "user123",
       "title": "엄마가 준 용돈",
       "date": "2025-03-05",
@@ -1545,7 +1545,7 @@
       "imgUrl": "receipt305.jpg"
     },
     {
-      "id": "128",
+      "id": 128,
       "userId": "user123",
       "title": "버스비",
       "date": "2025-03-20",
@@ -1557,7 +1557,7 @@
       "imgUrl": "receipt306.jpg"
     },
     {
-      "id": "129",
+      "id": 129,
       "userId": "user123",
       "title": "버스비",
       "date": "2025-02-03",
@@ -1569,7 +1569,7 @@
       "imgUrl": "receipt307.jpg"
     },
     {
-      "id": "130",
+      "id": 130,
       "userId": "user123",
       "title": "엄마 생신 선물",
       "date": "2025-02-20",
@@ -1581,7 +1581,7 @@
       "imgUrl": "receipt308.jpg"
     },
     {
-      "id": "131",
+      "id": 131,
       "userId": "user123",
       "title": "추가 인센",
       "date": "2025-03-01",
@@ -1593,7 +1593,7 @@
       "imgUrl": "receipt309.jpg"
     },
     {
-      "id": "132",
+      "id": 132,
       "userId": "user123",
       "title": "급하게 산 거",
       "date": "2025-02-06",
@@ -1605,7 +1605,7 @@
       "imgUrl": "receipt310.jpg"
     },
     {
-      "id": "133",
+      "id": 133,
       "userId": "user123",
       "title": "헬스장 등록",
       "date": "2025-01-19",
@@ -1617,7 +1617,7 @@
       "imgUrl": "receipt311.jpg"
     },
     {
-      "id": "134",
+      "id": 134,
       "userId": "user123",
       "title": "미스터리 입금",
       "date": "2025-01-31",
@@ -1629,7 +1629,7 @@
       "imgUrl": "receipt312.jpg"
     },
     {
-      "id": "135",
+      "id": 135,
       "userId": "user123",
       "title": "비행기 티켓",
       "date": "2025-03-06",
@@ -1641,7 +1641,7 @@
       "imgUrl": "receipt313.jpg"
     },
     {
-      "id": "136",
+      "id": 136,
       "userId": "user123",
       "title": "펀드 환급",
       "date": "2025-02-20",
@@ -1653,7 +1653,7 @@
       "imgUrl": "receipt314.jpg"
     },
     {
-      "id": "137",
+      "id": 137,
       "userId": "user123",
       "title": "헬스장 등록",
       "date": "2025-01-18",
@@ -1665,7 +1665,7 @@
       "imgUrl": "receipt315.jpg"
     },
     {
-      "id": "138",
+      "id": 138,
       "userId": "user123",
       "title": "혼밥 데이~",
       "date": "2025-02-07",
@@ -1677,7 +1677,7 @@
       "imgUrl": "receipt316.jpg"
     },
     {
-      "id": "139",
+      "id": 139,
       "userId": "user123",
       "title": "급하게 산 거",
       "date": "2025-01-24",
@@ -1689,7 +1689,7 @@
       "imgUrl": "receipt317.jpg"
     },
     {
-      "id": "140",
+      "id": 140,
       "userId": "user123",
       "title": "이마트 간식 쇼핑",
       "date": "2025-03-15",
@@ -1701,7 +1701,7 @@
       "imgUrl": "receipt318.jpg"
     },
     {
-      "id": "141",
+      "id": 141,
       "userId": "user123",
       "title": "엄마 생신 선물",
       "date": "2025-02-13",
@@ -1713,7 +1713,7 @@
       "imgUrl": "receipt319.jpg"
     },
     {
-      "id": "142",
+      "id": 142,
       "userId": "user123",
       "title": "헬스장 등록",
       "date": "2025-02-26",
@@ -1725,7 +1725,7 @@
       "imgUrl": "receipt320.jpg"
     },
     {
-      "id": "143",
+      "id": 143,
       "userId": "user123",
       "title": "부모님 사랑",
       "date": "2025-02-10",
@@ -1737,7 +1737,7 @@
       "imgUrl": "receipt321.jpg"
     },
     {
-      "id": "144",
+      "id": 144,
       "userId": "user123",
       "title": "기타 수입",
       "date": "2025-03-22",
@@ -1749,7 +1749,7 @@
       "imgUrl": "receipt322.jpg"
     },
     {
-      "id": "145",
+      "id": 145,
       "userId": "user123",
       "title": "스터디카페 결제",
       "date": "2025-01-31",
@@ -1761,7 +1761,7 @@
       "imgUrl": "receipt323.jpg"
     },
     {
-      "id": "146",
+      "id": 146,
       "userId": "user123",
       "title": "펀드 환급",
       "date": "2025-03-03",
@@ -1773,7 +1773,7 @@
       "imgUrl": "receipt324.jpg"
     },
     {
-      "id": "147",
+      "id": 147,
       "userId": "user123",
       "title": "성과급",
       "date": "2025-04-07",
@@ -1785,7 +1785,7 @@
       "imgUrl": "receipt325.jpg"
     },
     {
-      "id": "148",
+      "id": 148,
       "userId": "user123",
       "title": "늦은 야식 타임",
       "date": "2025-01-19",
@@ -1797,7 +1797,7 @@
       "imgUrl": "receipt326.jpg"
     },
     {
-      "id": "149",
+      "id": 149,
       "userId": "user123",
       "title": "수도요금 결제",
       "date": "2025-01-31",
@@ -1809,7 +1809,7 @@
       "imgUrl": "receipt327.jpg"
     },
     {
-      "id": "150",
+      "id": 150,
       "userId": "user123",
       "title": "용돈 들어옴",
       "date": "2025-01-17",
@@ -1821,7 +1821,7 @@
       "imgUrl": "receipt328.jpg"
     },
     {
-      "id": "151",
+      "id": 151,
       "userId": "user123",
       "title": "펀드 환급",
       "date": "2025-03-18",
@@ -1833,7 +1833,7 @@
       "imgUrl": "receipt329.jpg"
     },
     {
-      "id": "152",
+      "id": 152,
       "userId": "user123",
       "title": "기타 활동비",
       "date": "2025-01-15",
@@ -1845,7 +1845,7 @@
       "imgUrl": "receipt330.jpg"
     },
     {
-      "id": "153",
+      "id": 153,
       "userId": "user123",
       "title": "부업 정산",
       "date": "2025-02-27",
@@ -1857,7 +1857,7 @@
       "imgUrl": "receipt331.jpg"
     },
     {
-      "id": "154",
+      "id": 154,
       "userId": "user123",
       "title": "중고나라 판매",
       "date": "2025-02-06",
@@ -1869,7 +1869,7 @@
       "imgUrl": "receipt332.jpg"
     },
     {
-      "id": "155",
+      "id": 155,
       "userId": "user123",
       "title": "화장품 리필",
       "date": "2025-02-01",
@@ -1881,7 +1881,7 @@
       "imgUrl": "receipt333.jpg"
     },
     {
-      "id": "156",
+      "id": 156,
       "userId": "user123",
       "title": "금융 수입",
       "date": "2025-02-17",
@@ -1893,7 +1893,7 @@
       "imgUrl": "receipt334.jpg"
     },
     {
-      "id": "157",
+      "id": 157,
       "userId": "user123",
       "title": "포인트 캐시백",
       "date": "2025-01-03",
@@ -1905,7 +1905,7 @@
       "imgUrl": "receipt335.jpg"
     },
     {
-      "id": "158",
+      "id": 158,
       "userId": "user123",
       "title": "서포터즈 활동비",
       "date": "2025-01-13",
@@ -1917,7 +1917,7 @@
       "imgUrl": "receipt336.jpg"
     },
     {
-      "id": "159",
+      "id": 159,
       "userId": "user123",
       "title": "코인 수익 발생",
       "date": "2025-03-31",
@@ -1929,7 +1929,7 @@
       "imgUrl": "receipt337.jpg"
     },
     {
-      "id": "160",
+      "id": 160,
       "userId": "user123",
       "title": "월급 들어왔다💸",
       "date": "2025-03-15",
@@ -1941,7 +1941,7 @@
       "imgUrl": "receipt338.jpg"
     },
     {
-      "id": "161",
+      "id": 161,
       "userId": "user123",
       "title": "건강보험 환급",
       "date": "2025-03-05",
@@ -1953,7 +1953,7 @@
       "imgUrl": "receipt339.jpg"
     },
     {
-      "id": "162",
+      "id": 162,
       "userId": "user123",
       "title": "3월 월급날",
       "date": "2025-03-11",
@@ -1965,7 +1965,7 @@
       "imgUrl": "receipt340.jpg"
     },
     {
-      "id": "163",
+      "id": 163,
       "userId": "user123",
       "title": "가족 외식",
       "date": "2025-03-09",
@@ -1977,7 +1977,7 @@
       "imgUrl": "receipt341.jpg"
     },
     {
-      "id": "164",
+      "id": 164,
       "userId": "user123",
       "title": "교통비 환급",
       "date": "2025-04-04",
@@ -1989,7 +1989,7 @@
       "imgUrl": "receipt342.jpg"
     },
     {
-      "id": "165",
+      "id": 165,
       "userId": "user123",
       "title": "서현언니랑 부산",
       "date": "2025-04-08",
@@ -2001,7 +2001,7 @@
       "imgUrl": "receipt343.jpg"
     },
     {
-      "id": "166",
+      "id": 166,
       "userId": "user123",
       "title": "전기세 납부",
       "date": "2025-04-10",
@@ -2013,7 +2013,7 @@
       "imgUrl": "receipt344.jpg"
     },
     {
-      "id": "167",
+      "id": 167,
       "userId": "user123",
       "title": "월급 들어왔다💸",
       "date": "2025-01-14",
@@ -2025,7 +2025,7 @@
       "imgUrl": "receipt345.jpg"
     },
     {
-      "id": "168",
+      "id": 168,
       "userId": "user123",
       "title": "러닝화 구매",
       "date": "2025-01-31",
@@ -2037,7 +2037,7 @@
       "imgUrl": "receipt346.jpg"
     },
     {
-      "id": "169",
+      "id": 169,
       "userId": "user123",
       "title": "버스비",
       "date": "2025-01-02",
@@ -2049,7 +2049,7 @@
       "imgUrl": "receipt347.jpg"
     },
     {
-      "id": "170",
+      "id": 170,
       "userId": "user123",
       "title": "포인트 캐시백",
       "date": "2025-01-01",
@@ -2061,7 +2061,7 @@
       "imgUrl": "receipt348.jpg"
     },
     {
-      "id": "171",
+      "id": 171,
       "userId": "user123",
       "title": "기타 수입",
       "date": "2025-02-05",
@@ -2073,7 +2073,7 @@
       "imgUrl": "receipt349.jpg"
     },
     {
-      "id": "172",
+      "id": 172,
       "userId": "user123",
       "title": "지원언니랑 저녁 약속",
       "date": "2025-04-06",
@@ -2085,7 +2085,7 @@
       "imgUrl": "receipt350.jpg"
     },
     {
-      "id": "173",
+      "id": 173,
       "userId": "user123",
       "title": "급하게 산 거",
       "date": "2025-03-13",
@@ -2097,7 +2097,7 @@
       "imgUrl": "receipt351.jpg"
     },
     {
-      "id": "174",
+      "id": 174,
       "userId": "user123",
       "title": "결제 할인",
       "date": "2025-02-25",
@@ -2109,7 +2109,7 @@
       "imgUrl": "receipt352.jpg"
     },
     {
-      "id": "175",
+      "id": 175,
       "userId": "user123",
       "title": "급하게 산 거",
       "date": "2025-01-01",
@@ -2121,7 +2121,7 @@
       "imgUrl": "receipt353.jpg"
     },
     {
-      "id": "176",
+      "id": 176,
       "userId": "user123",
       "title": "콘서트 예매",
       "date": "2025-03-25",
@@ -2133,7 +2133,7 @@
       "imgUrl": "receipt354.jpg"
     },
     {
-      "id": "177",
+      "id": 177,
       "userId": "user123",
       "title": "수도요금 결제",
       "date": "2025-03-25",
@@ -2145,7 +2145,7 @@
       "imgUrl": "receipt355.jpg"
     },
     {
-      "id": "178",
+      "id": 178,
       "userId": "user123",
       "title": "첫 월급!",
       "date": "2025-03-08",
@@ -2157,7 +2157,7 @@
       "imgUrl": "receipt356.jpg"
     },
     {
-      "id": "179",
+      "id": 179,
       "userId": "user123",
       "title": "벚꽃 보러 여행",
       "date": "2025-03-28",
@@ -2169,7 +2169,7 @@
       "imgUrl": "receipt357.jpg"
     },
     {
-      "id": "180",
+      "id": 180,
       "userId": "user123",
       "title": "펀드 환급",
       "date": "2025-02-15",

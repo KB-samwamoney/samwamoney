@@ -1,13 +1,13 @@
 <script setup>
-import { defineProps, defineEmits } from 'vue'
+import { defineProps } from 'vue'
 import { useRouter } from 'vue-router'
 
-const emit = defineEmits(['create-payment'])
 const router = useRouter()
 
 const props = defineProps({
   name: String,
 })
+
 
 const handleEvent = () => {
   if (props.name === '확인') {
@@ -17,7 +17,6 @@ const handleEvent = () => {
     router.push({ name: 'payment-update' })
   }
   if (props.name === '완료') {
-    emit('create-payment')
     console.log(`${props.name}`)
   }
   if (props.name === '취소') {
