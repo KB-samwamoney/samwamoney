@@ -52,37 +52,48 @@
 
 <details open>
   <summary>클릭해서 와이어프레임을 확인하세요</summary>
-  <table>
-    <tr>
-      <td align="center">
-        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/로그인.png" width="90%">
-      </td>
-      <td align="center">
-        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_검색.png" width="90%">
-      </td>
-      <td align="center">
-        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_검색_기록.png" width="90%">
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_날짜선택.png" width="90%">
-      </td>
-      <td align="center">
-        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_달력.png" width="90%">
-      </td>
-      <td align="center">
-        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_달력%20(1).png" width="90%">
-      </td>
-    </tr>
-    <tr>
-      <td align="center">
-        <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/와이어프레임/메인페이지_날짜선택.png" width="90%">
-      </td>
-      <td></td>
-      <td></td>
-    </tr>
-  </table>
+<table>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/01%20%ED%9A%8C%EC%9B%90%EA%B0%80%EC%9E%85.gif" width="90%"><br>회원가입
+    </td>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/02%20%EB%B9%84%EB%B0%80%EB%B2%88%ED%98%B8%EC%B0%BE%EA%B8%B0%20%EB%B0%8F%20%EB%A1%9C%EA%B7%B8%EC%9D%B8.gif" width="90%"><br>비밀번호찾기 및 로그인
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/03%20%ED%9A%8C%EC%9B%90%EC%A0%95%EB%B3%B4%EC%88%98%EC%A0%95.gif" width="90%"><br>회원정보 수정
+    </td>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/04%20%EB%A1%9C%EA%B7%B8%EC%95%84%EC%9B%83.gif" width="90%"><br>로그아웃
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/05%20%ED%9A%8C%EC%9B%90%ED%83%88%ED%87%B4.gif" width="90%"><br>회원탈퇴
+    </td>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/06%20%EA%B2%80%EC%83%89%20%EB%B0%8F%20%ED%95%84%ED%84%B0.gif" width="90%"><br>검색 및 필터
+    </td>
+  </tr>
+  <tr>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/07%20%EC%9B%94%EB%B3%84%20%ED%99%95%EC%9D%B8.gif" width="90%"><br>월별 확인
+    </td>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/08%20%EC%88%98%EC%9E%85%EC%A7%80%EC%B6%9C%20%EC%B6%94%EA%B0%80%20%EB%B0%8F%20%ED%99%95%EC%9D%B8.gif" width="90%"><br>수입지출 추가 및 확인
+    </td>
+  </tr>
+  <tr>
+    </td>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/09%20%EC%88%98%EC%9E%85%EC%A7%80%EC%B6%9C%20%EC%88%98%EC%A0%95%20%EB%B0%8F%20%ED%99%95%EC%9D%B8.gif" width="90%"><br>수입지출 수정 및 확인
+    </td>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/08%20%EC%88%98%EC%9E%85%EC%A7%80%EC%B6%9C%20%EC%B6%94%EA%B0%80%20%EB%B0%8F%20%ED%99%95%EC%9D%B8.gif" width="90%"><br>수입지출 삭제 및 확인
+  </tr>
+</table>
 </details>
 
 ## ⚙ 설치 및 실행 방법
