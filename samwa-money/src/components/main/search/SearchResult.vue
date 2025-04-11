@@ -1,5 +1,12 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+
+const router = useRouter()
+
+const goToDetail = (id) => {
+  router.push({ name: 'payment-detail', params: { id } })
+}
 
 const props = defineProps({
   results: Array,
@@ -56,7 +63,12 @@ const goNextPageGroup = () => {
   <div v-if="results.length" class="search-result">
     <h3>🔍 검색 결과</h3>
     <ul>
-      <li v-for="item in paginatedResults" :key="item.id" class="result-item">
+      <li
+        v-for="item in paginatedResults"
+        :key="item.id"
+        class="result-item"
+        @click="goToDetail(item.id)"
+      >
         <div class="item-header">
           <span class="title"> {{ item.icon }} {{ item.title }} </span>
           <span class="amount" :class="item.type"> {{ item.amount.toLocaleString() }}원 </span>
@@ -161,5 +173,13 @@ const goNextPageGroup = () => {
 .pagination-wrapper button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+.result-item {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.result-item:hover {
+  background-color: #f9f9f9;
 }
 </style>

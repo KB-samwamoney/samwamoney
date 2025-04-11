@@ -2073,7 +2073,6 @@
       "imgUrl": "receipt349.jpg"
     },
     {
-      "id": 172,
       "userId": "user123",
       "title": "지원언니랑 저녁 약속",
       "date": "2025-04-06",
@@ -2082,7 +2081,8 @@
       "amount": 15200,
       "memo": "부캠 끝나고 치맥해떠욤",
       "icon": "🍚",
-      "imgUrl": "receipt350.jpg"
+      "imgUrl": "receipt350.jpg",
+      "id": 172
     },
     {
       "id": 173,
