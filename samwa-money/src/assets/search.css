@@ -26,6 +26,7 @@
   font-size: var(--space-m);
   background-color: var(--white);
   outline: none;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .search-select {

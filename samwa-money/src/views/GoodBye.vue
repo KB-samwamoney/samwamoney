@@ -74,6 +74,7 @@ h1 {
   align-items: center;
   justify-content: center;
   border: none;
+  font-family: 'Pretendard', sans-serif;
 }
 
 .content {

@@ -549,7 +549,6 @@
       "imgUrl": "receipt222.jpg"
     },
     {
-      "id": 45,
       "userId": "user123",
       "title": "관리비",
       "date": "2025-02-15",
@@ -558,7 +557,8 @@
       "amount": 8500,
       "memo": "기분전환용!",
       "icon": "🏠",
-      "imgUrl": "receipt223.jpg"
+      "imgUrl": "receipt223.jpg",
+      "id": 45
     },
     {
       "id": 46,
@@ -727,18 +727,6 @@
       "memo": "완전 득템",
       "icon": "💼",
       "imgUrl": "receipt237.jpg"
-    },
-    {
-      "id": 60,
-      "userId": "user123",
-      "title": "펀드 환급",
-      "date": "2025-04-10",
-      "category": "투자수익",
-      "type": "income",
-      "amount": 4200,
-      "memo": "잘 샀다 진짜",
-      "icon": "📈",
-      "imgUrl": "receipt238.jpg"
     },
     {
       "id": 61,
@@ -1511,7 +1499,7 @@
     {
       "id": 125,
       "userId": "user123",
-      "title": "물건 정리",
+      "title": "엄마 물건 몰래 팔기",
       "date": "2025-03-15",
       "category": "중고거래",
       "type": "income",
@@ -2001,7 +1989,6 @@
       "imgUrl": "receipt343.jpg"
     },
     {
-      "id": 166,
       "userId": "user123",
       "title": "전기세 납부",
       "date": "2025-04-10",
@@ -2010,7 +1997,8 @@
       "amount": 3100,
       "memo": "내가 이렇게나 많이 썼던가",
       "icon": "🏠",
-      "imgUrl": "receipt344.jpg"
+      "imgUrl": "receipt344.jpg",
+      "id": 166
     },
     {
       "id": 167,

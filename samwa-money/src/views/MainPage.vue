@@ -121,6 +121,7 @@ const handleSearch = async ({ type, keyword, categories }) => {
 
 .sidebar {
   width: 300px;
+  min-height: 100vh;
 }
 
 .content-area {
