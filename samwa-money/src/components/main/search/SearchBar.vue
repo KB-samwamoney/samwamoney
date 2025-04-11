@@ -85,9 +85,9 @@ watch(selectedCategoryToAdd, (newVal) => {
     categories.value.push(newVal)
 
     emit('search', {
-      type: 'search_category',
-      keyword: categories.value.map((cat) => cat.name),
-      categories: categories.value.map((cat) => cat.name), // ✅ 반드시 같이!
+      type: searchType.value,
+      keyword: searchKeyword.value,
+      categories: categories.value.map((cat) => cat.name),
     })
   }
 
@@ -98,18 +98,16 @@ watch(selectedCategoryToAdd, (newVal) => {
 const removeCategory = (categoryName) => {
   categories.value = categories.value.filter((cat) => cat.name !== categoryName)
 
-  // 하나 남은 거였으면 → reset
-  if (categories.value.length === 0) {
+  if (categories.value.length === 0 && searchKeyword.value.trim() === '') {
     setTimeout(() => {
       emit('reset')
     }, 200)
     return
   }
 
-  // 하나 이상 있으면 → 다시 검색
   emit('search', {
-    type: 'search_category',
-    keyword: categories.value.map((cat) => cat.name),
+    type: searchType.value,
+    keyword: searchKeyword.value,
     categories: categories.value.map((cat) => cat.name),
   })
 }
@@ -136,7 +134,7 @@ const handleSearch = () => {
   emit('search', {
     type: searchType.value,
     keyword: searchKeyword.value,
-    categories: selectedCategories,
+    categories: categories.value.map((cat) => cat.name),
   })
   // console.log(
   //   '[SearchBar.vue] emit search:',
@@ -152,8 +150,7 @@ const handleCategoryClick = (categoryName) => {
   if (index !== -1) {
     categories.value.splice(index, 1)
 
-    // 딱 하나였던 걸 지웠으면 reset
-    if (categories.value.length === 0) {
+    if (categories.value.length === 0 && searchKeyword.value.trim() === '') {
       setTimeout(() => {
         emit('reset')
       }, 200)
@@ -166,14 +163,11 @@ const handleCategoryClick = (categoryName) => {
     }
   }
 
-  // 하나 이상 있으면 emit
-  if (categories.value.length > 0) {
-    emit('search', {
-      type: 'search_category',
-      keyword: categories.value.map((cat) => cat.name),
-      categories: categories.value.map((cat) => cat.name),
-    })
-  }
+  emit('search', {
+    type: searchType.value,
+    keyword: searchKeyword.value,
+    categories: categories.value.map((cat) => cat.name),
+  })
 }
 </script>
 
