@@ -29,7 +29,7 @@ const handleEvent = () => {
 
 <style scoped>
 .button {
-  background-color: #ffe596;
+  background-color: var(--light-yellow);
   width: 140px;
   height: 40px;
   font-size: 24px;
