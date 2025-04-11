@@ -11,14 +11,20 @@
         </section>
 
         <section class="summary">
-          <SummaryBox v-if="searchResults === null" v-model:selectedDate="selectedDate"
-            @update:viewDate="updateViewDate" />
+          <SummaryBox
+            v-if="searchResults === null"
+            v-model:selectedDate="selectedDate"
+            @update:viewDate="updateViewDate"
+          />
         </section>
 
         <section class="resultBox">
           <!-- 1. 검색 전 → CalendarView -->
-          <CalendarView v-if="searchResults === null" v-model:selectedDate="selectedDate"
-            @update:viewDate="updateViewDate" />
+          <CalendarView
+            v-if="searchResults === null"
+            v-model:selectedDate="selectedDate"
+            @update:viewDate="updateViewDate"
+          />
           <!-- 2. 검색 결과 → SearchResult 보여주기 -->
           <SearchResult v-else :results="searchResults" />
         </section>
@@ -30,6 +36,10 @@
 
 <script setup>
 import { ref, onMounted, watch, computed } from 'vue'
+import { useAuthStore } from '@/stores/authStore'
+
+const authStore = useAuthStore()
+
 import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
@@ -44,7 +54,7 @@ const selectedDate = ref(new Date())
 const searchResults = computed(() => paymentStore.searchResults)
 
 defineOptions({
-  name: 'MainPage'
+  name: 'MainPage',
 })
 
 const updateViewDate = (date) => {
@@ -78,14 +88,15 @@ const handleSearch = async ({ type, keyword, categories }) => {
   const res = await api.get('/Balance')
   const data = res.data
 
-  // console.log('✅ 전달된 categories:', categories)
+  const userId = authStore.user?.userId || ''
 
   const filtered = data.filter((item) => {
-    // ✅ 카테고리 필터: 선택된 게 없으면 전체 통과
+    const isMyData = item.userId === userId
+    // 카테고리 필터: 선택된 게 없으면 전체 통과
     const categoryMatched =
       Array.isArray(categories) && categories.length > 0 ? categories.includes(item.category) : true
 
-    // ✅ 키워드 필터
+    // 키워드 필터
     let keywordMatched = true
     if (type === 'search_title') {
       keywordMatched = keyword ? item.title.includes(keyword) : true
@@ -97,11 +108,10 @@ const handleSearch = async ({ type, keyword, categories }) => {
       keywordMatched = true
     }
 
-    return categoryMatched && keywordMatched
+    return isMyData && categoryMatched && keywordMatched
   })
 
   paymentStore.searchResults = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
-
 }
 </script>
 
