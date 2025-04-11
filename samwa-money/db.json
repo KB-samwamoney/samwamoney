@@ -17,6 +17,16 @@
       "email": "flsjejf@bafevca.com",
       "nickname": "wqeqeqwdae",
       "expense_limit": "100000"
+    },
+    {
+      "userId": "0812",
+      "password": "dah0812!",
+      "name": "정다현",
+      "email": "dah@naver.com",
+      "nickname": "콩콩이",
+      "expense_limit": 300000,
+      "join_date": "2025-04-11T02:35:20.769Z",
+      "id": "K5R6Gvk"
     }
   ],
   "Balance": [
@@ -81,16 +91,16 @@
       "imgUrl": "receipt183.jpg"
     },
     {
-      "id": 6,
       "userId": "user123",
-      "title": "스터디카페 결제",
+      "title": "스터디카페 결제 ㅜㅠ",
       "date": "2025-04-09",
       "category": "자기계발",
       "type": "expense",
       "amount": 7900,
       "memo": "또 사버림...",
       "icon": "📚",
-      "imgUrl": "receipt184.jpg"
+      "imgUrl": "receipt184.jpg",
+      "id": 6
     },
     {
       "id": 7,
@@ -1137,7 +1147,6 @@
       "imgUrl": "receipt272.jpg"
     },
     {
-      "id": 95,
       "userId": "user123",
       "title": "올리브영 털기",
       "date": "2025-03-19",
@@ -1146,7 +1155,8 @@
       "amount": 6500,
       "memo": "사치 아닌 투자!",
       "icon": "🛒",
-      "imgUrl": "receipt273.jpg"
+      "imgUrl": "receipt273.jpg",
+      "id": 95
     },
     {
       "id": 96,
@@ -2167,6 +2177,42 @@
       "memo": "이건 진짜 필수",
       "icon": "📈",
       "imgUrl": "receipt358.jpg"
+    },
+    {
+      "userId": "0812",
+      "title": "오늘 점심은 닭갈비 볶음밥 !",
+      "date": "2025-04-10",
+      "category": "식사",
+      "type": "expense",
+      "amount": 8000,
+      "memo": "치즈김치 닭갈비 볶음밥을 먹었더욤 ",
+      "icon": "🍚",
+      "imgUrl": "",
+      "id": 181
+    },
+    {
+      "userId": "0812",
+      "title": "3월 알바비",
+      "date": "2025-04-05",
+      "category": "부수입",
+      "type": "income",
+      "amount": 300000,
+      "memo": "많이 일하고 적게 벌기 힘들당 ㅜ",
+      "icon": "💼",
+      "imgUrl": "",
+      "id": 182
+    },
+    {
+      "userId": "0812",
+      "title": "4월 용똔",
+      "date": "2025-04-01",
+      "category": "용돈",
+      "type": "income",
+      "amount": 500000,
+      "memo": "야호",
+      "icon": "🎁",
+      "imgUrl": "",
+      "id": 183
     }
   ],
   "Category": [
