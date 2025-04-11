@@ -8,8 +8,7 @@ import { useToastStore } from '@/stores/toastStore.js'
 const router = useRouter()
 const toastStore = useToastStore()
 const settingStore = useSettingStore()
-
-const selectedMode = ref('light')
+const selectedMode = ref(settingStore.mode || 'light')
 
 onMounted(async () => {
   try {

@@ -1137,7 +1137,6 @@
       "imgUrl": "receipt272.jpg"
     },
     {
-      "id": 95,
       "userId": "user123",
       "title": "올리브영 털기",
       "date": "2025-03-19",
@@ -1146,7 +1145,8 @@
       "amount": 6500,
       "memo": "사치 아닌 투자!",
       "icon": "🛒",
-      "imgUrl": "receipt273.jpg"
+      "imgUrl": "receipt273.jpg",
+      "id": 95
     },
     {
       "id": 96,
@@ -1257,7 +1257,6 @@
       "imgUrl": "receipt282.jpg"
     },
     {
-      "id": 105,
       "userId": "user123",
       "title": "늦은 야식 타임",
       "date": "2025-03-22",
@@ -1266,7 +1265,8 @@
       "amount": 3600,
       "memo": "살짝 과소비",
       "icon": "🍚",
-      "imgUrl": "receipt283.jpg"
+      "imgUrl": "receipt283.jpg",
+      "id": 105
     },
     {
       "id": 106,
