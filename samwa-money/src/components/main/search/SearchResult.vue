@@ -101,12 +101,16 @@ const goNextPageGroup = () => {
 </template>
 
 <style scoped>
+h3 {
+  margin-bottom: 1rem;
+}
+
 .result-item {
   padding: 1rem;
   margin-bottom: 0.75rem;
   background-color: var(--light-white);
   border-radius: 8px;
-  border: 1px solid var(--baby-pink);
+  border: 1px solid var(--light-yellow);
   box-shadow: 0 1px 4px rgba(0, 0, 0, 0.04);
   transition:
     transform 0.2s,
@@ -115,7 +119,7 @@ const goNextPageGroup = () => {
 
 .result-item:hover {
   transform: translateY(-3px);
-  background-color: var(--hover);
+  background-color: var(--light-white);
 }
 
 .item-header {
@@ -124,6 +128,10 @@ const goNextPageGroup = () => {
   font-weight: bold;
   font-size: 1.05rem;
   margin-bottom: 0.3rem;
+}
+
+.item-header .title {
+  color: var(--black);
 }
 
 .amount.income {
@@ -183,9 +191,6 @@ const goNextPageGroup = () => {
 .result-item {
   cursor: pointer;
   transition: background-color 0.2s;
-}
-.result-item:hover {
-  background-color: #f9f9f9;
 }
 
 .no-result {
