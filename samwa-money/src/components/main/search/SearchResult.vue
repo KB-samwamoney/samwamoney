@@ -1,6 +1,7 @@
 <script setup>
 import { ref, computed } from 'vue'
 import { useRouter } from 'vue-router'
+import Kidney from '@/assets/img/콩팥이.png'
 
 const router = useRouter()
 
@@ -93,6 +94,10 @@ const goNextPageGroup = () => {
       <button @click="goNextPageGroup" :disabled="maxGroupReached">▶</button>
     </div>
   </div>
+  <div v-else class="no-result">
+    <img :src="Kidney" alt="콩팥이" />
+    <p>검색 결과가 없습니다!</p>
+  </div>
 </template>
 
 <style scoped>
@@ -181,5 +186,23 @@ const goNextPageGroup = () => {
 }
 .result-item:hover {
   background-color: #f9f9f9;
+}
+
+.no-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--space-l);
+}
+
+.no-result img {
+  width: 15%;
+}
+
+.no-result p {
+  margin-top: var(--space-l);
+  font-weight: 600;
+  color: var(--black);
 }
 </style>
