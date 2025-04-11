@@ -1,4 +1,5 @@
 <script setup>
+import KBLOGO from '@/assets/img/KB.png'
 import { usePaymentStore } from '@/stores/paymentAddStore'
 import { useToastStore } from '@/stores/toastStore'
 import { onMounted, ref, watch } from 'vue'
@@ -24,6 +25,10 @@ const previewUrl = ref(null) //이미지 출력관련 함수
 const imgUrl = ref(null)
 const baseImg = ref(null)
 const dateInput = ref('')
+
+const onImgError = (event) => {
+  event.target.src = KBLOGO
+}
 
 //이미지를 문자열로 변환해주는 로직
 const fileToBase64 = (file) => {
@@ -237,7 +242,7 @@ onMounted(async () => {
       <label class="upload-label">사진 업로드 (선택)</label>
       <label for="uploadImg" class="upload-box">
         <span v-if="!imgUrl">+</span>
-        <img v-else :src="imgUrl" alt="미리보기 이미지" class="preview-img" />
+        <img v-else :src="imgUrl" alt="미리보기 이미지" @error="onImgError" class="preview-img" />
         <input type="file" id="uploadImg" hidden accept="image/*" @change="handleChangeImg" />
       </label>
       <button class="imgdelete-btn" @click="imageDelete" v-if="imgUrl">x</button>
