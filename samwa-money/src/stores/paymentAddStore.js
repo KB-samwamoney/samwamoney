@@ -94,7 +94,7 @@ export const usePaymentStore = defineStore('payment', () => {
       findPayment.value = response
       // console.log(findPayment.value)
     } catch (err) {
-      // console.log(`상세 정보 불러오기 실패`, err)
+      console.log('상세 정보 불러오기 실패', err)
     } finally {
       loading.value = false
     }
@@ -192,7 +192,7 @@ export const usePaymentStore = defineStore('payment', () => {
     loading.value = true
     error.value = null
     try {
-      await api.delete(`/Balance/${id}`)
+      await api.delete(`/Balance/$`, { id })
       paymentList.value = paymentList.value.filter((list) => list.id != id)
     } catch (err) {
       console.log(`게시물 삭제에 실패했습니다${err}`)
@@ -200,6 +200,8 @@ export const usePaymentStore = defineStore('payment', () => {
       loading.value = false
     }
   }
+
+  const searchResults = ref(null)
   return {
     loading,
     error,
@@ -213,6 +215,7 @@ export const usePaymentStore = defineStore('payment', () => {
     incomeTotal,
     expenseTotal,
     totalBalance,
+    searchResults,
     getcategoryList,
     createPayment,
     fetchPayments,
