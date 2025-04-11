@@ -93,6 +93,14 @@
     <td align="center">
       <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/08%20%EC%88%98%EC%9E%85%EC%A7%80%EC%B6%9C%20%EC%B6%94%EA%B0%80%20%EB%B0%8F%20%ED%99%95%EC%9D%B8.gif" width="90%"><br>수입지출 삭제 및 확인
   </tr>
+  <tr>
+    </td>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/11%20%EA%B0%84%ED%8E%B8%EC%9A%94%EC%95%BD(%EC%B0%A8%ED%8A%B8).gif" width="90%"><br>간편 요약(차트)
+    </td>
+    <td align="center">
+      <img src="https://github.com/KB-samwamoney/samwamoney/blob/main/%EC%99%80%EC%9D%B4%EC%96%B4%ED%94%84%EB%A0%88%EC%9E%84/12%20%EB%8B%A4%ED%81%AC%EB%AA%A8%EB%93%9C(%EB%82%B4%EC%9E%A5%EB%AA%A8%EB%93%9C).gif" width="90%"><br>다크모드(내장모드)
+  </tr>
 </table>
 </details>
 
