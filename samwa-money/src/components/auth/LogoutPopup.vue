@@ -36,7 +36,7 @@ const handleClose = () => emit('close')
 }
 
 .popup-box {
-  background-color: white;
+  background-color: var(--white);
   border-radius: 12px;
   padding: 30px 40px;
   text-align: center;
@@ -70,10 +70,11 @@ const handleClose = () => emit('close')
 }
 
 .confirm {
-  background-color: #f9c542;
+  background-color: var(--light-yellow);
 }
 
 .cancel {
-  background-color: #ccc;
+  background-color: var(--dark-gray);
+  color: var(--black);
 }
 </style>

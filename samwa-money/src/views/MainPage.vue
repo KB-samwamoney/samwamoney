@@ -11,20 +11,14 @@
         </section>
 
         <section class="summary">
-          <SummaryBox
-            v-if="searchResults === null"
-            v-model:selectedDate="selectedDate"
-            @update:viewDate="updateViewDate"
-          />
+          <SummaryBox v-if="searchResults === null" v-model:selectedDate="selectedDate"
+            @update:viewDate="updateViewDate" />
         </section>
 
         <section class="resultBox">
           <!-- 1. 검색 전 → CalendarView -->
-          <CalendarView
-            v-if="searchResults === null"
-            v-model:selectedDate="selectedDate"
-            @update:viewDate="updateViewDate"
-          />
+          <CalendarView v-if="searchResults === null" v-model:selectedDate="selectedDate"
+            @update:viewDate="updateViewDate" />
           <!-- 2. 검색 결과 → SearchResult 보여주기 -->
           <SearchResult v-else :results="searchResults" />
         </section>
@@ -35,7 +29,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted, watch } from 'vue'
+import { ref, onMounted, watch, computed } from 'vue'
 import SearchBar from '@/components/main/search/SearchBar.vue'
 import CalendarView from '@/components/main/calendar/CalendarView.vue'
 import SideBar from '@/components/sidebar/SideBar.vue'
@@ -47,7 +41,11 @@ import api from '@/utils/axios.js'
 
 const paymentStore = usePaymentStore()
 const selectedDate = ref(new Date())
-const searchResults = ref(null)
+const searchResults = computed(() => paymentStore.searchResults)
+
+defineOptions({
+  name: 'MainPage'
+})
 
 const updateViewDate = (date) => {
   paymentStore.setViewDate(date)
@@ -73,7 +71,7 @@ watch(
 )
 
 const handleReset = () => {
-  searchResults.value = null
+  paymentStore.searchResults = null
 }
 
 const handleSearch = async ({ type, keyword, categories }) => {
@@ -102,7 +100,8 @@ const handleSearch = async ({ type, keyword, categories }) => {
     return categoryMatched && keywordMatched
   })
 
-  searchResults.value = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
+  paymentStore.searchResults = filtered.sort((a, b) => new Date(b.date) - new Date(a.date))
+
 }
 </script>
 
@@ -122,6 +121,7 @@ const handleSearch = async ({ type, keyword, categories }) => {
 
 .sidebar {
   width: 300px;
+  min-height: 100vh;
 }
 
 .content-area {
