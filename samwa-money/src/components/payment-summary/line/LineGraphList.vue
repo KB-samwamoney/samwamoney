@@ -119,7 +119,7 @@ const formatPrice = (price) => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 .table-wrapper {
   max-height: 600px;

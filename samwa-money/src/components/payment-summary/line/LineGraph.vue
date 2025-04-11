@@ -166,6 +166,6 @@ watch([currentTab, currentDate], async () => {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  font-size: 1.1rem;
+  font-size: 1rem;
 }
 </style>
