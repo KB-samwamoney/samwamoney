@@ -215,7 +215,7 @@ onMounted(async () => {
     </div>
     <hr />
     <div class="date-container">
-      <label>날짜선택 :</label>
+      <label>날짜 선택</label>
       <input
         type="date"
         class="date-input"
@@ -350,6 +350,12 @@ onMounted(async () => {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.date-container label {
+  font-size: 18px;
+  font-weight: 600;
 }
 
 .amount-title,

@@ -77,7 +77,12 @@ const handleDelete = async () => {
       </div>
 
       <div class="amount-container">
-        <div>월급</div>
+        <div>제목</div>
+        <div class="amount">{{ title }}</div>
+      </div>
+
+      <div class="amount-container">
+        <div>금액</div>
         <div class="amount">{{ amount.toLocaleString() }}</div>
       </div>
 
