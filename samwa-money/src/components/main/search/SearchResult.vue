@@ -1,5 +1,13 @@
 <script setup>
 import { ref, computed } from 'vue'
+import { useRouter } from 'vue-router'
+import Kidney from '@/assets/img/콩팥이.png'
+
+const router = useRouter()
+
+const goToDetail = (id) => {
+  router.push({ name: 'payment-detail', params: { id } })
+}
 
 const props = defineProps({
   results: Array,
@@ -56,7 +64,12 @@ const goNextPageGroup = () => {
   <div v-if="results.length" class="search-result">
     <h3>🔍 검색 결과</h3>
     <ul>
-      <li v-for="item in paginatedResults" :key="item.id" class="result-item">
+      <li
+        v-for="item in paginatedResults"
+        :key="item.id"
+        class="result-item"
+        @click="goToDetail(item.id)"
+      >
         <div class="item-header">
           <span class="title"> {{ item.icon }} {{ item.title }} </span>
           <span class="amount" :class="item.type"> {{ item.amount.toLocaleString() }}원 </span>
@@ -80,6 +93,10 @@ const goNextPageGroup = () => {
 
       <button @click="goNextPageGroup" :disabled="maxGroupReached">▶</button>
     </div>
+  </div>
+  <div v-else class="no-result">
+    <img :src="Kidney" alt="콩팥이" />
+    <p>검색 결과가 없습니다!</p>
   </div>
 </template>
 
@@ -161,5 +178,31 @@ const goNextPageGroup = () => {
 .pagination-wrapper button:disabled {
   opacity: 0.4;
   cursor: not-allowed;
+}
+
+.result-item {
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+.result-item:hover {
+  background-color: #f9f9f9;
+}
+
+.no-result {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  padding-top: var(--space-l);
+}
+
+.no-result img {
+  width: 15%;
+}
+
+.no-result p {
+  margin-top: var(--space-l);
+  font-weight: 600;
+  color: var(--black);
 }
 </style>

@@ -181,7 +181,21 @@ export const usePaymentStore = defineStore('payment', () => {
         }
       }
     } catch (err) {
-      // console.log('수정에 실패했습니다', err)
+      console.log('수정에 실패했습니다', err)
+    } finally {
+      loading.value = false
+    }
+  }
+
+  // 항목 삭제하기
+  const deletePayment = async (id) => {
+    loading.value = true
+    error.value = null
+    try {
+      await api.delete(`/Balance/${id}`)
+      paymentList.value = paymentList.value.filter((list) => list.id != id)
+    } catch (err) {
+      console.log(`게시물 삭제에 실패했습니다${err}`)
     } finally {
       loading.value = false
     }
@@ -207,5 +221,6 @@ export const usePaymentStore = defineStore('payment', () => {
     isIncome,
     setViewDate,
     updatePayment,
+    deletePayment,
   }
 })
