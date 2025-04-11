@@ -74,8 +74,8 @@ const formatDate = (dateStr) => {
 
 <style scoped>
 .payment-list {
-  background-color: #fffbe6;
-  border: 1px solid #ffe58f;
+  background-color: var(--white);
+  border: 1px solid var(--light-yellow);
   padding: 1rem;
   border-radius: 8px;
   margin-top: 0.5rem;
@@ -92,7 +92,7 @@ const formatDate = (dateStr) => {
 }
 
 .expense {
-  color: #e74c3c;
+  color: var(--danger);
 }
 
 .payment-list-scroll {
@@ -103,8 +103,8 @@ const formatDate = (dateStr) => {
 
 /* 리스트 카드 스타일 */
 .payment-item {
-  background: #fff;
-  border: 1px solid #ffe58f;
+  background: var(--white);
+  border: 1px solid var(--light-yellow);
   border-radius: 8px;
   padding: 0.75rem;
   margin-bottom: 0.5rem;

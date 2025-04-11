@@ -32,7 +32,7 @@ import { RouterLink } from 'vue-router'
   padding: 1rem;
   background-color: var(--light-yellow);
   font-size: 0.8rem;
-  color: #555;
+  color: var(--dark-gray);
   text-align: center;
 }
 
@@ -69,11 +69,11 @@ import { RouterLink } from 'vue-router'
 
 .footer-links span {
   margin: 0 0.3rem;
-  color: #aaa;
+  color: var(--light-gray);
 }
 
 .footer-copy {
   font-size: 0.7rem;
-  color: #888;
+  color: var(--light-gray);
 }
 </style>
