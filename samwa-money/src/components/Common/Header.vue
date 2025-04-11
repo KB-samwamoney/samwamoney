@@ -8,7 +8,9 @@ const router = useRouter()
 const authStore = useAuthStore()
 
 const goToHome = () => {
-  router.push('/main')
+  router.push('/main').then(() => {
+    window.location.reload()
+  })
 }
 
 const goToLogin = () => {
