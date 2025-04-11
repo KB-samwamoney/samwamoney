@@ -17,6 +17,16 @@
       "email": "flsjejf@bafevca.com",
       "nickname": "wqeqeqwdae",
       "expense_limit": "100000"
+    },
+    {
+      "userId": "kgm331",
+      "password": "12345678",
+      "name": "김철수",
+      "email": "kgm7642@naver.com",
+      "nickname": "팥콩이",
+      "expense_limit": 1000000,
+      "join_date": "2025-04-11T00:43:00.568Z",
+      "id": "PhsQuSf"
     }
   ],
   "Balance": [
