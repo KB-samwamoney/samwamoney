@@ -113,9 +113,12 @@ const upDatePayment = async () => {
     }
     await paymentStore.updatePayment(newPayment, props.id)
     toastStore.showToast('저장되었습니다')
-    await router.push({ name: 'main' })
+    paymentStore.categoryList = []
+    router.push('/main').then(() => {
+      window.location.reload()
+    })
   } catch (error) {
-    // console.log('❌ 저장 중 에러 발생:', error)
+    console.log('❌ 저장 중 에러 발생:', error)
   }
 }
 
@@ -158,49 +161,23 @@ onMounted(async () => {
       <div class="category-body">
         <div class="expenses-income">
           <div>
-            <input
-              type="radio"
-              name="select-category"
-              value="income"
-              id="income"
-              hidden
-              v-model="type"
-            />
-            <label
-              for="income"
-              class="toggle-btn"
-              :class="{ 'selected-income': type === 'income' }"
-              @click="filterPayments"
-              >💰 수입
+            <input type="radio" name="select-category" value="income" id="income" hidden v-model="type" />
+            <label for="income" class="toggle-btn" :class="{ 'selected-income': type === 'income' }"
+              @click="filterPayments">💰 수입
             </label>
           </div>
           <p>|</p>
           <div>
-            <input
-              type="radio"
-              name="select-category"
-              value="expense"
-              id="expense"
-              hidden
-              v-model="type"
-            />
-            <label
-              for="expense"
-              class="toggle-btn"
-              :class="{ 'selected-expense': type === 'expense' }"
-              @click="filterPayments"
-            >
+            <input type="radio" name="select-category" value="expense" id="expense" hidden v-model="type" />
+            <label for="expense" class="toggle-btn" :class="{ 'selected-expense': type === 'expense' }"
+              @click="filterPayments">
               💸 지출
             </label>
           </div>
         </div>
         <select class="category-input" v-model="category">
           <option disabled selected value="">카테고리 선택</option>
-          <option
-            v-for="category in paymentStore.categoryList"
-            :key="category.id"
-            :value="category"
-          >
+          <option v-for="category in paymentStore.categoryList" :key="category.id" :value="category">
             {{ category.name }}{{ category.icon }}
           </option>
         </select>
@@ -209,25 +186,13 @@ onMounted(async () => {
     <hr />
     <div class="amount-container">
       <label class="amount-title">금액 입력</label>
-      <input
-        type="text"
-        class="amount-input"
-        placeholder="금액을 입력하세요"
-        v-model="amount"
-        @input="handleAmountInput"
-        value=""
-      />
+      <input type="text" class="amount-input" placeholder="금액을 입력하세요" v-model="amount" @input="handleAmountInput"
+        value="" />
     </div>
     <hr />
     <div class="date-container">
       <label>날짜 선택</label>
-      <input
-        type="date"
-        class="date-input"
-        ref="dateInput"
-        v-model="date"
-        @focus="openDatePicker"
-      />
+      <input type="date" class="date-input" ref="dateInput" v-model="date" @focus="openDatePicker" />
     </div>
     <hr />
 
