@@ -729,18 +729,6 @@
       "imgUrl": "receipt237.jpg"
     },
     {
-      "id": 60,
-      "userId": "user123",
-      "title": "펀드 환급",
-      "date": "2025-04-10",
-      "category": "투자수익",
-      "type": "income",
-      "amount": 4200,
-      "memo": "잘 샀다 진짜",
-      "icon": "📈",
-      "imgUrl": "receipt238.jpg"
-    },
-    {
       "id": 61,
       "userId": "user123",
       "title": "세금 환급",
@@ -2366,7 +2354,7 @@
       "userId": "user123",
       "mode": {
         "id": 1,
-        "mode": "dark"
+        "mode": "light"
       }
     }
   ]

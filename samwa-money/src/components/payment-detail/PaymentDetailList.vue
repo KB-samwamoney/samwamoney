@@ -1,8 +1,11 @@
 <script setup>
 import { ref, onMounted } from 'vue'
+import { useToastStore } from '@/stores/toastStore'
 import { usePaymentStore } from '@/stores/paymentAddStore'
 import { useRouter } from 'vue-router'
 import KBIMG from '@/assets/img/KB.png'
+
+const toastStore = useToastStore()
 
 const props = defineProps({
   id: Number,
@@ -19,7 +22,7 @@ const category = ref('')
 const amount = ref('')
 
 const goBack = () => {
-  router.back()
+  router.go(-1)
 }
 
 const goUpDate = () => {
@@ -43,6 +46,23 @@ onMounted(async () => {
 
 const onImgError = (event) => {
   event.target.src = KBIMG
+}
+
+const handleDelete = async () => {
+  const confirmed = window.confirm('정말로 삭제하시겠습니까? 삭제한 데이터는 복구할 수 없습니다.')
+  if (!confirmed) {
+    toastStore.showToast('삭제가 취소되었습니다.')
+    return
+  }
+
+  try {
+    await paymentStore.deletePayment(props.id)
+    toastStore.showToast('내역이 삭제되었습니다.')
+    router.push('/') // 삭제 후 홈으로 보내거나, list 페이지로 보내기
+  } catch (err) {
+    console.error(`내역 삭제 실패: ${err}`)
+    toastStore.showToast('삭제 중 오류가 발생했습니다.')
+  }
 }
 </script>
 
@@ -77,9 +97,14 @@ const onImgError = (event) => {
       </div>
     </div>
 
-    <div class="buttons">
-      <button class="go-back" @click="goBack">뒤로</button>
-      <button class="save-button" @click="goUpDate">수정</button>
+    <div class="all-buttons">
+      <div class="back">
+        <button class="go-back" @click="goBack">뒤로</button>
+      </div>
+      <div class="buttons">
+        <button class="save-button" @click="goUpDate">수정</button>
+        <button class="delete-button" @click.stop.prevent="handleDelete(id)">삭제</button>
+      </div>
     </div>
   </div>
 </template>
@@ -117,11 +142,9 @@ h1 {
 }
 
 .img-container {
-  max-height: 300px;
+  height: 300px;
   width: calc(100% - 2rem);
   margin: auto;
-  padding: 2rem 0;
-  min-height: 300px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -163,28 +186,18 @@ h1 {
   text-align: end;
 }
 
+.all-buttons {
+  display: flex;
+  align-items: center;
+}
+
 .buttons {
   display: flex;
   width: calc(100% - 2rem);
   gap: 20px;
   justify-content: right;
-  margin-right: var(--space-m);
+  margin-right: var(--space-l);
   margin-bottom: var(--space-m);
-}
-
-.btn {
-  display: flex;
-  gap: 20px;
-  justify-content: center;
-  align-items: center;
-  width: 100px;
-  height: 40px;
-  font-size: 16px;
-  border-radius: 6px;
-  cursor: pointer;
-  border: none;
-  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
-  background-color: var(--light-yellow);
 }
 
 .content-conatiner {
@@ -193,8 +206,8 @@ h1 {
 }
 
 .save-button {
-  background-color: var(--danger);
-  color: var(--light-white);
+  background-color: var(--green);
+  color: var(--black);
   font-size: var(--space-m);
   font-weight: 700;
   border: none;
@@ -215,6 +228,32 @@ h1 {
   gap: var(--space-m);
   margin-top: var(--space-l);
   justify-content: center;
+}
+
+.delete-button {
+  background-color: var(--danger);
+  color: var(--black);
+  font-size: var(--space-m);
+  font-weight: 700;
+  border: none;
+  border-radius: var(--radius);
+  padding: var(--space-m) var(--space-l);
+  cursor: pointer;
+  box-shadow: var(--space-s);
+  transition: all 0.2s ease;
+  font-family: 'Pretendard', sans-serif;
+}
+
+.delete-button:hover {
+  transform: translateY(-2px);
+}
+
+.back {
+  display: flex;
+  width: calc(100% - 2rem);
+  gap: 20px;
+  justify-content: start;
+  margin: 0 var(--space-m) var(--space-m) var(--space-l);
 }
 
 .go-back {

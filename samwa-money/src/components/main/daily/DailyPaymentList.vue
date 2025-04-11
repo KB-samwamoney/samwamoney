@@ -1,6 +1,6 @@
 <script setup>
-import { usePaymentStore } from '@/stores/paymentAddStore';
-import { useToastStore } from '@/stores/toastStore';
+import { usePaymentStore } from '@/stores/paymentAddStore'
+import { useToastStore } from '@/stores/toastStore'
 
 const paymentStore = usePaymentStore()
 const toastStore = useToastStore()
@@ -12,17 +12,16 @@ defineProps({
 })
 
 const handleDelete = async (id) => {
-  const confirmed = window.confirm('정말로 삭제하시겠습니까? 삭제한 데이터는 복구할 수 없습니다.');
+  const confirmed = window.confirm('정말로 삭제하시겠습니까? 삭제한 데이터는 복구할 수 없습니다.')
   if (!confirmed) {
-    toastStore.showToast('삭제가 취소되었습니다.');
-    return;
+    toastStore.showToast('삭제가 취소되었습니다.')
+    return
   }
   try {
     await paymentStore.deletePayment(id)
     toastStore.showToast('게시글이 삭제되었습니다')
   } catch (err) {
-    console.log(`게시글 삭제에 실패 했습니다. ${err}`);
-
+    console.log(`게시글 삭제에 실패 했습니다. ${err}`)
   }
 }
 </script>
@@ -48,19 +47,20 @@ const handleDelete = async (id) => {
           </div>
 
           <div class="item-right">
+            <div class="trash-button" @click.stop.prevent="handleDelete(item.id)">
+              <i class="fa-solid fa-trash custom-trash"></i>
+            </div>
             <div class="item-type" :class="item.type">
               {{ item.type === 'income' ? '수입' : '지출' }}
             </div>
             <div :class="['amount', item.type]">
               {{ item.type === 'income' ? '+' : '-' }}{{ item.amount.toLocaleString() }}원
             </div>
-            <div class="trash-button" @click.stop.prevent="handleDelete(item.id)"><i class="fa-solid fa-trash"></i>
-            </div>
           </div>
         </div>
       </div>
     </div>
-    <div v-else class=" no-content">해당 날짜의 내역이 없습니다.</div>
+    <div v-else class="no-content">해당 날짜의 내역이 없습니다.</div>
   </div>
 </template>
 
@@ -78,7 +78,7 @@ const handleDelete = async (id) => {
 .item-title {
   font-weight: bold;
   font-size: 20px;
-  margin-bottom: 0.5rem;
+  margin-bottom: var(--space-m);
 }
 
 .item-row {
@@ -101,7 +101,6 @@ const handleDelete = async (id) => {
 .item-type {
   font-size: 0.8rem;
   color: var(--dark-gray);
-  margin-bottom: 0.2rem;
 }
 
 .item-meta {
@@ -137,21 +136,20 @@ const handleDelete = async (id) => {
 
 .item-type.expense {
   color: var(--danger);
-  font-size: 0.8rem;
-  margin-bottom: 0.2rem;
+  font-size: 15px;
   font-weight: bold;
 }
 
 /* amount */
 .amount.income {
   color: var(--blue);
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
 }
 
 .amount.expense {
   color: var(--danger);
-  font-size: 20px;
+  font-size: 15px;
   font-weight: bold;
 }
 
@@ -168,9 +166,9 @@ const handleDelete = async (id) => {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 30px;
   height: 30px;
   font-size: 18px;
+  margin-bottom: var(--space-m);
 }
 
 .fa-trash {
@@ -180,5 +178,9 @@ const handleDelete = async (id) => {
 
 .fa-trash:hover {
   transform: scale(1.2);
+}
+
+.custom-trash {
+  color: var(--black);
 }
 </style>
