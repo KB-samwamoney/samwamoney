@@ -127,10 +127,17 @@ h1 {
   align-items: center;
   background-color: var(--light-gray);
   border-radius: var(--radius);
+  overflow: hidden;
 }
 
-.img-container img {
+.img-container {
   border-radius: var(--radius);
+}
+
+.img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .date-container,
