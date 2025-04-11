@@ -9,7 +9,9 @@ import ToastNotification from './components/toast/ToastNotification.vue'
   <div class="wrapper">
     <Header />
     <main class="content">
-      <RouterView :key="$route.fullPath" />
+      <KeepAlive>
+        <RouterView />
+      </KeepAlive>
       <ToastNotification />
     </main>
     <Footer />
