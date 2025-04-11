@@ -1989,7 +1989,6 @@
       "imgUrl": "receipt343.jpg"
     },
     {
-      "id": 166,
       "userId": "user123",
       "title": "전기세 납부",
       "date": "2025-04-10",
@@ -1998,7 +1997,8 @@
       "amount": 3100,
       "memo": "내가 이렇게나 많이 썼던가",
       "icon": "🏠",
-      "imgUrl": "receipt344.jpg"
+      "imgUrl": "receipt344.jpg",
+      "id": 166
     },
     {
       "id": 167,
@@ -2354,7 +2354,7 @@
       "userId": "user123",
       "mode": {
         "id": 1,
-        "mode": "light"
+        "mode": "dark"
       }
     }
   ]
