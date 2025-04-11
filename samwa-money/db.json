@@ -549,7 +549,6 @@
       "imgUrl": "receipt222.jpg"
     },
     {
-      "id": 45,
       "userId": "user123",
       "title": "관리비",
       "date": "2025-02-15",
@@ -558,7 +557,8 @@
       "amount": 8500,
       "memo": "기분전환용!",
       "icon": "🏠",
-      "imgUrl": "receipt223.jpg"
+      "imgUrl": "receipt223.jpg",
+      "id": 45
     },
     {
       "id": 46,
@@ -1511,7 +1511,7 @@
     {
       "id": 125,
       "userId": "user123",
-      "title": "물건 정리",
+      "title": "엄마 물건 몰래 팔기",
       "date": "2025-03-15",
       "category": "중고거래",
       "type": "income",
